@@ -1,0 +1,3 @@
+"0","trial_row_checker %>%"
+"0","  filter(trialcount != 18) %>%"
+"0","  datatable"

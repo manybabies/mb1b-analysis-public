@@ -1,0 +1,8 @@
+"0","d_matched %>%"
+"0","  group_by(lab, lang_group, age_group) %>%"
+"0","  summarise(n=length(unique(subid))) %>% "
+"0","  unite(temp, lang_group, age_group) %>% "
+"0","  spread(temp, n) %>% "
+"0","  select(""lab"", ""bilingual_6-9 mo"", ""monolingual_6-9 mo"", ""bilingual_12-15 mo"", ""monolingual_12-15 mo"") %>% "
+"0"," #summarise(n=n()) %>%"
+"0"," DT::datatable()"

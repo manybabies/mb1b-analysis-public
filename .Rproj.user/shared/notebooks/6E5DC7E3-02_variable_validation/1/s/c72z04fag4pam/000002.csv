@@ -1,0 +1,8 @@
+"0","d %>%"
+"0","  group_by(lab, subid) %>%"
+"0","  select(full_term, full_term_by_days) %>%"
+"0","  distinct %>%"
+"0","  filter(full_term != full_term_by_days) %>%"
+"0","  group_by(lab) %>%"
+"0","  count %>%"
+"0","  datatable()"

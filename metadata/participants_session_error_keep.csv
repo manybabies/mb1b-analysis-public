@@ -1,0 +1,92 @@
+lab,subid,session_error_recoded,session_error_change_reason
+infantcogubc,infantcogubc_h10,1,fussiness handled at trial level
+infantcogubc,infantcogubc_a13,1,cog/hearing exclusion
+infantcogubc,infantcogubc_bk17,1,fussiness handled at trial level
+babylabparisdescartes1,babylabparisdescartes1_mbbllo04,1,trial level error
+babylabparisdescartes1,babylabparisdescartes1_mbbop07,1,trial level error
+babylabparisdescartes1,babylabparisdescartes1_mbbsd08,1,trial level error
+babylabparisdescartes1,babylabparisdescartes1_mbbxx10,1,trial level error
+babylabparisdescartes1,babylabparisdescartes1_mbblb15,1,trial level error
+irlconcordia,irlconcordia_mb12s05,1,language exclusion
+irlconcordia,irlconcordia_mb12s12,1,language exclusion
+irlconcordia,irlconcordia_mb12s17,1,language exclusion
+irlconcordia,irlconcordia_mb12s20,1,language exclusion
+irlconcordia,irlconcordia_mb12s37,1,language exclusion
+irlconcordia,irlconcordia_mb12s41,1,fussiness handled at trial level
+irlconcordia,irlconcordia_mb6s02,1,language exclusion
+irlconcordia,irlconcordia_mb6s19,1,language exclusion
+irlconcordia,irlconcordia_mb6s21,1,language exclusion
+irlconcordia,irlconcordia_mb6s28,1,language exclusion
+babylabbrookes,babylabbrookes_mb05,1,fussiness handled at trial level
+babylabbrookes,babylabbrookes_mb33,1,parent interference handled at trial level
+babylabbrookes,babylabbrookes_mb52,1,trial level error
+babylabbrookes,babylabbrookes_mb58,1,trial level error
+babylabbrookes,babylabbrookes_mb67,1,trial level error
+babylabbrookes,babylabbrookes_mb69,1,fussiness handled at trial level
+babylabbrookes,babylabbrookes_mb73,1,fussiness handled at trial level
+babylabbrookes,babylabbrookes_mb117,1,fussiness handled at trial level
+ldlottawa,ldlottawa_mbbids61nvmuseum,1,trial level error
+ldlottawa,ldlottawa_mbbids63dcmuseum,1,language exclusion
+ldlottawa,ldlottawa_mbbids05dlcampus,1,language exclusion
+ldlottawa,ldlottawa_mbbids21kacampus,1,language exclusion
+ldlottawa,ldlottawa_mbbids35wymuseum,1,trial level error
+lllliv,lllliv_mb024,1,language exclusion
+lllliv,lllliv_mb025,1,language exclusion
+weltentdeckerzurich,weltentdeckerzurich_mb12539,1,fussiness handled at trial level
+weltentdeckerzurich,weltentdeckerzurich_mb12588,1,parent interference and fussiness handled at trial level
+weltentdeckerzurich,weltentdeckerzurich_mb12911,1,trial level error
+weltentdeckerzurich,weltentdeckerzurich_mb12989,1,trial level error
+weltentdeckerzurich,weltentdeckerzurich_mb13242,1,parent interference handled at trial level
+weltentdeckerzurich,weltentdeckerzurich_mb13326,1,parent interference handled at trial level
+weltentdeckerzurich,weltentdeckerzurich_mb13721,1,fussiness handled at trial level
+weltentdeckerzurich,weltentdeckerzurich_mb13730,1,fussiness handled at trial level
+weltentdeckerzurich,weltentdeckerzurich_mb13782,1,fussiness handled at trial level
+weltentdeckerzurich,weltentdeckerzurich_mb13925,1,fussiness handled at trial level
+weltentdeckerzurich,weltentdeckerzurich_mb14191,1,fussiness handled at trial level
+weltentdeckerzurich,weltentdeckerzurich_mb14204,1,fussiness handled at trial level
+wsigoettingen,wsigoettingen_b105,1,language exclusion
+wsigoettingen,wsigoettingen_b108,1,language exclusion
+wsigoettingen,wsigoettingen_b111,1,language exclusion
+wsigoettingen,wsigoettingen_b113,1,language exclusion
+wsigoettingen,wsigoettingen_b114,1,language exclusion
+wsigoettingen,wsigoettingen_b116,1,language exclusion
+wsigoettingen,wsigoettingen_b117,1,language exclusion
+wsigoettingen,wsigoettingen_b205,1,language exclusion
+wsigoettingen,wsigoettingen_b208,1,language exclusion
+langlabucla,langlabucla_mb301,1,language exclusion
+langlabucla,langlabucla_mb1205,1,language exclusion
+langlabucla,langlabucla_mb909,1,language exclusion
+langlabucla,langlabucla_mb1209,1,language exclusion
+langlabucla,langlabucla_mb1211,1,language exclusion
+langlabucla,langlabucla_mb923,1,age exclusion
+langlabucla,langlabucla_mb924,1,language exclusion
+langlabucla,langlabucla_mb927,1,preterm exclusion
+babylabprinceton,babylabprinceton_manybabiesbl005,1,language exclusion
+babylabprinceton,babylabprinceton_manybabiesbl008,1,language exclusion
+babylabprinceton,babylabprinceton_manybabiesbl016,1,language exclusion
+bllumanitoba,bllumanitoba_1936,1,language exclusion
+bllumanitoba,bllumanitoba_2610,1,language exclusion
+bllumanitoba,bllumanitoba_3524,1,language exclusion
+bllumanitoba,bllumanitoba_3852,1,language exclusion
+bllumanitoba,bllumanitoba_2928,1,language exclusion
+bllumanitoba,bllumanitoba_2120,1,language exclusion
+bllumanitoba,bllumanitoba_2668,1,language exclusion
+bllumanitoba,bllumanitoba_3667,1,language exclusion
+bllumanitoba,bllumanitoba_1811,1,language exclusion
+bllumanitoba,bllumanitoba_1642,1,language exclusion
+bllumanitoba,bllumanitoba_1647,1,language exclusion
+bllumanitoba,bllumanitoba_3479,1,language exclusion
+bllumanitoba,bllumanitoba_1614,1,language exclusion
+bllumanitoba,bllumanitoba_4982,1,language exclusion
+bllumanitoba,bllumanitoba_1757,1,language exclusion
+bllumanitoba,bllumanitoba_4330,1,language exclusion
+bllumanitoba,bllumanitoba_3053,1,language exclusion
+bllumanitoba,bllumanitoba_1221,1,language exclusion
+bllumanitoba,bllumanitoba_4692,1,language exclusion
+nusinfantlanguagecentre,nusinfantlanguagecentre_mb025,1,language exclusion
+nusinfantlanguagecentre,nusinfantlanguagecentre_mb024,1,language exclusion
+isplabmcgill,isplabmcgill_b02,1,language exclusion
+isplabmcgill,isplabmcgill_b06,1,language exclusion
+isplabmcgill,isplabmcgill_b13,1,language exclusion
+isplabmcgill,isplabmcgill_b16,1,language exclusion
+isplabmcgill,isplabmcgill_b21,1,language exclusion

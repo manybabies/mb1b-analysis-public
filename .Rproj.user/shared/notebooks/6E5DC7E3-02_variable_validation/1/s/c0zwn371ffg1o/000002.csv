@@ -1,0 +1,7 @@
+"0","d %>%"
+"0","  group_by(lab) %>%"
+"0","  summarise(more_than_18 = mean(looking_time > 18, na.rm=TRUE),"
+"0","            more_than_19 = mean(looking_time > 19, na.rm = TRUE),"
+"0","            more_than_21 = mean(looking_time > 21, na.rm=TRUE)) %>%"
+"0","  filter(more_than_18 != 0) %>%"
+"0","  datatable"

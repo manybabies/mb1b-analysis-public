@@ -1,0 +1,80 @@
+column,status,substitution,type,file
+lab,include,,,many
+subid,include,,,many
+method,include,,,many
+ra,include,,,many
+age_days,include,,numeric,many
+trial_order,include,,numeric,many
+session_error,include,,,many
+session_error_type,include,,,many
+notes,include,,,many
+second_session,include,,,many
+lang_group,include,,,many
+lang1,include,,,many
+lang1_exposure,include,,,many
+lang2,include,,,many
+lang2_exposure,include,,,many
+lang3,include,,,many
+lang3_exposure,include,,,many
+lang4,include,,,many
+lang4_exposure,include,,,many
+caregiver_seat,include,,,many
+macarthur_ladder,include,,numeric,many
+participant_gender,sub,gender,,many
+race_ethinicty,sub,race_ethnicity,,many
+parenta_gender,include,,,many
+parenta_education,include,,,many
+parentb_gender,include,,,many
+parentb_education,include,,,many
+preterm,include,,,many
+days_preterm,include,,numeric,many
+prev_earinfection,include,,,many
+curr_earinfection,include,,,many
+hearing_vision,include,,,many
+hearing_vision_info,include,,,many
+cognitive_developmental,include,,,many
+cognitive_developmental_info,include,,,many
+sib1_age,include,,,many
+sib1_gender,include,,,many
+sib2_age,include,,,many
+sib2_gender,include,,,many
+sib3_age,include,,,many
+sib3_gender,include,,,many
+sib4_age,include,,,many
+sib4_gender,include,,,many
+bilingual_nae,include,,,many
+bilingual_parenta_nae,include,,,many
+bilingual_parentb_nae,include,,,many
+bilingual_interview_lang,include,,,many
+beard,include,,,many
+ratype,include,,,many
+childcare,include,,,many
+visits,include,,,many
+household_size,include,,,many
+last_feed_min,include,,,many
+last_sleep_min,include,,,many
+tod,include,,,many
+season,include,,,many
+termtime,include,,,many
+popnum,include,,,many
+popkm2,include,,,many
+ra/only_offline_coding,exclude,,,BabyLabParisDescates_participants_bilinguals_6-9.xlsx
+macarthur,sub,macarthur_ladder,,langlab-ucla -  ManyBabies 1 Individual Lab Participants Data.xlsx
+gender,include,,,langlab-ucla -  ManyBabies 1 Individual Lab Participants Data.xlsx
+lang_parenta,exclude,,,langlab-ucla -  ManyBabies 1 Individual Lab Participants Data.xlsx
+lang_parentb,exclude,,,langlab-ucla -  ManyBabies 1 Individual Lab Participants Data.xlsx
+lang_interview,exclude,,,langlab-ucla -  ManyBabies 1 Individual Lab Participants Data.xlsx
+zipcode,exclude,,,langlab-ucla -  ManyBabies 1 Individual Lab Participants Data.xlsx
+median_income_zipcode,exclude,,,langlab-ucla -  ManyBabies 1 Individual Lab Participants Data.xlsx
+partcipant_gender,sub,gender,,LLL_Liv_Bilingual_participants.xlsx
+race_ethnicity,include,,,LLL_Liv_Bilingual_participants.xlsx
+current_ear_infection,sub,curr_earinfection,,LLL_Liv_Bilingual_participants.xlsx
+cognitive_development,sub,cognitive_developmental,,LLL_Liv_Bilingual_participants.xlsx
+cogntitive_developmental_info,sub,cognitive_developmental_info,,LLL_Liv_Bilingual_participants.xlsx
+name,exclude,,,lscp-psl_Bilungual_Participants.csv
+time,exclude,,,lscp-psl_Bilungual_Participants.csv
+date,exclude,,,lscp-psl_Bilungual_Participants.csv
+childcare_french,exclude,,,lscp-psl_Bilungual_Participants.csv
+x1,exclude,,,participants_weltentdecker_zurich.csv
+x56,exclude,,,participants_weltentdecker_zurich.csv
+x60,exclude,,,wsi-goettingen_participants_data_bilinguals.csv

@@ -1,0 +1,132 @@
+---
+title: "MB1B exploratory analysis"
+author: "Byers-Heinlein et al."
+date: "2020/02/18"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    number_sections: yes
+---
+
+# Intro
+
+This RMarkdown file reports additional descriptives and diagnostics of the primary ManyBabies 1B (IDS Preference) dataset. It relies on data cached in `03_exclusions.Rmd`.
+
+```{r setup, echo=FALSE, message=FALSE}
+source("helper/common.R")
+source("helper/ma_helper.R")
+library(dplyr)
+library(summarytools)
+
+export_figs <- FALSE
+```
+
+Read in set of variables used and saved in `04_confirmatory_analyses.Rmd`
+
+```{r}
+load("04_confirmatory_analysis.RData")
+
+```
+
+# Dataset Descriptives
+
+## Distributions of log transformed looking times
+
+### Overall distribution
+
+```{r}
+ggplot(filter(d_lmer, 
+              trial_num > 0), 
+       aes(x = log_lt)) + 
+  geom_histogram()
+```
+
+
+
+### By age-group
+
+
+```{r}
+
+ggplot(filter(d_lmer, 
+              trial_num > 0), 
+       aes(x = log_lt)) + 
+  geom_histogram() +
+  facet_wrap(~age_group) 
+
+```
+
+
+## Distributions of predictors
+
+
+### Method
+
+```{r}
+freq(d_lmer$method, report.nas = FALSE, style = "rmarkdown")
+
+```
+
+
+
+### Age by Method
+
+For an overall plot of age, see the descriptives in the main paper or in `04_confirmatory_analysis.Rmd`
+
+```{r}
+ggplot(filter(d_lmer, 
+              trial_num > 0), 
+       aes(x = age_mo)) + 
+  geom_histogram(binwidth = 1)+
+  facet_wrap(~method) 
+```
+
+
+
+# Mixed Model diagnostics
+
+## Selected Model
+
+This is the main model from the paper
+
+
+### Residuals versus fitted 
+```{r}
+
+plot(mod_lmer)
+
+```
+
+
+### Q-Q Plot
+
+```{r}
+
+qqnorm(resid(mod_lmer))
+qqline(resid(mod_lmer))
+
+```
+
+
+
+## Missing data model
+
+
+
+### Residuals versus fitted 
+```{r}
+
+plot(missing_mod)
+
+```
+
+
+### Q-Q Plot
+
+```{r}
+
+qqnorm(resid(missing_mod))
+qqline(resid(missing_mod))
+
+```

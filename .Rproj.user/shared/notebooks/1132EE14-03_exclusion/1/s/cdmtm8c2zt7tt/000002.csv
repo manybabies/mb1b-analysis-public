@@ -1,0 +1,6 @@
+"0","d$short_lt <- d$looking_time < 2"
+"0",""
+"0","short_lt <- exclude_by(d, quo(short_lt), action = ""NA out"", "
+"0","                   return_pcts = TRUE, "
+"0","                   quiet = TRUE)"
+"0","d <- short_lt$data"

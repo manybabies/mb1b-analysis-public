@@ -1,0 +1,3 @@
+"0","ggplot(d, aes(x = looking_time)) + "
+"0","  geom_histogram() + "
+"0","  scale_x_log10()"

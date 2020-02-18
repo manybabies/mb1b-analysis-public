@@ -1,0 +1,77 @@
+column,file
+lab,many
+subid,many
+method,many
+ra,many
+age_days,many
+trial_order,many
+session_error,many
+session_error_type,many
+notes,many
+second_session,many
+lang_group,many
+lang1,many
+lang1_exposure,many
+lang2,many
+lang2_exposure,many
+lang3,many
+lang3_exposure,many
+lang4,many
+lang4_exposure,many
+caregiver_seat,many
+macarthur_ladder,many
+participant_gender,many
+race_ethinicty,many
+parenta_gender,many
+parenta_education,many
+parentb_gender,many
+parentb_education,many
+preterm,many
+days_preterm,many
+prev_earinfection,many
+curr_earinfection,many
+hearing_vision,many
+hearing_vision_info,many
+cognitive_developmental,many
+cognitive_developmental_info,many
+sib1_age,many
+sib1_gender,many
+sib2_age,many
+sib2_gender,many
+sib3_age,many
+sib3_gender,many
+sib4_age,many
+sib4_gender,many
+bilingual_nae,many
+bilingual_parenta_nae,many
+bilingual_parentb_nae,many
+bilingual_interview_lang,many
+beard,many
+ratype,many
+childcare,many
+visits,many
+household_size,many
+last_feed_min,many
+last_sleep_min,many
+tod,many
+season,many
+termtime,many
+popnum,many
+popkm2,many
+ra/only_offline_coding,BabyLabParisDescates_participants_bilinguals_6-9.xlsx
+macarthur,langlab-ucla -  ManyBabies 1 Individual Lab Participants Data.xlsx
+gender,langlab-ucla -  ManyBabies 1 Individual Lab Participants Data.xlsx
+lang_parenta,langlab-ucla -  ManyBabies 1 Individual Lab Participants Data.xlsx
+lang_parentb,langlab-ucla -  ManyBabies 1 Individual Lab Participants Data.xlsx
+lang_interview,langlab-ucla -  ManyBabies 1 Individual Lab Participants Data.xlsx
+zipcode,langlab-ucla -  ManyBabies 1 Individual Lab Participants Data.xlsx
+median_income_zipcode,langlab-ucla -  ManyBabies 1 Individual Lab Participants Data.xlsx
+partcipant_gender,LLL_Liv_Bilingual_participants.xlsx
+race_ethnicity,LLL_Liv_Bilingual_participants.xlsx
+current_ear_infection,LLL_Liv_Bilingual_participants.xlsx
+cognitive_development,LLL_Liv_Bilingual_participants.xlsx
+cogntitive_developmental_info,LLL_Liv_Bilingual_participants.xlsx
+childcare_french,lscp-psl_Bilungual_Participants.csv
+x1,participants_weltentdecker_zurich.csv
+x56,participants_weltentdecker_zurich.csv
+x60,wsi-goettingen_participants_data_bilinguals.csv

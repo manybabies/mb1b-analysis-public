@@ -1,0 +1,5 @@
+"0",""
+"0","session_error_detail <- d %>% filter(session_error == TRUE) %>% "
+"0","  select(subid, session_error, session_error_type, session_error_type_recoded, notes) %>% "
+"0","  unique()"
+"0","#39 infants were excluded here (note that some infants would be excluded because they were out of age range, not bilingual). Also, a number of infants were excluded because of experimental errors, such as failure to calibrate and parental interference."

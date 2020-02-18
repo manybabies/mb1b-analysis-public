@@ -1,0 +1,6 @@
+"0","# d_matched %>%"
+"0","#   group_by(lab, age_group, lang_group, subid) %>%"
+"0","#   summarize(max_trial = max(trial_num[!missing])) %>%"
+"0","#   summarise(prop_finishing = signif(mean(max_trial == 16, na.rm=TRUE), digits=2)) %>%"
+"0","#   arrange(age_group, prop_finishing) %>%"
+"0","#   DT::datatable()"

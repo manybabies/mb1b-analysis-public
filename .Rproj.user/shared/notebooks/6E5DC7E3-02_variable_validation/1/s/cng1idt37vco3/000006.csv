@@ -1,0 +1,7 @@
+"0",""
+"0","participants_by_lab_and_age_group %>% filter(!age_group %in% c(""6-9 mo"", ""12-15 mo"")) %>% "
+"0","  pull(participants) %>% sum() # 164 participants were out-of-age!"
+"1","[1]"
+"1"," 164"
+"1","
+"

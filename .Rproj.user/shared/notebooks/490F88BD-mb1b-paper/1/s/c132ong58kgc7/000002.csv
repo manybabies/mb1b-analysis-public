@@ -1,0 +1,290 @@
+"0","analysis_columns <- c(""trial_num"", ""lab"", ""subid"", ""trial_type"", ""stimulus_num"", ""looking_time"", ""missing"", ""method"", ""age_group"", ""age_mo"", ""age_days"", ""lang_group"", ""nae"", ""nae_exp"", ""SES"")"
+"0",""
+"0","analysis_columns_diff <- c(""trial_num"", ""lab"", ""subid"", ""stimulus_num"", ""method"", ""age_days"", ""age_mo"", ""age_group"", ""lang_group"", ""nae"", ""ADS"", ""IDS"", ""diff"", ""nae_exp"", ""SES"")"
+"0",""
+"0","d_matched <- read_csv(here(""processed_data/04_matched_dataset_trial.csv"")) %>%"
+"0","  select(analysis_columns) %>% "
+"0","  mutate(lang_group = fct_relevel(lang_group, ""monolingual"", ""bilingual"")) %>% "
+"0","  mutate(age_group = fct_rev(as.factor(age_group)))"
+"2","Parsed with column specification:
+cols(
+  .default = col_logical(),
+  trial_num = [32mcol_double()[39m,
+  lab = [31mcol_character()[39m,
+  subid = [31mcol_character()[39m,
+  trial_type = [31mcol_character()[39m,
+  stimulus_num = [32mcol_double()[39m,
+  looking_time = [32mcol_double()[39m,
+  trial_error_type = [31mcol_character()[39m,
+  method = [31mcol_character()[39m,
+  ra = [31mcol_character()[39m,
+  age_days = [32mcol_double()[39m,
+  trial_order = [32mcol_double()[39m,
+  session_error_type = [31mcol_character()[39m,
+  notes = [31mcol_character()[39m,
+  lang_group = [31mcol_character()[39m,
+  lang1 = [31mcol_character()[39m,
+  lang1_exposure = [32mcol_double()[39m,
+  lang2_exposure = [32mcol_double()[39m,
+  lang3_exposure = [32mcol_double()[39m,
+  caregiver_seat = [31mcol_character()[39m,
+  parenta_education = [32mcol_double()[39m
+  # ... with 23 more columns
+)
+"
+"2","See spec(...) for full column specifications.
+"
+"2","11984 parsing failures.
+ row   col           expected  actual                                                                                   file
+5438 lang2 1/0/T/F/TRUE/FALSE tagalog '/Users/krista/Repos/mb1b-analysis-public/processed_data/04_matched_dataset_trial.csv'
+5438 lang3 1/0/T/F/TRUE/FALSE na      '/Users/krista/Repos/mb1b-analysis-public/processed_data/04_matched_dataset_trial.csv'
+5438 lang4 1/0/T/F/TRUE/FALSE na      '/Users/krista/Repos/mb1b-analysis-public/processed_data/04_matched_dataset_trial.csv'
+5439 lang2 1/0/T/F/TRUE/FALSE tagalog '/Users/krista/Repos/mb1b-analysis-public/processed_data/04_matched_dataset_trial.csv'
+5439 lang3 1/0/T/F/TRUE/FALSE na      '/Users/krista/Repos/mb1b-analysis-public/processed_data/04_matched_dataset_trial.csv'
+.... ..... .................. ....... ......................................................................................
+See problems(...) for more details.
+"
+"2","Note: Using an external vector in selections is ambiguous.
+[34mℹ[39m Use `all_of(analysis_columns)` instead of `analysis_columns` to silence this message.
+[34mℹ[39m See <https://tidyselect.r-lib.org/reference/faq-external-vector.html>.
+[90mThis message is displayed once per session.[39m
+"
+"0","d_full <- read_csv(here(""processed_data/04_full_dataset_trial.csv"")) %>%"
+"0","  select(analysis_columns) %>% "
+"0","  mutate(lang_group = fct_relevel(lang_group, ""monolingual"", ""bilingual"")) %>% "
+"0","  mutate(age_group = fct_rev(as.factor(age_group)))"
+"2","Parsed with column specification:
+cols(
+  .default = col_logical(),
+  trial_num = [32mcol_double()[39m,
+  lab = [31mcol_character()[39m,
+  subid = [31mcol_character()[39m,
+  trial_type = [31mcol_character()[39m,
+  stimulus_num = [32mcol_double()[39m,
+  looking_time = [32mcol_double()[39m,
+  trial_error_type = [31mcol_character()[39m,
+  method = [31mcol_character()[39m,
+  ra = [31mcol_character()[39m,
+  age_days = [32mcol_double()[39m,
+  trial_order = [32mcol_double()[39m,
+  session_error_type = [31mcol_character()[39m,
+  notes = [31mcol_character()[39m,
+  lang_group = [31mcol_character()[39m,
+  lang1 = [31mcol_character()[39m,
+  lang1_exposure = [32mcol_double()[39m,
+  lang2_exposure = [32mcol_double()[39m,
+  lang3_exposure = [32mcol_double()[39m,
+  caregiver_seat = [31mcol_character()[39m,
+  parenta_education = [32mcol_double()[39m
+  # ... with 25 more columns
+)
+"
+"2","See spec(...) for full column specifications.
+"
+"2","11852 parsing failures.
+  row   col           expected  actual                                                                                file
+20188 lang2 1/0/T/F/TRUE/FALSE tagalog '/Users/krista/Repos/mb1b-analysis-public/processed_data/04_full_dataset_trial.csv'
+20188 lang3 1/0/T/F/TRUE/FALSE na      '/Users/krista/Repos/mb1b-analysis-public/processed_data/04_full_dataset_trial.csv'
+20188 lang4 1/0/T/F/TRUE/FALSE na      '/Users/krista/Repos/mb1b-analysis-public/processed_data/04_full_dataset_trial.csv'
+20189 lang2 1/0/T/F/TRUE/FALSE tagalog '/Users/krista/Repos/mb1b-analysis-public/processed_data/04_full_dataset_trial.csv'
+20189 lang3 1/0/T/F/TRUE/FALSE na      '/Users/krista/Repos/mb1b-analysis-public/processed_data/04_full_dataset_trial.csv'
+..... ..... .................. ....... ...................................................................................
+See problems(...) for more details.
+"
+"0","d_diffs_matched <- read_csv(here(""processed_data/04_matched_dataset_diff.csv"")) %>%"
+"0","  select(analysis_columns_diff) %>%"
+"0","  mutate(lang_group = fct_relevel(lang_group, ""monolingual"", ""bilingual""))"
+"2","Parsed with column specification:
+cols(
+  .default = col_logical(),
+  trial_num = [32mcol_double()[39m,
+  lab = [31mcol_character()[39m,
+  subid = [31mcol_character()[39m,
+  stimulus_num = [32mcol_double()[39m,
+  trial_error_type = [31mcol_character()[39m,
+  method = [31mcol_character()[39m,
+  ra = [31mcol_character()[39m,
+  age_days = [32mcol_double()[39m,
+  trial_order = [32mcol_double()[39m,
+  session_error_type = [31mcol_character()[39m,
+  notes = [31mcol_character()[39m,
+  lang_group = [31mcol_character()[39m,
+  lang1 = [31mcol_character()[39m,
+  lang1_exposure = [32mcol_double()[39m,
+  lang2_exposure = [32mcol_double()[39m,
+  lang3_exposure = [32mcol_double()[39m,
+  caregiver_seat = [31mcol_character()[39m,
+  parenta_education = [32mcol_double()[39m,
+  parentb_gender = [31mcol_character()[39m,
+  parentb_education = [32mcol_double()[39m
+  # ... with 26 more columns
+)
+"
+"2","See spec(...) for full column specifications.
+"
+"2","4293 parsing failures.
+ row   col           expected  actual                                                                                  file
+1763 lang2 1/0/T/F/TRUE/FALSE tagalog '/Users/krista/Repos/mb1b-analysis-public/processed_data/04_matched_dataset_diff.csv'
+1763 lang3 1/0/T/F/TRUE/FALSE na      '/Users/krista/Repos/mb1b-analysis-public/processed_data/04_matched_dataset_diff.csv'
+1763 lang4 1/0/T/F/TRUE/FALSE na      '/Users/krista/Repos/mb1b-analysis-public/processed_data/04_matched_dataset_diff.csv'
+1764 lang2 1/0/T/F/TRUE/FALSE tagalog '/Users/krista/Repos/mb1b-analysis-public/processed_data/04_matched_dataset_diff.csv'
+1764 lang3 1/0/T/F/TRUE/FALSE na      '/Users/krista/Repos/mb1b-analysis-public/processed_data/04_matched_dataset_diff.csv'
+.... ..... .................. ....... .....................................................................................
+See problems(...) for more details.
+"
+"2","Note: Using an external vector in selections is ambiguous.
+[34mℹ[39m Use `all_of(analysis_columns_diff)` instead of `analysis_columns_diff` to silence this message.
+[34mℹ[39m See <https://tidyselect.r-lib.org/reference/faq-external-vector.html>.
+[90mThis message is displayed once per session.[39m
+"
+"0","d_diffs_full <- read_csv(here(""processed_data/04_full_dataset_diff.csv"")) %>%"
+"0","  select(analysis_columns_diff) %>%"
+"0","  mutate(lang_group = fct_relevel(lang_group, ""monolingual"", ""bilingual""))"
+"2","Parsed with column specification:
+cols(
+  .default = col_logical(),
+  trial_num = [32mcol_double()[39m,
+  lab = [31mcol_character()[39m,
+  subid = [31mcol_character()[39m,
+  stimulus_num = [32mcol_double()[39m,
+  trial_error_type = [31mcol_character()[39m,
+  method = [31mcol_character()[39m,
+  ra = [31mcol_character()[39m,
+  age_days = [32mcol_double()[39m,
+  trial_order = [32mcol_double()[39m,
+  session_error_type = [31mcol_character()[39m,
+  notes = [31mcol_character()[39m,
+  lang_group = [31mcol_character()[39m,
+  lang1 = [31mcol_character()[39m,
+  lang1_exposure = [32mcol_double()[39m,
+  lang2_exposure = [32mcol_double()[39m,
+  lang3_exposure = [32mcol_double()[39m,
+  caregiver_seat = [31mcol_character()[39m,
+  parenta_education = [32mcol_double()[39m,
+  parentb_gender = [31mcol_character()[39m,
+  parentb_education = [32mcol_double()[39m
+  # ... with 27 more columns
+)
+"
+"2","See spec(...) for full column specifications.
+"
+"2","6041 parsing failures.
+  row   col           expected  actual                                                                               file
+11770 lang2 1/0/T/F/TRUE/FALSE tagalog '/Users/krista/Repos/mb1b-analysis-public/processed_data/04_full_dataset_diff.csv'
+11770 lang3 1/0/T/F/TRUE/FALSE na      '/Users/krista/Repos/mb1b-analysis-public/processed_data/04_full_dataset_diff.csv'
+11770 lang4 1/0/T/F/TRUE/FALSE na      '/Users/krista/Repos/mb1b-analysis-public/processed_data/04_full_dataset_diff.csv'
+11771 lang2 1/0/T/F/TRUE/FALSE tagalog '/Users/krista/Repos/mb1b-analysis-public/processed_data/04_full_dataset_diff.csv'
+11771 lang3 1/0/T/F/TRUE/FALSE na      '/Users/krista/Repos/mb1b-analysis-public/processed_data/04_full_dataset_diff.csv'
+..... ..... .................. ....... ..................................................................................
+See problems(...) for more details.
+"
+"0","d_participants_bil <- read_csv(here(""processed_data/04_bilingual_dataset_trial.csv"")) %>% "
+"0","  mutate(age_group = fct_rev(as.factor(age_group)))"
+"2","Parsed with column specification:
+cols(
+  .default = col_logical(),
+  subid = [31mcol_character()[39m,
+  lab = [31mcol_character()[39m,
+  trial_num = [32mcol_double()[39m,
+  trial_type = [31mcol_character()[39m,
+  stimulus_num = [32mcol_double()[39m,
+  looking_time = [32mcol_double()[39m,
+  method = [31mcol_character()[39m,
+  age_days = [32mcol_double()[39m,
+  lang_group = [31mcol_character()[39m,
+  lang1 = [31mcol_character()[39m,
+  lang1_exposure = [32mcol_double()[39m,
+  lang2 = [31mcol_character()[39m,
+  lang2_exposure = [32mcol_double()[39m,
+  lang3 = [31mcol_character()[39m,
+  lang3_exposure = [32mcol_double()[39m,
+  lang4 = [31mcol_character()[39m,
+  lang4_exposure = [32mcol_double()[39m,
+  gender = [31mcol_character()[39m,
+  nae_exp = [32mcol_double()[39m,
+  SES = [32mcol_double()[39m
+  # ... with 2 more columns
+)
+"
+"2","See spec(...) for full column specifications.
+"
+"0","d_participants_matched_mono <- d_matched %>%"
+"0","  filter(lang_group == ""monolingual"")"
+"0"," "
+"0",""
+"0","# Biling sample"
+"0",""
+"0","labs_bil <- d_participants_bil %>%"
+"0","  group_by(lab, age_group) %>%"
+"0","  summarise(n = length(unique(subid)))"
+"0",""
+"0","n_bil <- labs_bil %>%"
+"0","  pull(n) %>%"
+"0","  sum"
+"0",""
+"0","n_6_9_bil <- labs_bil %>%"
+"0","  filter(age_group == ""6-9 mo"") %>%"
+"0","  pull(n) %>%"
+"0","  sum"
+"0","  "
+"0","n_12_15_bil <- labs_bil %>%"
+"0","  filter(age_group == ""12-15 mo"") %>%"
+"0","  pull(n) %>%"
+"0","  sum"
+"0",""
+"0","n_labs_bil <- length(unique(labs_bil$lab))"
+"0",""
+"0","# Matched monolingual sample"
+"0",""
+"0","labs_matched_mono <- d_participants_matched_mono %>%"
+"0","  group_by(lab, age_group, lang_group) %>%"
+"0","  summarise(n = length(unique(subid)))"
+"0",""
+"0","n_matched_mono <- labs_matched_mono  %>%"
+"0","  pull(n) %>%"
+"0","  sum"
+"0",""
+"0","n_6_9_matched_mono <- labs_matched_mono %>%"
+"0","  filter(age_group == ""6-9 mo"") %>%"
+"0","  pull(n) %>%"
+"0","  sum"
+"0","  "
+"0","n_12_15_matched_mono <- labs_matched_mono %>%"
+"0","  filter(age_group == ""12-15 mo"") %>%"
+"0","  pull(n) %>%"
+"0","  sum"
+"0",""
+"0","n_labs_matched_mono <- length(unique(labs_matched_mono$lab))"
+"0",""
+"0","percent_pairs_missing_matched <- round(((sum(is.na(d_diffs_matched$diff))/length(d_diffs_matched$diff))*100), 2)"
+"0",""
+"0","percent_trials_missing_matched <- round(((sum(is.na(d_diffs_matched$IDS), is.na(d_diffs_matched$ADS))/(2*length(d_diffs_matched$diff)))*100), 2)"
+"0",""
+"0","# Unmatched monolingual sample"
+"0",""
+"0","labs_unmatched_mono <- d_full %>%"
+"0","  filter(lang_group == ""monolingual"") %>%"
+"0","  select(subid, lab, age_group, lang_group) %>%"
+"0","  anti_join(d_participants_matched_mono, by = c(""subid"", ""lab"", ""age_group"", ""lang_group"")) %>%"
+"0","  group_by(lab, age_group, lang_group) %>%"
+"0","  summarise(n = length(unique(subid)))"
+"0",""
+"0","n_unmatched_mono <- labs_unmatched_mono  %>%"
+"0","  pull(n) %>%"
+"0","  sum"
+"0",""
+"0","n_6_9_unmatched_mono <- labs_unmatched_mono %>%"
+"0","  filter(age_group == ""6-9 mo"") %>%"
+"0","  pull(n) %>%"
+"0","  sum"
+"0","  "
+"0","n_12_15_unmatched_mono <- labs_unmatched_mono %>%"
+"0","  filter(age_group == ""12-15 mo"") %>%"
+"0","  pull(n) %>%"
+"0","  sum"
+"0",""
+"0","n_labs_unmatched_mono <- length(unique(labs_unmatched_mono$lab))"
+"0",""
+"0","percent_pairs_missing_full <- round(((sum(is.na(d_diffs_full$diff))/length(d_diffs_full$diff))*100), 2)"
+"0",""
+"0","percent_trials_missing_full <- round(((sum(is.na(d_diffs_full$IDS), is.na(d_diffs_full$ADS))/(2*length(d_diffs_full$diff)))*100), 2)"

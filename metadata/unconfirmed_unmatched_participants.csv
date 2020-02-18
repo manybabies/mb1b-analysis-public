@@ -1,0 +1,10 @@
+lab,subid,trialcount,rowcount,trial_error,present_td,lines_in_pd,age_days,notes,session_error_type,present_pd,Confirmed
+infantstudiesubc,infantstudiesubc_mbb13,NA,NA,NA,FALSE,1,NA,NA,Language Criteria,TRUE,FALSE
+infantstudiesubc,infantstudiesubc_mbb18,NA,NA,NA,FALSE,1,NA,NA,Language Criteria,TRUE,FALSE
+infantstudiesubc,infantstudiesubc_mbb19,NA,NA,NA,FALSE,1,NA,NA,Language Criteria,TRUE,FALSE
+infantstudiesubc,infantstudiesubc_mbb2,NA,NA,NA,FALSE,1,NA,NA,Language Criteria,TRUE,FALSE
+infantstudiesubc,infantstudiesubc_mbb20,NA,NA,NA,FALSE,1,NA,NA,Language Criteria,TRUE,FALSE
+infantstudiesubc,infantstudiesubc_mbb21,NA,NA,NA,FALSE,1,NA,NA,Language Criteria,TRUE,FALSE
+infantstudiesubc,infantstudiesubc_mbb22,NA,NA,NA,FALSE,1,NA,NA,Language Criteria,TRUE,FALSE
+infantstudiesubc,infantstudiesubc_mbb3,NA,NA,NA,FALSE,1,NA,NA,Language Criteria,TRUE,FALSE
+isplabmcgill,isplabmcgill_b11,NA,NA,NA,FALSE,1,398,Datafile was accidentally overwritten,Experimenter error,TRUE,FALSE

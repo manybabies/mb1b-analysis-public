@@ -1,0 +1,6 @@
+"0","d %>%"
+"0","  filter(trial_type != ""TRAIN"") %>%"
+"0","  group_by(lab, subid, stimulus_num) %>%"
+"0","  count %>%"
+"0","  filter(n > 2) %>%"
+"0","  datatable"

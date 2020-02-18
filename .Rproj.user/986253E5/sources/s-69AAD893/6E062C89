@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1582054948099.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "6E062C89",
+    "lastKnownWriteTime" : 1581701009,
+    "last_content_update" : 1582054957202,
+    "path" : "~/Repos/mb1b-analysis-public/06_exploratory_analysis.Rmd",
+    "project_path" : "06_exploratory_analysis.Rmd",
+    "properties" : {
+        "cursorPosition" : "4,8",
+        "last_setup_crc32" : "69AAD8931141022a",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

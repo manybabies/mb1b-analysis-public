@@ -1,0 +1,161 @@
+---
+appendix: "appendix.Rmd"
+---
+
+```{r load_packages_settings_1, include = FALSE}
+
+options(tinytex.verbose = TRUE)
+
+library("papaja")
+library(tidyverse)
+library(here)
+library(knitr)
+library(kableExtra)
+library(DT)
+```
+
+```{r load_data_1, include = FALSE}
+d_matched <- read_csv(here("processed_data/04_matched_dataset_trial.csv"), col_types = cols_only(trial_num = "d", lab = "c", subid = "c", gender = "c", age_group = "c", age_mo = "d", lang_group = "c", nae = "l", nae_exp = "d", SES = "d", bilingual_exposure = "l", lang1 = "c", lang1_exposure = "d", lang2 = "c", lang2_exposure = "d", lang3 = "c", lang3_exposure = "d", lang4 = "c", lang4_exposure = "d")) %>%
+  mutate(lang_group = fct_relevel(lang_group, "monolingual", "bilingual")) %>% 
+  mutate(age_group = fct_rev(as.factor(age_group))) 
+```
+
+```{r summary_1, include = FALSE}
+lab_sex_stat <- d_matched %>% 
+  mutate(gender = case_when(gender == "F" ~ "female", gender == "M" ~ "male")) %>% 
+  group_by(lab, gender, lang_group) %>% 
+  filter(!is.na(gender)) %>% 
+  summarize(length(unique(subid))) %>% 
+  unite(gender_lang_group, lang_group, gender, sep = " ") %>%
+  pivot_wider(names_from = gender_lang_group, values_from = `length(unique(subid))`) %>% 
+  select(lab, "monolingual female", "monolingual male", "bilingual female", "bilingual male") 
+lab_sex_stat[is.na(lab_sex_stat)] <- 0
+```
+
+```{r, results = "asis", echo = FALSE, warning = FALSE}
+kable(lab_sex_stat, digits= 2,
+      format = "latex", booktabs=T,
+      longtable = TRUE,
+      caption = "Number of monolingual and bilingual infants in each gender group by lab which met infant-level inclusion criteria.") %>%
+  kable_styling(position = "float_right", font_size = 11,
+    latex_options = c("scale_down", "hold_position", "repeat_header"), full_width = F) %>% 
+    column_spec(2:6, width = "2.3cm") 
+  
+```
+
+```{r, include = FALSE}
+#The goal of this section is to clean the langauge 1 through language 4 columns and create a column summarizing the langauges that infants are learning.
+# get unique information about infants
+langs <- d_matched %>% 
+  select(subid, nae, starts_with("lang")) %>% 
+  distinct()
+
+# fix language names 
+langs <- langs %>% 
+  mutate(lang1 = tolower(lang1),
+        lang1 = case_when(nae == TRUE & lang1 == "english" ~ "nae_english",
+                          nae == FALSE & lang1 == "english" ~ "non_nae_english",
+                          nae == FALSE & lang1 == "english (usa & uk)" ~ "non_nae_english",
+                          nae == TRUE & lang1 == "english (usa & uk)" ~ "nae_english",
+                          nae == FALSE & lang1 == "english (uk & usa)" ~ "non_nae_english",
+                          nae == TRUE & lang1 == "english (uk & usa)" ~ "nae_english",
+                           lang1 == "english (new zealand)" ~ "non_nae_english",
+                           lang1 == "canadian english" ~ "nae_english",
+                           lang1 == "spanish (colombia)" ~ "spanish",
+                           lang1 == "french (switzerland)" ~ "french",
+                           lang1 == "portuguese (brasil)" ~ "portuguese",
+                           lang1 == "spanish (cuba)" ~ "spanish",
+                           lang1 == "spanish (spain)" ~ "spanish",
+                           lang1 == "italian (italy)" ~ "italian",
+                           lang1 == "arab" ~ "arabic",        
+                           lang1 == "mandarin chinese" ~ "mandarin",
+                           lang1 == "portugese" ~ "portuguese",
+                           TRUE ~ lang1),
+         lang2 = case_when(nae == TRUE & lang2 == "english" ~ "nae_english",
+                           nae == FALSE & lang2 == "english" ~ "non_nae_english",
+                           lang2 == "english (india)" ~ "non_nae_english",
+                           lang2 == "english (england)" ~ "non_nae_english",
+                           lang2 == "spanish (colombia)" ~ "spanish",
+                           lang2 == "french (belgium, but french language as in france)" ~ "french",
+                           lang2 == "french (switzerland)" ~ "french",
+                           lang2 == "english (new zealand)" ~ "non_nae_english",
+                           lang2 == "french (switzerland/france)" ~ "french",
+                           lang2 == "english (canada)" ~ "nae_english",
+                           lang2 == "italian (italy)" ~ "italian",
+                           lang2 == "spanish (cuba)" ~ "spanish",
+                           lang2 == "spanish (peru)" ~ "spanish",
+                           lang2 == "italian (switzerland)" ~ "italian",
+                           lang2 == "arab" ~ "arabic",
+                           lang2 == "canadian english" ~ "nae_english",
+                           lang2 == "mandarin chinese" ~ "mandarin",
+                           lang2 == "portugese" ~ "portuguese",
+                           TRUE ~ lang2))
+
+# create a column specifying most dominant and second most dominant languages
+langs <- langs %>% 
+  mutate(dominant_lang = case_when(is.na(lang2) ~ lang1,
+                                   lang1_exposure > lang2_exposure ~ lang1,
+                                   lang1_exposure < lang2_exposure ~ lang2,
+                                   lang1_exposure == lang2_exposure ~ lang1, 
+                                   TRUE ~ NA_character_),
+         second_lang = case_when(is.na(lang2) ~ NA_character_,
+                                   lang1_exposure > lang2_exposure ~ lang2,
+                                   lang1_exposure < lang2_exposure ~ lang1,
+                                   lang1_exposure == lang2_exposure ~ lang2, 
+                                   TRUE ~ NA_character_))
+
+# make sure that percent exposure to third and fourth languages aren't more than first or second
+langs %>% 
+  mutate(lang_test = case_when(lang1_exposure < lang3_exposure ~ "error",
+                               lang2_exposure < lang3_exposure ~ "error",
+                               lang1_exposure < lang4_exposure ~ "error",
+                               lang2_exposure < lang4_exposure ~ "error",
+                               TRUE ~ NA_character_)) %>% 
+  filter(lang_test == "error") %>% 
+  datatable
+
+# fix the one case that came up in the previous code (see datatable)
+langs <- langs %>% 
+  mutate(dominant_lang = case_when(subid == "infantstudiesubc_mbb24" ~ "cantonese",
+                                   TRUE ~ dominant_lang),
+         second_lang = case_when(subid == "infantstudiesubc_mbb24" ~ "german",
+                                 TRUE ~ second_lang))
+
+# add a column that lists infants' two languages
+langs <- langs %>% 
+  unite("language_pairs", dominant_lang:second_lang, sep = " ; ", remove = FALSE)
+
+# put language pairs in order
+pair_order <- read_csv(here("metadata", "ordering_language_pairs.csv"))
+
+langs <- langs %>% 
+  left_join(pair_order)
+
+# replace langauge pairs with ordered langauge pairs, and get rid of the temporary ordered variable
+langs <- langs %>% 
+  mutate(language_pairs = language_pairs_ordered) %>% 
+  select(-language_pairs_ordered)
+
+# create a table with language pairs
+# langs %>% 
+#   group_by(language_pairs) %>% 
+#   count() %>% 
+#   datatable
+```
+
+```{r, results="asis", echo = FALSE, warning = FALSE}
+# create a table for with language pairs for only bilingual infants
+langs_bil <- langs %>% 
+  filter(lang_group == "bilingual") %>% 
+  group_by(language_pairs) %>% 
+  count() 
+
+kable(langs_bil, digits= 2,
+      format = "latex", booktabs=T,
+      longtable = TRUE,
+      caption = "Number of bilingual infants per unique language pairs") %>%
+  kable_styling(position = "center", font_size = 11,
+    latex_options = c("scale_down", "hold_position", "repeat_header"), full_width = F) %>% 
+    column_spec(2:6, width = "2.3cm") 
+
+```

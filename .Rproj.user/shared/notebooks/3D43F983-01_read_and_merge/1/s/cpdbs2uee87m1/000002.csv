@@ -1,0 +1,6 @@
+"0",""
+"0","pd$lang1_exposure <- lang_exp_to_numeric(pd$lang1_exposure)"
+"0","pd$lang2_exposure <- lang_exp_to_numeric(pd$lang2_exposure)"
+"0","pd$lang3_exposure <- lang_exp_to_numeric(pd$lang3_exposure)"
+"0","pd$lang4_exposure <- lang_exp_to_numeric(pd$lang4_exposure)"
+"0",""

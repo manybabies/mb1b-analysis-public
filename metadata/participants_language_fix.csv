@@ -1,0 +1,15 @@
+lab,subid,lang_group,session_error,notes,lang1,lang2,lang3,lang4,lang1_exposure,lang2_exposure,lang3_exposure,lang4_exposure,total_exposure
+nusinfantlanguagecentre,nusinfantlanguagecentre_mb015,bilingual,noerror,NA,english,mandarin,hokkien,malay,40,50,4,4,98
+nusinfantlanguagecentre,nusinfantlanguagecentre_mb022,bilingual,noerror,Fine. Sat through till the end with some squirming around. Eye-tracker was not catching the eye positions all the time.,english,mandarin,bahasa,na,27,69,2,0,98
+nusinfantlanguagecentre,nusinfantlanguagecentre_yb003,bilingual,noerror,"Good. Sat through till the end, with some fussing out in between; holding onto a block toy; some whining  sounds produced in between.",english,mandarin,hokkien,teochew,33,63,0,2,98
+nusinfantlanguagecentre,nusinfantlanguagecentre_yb010,bilingual,noerror,"Good. Sat through till the end, with some squirming out of the lap sometimes.",english,mandarin,fuchow,na,63,32,3,0,98
+nusinfantlanguagecentre,nusinfantlanguagecentre_yb030,bilingual,noerror,NA,english,mandarin,dialects,na,54,42,2,0,98
+infantstudiesubc,infantstudiesubc_mbb7,Bilingual,"NA","fine, bored",english,cantonese,mandarin,na,57,39,2,0,98
+infantstudiesubc,infantstudiesubc_mbb12,Bilingual,"NA",okay,english,cantonese,mandarin,na,43,34,21,0,98
+infantstudiesubc,infantstudiesubc_mbb23,Bilingual,"NA",fine,english,cantonese,mandarin,tagalog,25,51,19,3,98
+infantstudiesubc,infantstudiesubc_mbb24,Bilingual,"NA",good,english,cantonese,german,mandarin,26,36,32,4,98
+langlabucla,langlabucla_mb1202,bilingual,noerror,NA,english,spanish,mandarin,na,56,42,0,0,98
+langlabucla,langlabucla_mb1212,bilingual,noerror,NA,english,cantonese,mandarin,na,46,35,17,0,98
+langlabucla,langlabucla_mb330,monolingual,noerror,NA,english,mandarin,vietnamese,na,96,2,0,0,98
+lllliv,lllliv_mb019,NA,noerror,Child ate food throughout session,italian,english,french,spanish,50,32,8,8,98
+lllliv,lllliv_mb023,NA,noerror,NA,spanish,english,italian,na,50,32,16,0,98

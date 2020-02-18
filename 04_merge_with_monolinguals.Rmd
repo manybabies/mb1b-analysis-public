@@ -1,0 +1,343 @@
+---
+title: "MB1B Merge with Monolinguals"
+author: "The ManyBabies Analysis Team"
+date: '`r format(Sys.time(), "%a %b %d %X %Y")`'
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    number_sections: yes
+---
+
+# Intro
+
+This script merges the bilingual dataset processed as part of this pipeline with the monolingual dataset, already processed as part of the MB1 pipeline
+
+It outputs two datafiles: 
+
+1. `_trial`, which contains all trials for LMEMs, and
+2. `_diff`, which contains trial pairs for meta-analytic effect sizes. 
+
+These datafiles are output in two different "preps," 
+
+1. `_full`, which contains all of the monolinguals in the target age group
+2. `_matched`, which contains babies from labs with matched datasets
+
+
+```{r setup, echo=FALSE, message=FALSE}
+source(here::here("helper/common.R"))
+source(here("helper/preprocessing_helper.R"))
+
+```
+
+Read in bilingual data. Change column types to match with monolinguals
+
+
+```{r}
+#If column types aren't specified, read_csv makes guesses about them based on the first 1000 rows of data. Below, data are read in with column types specified for columns that will be used in this .Rmd file. `col_only` in the code means that all columns that aren't specified will be dropped. (see issue #66 for more info) For now, all columns are read in as  a double (using shortcut "d"), logical ("l"), or character ("c"). metadata/columns_used_in_analyses has information about the type selected for each column and also indicates which additional columns were available but dropped.
+
+bil <- read_csv(here("processed_data", "03_bilingual_dataset_cleaned.csv"), col_types = cols_only(method = "c", subid = "c", lab = "c", trial_type = "c", lang_group = "c", session_error_type_recoded = "c", age_group = "c", age_days = "d", nae_exp = "d", SES = "d", age_mo = "d", stimulus_num = "d", looking_time = "d", trial_num = "d", nae = "l", trial_error = "l", session_error = "l", pilot = "l", bilingual_exposure = "l", comm_lang_learn = "l", monolingual_exposure = "l", td = "l", full_term = "l", trial_error_recoded = "l", out_of_age = "l", missing = "l", gender = "c", lang1 = "c", lang1_exposure = "d", lang2 = "c", lang2_exposure = "d", lang3 = "c", lang3_exposure = "d", lang4 = "c", lang4_exposure = "d")) %>%
+  mutate(lang_group = "bilingual") # recode lang_group since all non-bilinguals removed in exclusion script
+
+# BECUASE WE'RE NOW SPECIFYING COLUMN TYPES, THE CODE BELOW IS NO LONGER NECESSARY
+# bil <- bil %>%  
+#  # select(analysis_columns) %>%
+#   mutate(lang_group = as.factor(lang_group)) %>%
+#   mutate(macarthur_ladder = as.integer(macarthur_ladder)) %>%
+#   mutate(parenta_gender = as.character(parenta_gender)) %>%
+#   mutate(parentb_education = as.integer(parentb_education)) %>%
+#   mutate(sib3_age = as.integer(sib3_age)) %>%
+#   mutate(sib4_age = as.integer(sib4_age)) %>%
+#   mutate(visits = as.integer(visits)) %>%
+#   mutate(household_size = as.integer(household_size)) %>%
+#   mutate(last_feed_min = as.integer(last_feed_min)) %>%
+#   mutate(last_sleep_min = as.integer(last_sleep_min)) %>%
+#   mutate(popnum = as.integer(popnum)) %>%
+#   mutate(popkm2 = as.integer(popkm2)) %>%
+#   mutate(days_preterm_fixed = as.integer(days_preterm_fixed)) %>%
+#   mutate(trial_error_recoded = as.integer(trial_error_recoded)) %>%
+#   mutate(age_group = as.factor(age_group)) %>%
+#   mutate(bilingual_nae = as.integer(bilingual_nae)) %>%
+#   mutate(sib1_age = str_replace(sib1_age, "Y", "")) %>%
+#   mutate(sib1_age = str_replace(sib1_age, " years", "")) %>%
+#   mutate(sib1_age = as.integer(sib1_age)) %>%
+#   mutate(sib3_gender = as.factor(sib3_gender)) %>%
+#   mutate(sib4_gender = as.factor(sib4_gender)) %>%
+#   mutate(season = as.factor(season)) %>%
+#   mutate(race_ethnicity = as.factor(race_ethnicity)) %>%
+#   mutate(beard = as.factor(beard)) %>%
+#   mutate(termtime = as.factor(termtime)) %>%
+#   mutate(hearing_vision_info = as.character(hearing_vision_info)) %>%
+#   mutate(cog_hearing_reason = as.character(cog_hearing_reason)) %>%
+#   mutate(cognitive_developmental_info = as.character(cognitive_developmental_info)) %>%
+#   mutate(trial_error_change_reason = as.character(trial_error_change_reason)) %>%
+#   mutate(bilingual_parenta_nae = as.factor(bilingual_parenta_nae)) %>%
+#   mutate(bilingual_parentb_nae = as.factor(bilingual_parentb_nae)) %>%
+#   mutate(session_error_recoded = as.character(session_error_recoded)) %>%
+#   mutate(session_error_type_recoded = as.character(session_error_type_recoded)) %>%
+#   mutate(trial_error_type = as.factor(trial_error_type))
+
+```
+
+
+Check that bilingual trial pairs are not duplicated  
+
+```{r}
+
+trial_pairs_bil <- bil %>%
+  group_by(lab, subid, stimulus_num) %>%
+  count 
+
+see_if(all(trial_pairs_bil$n <= 2), 
+            msg = "DUPLICATED TRIAL PAIRS")
+```
+
+
+Read in monolingual data from github
+
+```{r}
+
+ mono_all <- read.csv(text=RCurl::getURI("https://raw.githubusercontent.com/manybabies/mb1-analysis-public/83358f804335452fe50e3eaf2831575635943ec9/processed_data/03_data_trial_main.csv")) 
+
+mono_all <- mono_all %>% 
+   mutate(subid = paste(subid, lab, sep = "_")) #fix because subid sometimes repeats across labs
+#mono_all <- read.csv(here("mb1-analysis-public/processed_data/03_data_trial_main.csv") # Reading from computer instead
+
+
+mono_all <- mono_all %>%
+  mutate(lang_group = "monolingual") %>% # recode original lang_group variable to monolingual.  All babies in this dataset are verified monolinguals, per mono exclusion script
+  filter(!is.na(mono_all$trial_type)) #Removes all rows with unknown trial type.  Introduced in MB1 script due to missingness analysis
+  
+#mono_all$parentb_gender[mono_all$parenta_gender == "OTHER"] <- "OTHER"
+
+mono_all <- mono_all %>%
+  mutate(parenta_gender = as.character(parenta_gender)) %>%
+  mutate(parentb_gender = as.character(parentb_gender)) %>%
+  mutate(SES = case_when(parenta_gender == "F" | parentb_gender == "M" ~ as.numeric(parenta_education),
+                         parenta_gender == "M" | parentb_gender == "F" ~ as.numeric(parentb_education),
+                         parenta_gender == "OTHER" ~ as.numeric((parenta_education+parentb_education)/2),
+                         parenta_gender==NA|parentb_gender!=NA ~ as.numeric(parentb_education),
+                         parenta_gender!=NA|parentb_gender==NA ~ as.numeric(parenta_education),
+                         parenta_gender==parentb_gender ~ as.numeric((parenta_education+parentb_education)/2)),
+         nae_exp = case_when(nae == TRUE ~ 100, TRUE ~ 0)) %>% 
+  # select(analysis_columns) %>%
+  mutate(parentb_education = as.integer(parentb_education)) %>%
+  mutate(lang_group = as.factor(lang_group)) %>%
+  filter(age_group == "6-9 mo" | age_group == "12-15 mo") %>%
+  mutate(tod = str_replace(tod, ":", "")) %>%
+  mutate(tod = str_replace(tod, "h", "")) %>%
+  mutate(tod = as.numeric(tod)) %>%
+  mutate(bilingual_nae = as.integer(bilingual_nae))  %>%
+  mutate(sib1_age = as.integer(sib1_age)) %>%
+  mutate(sib3_gender = as.factor(sib3_gender)) %>%
+  mutate(sib4_gender = as.factor(sib4_gender)) %>%
+  mutate(season = as.factor(season)) %>%
+  mutate(race_ethnicity = as.factor(race_ethnicity)) %>%
+  mutate(beard = as.factor(beard)) %>%
+  mutate(termtime = as.factor(termtime)) %>%
+  mutate(hearing_vision_info = as.character(hearing_vision_info)) %>%
+  mutate(cognitive_developmental_info = as.character(cognitive_developmental_info)) %>%
+  mutate(cog_hearing_reason = as.character(cog_hearing_reason)) %>%
+  mutate(trial_error_change_reason = as.character(trial_error_change_reason)) %>%
+  mutate(session_error_recoded = as.character(session_error_recoded)) %>%
+  mutate(session_error_type_recoded = as.character(session_error_type_recoded)) %>%
+  mutate(trial_error_type = as.factor(trial_error_type)) %>% 
+  mutate(lang2 = as.factor(lang2), lang3 = as.factor(lang3), lang4 = as.factor(lang4),
+         bilingual_parenta_nae = as.factor(bilingual_parenta_nae),
+         bilingual_parentb_nae = as.factor(bilingual_parentb_nae),
+         bilingual_interview_lang = as.factor(bilingual_interview_lang)) %>% 
+  mutate(gender = gender2)
+
+
+```
+
+
+Check that monolingual trial pairs are not duplicated  
+
+```{r}
+
+trial_pairs_mono <- mono_all %>%
+  group_by(lab, subid, stimulus_num) %>%
+  count 
+
+see_if(all(trial_pairs_mono$n <= 2), 
+            msg = "DUPLICATED TRIAL PAIRS")
+
+```
+
+```{r}
+# Find out which labs had a final dataset at which ages
+bil_labs_ages <- bil %>%
+  select(lab, age_group) %>%
+  distinct()
+
+mono_matched <- mono_all %>%
+  right_join(bil_labs_ages) %>%
+  droplevels() %>%
+  filter(!is.na(lang_group))
+
+# Relevel factors
+ordered_ages <- c("6-9 mo", "12-15 mo")
+```
+
+Create matched and full datasets. Write full datasets
+
+```{r}
+
+# Merge monolingual and bilingual datasets for analysis
+
+d_bilingual <-  bil %>%
+  mutate(age_group = fct_relevel(age_group, ordered_ages)) #note that there is no monolinguals in this file. Only bilingual infants (clean data and excluded those were not eligible) are here.
+
+d_matched <- full_join(mono_matched, bil) %>%
+  mutate(age_group = fct_relevel(age_group, ordered_ages)) %>%
+  mutate(lang_group = fct_relevel(lang_group, "monolingual", "bilingual"))
+
+d_full <- full_join(mono_all, bil) %>%
+  mutate(age_group = fct_relevel(age_group, ordered_ages)) %>%
+  mutate(lang_group = fct_relevel(lang_group, "monolingual", "bilingual"))
+
+```
+
+
+Check again that, once merged our trial pairs are not duplicated
+
+```{r}
+
+trial_pairs <- d_full %>%
+  group_by(lab, subid, stimulus_num) %>%
+  count %>%
+  arrange(desc(n))
+
+see_if(all(trial_pairs$n <= 2), 
+            msg = "DUPLICATED TRIAL PAIRS")
+```
+
+## Compute condition differences
+
+Computing condition differences reveals a lot of issues in the dataset, in particular this line will not work unless there are no duplicated trial pairs (see chunk above). 
+
+```{r}
+diffs_full <- d_full %>%
+  mutate(trial_num = floor((trial_num+1)/2)) %>%
+  spread(trial_type, looking_time) %>%
+  mutate(diff = IDS - ADS)
+
+diffs_matched <- d_matched %>%
+    mutate(trial_num = floor((trial_num+1)/2)) %>%
+  spread(trial_type, looking_time) %>%
+  mutate(diff = IDS - ADS)
+
+diffs_bilingual <- d_bilingual %>%
+  mutate(trial_num = floor((trial_num+1)/2)) %>%
+  spread(trial_type, looking_time) %>%
+  mutate(diff = IDS - ADS)
+
+```
+
+create dataset for meta-analysis based on n>=10, first check how many infants per language group in each lab
+```{r}
+d_matched %>%
+  group_by(lab, lang_group, age_group) %>%
+  summarise(n=length(unique(subid))) %>% 
+  unite(temp, lang_group, age_group) %>% 
+  spread(temp, n) %>% 
+  select("lab", "bilingual_6-9 mo", "monolingual_6-9 mo", "bilingual_12-15 mo", "monolingual_12-15 mo") %>% 
+ #summarise(n=n()) %>%
+ DT::datatable()
+```
+##Create matched dataset for the meta-analysis and mixed-effect models: 
+
+For matched dataset in the meta-analytical approach: 
+1) each lab has at least 10 babies (n>=10) for each age group in both monolingual & bilingual groups;
+2)The following bilingual labs are removed based on critieria (1): 
+- babylabkingswood 6-9 mo: n=9 in bilingual 6-9 mo gp
+- babylabparisdescartes1 all data: no monolinguals at 6-9 mo and n=1 in bilingual 12-15 mo gp
+- babylabprinceton all data: n=1 in monolingual 6-9 mo gp
+- bllumanitoba all data: n=7 in bilingual 6-9 mo gp and n=8 in bilingual 12-15 mo gp
+- langlabucla all data: n=9 in bilingusl 12-15 mo gp and n=3 in monolingual 12-15 mo gp 
+- ldlottawa 6-9 mo: n=7 in bilingual
+- lllliv all data: n=7 in bilingual 6-9 mo and n=6 in bilingual 12-15 mo
+- wsigoettingen all data: n=9 in bilingual 6-9 mo gp and n=7 in bilingual 12-15 mo gp
+ 
+All bilingual labs have at least 10 babies in each age group, so we do not remove any bilingual lab in the LMM approach
+
+For the matched datasets
+```{r}
+see_if(all(diffs_matched$lab %in% d_matched$lab)) #double check all the labs are consistant between d_diffs_matched and d_matched
+see_if(all(diffs_full$lab %in% d_full$lab)) #double check all the labs are consistant between d_diffs_full and d_full
+
+#meta-analysis matched dataset
+d_diffs_matched_set <- diffs_matched %>%
+  mutate(lab_age = paste(lab, age_group)) %>%
+  filter(!lab %in% c("babylabparisdescartes1",
+                     "babylabprinceton",
+                     "bllumanitoba",
+                     "langlabucla",
+                     "lllliv",
+                     "wsigoettingen"),
+  !lab_age %in% c("babylabkingswood 6-9 mo", 
+                  "ldlottawa 6-9 mo")) %>%
+  select(-lab_age) 
+
+#double check how many samples in each lab
+d_diffs_matched_set %>% group_by(lab, lang_group, age_group) %>%
+  summarise(n=length(unique(subid))) %>%
+  unite(temp, lang_group, age_group) %>% 
+  spread(temp, n) %>% 
+  DT::datatable() #Note that the number of participating labs dropped from 17 to 11. 
+
+#matched dataset in LMM
+d_matched %>% group_by(lab) %>% summarize(n=length(unique(subid))) # no lab has n<10
+
+d_matched %>% group_by(nae, age_group, lang_group) %>% summarize(n=length(unique(subid))) # all cell >20, we met the min requirement for each cell needs a min of 20 infants for the LMM model analyses
+
+#Use d_matched for lmer model below for matched dataset
+```
+
+For the unmatched datasets
+```{r}
+#meta-analysis unmatched dataset, remove any group (e.g., monolingual 6-9 month-old) that has n < 10
+d_diffs_unmatched_lab_kept <- diffs_full %>%
+  group_by(lab, lang_group, age_group) %>%
+  summarize(n=length(unique(subid))) %>%
+  filter(n>=10) %>% 
+  mutate(lab_age = paste(lab, age_group))  #note that it won't work if we filter data by lab's name only. This is because one lab can has only one age group that meets n>=10, but not the other group
+
+d_diffs_unmatched_set <- diffs_full %>% 
+  mutate(lab_age = paste(lab, age_group)) %>% 
+  filter(lab_age %in% d_diffs_unmatched_lab_kept$lab_age)
+
+#unmatched dataset in LMM, remove any group that has n < 10 (e.g., a participating has n < 10 across two age groups)
+d_full_labkept <- d_full %>% group_by(lab) %>% 
+  summarize(n=length(unique(subid))) %>% 
+  filter(n>=10) 
+
+d_full_unmatched_set <- d_full %>% filter(lab %in% d_full_labkept$lab)  
+
+```
+
+# Output 
+
+1. `_trial`, which contains all trials for LMEMs, and
+2. `_diff`, which contains trial pairs for meta-analytic effect sizes. 
+
+These datafiles are output in two different "preps," 
+
+1. `_full`, which contains all of the monolinguals in the target age group
+2. `_matched`, which contains babies from labs with matched datasets
+
+Output. 
+
+```{r}
+
+write_csv(d_bilingual, "processed_data/04_bilingual_dataset_trial.csv")
+write_csv(d_matched, "processed_data/04_matched_dataset_trial.csv")
+write_csv(d_full_unmatched_set, "processed_data/04_full_dataset_trial.csv")
+
+
+write_csv(diffs_bilingual, "processed_data/04_bilingual_dataset_main.csv")
+write_csv(d_diffs_matched_set, "processed_data/04_matched_dataset_diff.csv")
+write_csv(d_diffs_unmatched_set, "processed_data/04_full_dataset_diff.csv")
+```
+

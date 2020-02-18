@@ -1,0 +1,153 @@
+lab,subid,trialcount,rowcount,trial_error,present_td,lines_in_pd,age_days,notes,session_error_type,present_pd,Confirmed,Explanation,Drop or Keep
+callab,callab_callab42,NA,NA,NA,FALSE,1,456,"(1) appointment was rescheduled by RAs and participant aged out of study unbenknownest to the experimenter, (2) a file writing error meant eyetracking data was not properly saved for this participant",(1) age exclusion (2) experimenter error,TRUE,X,(1) age exclusion (2) experimenter error,RealParticipantNoTrials
+pocdnorthwestern,pocdnorthwestern_mb27,NA,NA,NA,FALSE,1,442,"clingly to mom, didn't want to look at screen",fussed out during calibration,TRUE,X,fussed out during calibration,RealParticipantNoTrials
+cogdevlabbyu,cogdevlabbyu_p11,NA,NA,NA,FALSE,1,173,Couldn't Calibrate,Calibration Error,TRUE,X,,RealParticipantNoTrials
+cogdevlabbyu,cogdevlabbyu_p23,NA,NA,NA,FALSE,1,234,Couldn't Calibrate,Calibration Error,TRUE,X,,RealParticipantNoTrials
+cogdevlabbyu,cogdevlabbyu_p25,NA,NA,NA,FALSE,1,94,Couldn't Calibrate,Calibration Error,TRUE,X,,RealParticipantNoTrials
+cogdevlabbyu,cogdevlabbyu_p28,NA,NA,NA,FALSE,1,120,Couldn't Calibrate,Calibration Error,TRUE,X,,RealParticipantNoTrials
+cogdevlabbyu,cogdevlabbyu_p29,NA,NA,NA,FALSE,1,93,Couldn't Calibrate,Calibration Error,TRUE,X,,RealParticipantNoTrials
+cogdevlabbyu,cogdevlabbyu_p35,NA,NA,NA,FALSE,1,117,Couldn't Calibrate,Calibration Error,TRUE,X,,RealParticipantNoTrials
+cogdevlabbyu,cogdevlabbyu_p36,NA,NA,NA,FALSE,1,102,Couldn't Calibrate,Calibration Error,TRUE,X,,RealParticipantNoTrials
+cogdevlabbyu,cogdevlabbyu_p39,NA,NA,NA,FALSE,1,134,Couldn't Calibrate,Calibration Error,TRUE,X,,RealParticipantNoTrials
+cogdevlabbyu,cogdevlabbyu_p48,NA,NA,NA,FALSE,1,130,Couldn't Calibrate,Calibration Error,TRUE,X,,RealParticipantNoTrials
+cogdevlabbyu,cogdevlabbyu_p49,NA,NA,NA,FALSE,1,177,Couldn't Calibrate,Calibration Error,TRUE,X,,RealParticipantNoTrials
+cogdevlabbyu,cogdevlabbyu_p53,NA,NA,NA,FALSE,1,176,Couldn't Calibrate,Calibration Error,TRUE,X,,RealParticipantNoTrials
+cogdevlabbyu,cogdevlabbyu_p54,NA,NA,NA,FALSE,1,162,Couldn't Calibrate,Calibration Error,TRUE,X,,RealParticipantNoTrials
+cogdevlabbyu,cogdevlabbyu_p56,NA,NA,NA,FALSE,1,98,Couldn't Calibrate,Calibration Error,TRUE,X,,RealParticipantNoTrials
+cogdevlabbyu,cogdevlabbyu_p58,NA,NA,NA,FALSE,1,203,Couldn't Calibrate,Calibration Error,TRUE,X,,RealParticipantNoTrials
+cogdevlabbyu,cogdevlabbyu_p59,NA,NA,NA,FALSE,1,164,Couldn't Calibrate,Calibration Error,TRUE,X,,RealParticipantNoTrials
+cogdevlabbyu,cogdevlabbyu_p61,NA,NA,NA,FALSE,1,124,Couldn't Calibrate,Calibration Error,TRUE,X,,RealParticipantNoTrials
+pocdnorthwestern,pocdnorthwestern_mb37,NA,NA,NA,FALSE,1,439,"did great, but ended early, started to get fussy",NA,TRUE,,,
+isplabmcgill,isplabmcgill_m19,NA,NA,NA,FALSE,1,378,Did not complete any trials; too fussy,Incomplete data,TRUE,X,Did not complete any trials; too fussy,RealParticipantNoTrials
+lscppsl,lscppsl_28lscppsl,NA,NA,NA,FALSE,1,447,didn't test - didn't want the sticker,refusal,TRUE,X,,RealParticipantNoTrials
+pocdnorthwestern,pocdnorthwestern_mb17,NA,NA,NA,FALSE,1,405,fussed out during calibrartion,fussed out during calibrartion,TRUE,X,fussed out during calibrartion,RealParticipantNoTrials
+babylablmu,babylablmu_78,NA,NA,NA,FALSE,1,NA,NA,subject number not used,TRUE,X,subject number not used,NotData
+babylabumassb,babylabumassb_mbpumb014142597,NA,NA,NA,FALSE,1,414,NA,corruptdata,TRUE,X,corruptdata,RealParticipantNoTrials
+cogdevlabbyu,cogdevlabbyu_p18,NA,NA,NA,FALSE,1,193,NA,no data,TRUE,X,,RealParticipantNoTrials
+cogdevlabbyu,cogdevlabbyu_p31,NA,NA,NA,FALSE,1,133,NA,no data,TRUE,X,,RealParticipantNoTrials
+cogdevlabbyu,cogdevlabbyu_p41,NA,NA,NA,FALSE,1,141,NA,no data,TRUE,X,,RealParticipantNoTrials
+earlysocogfm,earlysocogfm_p01,NA,NA,NA,FALSE,1,384,NA,got fussy and ended session early; pilot,TRUE,X,,PilotParticipant
+earlysocogfm,earlysocogfm_p02,NA,NA,NA,FALSE,1,526,NA,got fussy and ended session early; pilot,TRUE,X,,PilotParticipant
+earlysocogfm,earlysocogfm_p03,NA,NA,NA,FALSE,1,777,NA,computer for jHab stopped working and locked out. So we had to use our own intuition to see if child was looking away; pilot,TRUE,X,,PilotParticipant
+earlysocogfm,earlysocogfm_p04,NA,NA,NA,FALSE,1,513,NA,ended session early because child kept trying to leave ; pilot,TRUE,X,,PilotParticipant
+earlysocogfm,earlysocogfm_p05,NA,NA,NA,FALSE,1,461,NA,"child was fussy from the start, ended early ; pilot",TRUE,X,,PilotParticipant
+earlysocogfm,earlysocogfm_p06,NA,NA,NA,FALSE,1,418,NA,NA; pilot,TRUE,X,,PilotParticipant
+earlysocogfm,earlysocogfm_p07,NA,NA,NA,FALSE,1,423,NA,got fussy and ended session early; pilot,TRUE,X,,PilotParticipant
+earlysocogfm,earlysocogfm_p08,NA,NA,NA,FALSE,1,799,NA,got fussy and ended session early; pilot,TRUE,X,,PilotParticipant
+infantlanglabutk,infantlanglabutk_mb1r121fs2,NA,NA,NA,FALSE,1,371,NA,"Squirmy, Exclude B1T1, B1T2, B1T3",TRUE,,,
+infantlanglabutk,infantlanglabutk_mb1r131fs3,NA,NA,NA,FALSE,1,415,NA,"Entire file was corrupt, unable to extract data",TRUE,X,,RealParticipantNoTrials
+infantlanglabutk,infantlanglabutk_mb1r144fs8,NA,NA,NA,FALSE,1,426,NA,"Entire file was corrupt, unable to extract data",TRUE,X,,RealParticipantNoTrials
+infantlanglabutk,infantlanglabutk_mb1r94ms1,NA,NA,NA,FALSE,1,273,NA,"squirmy, Exclude B3T4, B4T1, B4T2, B4T3, B4T4",TRUE,,,
+labunam,labunam_mb01,NA,NA,NA,FALSE,1,400,NA,NA,TRUE,,,
+labunam,labunam_mb02,NA,NA,NA,FALSE,1,393,NA,NA,TRUE,,,
+labunam,labunam_mb03,NA,NA,NA,FALSE,1,392,NA,NA,TRUE,,,
+labunam,labunam_mb04,NA,NA,NA,FALSE,1,96,NA,NA,TRUE,,,
+labunam,labunam_mb05,NA,NA,NA,FALSE,1,389,NA,NA,TRUE,,,
+labunam,labunam_mb06,NA,NA,NA,FALSE,1,471,NA,NA,TRUE,,,
+labunam,labunam_mb07,NA,NA,NA,FALSE,1,448,NA,NA,TRUE,,,
+labunam,labunam_mb08,NA,NA,NA,FALSE,1,234,NA,NA,TRUE,,,
+labunam,labunam_mb09,NA,NA,NA,FALSE,1,224,NA,NA,TRUE,,,
+labunam,labunam_mb10,NA,NA,NA,FALSE,1,241,NA,Languaje exclusion,TRUE,,,
+labunam,labunam_mb11,NA,NA,NA,FALSE,1,408,NA,NA,TRUE,,,
+labunam,labunam_mb12,NA,NA,NA,FALSE,1,359,NA,NA,TRUE,,,
+labunam,labunam_mb13,NA,NA,NA,FALSE,1,457,NA,NA,TRUE,,,
+labunam,labunam_mb14,NA,NA,NA,FALSE,1,385,NA,NA,TRUE,,,
+labunam,labunam_mb15,NA,NA,NA,FALSE,1,459,NA,NA,TRUE,,,
+labunam,labunam_mb16,NA,NA,NA,FALSE,1,375,NA,NA,TRUE,,,
+labunam,labunam_mb17,NA,NA,NA,FALSE,1,399,NA,NA,TRUE,,,
+labunam,labunam_mb18,NA,NA,NA,FALSE,1,352,NA,NA,TRUE,,,
+labunam,labunam_mb19,NA,NA,NA,FALSE,1,443,NA,NA,TRUE,,,
+labunam,labunam_mb20,NA,NA,NA,FALSE,1,456,NA,NA,TRUE,,,
+labunam,labunam_mb21,NA,NA,NA,FALSE,1,401,NA,NA,TRUE,,,
+labunam,labunam_mb22,NA,NA,NA,FALSE,1,411,NA,NA,TRUE,,,
+labunam,labunam_mb23,NA,NA,NA,FALSE,1,391,NA,NA,TRUE,,,
+labunam,labunam_mb24,NA,NA,NA,FALSE,1,368,NA,NA,TRUE,,,
+labunam,labunam_mb25,NA,NA,NA,FALSE,1,210,NA,NA,TRUE,,,
+labunam,labunam_mb26,NA,NA,NA,FALSE,1,238,NA,NA,TRUE,,,
+labunam,labunam_mb27,NA,NA,NA,FALSE,1,269,NA,NA,TRUE,,,
+labunam,labunam_mb28,NA,NA,NA,FALSE,1,289,NA,NA,TRUE,,,
+labunam,labunam_mb29,NA,NA,NA,FALSE,1,236,NA,NA,TRUE,,,
+labunam,labunam_mb30,NA,NA,NA,FALSE,1,198,NA,NA,TRUE,,,
+labunam,labunam_mb31,NA,NA,NA,FALSE,1,246,NA,NA,TRUE,,,
+labunam,labunam_mb32,NA,NA,NA,FALSE,1,187,NA,NA,TRUE,,,
+labunam,labunam_mb33,NA,NA,NA,FALSE,1,219,NA,NA,TRUE,,,
+labunam,labunam_mb34,NA,NA,NA,FALSE,1,243,NA,NA,TRUE,,,
+labunam,labunam_mb35,NA,NA,NA,FALSE,1,213,NA,NA,TRUE,,,
+labunam,labunam_mb36,NA,NA,NA,FALSE,1,255,NA,NA,TRUE,,,
+labunam,labunam_mb37,NA,NA,NA,FALSE,1,204,NA,NA,TRUE,,,
+labunam,labunam_mb38,NA,NA,NA,FALSE,1,198,NA,NA,TRUE,,,
+labunam,labunam_mb39,NA,NA,NA,FALSE,1,221,NA,NA,TRUE,,,
+labunam,labunam_mb40,NA,NA,NA,FALSE,1,206,NA,NA,TRUE,,,
+labunam,labunam_mb41,NA,NA,NA,FALSE,1,281,NA,NA,TRUE,,,
+labunam,labunam_mb42,NA,NA,NA,FALSE,1,185,NA,NA,TRUE,,,
+minddevlabbicocca,minddevlabbicocca_mb01pilot,NA,NA,NA,FALSE,1,173,NA,NA,TRUE,X,subject name contains pilot,PilotParticipant
+minddevlabbicocca,minddevlabbicocca_mb02pilot,NA,NA,NA,FALSE,1,183,NA,NA,TRUE,X,subject name contains pilot,PilotParticipant
+minddevlabbicocca,minddevlabbicocca_mb03pilot,NA,NA,NA,FALSE,1,127,NA,NA,TRUE,X,subject name contains pilot,PilotParticipant
+pocdnorthwestern,pocdnorthwestern_mb36,NA,NA,NA,FALSE,1,392,NA,refused to participate,TRUE,X,,RealParticipantNoTrials
+pocdnorthwestern,pocdnorthwestern_mb8,NA,NA,NA,FALSE,1,446,NA,ET file corrupt,TRUE,X,,RealParticipantNoTrials
+earlysocogfm,earlysocogfm_NA,1,1,NA,TRUE,NA,NA,NA,NA,FALSE,X,,NALine
+infantlanglabutk,infantlanglabutk_mb1r122fs2,18,18,exclude,TRUE,NA,NA,NA,NA,FALSE,,,
+infantlanglabutk,infantlanglabutk_mb1r91fs1,18,18,Exclude,TRUE,NA,NA,NA,NA,FALSE,,,
+infantlanglabutk,infantlanglabutk_mbir143fs8,1,1,exclude,TRUE,NA,NA,NA,NA,FALSE,,,
+infantlanglabutk,infantlanglabutk_mrir131fs3,1,1,exclude,TRUE,NA,NA,NA,NA,FALSE,,,
+infantlanglabutk,infantlanglabutk_NA,1,4,NA,TRUE,NA,NA,NA,NA,FALSE,X,,NALine
+labunam,labunam_5424,18,18,NA,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5509,18,18,NA,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5559,18,18,experiment ended early,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5580,18,18,NA,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5581,18,18,NA,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5594,18,18,NA,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5618,18,18,NA,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5622,18,18,NA,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5626,18,18,NA,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5633,18,18,experiment ended early,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5646,18,18,NA,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5647,18,18,too fussy,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5652,18,18,NA,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5665,18,18,no record,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5674,18,18,experiment ended early,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5697,18,18,NA,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5700,18,18,experiment ended early,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5701,18,18,no record,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5725,18,18,NA,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5726,18,18,experiment ended early,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5732,18,18,NA,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5737,18,18,no record,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5739,18,18,too fussy,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5742,18,18,no record,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5746,18,18,NA,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5766,18,18,NA,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5768,18,18,NA,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5770,18,18,NA,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5771,18,18,NA,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5772,18,18,NA,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5773,18,18,experiment ended early,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5781,18,18,NA,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5782,18,18,too fussy,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5791,18,18,too fussy,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5795,18,18,NA,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5796,18,18,experiment ended early,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5818,18,18,too fussy and no record,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5819,18,18,NA,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5820,18,18,NA,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5822,18,18,NA,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5824,8,8,NA,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5825,1,1,NA,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5826,1,1,NA,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5827,1,1,NA,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5828,1,1,NA,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5829,1,1,NA,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5830,1,1,NA,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5831,1,1,NA,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5832,1,1,NA,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5833,1,1,NA,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5834,1,1,no record,TRUE,NA,NA,NA,NA,FALSE,,,
+labunam,labunam_5885,18,18,NA,TRUE,NA,NA,NA,NA,FALSE,,,
+trainorlab,trainorlab_s24,1,18,NA,TRUE,NA,NA,NA,NA,FALSE,X,"ID not used, placeholder trial data that should be dropped",NotData
+ldlottawa,ldlottawa_mbms37,NA,NA,NA,FALSE,1,NA,"No consent forms, FBQ and information of the baby",Experimenter,TRUE,X,"Since no consent form obtained, drop entirely!",NotData
+ldlottawa,ldlottawa_mbms38,NA,NA,NA,FALSE,1,NA,"No consent forms, FBQ and information of the baby",Experimenter,TRUE,X,"Since no consent form obtained, drop entirely!",NotData
+bounbcl,bounbcl_mb101,NA,NA,NA,FALSE,1,444,Pilot testing. The infant was too fussy.,pilot/preterm,TRUE,X,pilot/preterm,PilotParticipant
+lancaster,lancaster_14mb23,NA,NA,NA,FALSE,1,NA,see note for 14mb24,missing data,TRUE,X,computer crashed,RealParticipantNoTrials
+trainorlab,trainorlab_s10,NA,NA,NA,FALSE,1,NA,Session never began because the baby kept wanting to feed. Parent did not complete the forms and left prior to any trials starting.,"parent interference, no date, error in program",TRUE,X,Session never began because the baby kept wanting to feed. Parent did not complete the forms and left prior to any trials starting.,RealParticipantNoTrials
+isplabmcgill,isplabmcgill_m21,NA,NA,NA,FALSE,1,416,Technical error: experiment not running properly,Incomplete data,TRUE,X,message taken to mean that family arrived but then presentation crashed,RealParticipantNoTrials
+isplabmcgill,isplabmcgill_m26,NA,NA,NA,FALSE,1,438,Technical error: experiment not running properly,Incomplete data,TRUE,X,message taken to mean that family arrived but then presentation crashed,RealParticipantNoTrials

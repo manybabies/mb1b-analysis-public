@@ -1,0 +1,45 @@
+"0","# downloaded from https://docs.google.com/spreadsheets/d/13_1EEUCYhX5NY5PynSchVFVlAb3BT5KQQjK2XxJft8I/edit?usp=sharing"
+"0","author_data <- read_csv(here(""metadata/ManyBabies1 Bilingual Author List and Contributions.csv""), "
+"0","                    skip = 4) %>% "
+"0","  rename(last = `Author Last Name`,"
+"0","         first = `Author First Name`,"
+"0","         affil = Affiliation, "
+"0","         grant = `Grant acknowledgment(s)`, "
+"0","         concept = `Early Concept`, "
+"0","         design = `Study Design`,"
+"0","         protocol = `Protocol Code/Script`,"
+"0","         doc = Documentation, "
+"0","         manage = `Study Management`,"
+"0","         data = `Data Collection`,"
+"0","         analysis = `Data Analysis`, "
+"0","         ms1 = `Stage 1 Manuscript`, "
+"0","         ms2 = `Stage 2 Manuscript`) %>% "
+"0","  select(first, last, affil, grant, concept:ms2) %>% "
+"0","  mutate(full = paste0(.$first, "" "", .$last, "" ("", .$affil, "")""), "
+"0","         status = case_when(last == ""Byers-Heinlein"" ~ 1, "
+"0","                            last == ""Tsui"" ~ 2, "
+"0","                            TRUE ~ 3), "
+"0","         initials = paste0(gsub(""[:a-zé\\öøł:\\.\\ \\-]"","""",first), gsub(""[:a-zé\\öøł:\\.\\ \\-]"","""",last))) %>%"
+"0","  filter(initials != ""NANA"") %>% "
+"0","  group_by(status) %>% "
+"0","  arrange(last, .by_group = TRUE) "
+"2","Parsed with column specification:
+cols(
+  `Author Last Name` = [31mcol_character()[39m,
+  `Author First Name` = [31mcol_character()[39m,
+  Affiliation = [31mcol_character()[39m,
+  labid = [31mcol_character()[39m,
+  `Grant acknowledgment(s)` = [31mcol_character()[39m,
+  `I CERTIFY THAT MY DATA-COLLECTION DECISIONS WERE MADE INDEPENDENT OF STUDY RESULTS.` = [31mcol_character()[39m,
+  `Early Concept` = [31mcol_character()[39m,
+  `Study Design` = [31mcol_character()[39m,
+  `Protocol Code/Script` = [31mcol_character()[39m,
+  Documentation = [31mcol_character()[39m,
+  `Study Management` = [31mcol_character()[39m,
+  `Data Collection` = [31mcol_character()[39m,
+  `Data Analysis` = [31mcol_character()[39m,
+  `Stage 1 Manuscript` = [31mcol_character()[39m,
+  `Stage 2 Manuscript` = [31mcol_character()[39m,
+  `Other (briefly describe)` = [31mcol_character()[39m
+)
+"

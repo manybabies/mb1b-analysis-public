@@ -1,0 +1,89 @@
+---
+title: "MB1B Exclusions"
+author: "The ManyBabies Analysis Team"
+date: '`r format(Sys.time(), "%a %b %d %X %Y")`'
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    number_sections: yes
+---
+
+
+# Intro
+
+This script implements and documents exclusion criteria on the bilingual participants. Exclusion for monolingual participants is handled in the MB1 scripts. 
+
+
+
+```{r setup, echo=FALSE, message=FALSE}
+source(here::here("helper/common.R"))
+source(here("helper/preprocessing_helper.R"))
+
+```
+
+# Exclusions
+
+Note that all exclusions are written in paper format and sourced here so as to allow matching exactly to the data exclusion script. 
+
+```{r child="paper/exclusions.Rmd"}
+
+source_rmd("paper/exclusions.Rmd")
+```
+
+
+Also short looking times need to be removed here (and in the manuscript, identically). 
+
+```{r}
+d$short_lt <- d$looking_time < 2
+
+short_lt <- exclude_by(d, quo(short_lt), action = "NA out", 
+                   return_pcts = TRUE, 
+                   quiet = TRUE)
+d <- short_lt$data
+```
+
+# Trial pairing (blinding, differences)
+
+Remove all training trials. There are a number of cases where there are missing stimulus numbers and trial types. This is problematic and needs to be checked. 
+
+```{r}
+d %>%
+  filter(trial_type != "TRAIN") %>%
+  group_by(lab, subid, stimulus_num) %>%
+  count %>%
+  filter(n > 2) %>%
+  datatable
+```
+
+Make sure that our trial pairs are not duplicated once we have removed these missing data and the training trials.  
+
+```{r}
+d <- filter(d, trial_type != "TRAIN", 
+            !is.na(trial_type)) 
+
+trial_pairs <- d %>%
+  group_by(lab, subid, stimulus_num) %>%
+  count 
+
+see_if(all(trial_pairs$n <= 2), 
+            msg = "DUPLICATED TRIAL PAIRS")
+```
+
+
+## Blinding 
+
+Current data output is **UNBLINDED.** 
+
+```{r}
+# d <- d %>%
+#   group_by(lab, subid, stimulus_num) %>%
+#   mutate(trial_type = base::sample(trial_type))
+```
+
+
+```{r}
+write_csv(d, "processed_data/03_bilingual_dataset_cleaned.csv")
+```
+
+

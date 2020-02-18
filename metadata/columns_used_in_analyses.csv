@@ -1,0 +1,67 @@
+column_name,column_type,column_dropped
+method,character,no
+subid,character,no
+lab,character,no
+trial_type,character,no
+lang_group,character,no
+session_error_type_recoded,character,no
+age_group,character,no
+age_days,double,no
+nae_exp,double,no
+SES,double,no
+age_mo,double,no
+stimulus_num,double,no
+looking_time,double,no
+trial_num,double,no
+nae,logical ,no
+trial_error,logical ,no
+session_error,logical ,no
+pilot,logical ,no
+bilingual_exposure,logical ,no
+comm_lang_learn,logical ,no
+monolingual_exposure,logical ,no
+td,logical ,no
+full_term,logical ,no
+trial_error_recoded,logical ,no
+out_of_age,logical ,no
+missing,logical ,no
+session_error_recoded,NA,yes
+trial_error_type,NA,yes
+trial_order,NA,yes
+session_error_type,NA,yes
+notes,NA,yes
+second_session,NA,yes
+lang1,NA,yes
+lang1_exposure,NA,yes
+lang2,NA,yes
+lang2_exposure,NA,yes
+lang3,NA,yes
+lang3_exposure,NA,yes
+lang4,NA,yes
+lang4_exposure,NA,yes
+macarthur_ladder,NA,yes
+parenta_gender,NA,yes
+parenta_education,NA,yes
+parentb_gender,NA,yes
+parentb_education,NA,yes
+preterm,NA,yes
+days_preterm,NA,yes
+hearing_vision,NA,yes
+hearing_vision_info,NA,yes
+cognitive_developmental,NA,yes
+cognitive_developmental_info,NA,yes
+gender,NA,yes
+bilingual,NA,yes
+comm_lang,NA,yes
+cog_hearing_reason,NA,yes
+days_preterm_fixed,NA,yes
+session_error_change_reason,NA,yes
+lab_mb1,NA,yes
+subid_mb1,NA,yes
+session_error_type_recoded_mb1,NA,yes
+trial_error_change_reason,NA,yes
+"na_if(lang1, ""na"")",NA,yes
+"na_if(lang2, ""na"")",NA,yes
+"na_if(lang3, ""na"")",NA,yes
+"na_if(lang4, ""na"")",NA,yes
+gender2,NA,yes

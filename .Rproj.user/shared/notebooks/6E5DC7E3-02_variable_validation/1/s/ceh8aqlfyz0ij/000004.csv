@@ -1,0 +1,8 @@
+"0","  "
+"0","## converting to seconds for labs confirmed as using milliseconds"
+"0","labs_using_milliseconds <- read_csv(""metadata/labs_convert_looking_time_to_seconds.csv"")"
+"0",""
+"0","d <- d %>% "
+"0","  mutate(looking_time = case_when("
+"0","    lab %in% labs_using_milliseconds$lab ~ looking_time/1000, # divide looking_time by 1000 "
+"0","    TRUE ~ looking_time)) # otherwise"

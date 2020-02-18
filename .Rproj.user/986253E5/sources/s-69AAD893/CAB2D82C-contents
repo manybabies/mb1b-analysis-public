@@ -1,0 +1,1204 @@
+---
+title             : "A multi-lab study of bilingual infants: Exploring the preference for infant-directed speech"
+shorttitle        : "A multi-lab study of bilingual infants"
+
+header-includes:
+   - \usepackage{amsmath}
+
+author: 
+  - name          : "Krista Byers-Heinlein"
+    affiliation   : "1"
+    corresponding : yes    # Define only one corresponding author
+    address       : "7141 Sherbrooke St. West, Montreal, QC, H4B 1R6, Canada"
+    email         : "k.byers@concordia.ca"
+  - name          : "Angeline Sin Mei Tsui"
+    affiliation   : "2"
+  - name          : "Christina Bergmann"
+    affiliation   : "3"
+  - name          : "Alexis Black"
+    affiliation   : "4"
+  - name          : "Anna Brown"
+    affiliation   : "5"
+  - name          : "Maria Julia Carbajal"
+    affiliation   : "6"
+  - name          : "Samantha Durrant"
+    affiliation   : "5"
+  - name          : "Christopher T. Fennell"
+    affiliation   : "7"
+  - name          : "Anne-Caroline Fiévet"
+    affiliation   : "6"
+  - name          : "Michael C. Frank"
+    affiliation   : "2"
+  - name          : "Anja Gampe"
+    affiliation   : "8"
+  - name          : "Judit Gervain"
+    affiliation   : "9"
+  - name          : "Nayeli Gonzalez-Gomez"
+    affiliation   : "10"
+  - name          : "J. Kiley Hamlin"
+    affiliation   : "4"
+  - name          : "Naomi Havron"
+    affiliation   : "6"
+  - name          : "Mikołaj Hernik"
+    affiliation   : "11"
+  - name          : "Shila Kerr"
+    affiliation   : "12"
+  - name          : "Hilary Killam"
+    affiliation   : "1"
+  - name          : "Kelsey Klassen"
+    affiliation   : "13"
+  - name          : "Jessica Kosie"
+    affiliation   : "14"
+  - name          : "Ágnes Melinda Kovács"
+    affiliation   : "15"
+  - name          : "Casey Lew-Williams"
+    affiliation   : "14"
+  - name          : "Liquan Liu"
+    affiliation   : "16"
+  - name          : "Caterina Marino"
+    affiliation   : "9"
+  - name          : "Meghan Mastroberardino"
+    affiliation   : "1"
+  - name          : "Victoria Mateu"
+    affiliation   : "17"
+  - name          : "Clarie Noble"
+    affiliation   : "5"
+  - name          : "Adriel John Orena"
+    affiliation   : "12"
+  - name          : "Linda Polka"
+    affiliation   : "12"
+  - name          : "Christine E. Potter"
+    affiliation   : "14"
+  - name          : "Leher Singh"
+    affiliation   : "18"
+  - name          : "Melanie Soderstrom"
+    affiliation   : "13"
+  - name          : "Megha Sundara"
+    affiliation   : "17"
+  - name          : "Connor Waddell"
+    affiliation   : "16"
+  - name          : "Janet Werker"
+    affiliation   : "4"
+  - name          : "Stephanie Wermelinger"
+    affiliation   : "8"
+ 
+ 
+affiliation:
+  - id            : "1"
+    institution   : "Concordia University"
+  - id            : "2"
+    institution   : "Stanford University"
+  - id            : "3"
+    institution   : "Max Planck Institute for Psycholinguistics"
+  - id            : "4"
+    institution   : "University of British Columbia"
+  - id            : "5"
+    institution   : "University of Liverpool"
+  - id            : "6"
+    institution   : "ENS, EHESS, CNRS, PSL University"
+  - id            : "7"
+    institution   : "University of Ottawa"
+  - id            : "8"
+    institution   : "University of Zurich"
+  - id            : "9"
+    institution   : "Integrative Neuroscience and Cognition Center (INCC), CNRS & Université Paris Descartes"
+  - id            : "10"
+    institution   : "Oxford Brookes University"
+  - id            : "11"
+    institution   : "UiT The Arctic University of Norway"
+  - id            : "12"
+    institution   : "McGill University, School of Communication Sciences and Disorders"
+  - id            : "13"
+    institution   : "University of Manitoba"
+  - id            : "14"
+    institution   : "Princeton University"
+  - id            : "15"
+    institution   : "Central European University"
+  - id            : "16"
+    institution   : "Western Sydney University"
+  - id            : "17"
+    institution   : "UCLA"
+  - id            : "18"
+    institution   : "National University of Singapore"
+
+author_note: |
+  "Individual participating labs acknowledge funding support from: the Natural Sciences and Engineering Research Council of Canada (402470-2011 and 2015-03967); the Social Sciences and Humanities Research Council of Canada Insight Grant (435-2015-1974 and 435-2015-0385); Agence Nationale de la Recherche (ANR-17-EURE-0017 and ANR-10-IDEX-0001-02); Western Sydney University Early Career Researcher Start-up Grant (20311.87608); European Commission (MSCA-IF-798658); a European Research Council Synergy Grant, SOMICS (609819); ERC Consolidator Grant "BabyRhythm" (773202); The Leverhulme Trust (ECF-2015-009); The UK Economic and Social Research Council (ES/L008955/1); Research Manitoba, Children's Hospital Research Institute of Manitoba, University of Manitoba; ODPRT funds, National University fo Singapore; and the National Institute of Child Health and Human Development (R01HD095912)."
+  
+abstract: |
+  From the earliest months of life, infants prefer listening to and learn better from infant-directed speech (IDS) than adult-directed speech (ADS). Yet, IDS differs within communities, across languages, and across cultures, both in form and in prevalence. This large-scale, multi-site study used the diversity of bilingual infant experiences to explore the impact of different types of linguistic experience on infants’ IDS preference. As part of the multi-lab ManyBabies project, we compared lab-matched samples of 333 bilingual and 385 monolingual infants’ preference for North-American English IDS (cf. ManyBabies Consortium, in press (MB1)), tested in 17 labs in 7 countries. Those infants were tested in two age groups: 6–9 months (the younger sample) and 12–15 months (the older sample). We found that bilingual and monolingual infants both preferred IDS to ADS, and did not differ in terms of the overall magnitude of this preference. However, amongst bilingual infants who were acquiring North-American English (NAE) as a native language, greater exposure to NAE was associated with a stronger IDS preference, extending the previous finding from MB1 that monolinguals learning NAE as a native language showed a stronger preference than infants unexposed to NAE. Together, our findings indicate that IDS preference likely makes a similar contribution to monolingual and bilingual development, and that infants are exquisitely sensitive to the nature and frequency of different types of language input in their early environments.
+  
+keywords          : "language acquisition; bilingualism; speech perception; infant-directed speech; reproducibility; experimental methods"
+wordcount         : "13054"
+
+figsintext        : yes
+figurelist        : no
+tablelist         : no
+footnotelist      : no
+lineno            : yes
+mask              : no
+class             : "man"
+output            :
+  papaja::apa6_pdf:
+    includes:
+      after_body: appendix.tex
+bibliography      : ["mb1b-references.bib"]
+csl               : https://tinyurl.com/apa6-no-disambiguation
+replace_ampersands: yes
+
+---
+
+```{r load_packages_settings, include = FALSE}
+
+options(tinytex.verbose = TRUE)
+
+library("papaja")
+library(ggthemes)
+library(lme4)
+library(tidyverse)
+library(here)
+library(knitr)
+library(kableExtra)
+library(lmerTest)
+library(metafor)
+library("magick")
+library("webshot")
+
+opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, cache = TRUE)
+theme_set(theme_bw() + 
+            theme(strip.background = element_blank(), 
+                  panel.grid = element_blank())) # nice theme with limited extras
+```
+
+```{r load_authors}
+# downloaded from https://docs.google.com/spreadsheets/d/13_1EEUCYhX5NY5PynSchVFVlAb3BT5KQQjK2XxJft8I/edit?usp=sharing
+author_data <- read_csv(here("metadata/ManyBabies1 Bilingual Author List and Contributions.csv"), 
+                    skip = 4) %>% 
+  rename(last = `Author Last Name`,
+         first = `Author First Name`,
+         affil = Affiliation, 
+         grant = `Grant acknowledgment(s)`, 
+         concept = `Early Concept`, 
+         design = `Study Design`,
+         protocol = `Protocol Code/Script`,
+         doc = Documentation, 
+         manage = `Study Management`,
+         data = `Data Collection`,
+         analysis = `Data Analysis`, 
+         ms1 = `Stage 1 Manuscript`, 
+         ms2 = `Stage 2 Manuscript`) %>% 
+  select(first, last, affil, grant, concept:ms2) %>% 
+  mutate(full = paste0(.$first, " ", .$last, " (", .$affil, ")"), 
+         status = case_when(last == "Byers-Heinlein" ~ 1, 
+                            last == "Tsui" ~ 2, 
+                            TRUE ~ 3), 
+         initials = paste0(gsub("[:a-zé\\öøł:\\.\\ \\-]","",first), gsub("[:a-zé\\öøł:\\.\\ \\-]","",last))) %>%
+  filter(initials != "NANA") %>% 
+  group_by(status) %>% 
+  arrange(last, .by_group = TRUE) 
+
+```
+
+
+```{r load_labs}
+analysis_columns <- c("trial_num", "lab", "subid", "trial_type", "stimulus_num", "looking_time", "missing", "method", "age_group", "age_mo", "age_days", "lang_group", "nae", "nae_exp", "SES")
+
+analysis_columns_diff <- c("trial_num", "lab", "subid", "stimulus_num", "method", "age_days", "age_mo", "age_group", "lang_group", "nae", "ADS", "IDS", "diff", "nae_exp", "SES")
+
+d_matched <- read_csv(here("processed_data/04_matched_dataset_trial.csv")) %>%
+  select(analysis_columns) %>% 
+  mutate(lang_group = fct_relevel(lang_group, "monolingual", "bilingual")) %>% 
+  mutate(age_group = fct_rev(as.factor(age_group)))
+
+d_full <- read_csv(here("processed_data/04_full_dataset_trial.csv")) %>%
+  select(analysis_columns) %>% 
+  mutate(lang_group = fct_relevel(lang_group, "monolingual", "bilingual")) %>% 
+  mutate(age_group = fct_rev(as.factor(age_group)))
+
+d_diffs_matched <- read_csv(here("processed_data/04_matched_dataset_diff.csv")) %>%
+  select(analysis_columns_diff) %>%
+  mutate(lang_group = fct_relevel(lang_group, "monolingual", "bilingual"))
+
+d_diffs_full <- read_csv(here("processed_data/04_full_dataset_diff.csv")) %>%
+  select(analysis_columns_diff) %>%
+  mutate(lang_group = fct_relevel(lang_group, "monolingual", "bilingual"))
+
+d_participants_bil <- read_csv(here("processed_data/04_bilingual_dataset_trial.csv")) %>% 
+  mutate(age_group = fct_rev(as.factor(age_group)))
+
+d_participants_matched_mono <- d_matched %>%
+  filter(lang_group == "monolingual")
+ 
+
+# Biling sample
+
+labs_bil <- d_participants_bil %>%
+  group_by(lab, age_group) %>%
+  summarise(n = length(unique(subid)))
+
+n_bil <- labs_bil %>%
+  pull(n) %>%
+  sum
+
+n_6_9_bil <- labs_bil %>%
+  filter(age_group == "6-9 mo") %>%
+  pull(n) %>%
+  sum
+  
+n_12_15_bil <- labs_bil %>%
+  filter(age_group == "12-15 mo") %>%
+  pull(n) %>%
+  sum
+
+n_labs_bil <- length(unique(labs_bil$lab))
+
+# Matched monolingual sample
+
+labs_matched_mono <- d_participants_matched_mono %>%
+  group_by(lab, age_group, lang_group) %>%
+  summarise(n = length(unique(subid)))
+
+n_matched_mono <- labs_matched_mono  %>%
+  pull(n) %>%
+  sum
+
+n_6_9_matched_mono <- labs_matched_mono %>%
+  filter(age_group == "6-9 mo") %>%
+  pull(n) %>%
+  sum
+  
+n_12_15_matched_mono <- labs_matched_mono %>%
+  filter(age_group == "12-15 mo") %>%
+  pull(n) %>%
+  sum
+
+n_labs_matched_mono <- length(unique(labs_matched_mono$lab))
+
+percent_pairs_missing_matched <- round(((sum(is.na(d_diffs_matched$diff))/length(d_diffs_matched$diff))*100), 2)
+
+percent_trials_missing_matched <- round(((sum(is.na(d_diffs_matched$IDS), is.na(d_diffs_matched$ADS))/(2*length(d_diffs_matched$diff)))*100), 2)
+
+# Unmatched monolingual sample
+
+labs_unmatched_mono <- d_full %>%
+  filter(lang_group == "monolingual") %>%
+  select(subid, lab, age_group, lang_group) %>%
+  anti_join(d_participants_matched_mono, by = c("subid", "lab", "age_group", "lang_group")) %>%
+  group_by(lab, age_group, lang_group) %>%
+  summarise(n = length(unique(subid)))
+
+n_unmatched_mono <- labs_unmatched_mono  %>%
+  pull(n) %>%
+  sum
+
+n_6_9_unmatched_mono <- labs_unmatched_mono %>%
+  filter(age_group == "6-9 mo") %>%
+  pull(n) %>%
+  sum
+  
+n_12_15_unmatched_mono <- labs_unmatched_mono %>%
+  filter(age_group == "12-15 mo") %>%
+  pull(n) %>%
+  sum
+
+n_labs_unmatched_mono <- length(unique(labs_unmatched_mono$lab))
+
+percent_pairs_missing_full <- round(((sum(is.na(d_diffs_full$diff))/length(d_diffs_full$diff))*100), 2)
+
+percent_trials_missing_full <- round(((sum(is.na(d_diffs_full$IDS), is.na(d_diffs_full$ADS))/(2*length(d_diffs_full$diff)))*100), 2)
+```
+
+
+When caregivers interact with their infants, their speech often takes on specific, distinguishing features in a speech register known as infant-directed speech [IDS; @fernald_1989]. IDS is produced by caregivers of most (although not all) linguistic and cultural backgrounds, and is typically characterized by a slow, melodic, high-pitched, and exaggerated cadence [@farran_2016; @fernald_1989; @kitamura_2001; @pye_1986; @shute_1999]. From early in life, infants tune their attention to IDS, preferring to listen to IDS over adult-directed speech (ADS) both at birth [@cooper_1990], as well as later in infancy [@cooper_1994; @cooper_1997; @fernald_1985; @hayashi_2001; @kitamura_2009; @newman_2006; @pegg_1992; @santesso_2007; @singh_2002; @werker_1989; @werker_1994]. 
+
+Infants' preference for IDS may play a useful role in early language learning. For example, infants are better able to discriminate speech sounds in IDS than in ADS [@karzon_1985; @trainor_2002], more efficiently segment words from continuous speech in an IDS register [@thiessen_2005], demonstrate better long-term memory for words spoken in IDS [@singh_2009] and learn new words more effectively from IDS than ADS [@graf_estes_2013; @ma_2011; but see @schreiner_2016]. 
+
+While most studies have confirmed a general, early preference for IDS, to date there is very little research aimed at understanding how different linguistic experiences affect infants’ preferences. For instance, although the existence of IDS has been demonstrated in a large number of cultures (see above citations), the vast majority of the research on infants’ IDS preferences has been conducted in North America, using English speech typically directed at North American English-hearing infants [@dunst_2012]. Most critically, past work has been limited to a particular kind of linguistic (and cultural) experience: that of the monolingual infant. Here, we present a large-scale, multi-site, pre-registered study on bilingual infants, a population that is particularly suited to explore the relationship between language experience and IDS preference. Moreover, this research provides important insight into the early development of bilingual infants, a large but understudied population.
+
+## Does experience tune infants’ preference for IDS?
+
+What role might experience play in tuning infants’ attention to IDS? We aggregated results from a recent published meta-analysis [@dunst_2012] with additional community-contributed data [@metalab_2017] to examine their combined results. When all 62 studies are considered, we found a moderately-sized average effect of Cohen’s $d$ =.64. A focus on the 22 studies most similar to ours (testing IDS preference using looking times collected in a laboratory, among typically-developing infants from 3–15 months, with naturally-produced English-spoken IDS from an unfamiliar female speaker), the effect size is slightly lower, $d$ = .6. Although this meta-analysis focused on infants in the first year of life, other studies of infants aged 18–21 months have also reported a preference for IDS over ADS [@glenn_1983; @robertson_2013]. There is some evidence that older infants show a greater preference for IDS than younger infants [@dunst_2012], although an age effect was not found in the subsample of 22 studies mentioned above. More evidence is needed to explore the possibility that increased language experience as children grow enhances their preference for IDS.
+
+Another variable that would be important in understanding the role of experience in the preference for IDS is whether the speech stimuli were presented in a native or non-native language. Numerous studies in early perception find different developmental trajectories for perception of native versus non-native stimuli [e.g. discriminating human faces vs. discriminating monkey faces, @lewkowicz_2006; discriminating native vs. discriminating non-native speech sound categories, @maurer_2014; segmenting word forms from fluent speech, e.g., @polka_2012]. Generally, whereas infants show increasing proficiency in discriminating the types of faces and sounds that are present in their environment, they lose sensitivity to the differences between non-native stimuli over time. This general pattern might lead us to predict that infants will initially be sensitive to differences between IDS and ADS in both the native and non-native languages, but that this initial cross-linguistic sensitivity will decline with age. In other words, at some ages, infants’ preference for IDS over ADS could be enhanced when hearing their native language. However, to date, there is very little data on this question. Importantly, this general trend, if it exists, may interact with differences across languages in the production of IDS. The exaggerated IDS of North American English might be either more interesting or less interesting to an infant whose native language is characterized by a less exaggerated form IDS, than for an infant who regularly hears North American English IDS.
+
+Only a handful of IDS preference studies have explicitly explored infants’ preference for IDS from infants’ native versus a non-native language. Werker et al. [-@werker_1994] compared 4.5- and 9-month-old English and Cantonese-learning infants’ preference for videos of Cantonese mothers using IDS versus ADS. Both groups showed a preference for IDS; however, the magnitude of the preference between the two groups was not specifically compared [@werker_1994]. Hayashi et al. [-@hayashi_2001] studied Japanese-learning infants’ (aged 4–14 months) preference for native (Japanese) and non-native (English) speech. Japanese-learning infants generally showed a preference for Japanese IDS over ADS, as well as an increasing preference for Japanese IDS over English IDS. The latter finding shows that infants tune into their native language with increased experience; however, as the study did not measure infants’ interest in English ADS, we do not know whether Japanese infants were equally sensitive to the difference between ADS and IDS in the non-native stimuli, or whether/how this might change over time.
+
+Infants growing up bilingual are typically exposed to IDS in two languages. They provide a particularly useful wedge in understanding experiential influences on infants’ attention to IDS. Bilingual infants receive less exposure to each of their languages than monolingual infants, and the exact proportion of exposure to each of their two languages varies from infant to infant. This divided exposure does not appear to slow the overall rate of language acquisition: bilinguals pass their language milestones on approximately the same schedule as monolingual infants, such as the onset of babbling and the production of their first words [@werker_2008]. Nonetheless, children from different language backgrounds receive different types of input, and must ultimately acquire different language forms, which can alter some patterns of language acquisition [e.g., @choi_1991; @slobin_1985; @tardif_1996; @tardif_1997; @werker_1984]. As a consequence, bilingual infants allow researchers to investigate how a given “dose” of experience with a specific language relates to phenomena in language acquisition, while holding infants’ age and total experience with language constant [@byers_heinlein_2014]. 
+
+Aside from the opportunity to study dose effects, it is important to examine the preference for IDS in bilingual infants for the sake of understanding bilingual development itself. Several lines of research suggest that early exposure to two languages changes some aspects of early development [@byers_heinlein_2014], including bilinguals’ perception of non-native speech sounds (i.e., sounds that are in neither of their native languages). For example, a number of studies have reported that bilinguals maintain sensitivity to non-native consonant contrasts [@garcia_sierra_2016; @petitto_2012; @ramirez_2017], tone contrasts [@graf_estes_2015; @liu_2017a], and visual differences between languages [i.e., rhythmic and phonetic information available on the face of talkers; @sebastian_galles_2012] until a later age than monolinguals. Other studies have suggested that bilinguals’ early speech perception is linked to their language dominance [@liu_2015; @molnar_2016; @sebastian_galles_2002], whereby bilinguals’ perception most closely matches that of monolinguals in their dominant language. Bilingual infants also demonstrate some cognitive differences from monolinguals that are not specific to language, including faster visual habituation [@singh_2015], better memory generalization [@brito_2014; @brito_2015], and greater cognitive flexibility [Kovács & Mehler, -@kovacs_2009a; -@kovacs_2009b]. This might reflect an early-emerging difference in information processing between the two groups. Together, these lines of work raise the possibility that preference for IDS versus ADS could have a different developmental course for bilingual and monolingual infants, and that bilinguals’ distinct course could interact with factors such as language dominance.
+
+## Bilinguals’ exposure to and learning from IDS
+
+Overall, there is very little research on whether bilinguals’ experience with IDS is comparable to monolinguals’ experience. Some research has compared English monolinguals and English-Spanish bilinguals in the United States [@ramirez_esparza_2014; -@ramirez_esparza_2017]. Here, researchers reported that bilingual infants around 1 year of age received less exposure to IDS than monolingual infants on average. Moreover, in the bilingual families, input was more evenly distributed across infant- and adult-directed registers. It is difficult to know whether the results reported in these studies generalize to other populations of bilinguals, or whether it was specific to this language community. As acknowledged by the authors, the bilinguals in this study were of a lower SES than the monolinguals, which could have driven differences in the amount of IDS that infants heard. On the other hand, it might be the case that bilingual infants more rapidly lose their preference for the IDS register than do monolinguals, and that caregivers of bilinguals respond to this by reducing the amount of IDS input they provide.
+
+Bilingual infants might also hear IDS that differs prosodically and phonetically from that heard by monolingual infants. Bilingual infants often have bilingual caregivers, and even when they are highly proficient speakers, their speech may vary from that of monolinguals. One study compared vowels produced in the IDS of monolingual English, monolingual French, and balanced French-English bilingual mothers living in Montreal [@danielson_2014]. Bilingual mothers’ vowels were distinct in the two languages, and the magnitude of the difference between French and English vowels was similar to that shown by monolingual mothers. However, another study showed that in a word-learning task, 17-month-old French-English bilinguals learned new words better from a bilingual speaker than a monolingual speaker, even though acoustic measurements did not reveal what dimension infants were attending to [@fennell_2014; similar findings were found in @mattock_2010]. Finally, a study of Spanish-Catalan bilingual mothers living in Barcelona found that some mothers were more variable in their productions of a difficult Catalan vowel contrast than monolingual mothers [@bosch_2011]. Thus, bilingual infants may not only differ in the amount of IDS they hear in a particular language relative to monolingual infants, but different populations of bilingual infants may also vary in how similar the IDS they hear is to monolingual-produced IDS in the same languages. This could, in turn, lead to greater variability across bilinguals in their preference for IDS over ADS when tested with any particular stimulus materials.
+
+Regardless of bilingual infants’ specific experience with IDS, evidence suggests that bilinguals might enjoy the same learning benefits from IDS as monolinguals. For example, Ramírez-Esparza et al. [-@ramirez_esparza_2017] found that greater exposure to IDS predicted larger vocabulary size in both monolingual and bilingual infants. Indeed, an untested possibility is that exposure to IDS might be of particular benefit to bilingual infants. Bilinguals face a more complex learning situation than monolinguals, as they acquire two sets of sounds, words, and grammars simultaneously [@werker_2008]. This raises the possibility that bilingual infants might have enhanced interest in IDS relative to monolinguals, or that they might maintain a preference for IDS until a later age than monolinguals, similiar to the extended sensitivity observed in bilingual infants' perception of non-native phonetic contrasts.
+
+## Replicability in research with bilingual infants
+
+Working with bilingual infant populations engenders unique replicability issues above and beyond those common in the wider field of infant research [e.g., between-lab variability, methodological variation, etc.; see @frank_2017]. These issues begin with the nature of the population. Our discussion of bilingual infants thus far has used “bilingual” as a blanket term to describe infants growing up hearing two or more languages. However, this usage belies the large variability in groups of infants described as “bilingual”. First, some studies of bilinguals have included infants from a homogeneous language background [where all infants are exposed to the same language pair; e.g. English-Spanish in @ramirez_esparza_2017], while others have included infants from heterogeneous language backgrounds [where infants are exposed to different language pairs, e.g., English-Other, where “Other” might be Spanish, French, Mandarin, Punjabi, etc.; e.g., @fennell_2007]. Second, some bilinguals learn two typologically closely related languages (e.g. Spanish-Catalan) while others learn two distant languages (e.g. English-Mandarin). Third, there is wide variability between bilingual infants in the amount of exposure to each language, which introduces an extra dimension of individual difference relative to studies with monolingual infants. Fourth, studies define bilingualism in different ways, ranging from a liberal criterion of at least 10% exposure to the non-dominant language to at least 40% exposure to the non-dominant language [@byers_heinlein_2015]. Finally, bilingual and monolingual populations can be difficult to compare because of cultural, sociological, and socio-economic status differences that exist between samples. 
+
+All of the above difficulties have resulted in very few findings being replicated across different samples of bilinguals. The limited research that has compared different types of bilingual learners has indicated that the particular language pair being learned by bilingual infants influences speech perception of both native [@bialystok_2005; @sundara_2011] and non-native [@patihis_2015] sounds. In contrast, other studies have not found differences between bilinguals learning different language pairs, for example in their ability to apply speech perception skills to a word learning task [@fennell_2007]. Generally, we do not know how replicable most findings are across different groups of bilinguals, or how previously reported effects of bilingualism on learning and perception are impacted by the theoretically interesting moderators discussed above.
+
+Research on bilingual infants also faces many of the same general concerns shared with other fields of infancy research, such as challenges recruiting sufficient participants to conduct well-powered studies [@frank_2017]. Finding an appropriate bilingual sample further limits the availability of research participants, even in locations with significant bilingual populations. Such issues are particularly relevant given the recent emphasis on the replicability and best practices in psychological science [@klein_2014; @open_science_collab_2015; @simmons_2011]. Of particular interest is whether bilingual infants as a group show greater variability in their responses than monolingual infants, and how to characterize the variability of responses between the different types of samples of bilinguals that can be recruited by particular labs (i.e., homogeneous vs. heterogeneous samples). Understanding whether variability differs systematically across groups is vital for planning appropriately-powered studies.
+
+## Description of the current study
+
+Here, we report a large-scale, multi-site, pre-registered study aimed at using data from bilingual infants to understand variability in infants’ preference for IDS over ADS. This study, “ManyBabies 1 Bilingual”, is a companion project to the “ManyBabies 1” project, published in a previous issue of this journal [@manybabies_consortium_2020]. The two studies were conducted in parallel, using the same stimuli and experimental procedure. However, while ManyBabies 1 analyzed all data collected from monolingual infants (including those data from monolinguals reported here), the current study reports additional data from bilingual infants not reported in that paper. Our multi-site approach gives us precision in estimating the overall effect size of bilingual infants’ preference for IDS, while also allowing us to investigate how different types of language experience moderate this effect.
+
+Our primary approach was to compare bilinguals’ performance to the performance of monolinguals tested in the same lab, that is, a subset of the data reported in the ManyBabies 1 paper. This approach has two notable advantages. First, within each lab, bilinguals shared one of their two languages with monolinguals (the language of the wider community). Second, testing procedures were held constant within each lab. Thus, this approach allowed us to minimize procedural confounds with infants’ bilingual status. However, a disadvantage of this approach is that it leaves out data from monolingual infants tested in other labs, which could potentially add precision to the measured effects. Thus, we performed secondary analyses comparing all bilinguals to all monolinguals within the same age bins, regardless of the labs each had been tested in.
+
+Another important difference is in the age groups tested. The ManyBabies 1 study tested monolinguals in four equal age windows: 3–6 months, 6–9 months, 9–12 months, and 12–15 months. Due to limitations in the numbers of bilingual infants that could be recruited, we tested bilinguals in only two of these age windows: 6–9 months, and 12–15 months. The specific age bins selected were based on a preliminary survey of availability of the age ranges from participating laboratories. The choice of non-adjacent age bins also increased the chances of observing developmental differences.
+
+All infants were tested using the same stimuli, which consisted of recordings of North-American English (NAE) accented IDS and ADS. Because of the international nature of this multi-site project, these stimuli were native for some infants but non-native for other infants, both in terms of the language of the stimuli (English), and the variety of infant-directed speech [NAE-IDS is particularly exaggerated in its IDS characteristics relative to other varieties of IDS; see @soderstrom_2007 for a review]. Moreover, the stimuli were produced by monolingual mothers. Thus, infants’ exposure to the type of stimuli used varied from low (monolinguals and bilinguals not exposed to NAE), to moderate (bilinguals learning NAE as one of their two languages), to high (monolinguals learning NAE).
+
+Infants were tested in one of three experimental setups regularly used to test infant auditory preference: central fixation, eye-tracking, and headturn preference procedure. The use of a particular setup was the choice of each lab, depending on their equipment and expertise. Labs that tested both monolinguals and bilinguals used the same setup for both groups. On all setups, infants heard a series of trials presenting either IDS or ADS, and their looking time to an unrelated visual stimulus (e.g., a checkerboard) was used as an index of their attention. In central fixation, infants sat in front of a single screen that displayed a visual stimulus, and their looking was coded via button press using a centrally positioned camera while the auditory stimulus played. Eye-tracking was similar, except that infants’ looking was coded automatically using a corneal-reflection eye-tracker. In the headturn preference procedure setup [HPP; see @kemler_nelson_1995], infants sat in the middle of a room facing a central visual stimulus. Their attention was drawn to the left or right side of the room by a visual stimulus while the auditory stimulus played, and the duration of their looking was measured via button press using a centrally positioned camera. 
+
+## Research questions
+
+We identified three basic research questions addressed by this study. Note that it was not always possible to make specific predictions given the very limited data on infants’ cross-language preferences for IDS over ADS, and particularly the absence of data from bilingual infants. We also note that the ManyBabies 1 project, focusing on monolingual infants, addresses other more general questions such as the average magnitude of the IDS preference, changes in preference over age, and the effects of methodological variation [@manybabies_consortium_2020]. The main questions addressed by data from bilingual infants are:
+
+1. How does bilingualism affect infants’ interest in IDS relative to ADS? As described above, monolingual infants display an early preference for IDS that grows in strength at least through the first year of life. We anticipated that the bilingual experience might result in a different pattern of IDS preference; however, the direction and potential source of any difference is difficult to predict. For example, the more challenging nature of early bilingual environments might induce an even greater preference for IDS over ADS relative to monolinguals. This enhanced preference could be shown across development, or might be observed only at certain ages. On the other hand, given some evidence that parents of bilingual infants produce relatively less IDS than parents of monolingual infants, it may be that bilinguals show less interest in IDS than monolinguals. We also explored the following questions as potential sources for an emerging difference between populations: If an overall difference between monolingual and bilingual infants’ preference for IDS is observed, can this be accounted for by systematic differences in socioeconomic status? Do bilinguals show greater variability in their preference for IDS than monolinguals? 
+
+2. How does the amount of exposure to NAE-IDS affect bilingual infants’ listening preferences? While we expected infants across different language backgrounds to show greater interest in IDS over ADS, we investigated whether this was moderated by the amount of exposure to NAE. For monolinguals, this exposure would be either 100% (monolingual learners of NAE) or 0% (monolingual learners of other languages). For bilinguals, some infants would have 0% exposure to NAE-IDS (e.g., bilingual infants learning Spanish and Catalan) while others would have a range of different exposures (e.g., bilingual infants learning NAE and French). This allowed us to at least partially disentangle dose effects of exposure to NAE-IDS from infants’ bilingualism. An additional possibility is that infants’ exposure to NAE would predict overall attention to both infant-directed and adult-directed NAE, with no differential effects on interest to IDS versus ADS. Finally, it is possible that NAE-IDS is equally engaging to infants regardless of their experience with North American English.
+
+3. Finally, we had planned to ask how bilingual infants’ listening to NAE-IDS and ADS impacted by the particular language pair being learned. We intended to ask this question at both the group and at the individual level. At the group level, we planned to investigate whether different patterns of results would be seen in homogeneous versus heterogeneous samples of bilinguals, in terms of overall preference for IDS and group-level variability. However, ultimately we had insufficient homogeneous samples to address this question. At the individual level, we were interested in how the particular language pair being learned modulated infants’ preference for IDS. As we did not know a priori what language pairs would have sufficient sample size for analysis, this was considered a potential exploratory analyses. Ultimately, due to the nature of our main results and the diverse language backgrounds of our final sample, we decided to leave this question open for future investigations.
+
+# Methods
+
+Our methods largely followed those used by the ManyBabies 1 monolingual companion project [@manybabies_consortium_2020], with the exception of the nature of the bilingual participants tested. In this section, we will provide only a brief overview of the methods shared by the two studies, focusing specifically on areas where the two studies differ. We report how we determined our sample size, all data exclusions, all manipulations, and all measures in the study.
+
+## Participation Details
+
+### Time-frame
+
+An open call for labs to participate was issued on February 2, 2017. Participant testing began on May 1, 2017. Testing for monolinguals ended on April 30, 2018.  Because of the additional difficulty of recruiting bilingual samples, the end-date for collection of these data was extended by four months to August 31, 2018. Due to a miscommunication, one lab continued testing data beyond this deadline but prior to data analysis, and these data were included in the final sample.
+
+### Age distribution 
+
+Labs contributing data from bilingual infants were asked to test participants in at least one of two (but preferably both) age bins: 6–9 month-olds (6:1 – 9:0) and 12–15 month-olds (12:1 – 15:0). Labs were asked to aim for a mean age at the centre of the bin, with distribution across the entire age window.
+
+### Lab participation criterion. 
+
+Considering the challenges associated with recruiting bilingual infants and the importance of counterbalancing in our experimental design, we asked labs to contribute a minimum of 16 infants per age and language group (note that infants who met inclusion criteria for age and language exposure but were ultimately excluded for other reasons counted towards this minimum N). We also expected that requiring a relatively low minimum number of infants would encourage more labs to contribute a bilingual sample, and under our statistical approach a larger number of groups is more important than a larger number of individuals [@maas_2005]. However, labs were encouraged to contribute additional data provided that decisions about when to stop data collection were made ahead of time (e.g., by declaring an intended start and end date before data collection).  A sensitivity analysis showed that, with a sample of 16 infants and assuming the average effect size of similar previous studies [Cohen’s d = .7; @dunst_2012; @metalab_2017], individual labs would have 74% power to detect a preference for IDS in a paired-samples t-test (alpha = .05, one-tailed). We note that some labs were unable to recruit their planned minimum sample of 16 bilingual infants that met our inclusion criteria in the timeframe available, a point we will return to later in the paper.
+
+Labs were asked to screen infants ahead of time for inclusion criteria, typically by briefly asking about language exposure over the phone. Despite this screening process, some infants who arrived in the lab for testing fell between the criteria for monolingual and bilingual status based on the comprehensive questionnaire. In such cases, the decision whether to test the infant was left up to individual laboratories’ policy, but we asked that data from any babies who entered the testing room be submitted for data processing (even though some such data might be excluded from the main analyses).
+
+### Ethics
+
+Each lab followed the ethical guidelines and ethics review board protocols of their own institution. Labs submitted anonymized data for central analysis that identified participants by code only. Video recordings of individual participants were coded and stored locally at each lab, and where possible were uploaded to a central controlled-access databank accessible to other researchers.
+
+## Participants
+
+### Defining bilingualism 
+
+Infants are typically categorized as bilingual as a function of their parent-reported relative exposure to their languages. However, studies vary considerably in terms of inclusion criteria for the minimum exposure to the non-dominant language, which in previous studies has ranged from 10% to 40% of infants’ exposure [@byers_heinlein_2015]. Some bilingual infants may also have some exposure to a third or fourth additional languages. Finally, infants can vary in terms of when the onset of exposure to their additional languages is, which can be as early as birth or anytime thereafter. We aimed to take a middle-of-the-road approach to defining bilingualism, attempting to balance a need for experimental power with interpretable data.
+
+Thus, we asked each participating lab to recruit a group of simultaneous bilingual infants who were exposed to two languages between 25% and 75% of the time, with regular exposure to both languages beginning within the first month of life. There was no restriction as to whether infants were exposed to additional languages, thus some infants could be considered multilingual (although we continue to use the term bilingual throughout this manuscript). These criteria would include, for example, an infant with 40% English, 40% French, and 20% Spanish exposure, but would exclude an infant with 20% English, 70% French, and 10% Spanish exposure. We also asked labs to recruit a sample of bilingual infants who shared at least one language – the community language being learned by monolinguals tested in the same lab. For labs in bilingual communities (e.g., Barcelona, Ottawa, Montréal, Singapore), labs were free to decide which community language to select as the shared language. Within this constraint, most labs opted to test heterogeneous groups of bilinguals, for example, English-Other bilinguals where English was the community language the other language might be French, Spanish, Mandarin, etc. Only one lab tested a homogeneous group of bilinguals (in this case, all infants were learning English and Mandarin), although we had expected that more labs would test homogeneous samples, given both heterogeneous and homogeneous samples are used regularly in research with bilingual infants. Because only one homogeneous sample was tested, we were not able to conduct planned analyses examining whether the type of sample on our results. Infants that were tested but that did not meet inclusion criteria into the group (for example because they did not hear enough of their non-dominant language, or were not hearing the community language) were excluded from the main analyses, but retained for exploratory analyses where appropriate.
+
+### Assessing bilingualism
+
+Each lab was asked to use a detailed day-in-the-life parental interview questionnaire to quantify the percent of time that infants were exposed to each language. This approach has been shown to predict bilingual children’s language outcomes better than a one-off parental estimate [@deanda_2016]. Moreover, recent findings based on day-long recording gathered using LENA technology show that caregivers can reliably estimate their bilingual child’s relative exposure to each language [@orena_2019]. Labs were also asked to pay special attention to whether infants had exposure to North American English, and if so which caregiver(s) this input came from. As most of the labs contributing bilingual data had extensive expertise in bilingual language background assessment, we encouraged each lab to use whatever version of measurement instrument was normally used in their lab (details of the assessment instruments are outlined below, including source references for most measures). Where possible, labs conducted the interview in the parents’ language of choice, and documented whether the parents’ preferred language was able to be used.
+
+While standardization of measurement tools is often desirable, we reasoned that different questions and approaches might be best for eliciting information from parents in different communities and from different cultures. Indeed, many labs reported that their own instruments had undergone considerable refinement over the years as a function of their experience working with the families in their communities. However, in order to maximize the overall sample size and the diversity of bilingual groups tested, we encouraged participation from laboratories without extensive experience testing bilingual infants. Labs that did not have an established procedure were paired with more experienced labs working with similar communities to refine a language assessment procedure. Twelve of the labs administered a structured interview-style questionnaire based on the one developed by Bosch and Sebastián-Gallés [-@bosch_1997; -@bosch_2001; for examples of the measure see the online supplementary materials of @byers_heinlein_2019; @deanda_2016], and the remaining 5 labs administered other questionnaires. We describe each of these approaches in detail below.
+
+The Bosch and Sebastián-Gallés [-@bosch_1997; -@bosch_2001] questionnaire is typically referred to in the literature as the Language Exposure Questionnaire [LEQ; e.g., @byers_heinlein_2013], or the Language Exposure Assessment Tool [LEAT; @deanda_2016]. Administration of these questionnaires takes the form of a parental interview, where a trained experimenter systematically asks at least one of the infant’s primary caregivers detailed questions about the infant’s language environment. The interviewer obtains an exposure estimate for each person who is in regular contact with the infant, as defined by a minimum contact of once a week. For each of those people, the caregiver gives an estimate of how many hours per day they speak to the infant in each language for each of the days of the week (e.g., weekdays and weekends may differ depending on work commitments). Further, the caregiver is asked if the language input from each regular-contact person was similar across the infant’s life history. If not, such as in the case of a caregiver returning to work after parental leave, or an extended stay in another country, an estimate is derived for each different period of the infant’s lifespan. The interviewer also asks the caregiver about the language background of each person with regular contact with the infant (as defined above), asking the languages they speak and whether they are native speakers of those languages. The caregiver also gives an estimate of language exposure in the infant’s daycare, if applicable. Finally, the caregiver gives a global estimate of their infant’s percent exposure to the two languages, which includes input from those people in regular contact with the infant and other people with whom the infant has less regular contact (e.g., playgroups, friends of caregivers, etc.). Importantly, this global estimate does not include input from television or radio, as such sources have no known positive impact, and may even have a negative impact on monolingual and bilingual language development in infancy [see @hudon_2013]. The estimate of an infant’s percent exposure to their languages is derived from the average cumulative exposure based on the data from the primary individuals in the infant’s life. Some labs use the global estimate simply to confirm these percentages. Other labs average the primary and global exposure to take into account all language exposure, while still giving more weight to the primary individuals. Also, some labs asked additional questions, for example about videoconferencing with relatives, whether caregivers mix their languages when speaking to the infant, or caregivers’ cultural background. Finally, while the original form was pen-and-paper, there have been adaptations which include using a form-fillable Excel sheet [@deanda_2016].
+
+For the other language exposure measures used by 5 of the labs, we will simply highlight the differences from the LEQ/LEAT measure described above, as there is much overlap between all the instruments used to measure infants’ exposure to their languages. Two labs used custom assessment measures designed within each lab. The major difference from the LEQ for the first of these custom measures is that parents provide percentage exposure estimates for each language from primary individuals in the infant’s life, rather than exposure estimates based on hours per day in each language. The other custom measures, unlike the LEQ, specifies estimates of language exposure in settings where more than one speaker is present by weighting each speaker’s language contribution. A further two labs used other child language exposure measures present in the literature: one used the Multilingual Infant Language Questionnaire [MILQ; @liu_2017b] and the other used an assessment measure designed by @cattani_2014. For the MILQ, one major difference is that parents complete the assessment directly using an Excel sheet with clear instructions. The other major difference is that the MILQ is much more detailed than the LEQ/LEAT: breaking down language exposure to very specific activities (e.g., car time, book reading, meal time); asking more detail about the people in regular contact with the infant (e.g., accented speech, level of talkativeness); and obtaining estimates of media exposure (e.g., TV, music). The measure from @cattani_2014 focuses on parental exposure and uses Likert scales to determine exposure from each parent. The ratings are converted to percentages and maternal exposure is weighted more in the final calculation based on data showing that mothers are more verbal than fathers. Finally, one lab did not use a detailed measure, but rather simply asked parents to give an estimate of the percentage exposure to each of the languages their infant was hearing.
+
+We asked labs that collected data from monolingual infants (a subset of the data included in the ManyBabies 1 monolingual study) to check participants’ monolingual status by asking parents a single question: estimate the percent of time that their infant was exposed to their native language. If that estimate exceeded 90% exposure to a single language, the infant was considered monolingual.
+
+### Demographics
+
+Each lab administered a questionnaire that gathered basic demographic data about infants, including age, health history, gestation, etc. Infants’ socioeconomic status (SES) was measured via parental report of years of maternal education. To standardize across different education systems where formal schooling may begin at different ages, we counted the number of years of education after kindergarten.  For example, in the United States, mothers who had completed high school would be considered to have 12 years of education.
+
+### Final sample
+
+Our final sample of bilinguals who met our infant-level inclusion criteria included `r n_bil` infants tested in `r n_labs_bil` labs; `r n_6_9_bil` were 6–9 months, and `r n_12_15_bil` were 12–15 months (full account of exclusions is detailed in the results section). These 17 labs also collected data from monolingual infants (N = `r n_matched_mono` who met infant-level inclusion criteria), of whom `r n_6_9_matched_mono` were 6–9 months, and `r n_12_15_matched_mono` were 12–15 months. While all analyses required that data meet the infant-level inclusion criteria, some analyses further required that the data met the lab-level inclusion criteria (lab-level inclusion criteria are discussed in the Results section where they were implemented for specific analyses). Data from monolingual infants in these age ranges were available from `r length(labs_unmatched_mono$lab)` additional labs (n = `r n_6_9_unmatched_mono` 6-9 month-olds; n = `r n_12_15_unmatched_mono` 12-15 month-olds) who did not contribute bilingual data. Bilingual infants and their lab-matched monolingual samples tested by each lab are detailed in Table 1. For further description of our participants, please refer to the Appendix, where we list gender distributions across subsamples (Table A1) and the language pairs being learned by bilingual infants (Table A2). Additional information about the larger ManyBabies sample from which the monolingual data were sampled can be found in the ManyBabies 1 monolingual study [@manybabies_consortium_2020] and the associated Open Science Framework project at osf.io/re95x. 
+
+```{r descriptives-table, results="asis"}
+
+labs_matched_mono_list <- labs_matched_mono %>%
+  mutate(matched = "matched") %>%
+  select(lab, matched)
+
+labs_unmatched_mono_list <- labs_unmatched_mono %>%
+  mutate(matched = "unmatched") %>%
+  select(lab, matched)
+
+labs_match_status <- full_join(labs_matched_mono_list, labs_unmatched_mono_list) %>%
+  ungroup %>%
+  select(-age_group) %>%
+  unique
+
+labs_bil_method <- d_participants_bil %>%
+  select(lab, method) %>%
+  unique
+
+lab_stats <- d_matched %>%
+  group_by(lab, age_group, lang_group) %>%
+  summarize(N = length(unique(subid))) %>%
+  unite(age_lang_group, age_group, lang_group, sep = " ") %>%
+  spread(key = age_lang_group, value = N) %>%
+  select(lab, "6-9 mo bilingual", "6-9 mo monolingual", "12-15 mo bilingual", "12-15 mo monolingual") %>%
+  left_join(labs_bil_method) %>% 
+  select(lab, method, "6-9 mo bilingual", "6-9 mo monolingual", "12-15 mo bilingual", "12-15 mo monolingual") 
+
+lab_stats[is.na(lab_stats)] <- 0
+
+kable(lab_stats, digits= 2,
+      format = "latex", booktabs=T,
+      longtable = TRUE,
+      caption = "Number of monolingual and bilingual infants in each age group by lab which met infant-level inclusion criteria. Note that because of lab-level inclusion criteria, cells with n < 10 were excluded from the meta-analytic analyses, but were included in the mixed-effects regression analyses. Labs that only tested monolingual infants are not listed.") %>%
+  kable_styling(position = "float_right", font_size = 11,
+    latex_options = c("scale_down", "hold_position", "repeat_header"), full_width = F) %>% 
+    column_spec(2:6, width = "2.3cm") 
+```
+
+
+## Materials
+
+### Visual stimuli
+
+Labs using a central fixation or eye-tracking method presented infants with a brightly-coloured checkerboard as the main visual stimulus. A video of a laughing baby was used as an attention-getter between trials to reorient infants to the screen. Labs using the headturn preference procedure used the typical visual stimulus employed in their labs, which was sometimes light bulbs (consistent with the original development of the procedure in the 1980s) or sometimes colourful stimuli presented on LCD screens. All visual stimuli are available via the ManyBabies 1 monolingual Open Science Framework site at osf.io/re95x/.
+
+### Auditory stimuli 
+
+Auditory stimuli consisted of semi-naturalistic recordings of mothers interacting with their infants (ranging in age from 122–250 days) in a laboratory setting. Mothers were asked to talk about a set of objects with their infant, and also separately with an experimenter. A set of 8 IDS and 8 ADS auditory stimuli of 20 s each were created from these recordings. Details regarding the recording and selection process, acoustic details and ratings from naive adult listeners can be found in the ManyBabies 1 monolingual study [@manybabies_consortium_2020] and the associated Open Science Framework project at osf.io/re95x. 
+
+## Procedure
+
+### Basic Procedure 
+
+Each lab used one of three common infant study procedures, according to their own expertise and the experimental setups available in the lab: central fixation (`r sum(labs_bil_method$method == "singlescreen")` labs), eye-tracking (`r sum(labs_bil_method$method == "eyetracking")` labs), or headturn preference procedure (`r sum(labs_bil_method$method == "hpp")` labs). The testing procedure was identical to that used in the ManyBabies 1 monolingual project [@manybabies_consortium_2020, deviations from the protocol are also described there], and only key aspects will be briefly summarized here.
+
+Infants sat on their parents’ laps or in a high chair, and parents listened to masking music over headphones throughout the study. Infants saw 2 training trials that presented an unrelated auditory stimulus (piano music), followed by 16 test trials that presented either IDS or ADS speech. Trials were presented in one of four pseudo-random orders that counterbalanced the order of presentation of the two stimulus types. Note that within each order, specific IDS and ADS clips were presented adjacently in yoked pairs to facilitate analyses. On each trial, the auditory stimulus played until the infant looked away for 2 consecutive seconds (for labs that implemented an infant-controlled procedure) or until the entire stimulus played, up to 19 seconds (for labs that implemented a fixed trial-length procedure). The implementation of the procedure depended on the software that was available in each lab. Trials with less than 2 seconds of looking were excluded from analyses. Attention-grabbing stimuli were played centrally between trials to reorient infants to the task. 
+
+The main differences between the setups were the type and position of visual stimuli presented, and the onset of the auditory stimuli. For central fixation and eye-tracking procedures, infants saw a checkerboard on a central monitor, whose presentation coincided with the onset of the auditory stimuli on each trial. For the headturn preference procedure, the visual stimulus (either flashing light bulbs or a colourful stimulus) played silently on a monitor/bulb in the centre of the room and on one of two side monitors/bulbs, and the auditory stimulus began playing when the infant turned their head towards the side stimulus.
+
+The dependent variable was infant looking time during each trial. For eye-tracking setups, looking time was measured automatically via corneal reflection. For central fixation and headturn preference procedure setups, looking time was measured by trained human coders who were blind to trial type, according to the lab’s standard procedures.
+
+Parents completed questionnaires about participants’ demographic and language background either prior to or after the main experiment.
+
+# Results
+
+## Analysis overview
+
+### Data exclusion
+
+```{r exclusions, child = "exclusions.Rmd"}
+```
+
+### Data analysis framework
+
+All planned analyses were pre-registered at https://osf.io/zauhq/; data and code are available at https://github.com/manybabies/mb1b-analysis-public. Our primary dependent variable of interest was looking time (LT), which was defined as the time spent fixating on the visual stimulus during test trials. Given evidence that looking times are non-normally distributed, we log-transformed all looking times prior to statistical analysis [@csibra_2016]. We refer to this transformed variable as “log LT”. We pre-registered a set of analyses to examine whether monolinguals, heterogeneous samples of bilinguals, and homogeneous samples of bilinguals showed different levels of variability. Unexpectedly, only 1 lab (Table 1) tested a homogenous sample of bilinguals, thus we deviated from our original plan and did not analyze data as a function of whether our bilingual groups were homogenous versus heterogeneous. For the main analyses, we adopted two complementary data analytic frameworks parallel to the ManyBabies 1 monolingual project [@manybabies_consortium_2020]: meta-analysis and mixed-effects regression. 
+
+Under the meta-analytic framework, data from each sample of infants (e.g., 6 to 9 month-old bilinguals from Lab 1) was characterized by a) its effect size (here Cohen’s $d$), and b) its standard deviation.  Effect size analyses addressed questions about infants’ overall preference for IDS, while group-based standard deviation analyses addressed questions about whether some groups of infants show higher variability in their preference than others. Note that meta-analyses of intra-group variability are relatively rare [@nakagawa_2015; @senior_2016]. For the meta-analysis only, we implemented a lab-level inclusion criterion, such that each effect size was computed only if the lab had contributed at least 10 infants in that particular language group and age. For example, if lab A had contributed 7 bilingual infants between 6- to 9-months and 15 monolingual infants between 6- to 9-months, we only computed effect size for the monolingual group, but not for the bilingual group. This criterion ensured that each effect size was computed based on a reasonable sample size (i.e., a minimum of 10 infants) and also was consistent with the lab-level inclusion criteria in the ManyBabies 1 monolingual study.
+
+An advantage of the meta-analytic approach is that it is easy to visualize lab-to-lab differences. Further, the meta-analytic framework most closely mirrors the current approach for studying monolingual-bilingual differences, which typically compares groups of monolingual and bilingual infants tested within the same lab. We used this approach specifically to test the overall effect of bilingualism and its possible interactions with age on the magnitude of infants’ preference for IDS over ADS. We also compared standard deviations for the bilingual group and monolingual group in a meta-analytic approach. This analysis closely followed Nakagawa et al. [-@nakagawa_2015].
+
+Under the mixed-effects regression model, trial-by-trial data from each infant were submitted for analysis. Further, independent variables of interest could be specified on an infant-by-infant basis. This approach had the advantage of potentially increasing statistical power, as data are analyzed at a more fine-grained level of detail. As with the meta-analytic approach, this analysis tested the effects of bilingualism and their potential interactions with age. We also investigated whether links between bilingualism and IDS preference were mediated by socio-economic status. Additionally, this approach allowed us to assess how the amount of exposure to NAE-IDS, measured as a continuous percentage, affected infants’ listening preferences. Note that unlike for the meta-analysis, we did not apply a lab-level inclusion criterion in order to maximize our sample size. Thus, data from all infants who met the infant-level criteria were included in this analysis, resulting in slightly different sample sizes under the meta-analytic and mixed-effects approaches.
+
+Under both frameworks, we used a dual analysis strategy to investigate how infants’ IDS preference is related to bilingualism. First, we examined the matched subset of data from labs that contributed a monolingual and bilingual sample at a particular age. Second, we examined the complete set of data including data from labs that contributed both monolinguals and bilinguals, as well as additional data from labs that only collected monoinguals at the ages of interest as part of the larger ManyBabies 1 project.
+
+## Confirmatory analysis section
+```{r create meta-analyses dataset}
+source(here("helper/ma_helper.R"))
+
+ages <- d_matched %>%
+  group_by(lab, age_group, lang_group, subid) %>%
+  summarise(age_mo = mean(age_mo)) %>%
+  summarise(age_mo = mean(age_mo)) %>% 
+  mutate(age_mo_centered = scale(age_mo, scale = FALSE))
+
+ages_f <- d_full %>%
+  group_by(lab, age_group, lang_group, subid) %>%
+  summarise(age_mo = mean(age_mo)) %>%
+  summarise(age_mo = mean(age_mo)) %>% 
+  mutate(age_mo_centered = scale(age_mo, scale = FALSE))
+
+ds_zt_matched_set <- d_diffs_matched %>%
+  group_by(lab, age_group, lang_group, subid) %>%
+  summarise(d = mean(diff, na.rm = TRUE)) %>%
+  group_by(lab, age_group, lang_group) %>%
+  summarise(mean_d = mean(d, na.rm=TRUE),
+            d_z = mean(d, na.rm = TRUE) / sd(d, na.rm = TRUE),
+            n = length(unique(subid)),
+            d_z_var = d_var_calc(n, d_z)) %>%
+  filter(n >= 10) %>%
+  left_join(ages) %>%
+  filter(!is.na(d_z)) # CHECK THIS
+
+ds_zt_unmatched_set <- d_diffs_full %>%
+  group_by(lab, age_group, lang_group, subid) %>%
+  summarise(d = mean(diff, na.rm = TRUE)) %>%
+  group_by(lab, age_group, lang_group) %>%
+  summarise(mean_d=mean(d,na.rm=TRUE),
+            d_z = mean(d, na.rm = TRUE) / sd(d, na.rm = TRUE),
+            n = length(unique(subid)),
+            d_z_var = d_var_calc(n, d_z)) %>%
+  filter(n >= 10) %>%
+  left_join(ages_f) %>%
+  filter(!is.na(d_z)) # CHECK THIS
+
+```
+
+
+### Meta-analytic approach. 
+
+This approach focused on the analysis of group-level datasets. We defined a dataset as a group of at least 10 infants tested in the same lab, of the same age (either 6-9 or 12-15 months), and with the same language background (monolingual or bilingual). For analyses of within-group variability, we compared bilingual infants to monolingual infants.  
+
+To estimate an effect size for each dataset, we first computed individual infants’ preference for IDS over ADS by 1) subtracting looking time to the ADS stimulus from looking time to the IDS stimulus within each yoked trial pair, and 2) computing a mean difference score for each infant. Pairs that had a trial with missing data were excluded (`r percent_pairs_missing_matched`% pairs in matched dataset, `r percent_pairs_missing_full`% pairs in full dataset), which constituted a total of `r percent_trials_missing_matched`% of trials in matched dataset, `r percent_trials_missing_full`% of trials in full dataset. Note that we expected many infants to have missing data particularly on later test trials, given the length of the study (16 test trials). Then, for each dataset (i.e., combination of lab, infant age group, and whether the group of participants was bilingual or monolingual), we calculated the mean of these difference scores ($M_d$) and its associated standard deviation across participants ($sd$). Finally, we used the derived $M_d$ and $sd$ to compute a within-subject Cohen’s $d$ using the formula $d_z = M_d/sd$.  
+
+In the following meta-analyses, random effects meta-analysis models with a restricted maximum-likelihood estimator (REML) were fit with the $metafor$ package [@viechtbauer_2010]. To account for the dependence between monolingual and bilingual datasets stemming from the same lab, we added laboratory as a random factor. As part of our pre-registered analyses, we planned to include method as a moderator in this analysis if it was found to be a statistically significant moderator in the larger ManyBabies 1 monolingual project - which it was [@manybabies_consortium_2020]. However, because only `r n_labs_bil` labs contributed bilingual data, we deviated from this plan because of the small number of labs per method (e.g., only three labs used a single-screen method).
+
+```{r ES MATCHED meta-analysis}
+lang_mod_matched <- metafor::rma(d_z ~ age_mo_centered*lang_group, vi = d_z_var,
+                    slab = lab, data = ds_zt_matched_set, method = "REML")
+
+
+#monolinguals' IDS ES in the matched dataset
+mono_sample_matched <- ds_zt_matched_set %>% filter(lang_group == "monolingual") 
+
+mono_only_matched <- metafor::rma(d_z ~ 1, vi = d_z_var, data = mono_sample_matched, slab = lab, method = "REML")
+
+
+#bilinguals' IDS ES in the matched dataset
+bil_sample_matched <- ds_zt_matched_set %>% filter(lang_group == "bilingual") 
+
+bil_only_matched <- metafor::rma(d_z ~ 1, vi = d_z_var, data = bil_sample_matched, slab = lab, method = "REML")
+
+```
+
+```{r ES FULL meta-analysis}
+lang_mod_unmatched <- metafor::rma(d_z ~ age_mo_centered*lang_group, vi = d_z_var,
+                    slab = lab, data = ds_zt_unmatched_set, method = "REML")
+
+
+#monolinguals' IDS ES in the unmatched dataset
+mono_sample_unmatched <- ds_zt_unmatched_set %>% filter(lang_group == "monolingual") 
+
+mono_only_unmatched <- metafor::rma(d_z ~ 1, vi = d_z_var, data = mono_sample_unmatched, slab = lab, method = "REML")
+
+
+#bilinguals' IDS ES in the unmatched dataset 
+bil_sample_unmatched <- ds_zt_unmatched_set %>% filter(lang_group == "bilingual") 
+
+bil_only_unmatched <- metafor::rma(d_z ~ 1, vi = d_z_var, data = bil_sample_unmatched, slab = lab, method = "REML")
+
+```
+
+#### Effect size-based meta-analysis.
+
+Our first set of meta-analyses focused on effect sizes ($d_z$): how our variables of interest contributed to effect size comparing looking time to IDS versus ADS trials. As a reminder, we ran the analyses in two ways: (i) the analysis was only restricted to the labs that contributed matched data (matched dataset), and (ii) the analysis included all available data labs that tested only monolinguals or only bilinguals at the ages of interest (full dataset).
+
+We initially fit the following model to examine contributions of age and bilingualism to infants’ IDS preference, as well as potential interactions between these variables: $$d_z \sim 1 + \text{bilingual} + \text{age} + \text{bilingual * age}$$
+
+Bilingualism was dummy coded (0 = monolingual, 1 = bilingual), and age was coded as the average age for each lab’s contributed sample for each language group (centered for ease of interpretation).  
+
+In the matched dataset, we did not find any statistically significant effects of age ($d_z$ = `r round(lang_mod_matched$b[2], 2)`, CI = [`r round(lang_mod_matched$ci.lb[2], 2)` - `r round(lang_mod_matched$ci.ub[2], 2)`], z = `r round(lang_mod_matched$z[2], 2)`, $p = `r papaja::printp(lang_mod_matched$pval[2])`$), bilingualism ($d_z$ =
+`r round(lang_mod_matched$b[3], 2)`, CI = [`r round(lang_mod_matched$ci.lb[3], 2)` - `r round(lang_mod_matched$ci.ub[3], 2)`], z = `r round(lang_mod_matched$z[3], 2)`, $p = `r papaja::printp(lang_mod_matched$pval[3])`$), or interactions between age and bilingualism ($d_z$ = `r round(lang_mod_matched$b[4], 2)`, CI = [`r round(lang_mod_matched$ci.lb[4], 2)` - `r round(lang_mod_matched$ci.ub[4], 2)`], z = `r round(lang_mod_matched$z[4], 2)`, $p = `r papaja::printp(lang_mod_matched$pval[4])`$). 
+
+Similarly, in the full dataset, we did not find any significant main effects of age, ($d_z$ = `r round(lang_mod_unmatched$b[2], 2)`, CI = [`r round(lang_mod_unmatched$ci.lb[2], 2)` - `r round(lang_mod_unmatched$ci.ub[2], 2)`], z = `r round(lang_mod_unmatched$z[2], 2)`, $p = `r papaja::printp(lang_mod_unmatched$pval[2])`$), 
+bilingualism ($d_z$ = `r round(lang_mod_unmatched$b[3], 2)`, CI = [`r round(lang_mod_unmatched$ci.lb[3], 2)` - `r round(lang_mod_unmatched$ci.ub[3], 2)`], z = `r round(lang_mod_unmatched$z[3], 2)`, $p = `r papaja::printp(lang_mod_unmatched$pval[3])`$), nor a significant interaction between age and bilingualism ($d_z$ = `r round(lang_mod_unmatched$b[4], 2)`, CI = [`r round(lang_mod_unmatched$ci.lb[4], 2)` - `r round(lang_mod_unmatched$ci.ub[4], 2)`], z = `r round(lang_mod_unmatched$z[4], 2)`, $p = `r papaja::printp(lang_mod_unmatched$pval[4])`$). 
+
+As bilingualism is the key moderator of research interest in the current paper, here we report the effect sizes of monolingual and bilingual infants separately. In the matched dataset, the effect size for monolinguals was $d_z$ = `r round(mono_only_matched$b[1], 2)` (CI = [`r round(mono_only_matched$ci.lb, 2)` - `r round(mono_only_matched$ci.ub, 2)`], z = `r round(mono_only_matched$z, 2)`, $p = `r papaja::printp(mono_only_matched$pval)`$), while for bilinguals the effect was $d_z$ = `r round(bil_only_matched$b[1], 2)` (CI = [`r round(bil_only_matched$ci.lb, 2)` - `r round(bil_only_matched$ci.ub, 2)`], z = `r round(bil_only_matched$z, 2)`, $p = `r papaja::printp(bil_only_matched$pval)`$). In the full dataset, the effect size for monolinguals was $d_z$ = `r round(mono_only_unmatched$b[1], 2)` (CI = [`r round(mono_only_unmatched$ci.lb, 2)` - `r round(mono_only_unmatched$ci.ub, 2)`], z = `r round(mono_only_unmatched$z, 2)`, $p = `r papaja::printp(mono_only_unmatched$pval)`$), while for bilinguals the effect was $d_z$ = `r round(bil_only_unmatched$b[1], 2)` (CI = [`r round(bil_only_unmatched$ci.lb, 2)` - `r round(bil_only_unmatched$ci.ub, 2)`], z = `r round(bil_only_unmatched$z, 2)`, $p = `r papaja::printp(bil_only_unmatched$pval)`$). In sum, numerically monolinguals showed a stronger preference for IDS than bilinguals, but this tendency was not statistically significant in the effect size-based meta-analyses. A forest plot for this meta-analysis is shown in Figure 1.
+
+```{r}
+ds_zt_matched_set <- ds_zt_matched_set %>%
+  mutate(SD=sqrt(d_z_var),
+         lnSD =log(SD)+(1/(2*(n-1))), 
+         SV.lnSD = 1/(2*(n-1)),
+         ln_mean_d=log(abs(mean_d))) 
+
+ds_zt_unmatched_set <- ds_zt_unmatched_set %>%
+  mutate(SD=sqrt(d_z_var),
+         lnSD =log(SD)+(1/(2*(n-1))), 
+         SV.lnSD = 1/(2*(n-1)),
+         ln_mean_d=log(abs(mean_d))) 
+
+#check if there is correlation between mean_d and SD, very low and non-significant correlation. So mean_d and SD are not proportional with each other, we can't run the lnCVS approach
+
+SD_dz_cor_matched <- cor.test(ds_zt_matched_set$mean_d, ds_zt_matched_set$SD)
+SD_dz_cor_unmatched <- cor.test(ds_zt_unmatched_set$mean_d, ds_zt_unmatched_set$SD)
+```
+
+```{r}
+ds_zt_matched_set$lang_group <- as.factor(ds_zt_matched_set$lang_group)
+
+Var_matched_set <- metafor::rma.mv(yi = lnSD, V = SV.lnSD,
+                                   mods = ~lang_group + scale(log(abs(mean_d))),
+                                   random = list(~lang_group | lab),
+                                   data = ds_zt_matched_set)
+
+Var_unmatched_set <- metafor::rma.mv(yi=lnSD, V=SV.lnSD,
+                                     mods= ~ lang_group + scale(log(abs(mean_d))),
+                                     random = list(~lang_group | lab),
+                                     data = ds_zt_unmatched_set)
+
+```
+
+```{r fig.cap="Forest plot for the matched dataset. Standardized effect sizes are shown for each lab, with error bars showing 95% confidence intervals. Each lab reported two effect sizes: one for monolingual group and the other one for bilingual group. Points are scaled by inverse variance and colored by language groups (blue circle denotes bilinguals and red triangle denotes monolinguals). For the age group panels, the point and its associated interval represent the meta-analytic estimate and the 95% confidence interval in each language group. The points in bottom panel show the global meta-analytic estimate.", fig.height = 5.5, fig.pos="p!"}
+
+lang_only_matched <- metafor::rma(d_z ~ lang_group, vi = d_z_var,
+                    slab = lab, data = ds_zt_matched_set, method = "REML")
+
+alpha <- .05
+
+p_lang <- predict(lang_only_matched, newmods =  c(0,1)) %>%
+  as_tibble %>%
+  mutate(lang_group = levels(ds_zt_matched_set$lang_group), 
+         age_group = "",
+         lab = "Meta-analytic estimate")
+
+forest_data <- ungroup(ds_zt_matched_set) %>%
+  mutate(pred = d_z, 
+         ci.lb = d_z - qnorm(alpha / 2, lower.tail = FALSE) * sqrt(d_z_var), 
+         ci.ub = d_z + qnorm(alpha / 2, lower.tail = FALSE) * sqrt(d_z_var), 
+         inverse_vars = 1/d_z_var, 
+         age_group = as.character(age_group)) %>%
+  bind_rows(p_lang) %>%
+  mutate(age_group = fct_relevel(age_group, c("6-9 mo", "12-15 mo", ""))) 
+
+ggplot(forest_data,
+       aes(x = lab, y = pred,
+           ymin = ci.lb, ymax = ci.ub, col = lang_group, shape = lang_group)) +
+  geom_point(aes(y = d_z, size = inverse_vars),
+             position = position_dodge(width = .2), alpha = 0.6) +
+  geom_point(data = filter(forest_data, lab == "Meta-analytic estimate"), 
+            size = 3)+
+  geom_linerange(position = position_dodge(width = .2)) +
+  facet_grid(age_group ~ ., scales = "free", space = "free") +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "grey") +
+  coord_flip() +
+  scale_size_continuous(guide = FALSE) +
+  scale_color_solarized(accent = "blue", name = "Language group", labels = c("Bilingual infants", "Monolingual infants")) +
+  scale_shape_discrete(name = "Language group", labels = c("Bilingual infants", "Monolingual infants"))+
+  guides(color = guide_legend(override.aes = list(linetype = 0))) +
+  xlab("Lab") +
+  ylab("Effect Size") +
+  theme(legend.position = "bottom")
+
+```
+
+#### Within-group variability meta-analysis
+
+Our second set of pre-registered meta-analyses examined whether the variability in infants’ preference for IDS within a sample (within-study variability) was related to language background (monolingual vs. bilingual). Note that this question of within-sample heterogeneity is different than questions of between-sample heterogeneity that can also be addressed in meta-analysis [see @higgins_2002; @higgins_2003 for approaches to between-group variability in meta-analysis]. Specifically, the within-group variability meta-analysis approach provides additional insights of how two groups differ in terms of their variances, not merely their mean effect sizes. This approach is useful when the language backgrounds of the infants influence not only the magnitude of infants' IDS preference, but also the variability of infants' IDS preference. In the following, the standard deviations measure looking time variability of infants' preference for IDS over ADS in each language group (either monolingual or bilingual). Again, we report $d_z$, an effect size that measures the magnitude of infants’ preference for IDS over ADS. 
+
+According to @nakagawa_2015, there are two approaches to run within-group variability meta-analysis: one approach uses $lnCVR$, the natural logarithm of the ratio between the coefficients of variation, to compare the variability of two groups; a second approach enters $lnSD$ (the natural logarithm of standard deviations) and $ln\bar{X}$ (the log mean) into a mixed-effect model. The mixed-effect model can be used when the assumption that the standard deviation is proportional to the mean, necessary for the $lnCVR$ approach, is not met. We found that the standard deviations and effect sizes were not significantly correlated. Therefore, we chose the second, mixed-effect model approach. In the following meta-regression model, the natural logarithm of the standard deviations (lnSD) from each language group is the dependent variable. This dependent variable (group variance) is the log-transformed standard deviation of infants' preference for IDS over ADS that correspond to infants’ language group (either monolingual/bilingual). 
+
+$$lnSD \sim 1 + bilingual + ln(d_z’) + (bilingual | lab)$$
+where $d_z’$ is the absolute value of $d_z$ because we needed to ensure that values entered into the logarithm were positive, bilingual is the binary dummy variable that indicates bilingualism - whether the language group is monolingual or bilingual. Further, bilingualism was entered as a random slope in the model. 
+
+In the matched dataset, we did not find statistically significant evidence for bilingualism as a moderator of the differences in standard deviations across language groups, ($d_z$ = `r round(Var_matched_set$b[2],2)`, $p = `r papaja::printp(Var_matched_set$pval[2])`$). Similarly, we also did not find statistical significance for bilingualism in the full dataset, ($d_z$ = `r round(Var_unmatched_set$b[2],2)`, $p = `r papaja::printp(Var_unmatched_set$pval[2])`$). In short, we did not find support for the hypothesis that bilingual infants would show larger within-group variability than monolingual infants.
+
+### Mixed-effects approach
+
+Mixed-effects regression allows variables of interest to be specified on a trial-by-trial and infant-by-infant basis. We had anticipated that we would be able to include additional data from labs that aimed to test homogeneous samples (i.e., because we could include infants from these labs who were not learning this homogeneous language pair), but in practice this did not apply as only one lab contributed a homogeneous data set, and that lab did not test additional infants. We were also able to include data from all valid trials, rather than excluding data from yoked pairs with a missing data point.  As under the meta-analytic approach, we ran the models twice, once including only data from labs that contributed matched samples of monolinguals and bilinguals, and once including all available data from 6-9 and 12-15 month-olds. 
+
+The mixed-effects model was specified as follows:
+
+$$DV \sim IV_1 + IV_2 + \text{...} + (\text{...} | \text{subject}) + (\text{...} | \text{item}) + (\text{...} | \text{lab})$$
+
+The goal of this framework was to examine effects of the independent variables (IV) on the dependent variable (DV), while controlling for variation in both the DV (“random intercepts”) and the relationship of the IV to the DV (“random slopes”) based on relevant grouping units (subjects, items, and labs). Following recent recommendations [@barr_2013], we planned to initially fit a maximal random effects structure, such that all random effects appropriate for our design were included in the model. However, we also recognized that such a large random effects structure might be overly complex given our data, and would be unlikely to converge. After reviewer feedback during Stage 1 of the Registered Report review process, we pre-registered a plan to use a “Parsimonious mixed models” approach for pruning the random effects [@bates_2015a; @matuschek_2017]. However, we found that it was computationally difficult to first fit complex models (i.e., our models had multiple interactions and cross-levels grouping) under the maximal random effects structure and then prune the models using a parsimonious mixed models approach. Further, we note that this was not the approach used in MB1, which would make direct comparison between MB1 and the current study difficult. As such, following MB1, we fitted and pruned\footnote{Results reported in this paper were pruned by fitting mixed-effect models with `lme4` version 1.1-21.} the following models using the maximal random effects structure only [@barr_2013]. We fit all models using the lme4 package [@bates_2015b] and computed $p$ values using the lmerTest package [@kuznetsova_2016]. Below is a description of our model variables: 
+
+* log_lt: Dependent variable. Log-transformed looking time in seconds.
+* trial_type: A dummy coded variable with two levels, with ADS trials as the baseline, such that positive effects of trial type indicate longer looking to IDS.
+* bilingual: A dummy coded variable with two levels, with monolingual as the baseline, such that positive effects of bilingualism reflect longer looking by bilinguals.
+* language: A dummy coded variable for whether infants were learning North American English as a native language (i.e., >= 90% exposure to NAE for monolinguals, or >=  25% exposure to NAE for bilinguals).
+* exp_nae: A continuous variable for the percent of time infants heard North-American English.
+* method: A dummy-coded variable to control for effects of different experimental setups, with single-screen central fixation as the reference level.
+* age_days: Centered for interpretability of main effects.
+* trial_number: The number of the trial pair, recoded such that the first trial pair is 0.
+* ses: The number of years of maternal education, centered for ease of interpretation.
+ 
+Note that in this analysis plan, we have used a concise format for model specification, which is the form used in R. As such, lower-order effects subsumed by interactions are modeled even though they are not explicitly written. For example, the interaction trial_type * trial_num also assumes a global intercept, a main effect of trial type, and a main effect of trial number.
+
+#### Homogeneity of variance
+
+We pre-registered a Levene’s test to examine whether monolinguals and bilinguals showed different amounts of variance in their IDS preference. However, we ultimately omitted this test because the null results of our within-group variability meta-analysis did not support a difference between monolingual and bilingual infants in the variance of their IDS preference. 
+
+#### Effects of bilingualism on IDS preference
+```{r}
+d_lmer_matched <- d_matched %>%
+  filter(trial_type != "train") %>%
+  mutate(log_lt = log(looking_time),
+         age_mo = scale(age_mo, scale = FALSE),
+         trial_num = trial_num, 
+         item = paste0(stimulus_num, trial_type)) %>%
+  filter(!is.na(log_lt), !is.infinite(log_lt))
+
+mod_lmer_matched <- lmer(log_lt ~
+  trial_type * method + age_mo * trial_num +
+  trial_type * trial_num +
+  trial_type * age_mo * nae +
+  trial_type * age_mo * lang_group +
+  (1 |subid) +
+  (lang_group |lab) + 
+  (1 |item),
+  data = d_lmer_matched)
+
+#summary(mod_lmer_matched)
+```
+
+```{r}
+d_lmer_unmatched <- d_full %>%
+  filter(trial_type != "train") %>%
+  mutate(log_lt = log(looking_time),
+         age_mo = scale(age_mo, scale = FALSE),
+         trial_num = trial_num, 
+         item = paste0(stimulus_num, trial_type)) %>%
+  filter(!is.na(log_lt), !is.infinite(log_lt))
+
+mod_lmer_unmatched <- lmer(log_lt~
+  trial_type * method + age_mo * trial_num +
+  trial_type * trial_num +
+  trial_type * age_mo * nae +
+  trial_type * age_mo * lang_group +
+  (1 |subid) +
+  (1 |lab) +
+  (1 |item), 
+  data = d_lmer_unmatched)
+
+#summary(mod_lmer_unmatched)
+```
+
+```{r}
+mod_lmer_matched_4_interaction <- lmer(log_lt~
+  trial_type * method + age_mo * trial_num +
+  trial_type * trial_num +
+  trial_type * age_mo * lang_group * nae +
+  (1 |subid) +
+  (1 |lab), 
+  data = d_lmer_matched)
+
+coefs_4_way_matched <- data.frame(coef(summary(mod_lmer_matched_4_interaction)))
+```
+
+```{r}
+mod_lmer_unmatched_4_interaction <- lmer(log_lt~
+  trial_type * method + age_mo * trial_num +
+  trial_type * trial_num +
+  trial_type * age_mo * lang_group * nae +
+  (1 |subid) +
+  (1 |lab), 
+  data = d_lmer_unmatched)
+
+coefs_4_way_unmatched <- data.frame(coef(summary(mod_lmer_unmatched_4_interaction)))
+```
+
+We planned a mixed-effects model which was based on the structure of the final model fit for the ManyBabies monolingual project, including bilingualism as an additional moderator. Note that because data collection for both projects was simultaneous, we did not know prior to registration what the final model structure for the monolingual-only sample would be (it was expected that pruning of this model would be necessary in the case of non-convergence). The original model proposed for the monolingual-only sample was designed to include simple effects of trial type, method, language (infants exposed vs. not exposed to NAE-IDS), age, and trial number, capturing the basic effects of each parameter on looking time (e.g., longer looking times for IDS, shorter looking times on later trials). Additionally, the model included two-way interactions of trial type with method and with trial number, a two-way interaction of age with trial number, as well as two- and three-way interactions between trial type, age, and language [see @manybabies_consortium_2020, for full justification]. This model was specified to minimize higher-order interactions while preserving theoretically-important interactions. Note that to reduce model complexity, both developmental effects and trial effects are treated linearly. The planned model for ManyBabies monolingual was:
+
+\begin{equation}
+\begin{split}
+\text{log lt} \sim & \text{trial type} * \text{method} + \text{trial type} * \text{trial num} + \text{age} * \text{trial num} + \\
+& \text{trial type} * \text{age} * \text{language} + \\
+& (\text{trial type} * \text{trial num} \mid \text{subid}) + \\
+& (\text{trial type} * \text{age} \mid \text{lab}) + \\
+& (\text{method} + \text{age} * \text{language} \mid \text{item})
+\end{split}
+\end{equation}
+
+
+It was expected that pruning would be necessary in the case of non-convergence.
+
+Our analysis plan specified that we would add bilingualism to the fixed effects of the final pruned model that fitted to the monolingual sample. For higher-order interactions in the model, we ensured that we had at least 20 infants per group. For example, for a three-way interaction between bilingualism, language and age, we included at least 20 infants per group: at least 20 infants in the group of 6-9 month-old bilinguals who were not exposed to NAE. We applied the same rules to all other groups. 
+
+In our preregistration, we were uncertain as to whether our sample size would support a model with a four-way-interaction of trial type, age, bilingual status, and language. Given our final sample size, we elected to fit our main model without including the four-way interaction effect\footnote{We did not enter the above-mentioned four-way interaction into our main model, but note that in the more complex model, the four-way interaction was not statistically significant in the matched dataset ($\beta$ = `r signif(coefs_4_way_matched$Estimate[23], 2)`, $SE = `r signif(coefs_4_way_matched$Std..Error[23], 2)`$, $p = `r signif(coefs_4_way_matched$Pr...t..[23], 2)`$) or the full dataset ($\beta$ = `r signif(coefs_4_way_unmatched$Estimate[23], 2)`, $SE = `r signif(coefs_4_way_unmatched$Std..Error[23], 2)`$, $p = `r signif(coefs_4_way_unmatched$Pr...t..[23], 2)`$).}. In our main model, we included two fixed three-way interactions: (i) the interaction between bilingualism, age and trial type, and (ii) the interaction between language, age and trial type, as well as other subsumed lower-order interactions. 
+
+Regardless of our fixed effect structure, the model included the random slope of bilingualism on lab and item, as well as appropriate interactions with other random factors. Our initial unpruned model was:
+
+\begin{equation}
+\begin{split}
+\text{log lt} \sim & \text{trial type} * \text{method} + \text{trial type} * \text{trial num} + \text{age} * \text{trial num} + \\
+& \text{trial type} * \text{age} * \text{language} + \\
+& \text{trial type} * \text{age} * \text{bilingual} + \\
+& (\text{trial type} * \text{trial num} \mid \text{subid}) + \\
+& (\text{trial type} * \text{age} * \text{bilingual} \mid \text{lab}) + \\
+& (\text{method} + \text{age} * \text{language} + \text{age} * \text{bilingual} \mid \text{item})
+\end{split}
+\end{equation}
+
+After pruning random effects for non-convergence and singularity, the final models for the matched dataset and full dataset were different. The following was the final model of the matched dataset:
+
+\begin{equation}
+\begin{split}
+\text{log lt} \sim & \text{trial type} * \text{method} + \text{trial type} * \text{trial num} + \text{age} * \text{trial num} + \\
+& \text{trial type} * \text{age} * \text{language} + \\
+& \text{trial type} * \text{age} * \text{bilingual} + \\
+& (1 \mid \text{subid}) + \\
+& (\text{bilingual} \mid \text{lab}) + \\
+& (1 \mid \text{item})
+\end{split}
+\end{equation}
+
+In contrast, the final model of the full dataset was: 
+
+\begin{equation}
+\begin{split}
+\text{log lt} \sim & \text{trial type} * \text{method} + \text{trial type} * \text{trial num} + \text{age} * \text{trial num} + \\
+& \text{trial type} * \text{age} * \text{language} + \\
+& \text{trial type} * \text{age} * \text{bilingual} + \\
+& (1 \mid \text{subid}) + \\
+& (1 \mid \text{lab}) + \\
+& (1 \mid \text{item})
+\end{split}
+\end{equation}
+
+```{r}
+coefs_matched <- summary(mod_lmer_matched)$coef %>%
+  as_data_frame %>%
+  mutate_at(c("Estimate","Std. Error","df", "t value", "Pr(>|t|)"), 
+            function (x) signif(x, digits = 3)) %>%
+  rename(SE = `Std. Error`, 
+         t = `t value`,
+         p = `Pr(>|t|)`) %>% 
+   select(-df) 
+  
+rownames(coefs_matched) <- c("Intercept", "IDS", "HPP", "Single Screen", 
+                     "Age", "Trial #", "NAE", "Bilingual", "IDS * HPP", 
+                     "IDS * Single Screen", 
+                     "Age * Trial #", "IDS * Trial #", "IDS * Age", "IDS * NAE", 
+                     "Age * NAE", "IDS * Bilingual", "Age * Bilingual", "IDS * Age * NAE",
+                     "IDS * Age * Bilingual")
+
+coefs_unmatched <- summary(mod_lmer_unmatched)$coef %>%
+  as_data_frame %>%
+  mutate_at(c("Estimate","Std. Error","df", "t value", "Pr(>|t|)"), 
+            function (x) signif(x, digits = 3)) %>%
+  rename(SE = `Std. Error`, 
+         t = `t value`,
+         p = `Pr(>|t|)`) %>% 
+  select(-df)
+
+         
+rownames(coefs_unmatched) <- c("Intercept", "IDS", "HPP", "Single Screen",
+                     "Age", "Trial #", "NAE", "Bilingual", "IDS * HPP",
+                     "IDS * Single Screen",
+                     "Age * Trial #", "IDS * Trial #", "IDS * Age", "IDS * NAE",
+                     "Age * NAE", "IDS * Bilingual", "Age * Bilingual", "IDS * Age * NAE",
+                     "IDS * Age * Bilingual")
+
+
+papaja::apa_table(coefs_matched, format.args = list(digits = 3),
+                   caption = "Linear Mixed Model 1 testing bilingualism effect on IDS in a matched dataset.")
+
+papaja::apa_table(coefs_unmatched, format.args = list(digits = 3),
+                  caption = "Linear Mixed Model 1 testing bilingualism effect on IDS in a full dataset.")
+
+
+```
+
+Overall, the mixed-level analyses in both matched and full datasets yielded similar results (Table 2 and 3). More coefficients were statistically significant in the full dataset, likely due to the larger sample size. Thus, in the following, we focus on the results of the mixed-level model for the full dataset. We found that infants showed a preference for IDS, as indicated by a positive coefficient on the IDS predictor (reflecting greater looking times to IDS stimuli). We did not find any effects of the bilingualism on IDS preference nor any interaction effects between bilingualism and other moderators. This finding is consistent with the results of our meta-analysis above.
+
+Surprisingly, the fitted model did not show an interaction between infants' IDS preference and the method used in the lab, a result that is different from the results in the MB1 project. However, this finding is likely due to smaller sample sizes in the current paper, as we restricted the analysis to participants at particular ages. Apart from this, our findings were largely consistent with the MB1 study. There was a significant and positive two-way interaction between IDS and NAE, suggesting greater IDS preferences for children in NAE contexts. The interaction between IDS and age was also significant and positive, suggesting that older children showed a stronger IDS preference. Finally, we found a marginally significant three-way interaction between IDS, age, and NAE, suggesting that older children in NAE contexts tended to show stronger IDS preference than those in the non-NAE contexts. 
+
+
+#### Dose effects of exposure to NAE-IDS in bilingual infants
+
+In this analysis, we tested whether we could observe a dose-response relationship between infants’ exposure to NAE-IDS (measured continuously) and their preference for IDS over ADS.  
+
+We decided to conduct this analysis only including data from bilinguals. Our reasoning was that bilingualism status and exposure to NAE-IDS are confounded, as monolinguals’ exposure to NAE will be either near 0% or 100%, while bilinguals’ NAE experience can be either 0%, or 25-75%. Because the monolingual sample is larger and their NAE exposures are more extreme, their effects would dominate that of the bilinguals in a merged analysis. Therefore, we reasoned that if there is a dose effect, it should be observable in the bilingual sample alone. Finally, although excluding monolingual infants reduced power overall, we decided that given the relatively large sample of bilingual infants, this disadvantage would be offset by the ease of interpretation afforded by restricting the analysis to bilinguals.
+
+Once again, we based this model on the final pruned monolingual model, substituting the binary measure of exposure to NAE-IDS (language) with the continuous measure of exposure(exp_nae), and including  a random slope for exp_nae by item (which was ultimately pruned from the model). After pruning, our model was specified as follows:
+
+\begin{equation}
+\begin{split}
+\text{log lt} \sim & \text{trial type} * \text{method} + \text{trial type} * \text{trial num} + \text{age} * \text{trial num} + \\
+& \text{trial type} * \text{age} * \text{exp nae} + \\
+& (1\mid \text{subid}) + \\
+& (\text{trial type} \mid \text{lab}) + \\
+& (1 \mid \text{item})
+\end{split}
+\end{equation}
+
+```{r}
+d_lmer_matched_Lmm2 <- d_lmer_matched %>% filter(lang_group=="bilingual")
+
+#hist(d_lmer_matched_Lmm2$nae_exp) #note that there were a lot babies who were not exposed to nae.
+
+nae_lmer_matched <- lmer(log_lt~
+  trial_type * method + age_mo * trial_num +
+  trial_type * trial_num +
+  trial_type * age_mo * nae_exp +
+  (1 |subid) +
+  (trial_type |lab) +
+  (1 |item), 
+  data = d_lmer_matched_Lmm2)
+ 
+nae_exp_coef <- summary(nae_lmer_matched)$coef %>%
+  as_data_frame %>%
+  mutate_at(c("Estimate","Std. Error","df", "t value", "Pr(>|t|)"),
+            function (x) signif(x, digits = 3)) %>%
+  rename(SE = `Std. Error`, 
+         t = `t value`,
+         p = `Pr(>|t|)`) %>% 
+  select(-df)
+
+rownames(nae_exp_coef) <- c("Intercept", "IDS", "HPP", "Single Screen", 
+                     "Age", "Trial #", "EXP_NAE", "IDS * HPP", 
+                     "IDS * Single Screen", 
+                     "Age * Trial #", "IDS * Trial #", "IDS * Age", "IDS * EXP_NAE", 
+                     "Age * EXP_NAE", "IDS * Age * EXP_NAE")
+
+papaja::apa_table(nae_exp_coef, format.args = list(digits = 3),
+                  caption = "Linear Mixed Model testing the effects of exposure to NAE-IDS in bilingual infants.")
+```
+
+Table 4 contains the details of the results in this model. The main effect of infants' exposure to NAE (exp_nae) was not significant ($\beta$ = `r signif(nae_exp_coef["EXP_NAE", "Estimate"], 2)`, $SE = `r signif(nae_exp_coef["EXP_NAE", "SE"], 2)`$, $p = `r signif(nae_exp_coef["EXP_NAE","p"], 2)`)$. This indicates that bilingual infants who were exposed to more NAE did not pay more attention to the NAE speech stimuli than those who were exposed to less NAE. However, the interaction between trial type and exp_nae was significant ($\beta$ = `r signif(nae_exp_coef["IDS * EXP_NAE","Estimate"], 3)`, $SE = `r signif(nae_exp_coef["IDS * EXP_NAE","SE"], 2)`$, $p = `r signif(nae_exp_coef["IDS * EXP_NAE", "p"], 2)`)$. That is, bilingual infants who were exposed to more NAE showed stronger IDS preferences, confirming a dose-response relationship between infants’ exposure to NAE and their preference for IDS over ADS (Figure 2) even among bilinguals who are learning NAE as one of their native languages.
+
+```{r fig2, fig.cap="Linear trend between infants' IDS preference and their percentage of time exposed to NAE. Blue line indicates a regression model between infants' IDS preference and their NAE exposure (starting from zero). Red line indicates another regression model of the same relationship with a focus of NAE exposure between 25 to 75%. Finally, we note that the y-axis was truncated to highlight the trend such that some individual points are not plotted."}
+
+IDS_NAE_EXP <- d_diffs_matched %>%
+  filter(lang_group == "bilingual") %>% 
+  group_by(lab, subid) %>%
+  summarise(nae_exp = mean(nae_exp),
+            n = sum(!is.na(diff)),
+            diff = mean(diff, na.rm = TRUE)) %>% 
+  filter(n > 0)
+ 
+ggplot(IDS_NAE_EXP, aes(x = nae_exp, y = diff)) +
+  geom_jitter(width = 1, alpha = .3) +
+  geom_smooth(method = "lm", se=FALSE, aes(color = "all data")) +
+  geom_smooth(data = filter(IDS_NAE_EXP, nae_exp > 25), method = "lm", se = FALSE, aes(color = "partial data (25%-75% nae exposure)")) +
+  scale_color_manual(name = "Model fit", breaks = c("all data", "partial data (25%-75% nae exposure)"),
+                    values = c("all data" = "dodgerblue3", "partial data (25%-75% nae exposure)" = "brown3")) +
+  geom_hline(yintercept = 0, lty = 2) +
+  coord_cartesian(ylim = c(-5, 5)) +
+  ylab("IDS preference (s)") +
+  xlab("NAE exposure (%)") +
+  theme(legend.position = "bottom", legend.box = "vertical")
+```
+
+#### Socio-economic status as a moderator of monolingual-bilingual differences
+
+Because socio-economic status can vary systematically between monolinguals and bilinguals in the same community, we were interested in whether relationships between bilingualism and IDS preference would hold when controlling for socio-economic status. It is possible that an observed effect of bilingualism on IDS preference could disappear once SES was controlled. Alternatively, it is possible that the effect of bilingualism on IDS preference could only be apparent once SES was controlled. Thus, this analysis was important regardless of an observed relationship between IDS preference and bilingualism in the previous model.  
+
+Our approach was to add SES as a moderator of our final model for bilinguals. We expected that any effects of socio-economic status could interact with age, thus this model included interactions of trial type, age, and socio-economic status as a fixed effect, as well as the corresponding random slope by item. Based on the potential model detailed above for the bilinguals, our expected ses-mediated model was:
+
+\begin{equation}
+\begin{split}
+\text{log lt} \sim & \text{trial type} * \text{method} + \text{trial type} * \text{trial num} + \text{age} * \text{trial num} + \\
+& \text{trial type} * \text{age} * \text{language} + \\
+& \text{trial type} * \text{age} * \text{bilingual} + \\
+& \text{trial type} * \text{age} * \text{ses} + \\
+& (\text{trial type} * \text{trial num} \mid \text{subid}) + \\
+& (\text{trial type} * \text{age} * \text{bilingual} \mid \text{lab}) + \\
+& (\text{method} + \text{age} * \text{language} + \text{age} * \text{bilingual} +
+\text{age} * \text{ses} \mid \text{item})
+\end{split}
+\end{equation}
+
+After pruning for non-convergence, our final model specifications are listed below. For the matched dataset, the final model was: 
+
+\begin{equation}
+\begin{split}
+\text{log lt} \sim & \text{trial type} * \text{method} + \text{trial type} * \text{trial num} + \text{age} * \text{trial num} + \\
+& \text{trial type} * \text{age} * \text{language} + \\
+& \text{trial type} * \text{age} * \text{bilingual} + \\
+& \text{trial type} * \text{age} * \text{ses} + \\
+& (1 \mid \text{subid}) + \\
+& (\text{bilingual} \mid \text{lab}) 
+\end{split}
+\end{equation}
+
+By contrast, the final model of the full dataset was: 
+
+\begin{equation}
+\begin{split}
+\text{log lt} \sim & \text{trial type} * \text{method} + \text{trial type} * \text{trial num} + \text{age} * \text{trial num} + \\
+& \text{trial type} * \text{age} * \text{language} + \\
+& \text{trial type} * \text{age} * \text{bilingual} + \\
+& \text{trial type} * \text{age} * \text{ses} + \\
+& (1 \mid \text{subid}) + \\
+& (1 \mid \text{lab}) + \\
+& (1 \mid \text{item})
+\end{split}
+\end{equation}
+
+
+```{r}
+SES_lmer_matched <- lmer(
+  log_lt ~
+  trial_type * method +
+  age_mo * trial_num +
+  trial_type * trial_num +
+  trial_type * age_mo * nae +
+  trial_type * age_mo * lang_group +
+  trial_type * age_mo * SES +
+  (1 | subid) +
+  (1 | lab),
+  data = d_lmer_matched
+  )
+ 
+SES_lmer_unmatched <- lmer(
+  log_lt ~
+  trial_type * method +
+  age_mo * trial_num +
+  trial_type * trial_num +
+  trial_type * age_mo * nae +
+  trial_type * age_mo * lang_group +
+  trial_type * age_mo * SES +
+  (1 | subid) +
+  (1 | lab) +
+  (1 | item),
+  data = d_lmer_unmatched
+  )
+```
+
+```{r}
+coefs_ses_matched <- summary(SES_lmer_matched)$coef %>%
+  as_data_frame %>%
+  mutate_at(c("Estimate","Std. Error","df", "t value", "Pr(>|t|)"), 
+            function (x) signif(x, digits = 3)) %>%
+  rename(SE = `Std. Error`, 
+         t = `t value`,
+         p = `Pr(>|t|)`) %>% 
+  select(-df) 
+  
+rownames(coefs_ses_matched) <- c("Intercept", "IDS", "HPP", "Single Screen", 
+                     "Age", "Trial #", "NAE", "Bilingual", "SES", "IDS * HPP", 
+                     "IDS * Single Screen", 
+                     "Age * Trial #", "IDS * Trial #", "IDS * Age", "IDS * NAE", 
+                     "Age * NAE", "IDS * Bilingual", "Age * Bilingual", "IDS * SES",
+                     "Age * SES",
+                     "IDS * Age * NAE",
+                     "IDS * Age * Bilingual",
+                     "IDS * Age * SES")
+
+coefs_ses_unmatched <- summary(SES_lmer_unmatched)$coef %>%
+  as_data_frame %>%
+  mutate_at(c("Estimate","Std. Error","df", "t value", "Pr(>|t|)"), 
+            function (x) signif(x, digits = 3)) %>%
+  rename(SE = `Std. Error`, 
+         t = `t value`,
+         p = `Pr(>|t|)`) %>% 
+  select(-df)
+
+         
+rownames(coefs_ses_unmatched) <- c("Intercept", "IDS", "HPP", "Single Screen", 
+                     "Age", "Trial #", "NAE", "Bilingual", "SES", "IDS * HPP", 
+                     "IDS * Single Screen", 
+                     "Age * Trial #", "IDS * Trial #", "IDS * Age", "IDS * NAE", 
+                     "Age * NAE", "IDS * Bilingual", "Age * Bilingual", "IDS * SES",
+                     "Age * SES",
+                     "IDS * Age * NAE",
+                     "IDS * Age * Bilingual",
+                     "IDS * Age * SES")
+
+#c1 <- kable(list(coefs_matched, coefs_unmatched), align = 'c')
+papaja::apa_table(coefs_ses_matched, format.args = list(digits = 3),
+                  caption = "Linear Mixed Model 3 examining socio-economic status as a moderator of monolingual-bilingual differences SES in the matached dataset.")
+
+papaja::apa_table(coefs_ses_unmatched, format.args = list(digits = 3),
+                  caption = "Linear Mixed Model 3 examining socio-economic status as a moderator of monolingual-bilingual differences SES in the full dataset.")
+```
+
+In general, across the matched and full datasets (Table 5 and 6), SES did not have a significant effect on infants' looking time nor did it affect infants' preference for IDS. However, for the matched dataset only, we found a statistically significant three-way interaction between IDS, age, and SES. Specifically, infants from 6- to 9-month-olds showed stronger IDS preference when they were from a higher SES families, but older infants from 12- to 15-month-olds showed similar IDS preference across families with different SES levels. However, this interaction was not observed in the full dataset, raising the possibility that it is a spurious, and arose only in the matched dataset because it is substantially smaller than the full data set.
+
+## Exploratory analyses
+
+### The relationship between NAE and IDS for bilingual infants who have some exposure to NAE
+In our second confirmatory analysis model (linear mixed model 2), we found that bilingual infants with more exposure to NAE showed stronger IDS preference. However, this initial analysis included a number of bilingual infants who were not exposed to NAE at all (Figure 2). This raises the question of whether the relation between NAE and IDS preference may be primarily driven by the infants who were not learning NAE. In the following analysis, we re-ran the pre-registered NAE-IDS model by restricting the model to infants who were exposed to NAE between 25% and 75% of the time. After pruning for non-convergence, the final model was:
+
+\begin{equation}
+\begin{split}
+\text{log lt} \sim & \text{trial type} * \text{method} + \text{trial type} * \text{trial num} + \text{age} * \text{trial num} + \\
+& \text{trial type} * \text{age} * \text{exp nae} + \\
+& (1 \mid \text{subid}) + \\
+& (1 \mid \text{lab}) + \\
+& (1 \mid \text{item})
+\end{split}
+\end{equation}
+
+```{r}
+d_lmer_nae<- d_lmer_matched_Lmm2 %>% filter(lang_group=="bilingual") %>% filter(nae_exp > 0)
+
+nae_only_lmer <- lmer(log_lt~
+  trial_type * method + age_mo * trial_num +
+  trial_type * trial_num +
+  trial_type * age_mo * nae_exp +
+  (1 | lab) +
+  (1 |subid) +
+  (1 | item),
+  data = d_lmer_nae)
+
+#summary(nae_only_lmer)
+
+```
+
+```{r}
+nae_only_coef <- summary(nae_only_lmer)$coef %>%
+  as_data_frame %>%
+  mutate_at(c("Estimate","Std. Error","df", "t value", "Pr(>|t|)"),
+            function (x) signif(x, digits = 3)) %>%
+  rename(SE = `Std. Error`,
+         t = `t value`,
+         p = `Pr(>|t|)`) %>%
+  select(-df)
+
+rownames(nae_only_coef) <- c("Intercept", "IDS", "HPP", "Single Screen",
+                     "Age", "Trial #", "EXP_NAE", "IDS * HPP",
+                     "IDS * Single Screen",
+                     "Age * Trial #", "IDS * Trial #", "IDS * Age", "IDS * EXP_NAE",
+                     "Age * EXP_NAE", "IDS * Age * EXP_NAE")
+
+papaja::apa_table(nae_only_coef, format.args = list(digits = 3),
+                  caption = "Linear Mixed Model testing the effects of exposure to NAE-IDS (restricted to bilingual infants living in NAE contexts).")
+# 
+
+n_bil_nae <- length(unique(d_lmer_nae$subid))
+```
+
+Based on `r n_bil_nae` infants, the interaction between Trial Type and NAE exposure was still statistically significant ($\beta$ = `r signif(nae_only_coef["IDS * EXP_NAE","Estimate"], 3)`, $SE = `r signif(nae_only_coef["IDS * EXP_NAE","SE"], 2)`$, $p = `r signif(nae_only_coef["IDS * EXP_NAE", "p"], 2)`)$. This result suggested that a dose-response relationship between infants’ exposure to NAE and their preference for IDS over ADS was not driven by infants living in non-NAE contexts alone (see Table 7 for details of the model).
+
+# General Discussion
+
+The current study was designed to better understand the effects of experience on the tuning of infants’ preference for infant-directed speech (IDS) compared to adult-directed speech (ADS). Bilingual infants’ language experience is split across input in two different languages, which are being acquired simultaneously. Bilinguals and monolinguals may thus differ in their preference for IDS. To explore this question, we used a collaborative, multi-lab (N = `r n_labs_bil` labs) approach to gather a large dataset of infants who were either 6-9- or 12-15-months old and growing up bilingual (N = `r n_bil` bilingual infants in the final sample, and a lab-matched sample of N = `r n_matched_mono` monolingual infants from the same communities). Data were collected as a companion project to ManyBabies 1 [@manybabies_consortium_2020], which was limited to infants growing up monolingual. Overall, we found that bilingualism neither enhanced nor attenuated infants’ preference for IDS, with bilinguals showing a similar magnitude and developmental trajectory of IDS preference as monolinguals from age 6 to 15 months. 
+
+Although bilingual experience did not appear to moderate infants’ preference for IDS, we found striking evidence that experience hearing North-American English (NAE, the language of our stimuli) contributed to the magnitude of bilingual infants’ IDS preference. Bilinguals with greater exposure to NAE showed greater IDS preferences (when tested in NAE) than those who had less exposure to NAE. This relationship between NAE exposure and IDS preference was also observed in a subsample of bilingual infants all acquiring NAE, but who varied in how much they were exposed to NAE relative to their other native language. These results converge with those from the larger ManyBabies 1 monolingual study, which reported that monolinguals acquiring NAE had a stronger preference for IDS than monolinguals acquiring another language. Importantly, our approach provides a more nuanced view of the relationship between NAE and IDS preference, and suggests that there is  a continuous dose effect of exposure on preference. Together, our findings have a number of implications for bilingual language acquisition during infancy. In the following, we will first discuss each of our research questions in turn, followed by limitations and implications of our study. 
+
+Our first research question asked whether bilingualism affects infants’ attention to IDS relative to ADS. We hypothesized that the complexity of the bilingual infant’s learning experience might lead to greater reliance on/preference for IDS, given that IDS may be viewed as an enhanced linguistic signal. However, this hypothesis was not confirmed. We observed a meta-analytic effect size in the full dataset for monolinguals of $d_z$ =
+`r round(mono_only_unmatched$b[1], 2)` [CI = `r round(mono_only_unmatched$ci.lb, 2)` - `r round(mono_only_unmatched$ci.ub, 2)`] and for bilinguals of $d_z$ = `r round(bil_only_unmatched$b[1], 2)` [CI: `r round(bil_only_unmatched$ci.lb, 2)` - `r round(bil_only_unmatched$ci.ub, 2)`]. While monolinguals showed a numerically larger effect size, this difference was not statistically significant in either the meta-analyses or the mixed-effects linear models. Although small differences are still possible, our data generally support the conclusion that bilingual and monolingual infants show a similar preference for IDS over ADS. Specifically, both groups show a preference for IDS at  6-9 months of age, which gets stronger by 12-15 months. 
+
+An additional part of our first research question asked whether bilinguals might show more variability than monolinguals in their IDS preference, beyond any differences in the magnitude of the preference. We had reasoned that given their diversity of language experiences, bilingual groups may have a higher heterogeneity in terms of their IDS preference compared to monolingual groups [see also @orena_polka_2019, for a recent experiment that observed this pattern]. However, while both monolingual and bilingual groups showed high variability, there were no reliable differences in variability observed across groups. Thus, our results did not support the idea that bilingual infants show more variable IDS preference than their monolingual peers.
+
+Given that monolinguals and bilinguals can systematically differ in their socio-economic status (SES), the third part of our first research question asked whether SES might moderate bilingualism effects. We found mixed support for the role of SES in our datasets. In our smaller dataset (matched dataset across labs), we found a statistically significant interaction between age, SES, and IDS preference: 6-9-month-olds from higher SES families showed stronger IDS preference than those from lower SES families, whereas 12-15-month-olds showed similar IDS preference regardless of SES. The direction of this effect aligns with other research reporting that children from higher SES families generally receive more language input and/or higher quality input (e.g., engaging in conversations with more lexical diversity, complexity, and structural variations) than children from lower SES families [@fernald_2013; @hart_1995; @hoff_2006; @tal_2018]. Thus, this could suggest that infants from higher SES families may show stronger IDS preference earlier in life as they hear more or higher quality IDS in their daily lives. Further, this positive SES impact may be most beneficial to younger infants whose IDS preference is still developing. However, given that in our larger (full) dataset SES was unrelated to IDS preference in either 6-9- or 12-15-month-olds, this result might be spurious and should be interpreted with caution. 
+
+Our second research question asked whether and how the amount of exposure to NAE would affect bilingual infants’ listening preferences. Given that our stimuli were produced in NAE, we expected that greater exposure to NAE would be linked to greater attention to NAE IDS relative to NAE ADS. Indeed, ManyBabies 1 [@manybabies_consortium_2020], which was conducted concurrently with the current study, found that that monolinguals acquiring NAE showed a stronger IDS preference than monolinguals not acquiring NAE. However, in the ManyBabies 1 study, exposure to NAE-IDS was a binary variable – either the infants heard only NAE or heard only a different language in their language environments. In the current paper, bilinguals provide a more nuanced way to address this question, as bilinguals’ exposure to NAE varied continuously between 25% and 75% (for infants learning NAE as one of their native languages) or was near 0% (for infants learning two non-NAE native languages). We found clear evidence for a positive dose-response relationship between exposure to NAE and infants’ preference for NAE-IDS. This evidence – that bilinguals with more exposure to NAE showed a stronger NAE-IDS preference – was also present when focusing only on bilinguals who were learning NAE as one of their native languages (i.e., those exposed to NAE 25-75% of the time). Importantly, we did not find a similar effect of exposure to NAE on infants’ overall looking. This suggests that the effect of NAE exposure on preference for IDS is a meaningful relationship, rather than an artefact due to the stimuli being presented in NAE. Further studies with stimuli in other languages would be necessary to solidify this conclusion.
+
+As the first study to recruit and test bilingual infants at such a large scale and at so many sites, we encountered several challenges [see also @byers_heinlein_et_al_2019, for a fuller discussion of challenges in planning and conducting ManyBabies 1]. First, several laboratories were not able to recruit the number of bilingual infants they had originally planned. All labs committed to collecting a minimum of 16 bilingual infants per age group. This ended up being unfeasible for some labs within the timeframe available (which was more than a year), in some cases due to a high number of participants not meeting our strict criterion for inclusion as bilingual. This undoubtedly highlights the challenges for labs in recruiting bilingual infant samples, and moreover raises questions about how bilingualism should be defined, and whether it should be treated as a continuous vs. categorical variable [@anderson_2018; @bialystok_2018; @incera_2018]. Second, we had planned to explore the effect of different language pairs on IDS preference. We had expected that some labs would be able to recruit relatively homogeneous samples of infants (i.e., all learning the same language pair), but in the end only one of `r n_labs_bil` labs did so (another lab had planned to recruit a homogeneous sample but deviated from this plan when it appeared unfeasible). Thus, we leave the question of the effect of language pair on infants’ IDS preference an open issue to be followed up in future studies. By and large, we believe that our large-scale approach to data collection may in the future allow for the creation of homogeneous samples of infants tested at different laboratories around the world. As such, large-scale and multi-site bilingual research projects provide researchers with a powerful way to examine how the diversity and variability of bilinguals impact their language and cognitive development.
+
+Overall, our finding that bilinguals show similar preference for IDS as monolinguals reinforces theoretical views that emphasize the similarities in attentional and learning mechanisms across monolingual and bilingual infants [e.g., @curtin_2011]. IDS appears to be a signal that enhances attention in infants from a variety of language backgrounds. Yet, bilingual infants appear to be exquisitely fine-tuned to the relative amount of input in each of their languages. It could have been the case that language exposure has a threshold effect with any regular exposure to NAE enhancing infants’ preference for NAE-IDS, marking it is a highly relevant speech signal. Instead, we observed a graded effect such that the magnitude of bilingual infants' preference varied continuously with the amount of exposure to NAE. Just as bilingual infants’ relative vocabulary size and early grammar skills in each language are linked to the amount of input in that language [@hoff_2012; @place_2011], the current study shows that the amount of language input may also play an important role in other language acquisition processes. Indeed, an intriguing but untested possibility is that different input-related attentional biases (i.e., IDS preference) across bilinguals’ two languages explain important variability in the early development of  bilingual children’s vocabulary and grammar. Future bilingual work can investigate the above possibility to further delineate the interplay between infants’ language input, IDS preference, vocabulary, and grammar skills. 
+
+To conclude, the findings of the current study provide a more nuanced view of the development of infants’ preference for IDS than prior studies have allowed. IDS preference develops along a similar trajectory across infants from  monolingual and bilingual backgrounds. Importantly, by testing bilingual infants, our results revealed that this IDS preference operates in a dose-response fashion, where the amount of exposure to NAE positively moderated infants’ (NAE-) IDS preference in a continuous way. Our experience highlights the challenges in recruiting and testing bilingual infants, but also reveals the promise of large-scale collaborations for increasing sample sizes, and thus improving the replicability and generalizability of key findings in infant research.
+
+# Author Contributions
+Author contribution initials reflect authorship order. `r paste(author_data$initials[!is.na(author_data$concept)], collapse = ", ")` contributed to the study concept. `r paste(author_data$initials[!is.na(author_data$design)], collapse = ", ")` contributed to the study design. `r paste(author_data$initials[!is.na(author_data$protocol)], collapse = ", ")` contributed to the final protocol. `r paste(author_data$initials[!is.na(author_data$doc)], collapse = ", ")` contributed to study documentation. `r paste(author_data$initials[!is.na(author_data$manage)], collapse = ", ")` contributed to study management. `r paste(author_data$initials[!is.na(author_data$data)], collapse = ", ")` contributed to data collection. `r paste(author_data$initials[!is.na(author_data$analysis)], collapse = ", ")` contributed to data analysis. `r paste(author_data$initials[!is.na(author_data$ms1)], collapse = ", ")` contributed to the stage 1 manuscript. `r paste(author_data$initials[!is.na(author_data$ms2)], collapse = ", ")` contributed to the stage 2 manuscript.  
+
+# Conflicts of Interest
+
+The authors declare that there were no conflicts of interest with respect to the authorship or the publication of this article.
+
+## Preregistration
+
+Our manuscript was reviewed prior to data collection (https://osf.io/wtfuq/files/); in addition, we registered our instructions and materials prior to data collection (https://osf.io/zauhq/). 
+
+## Data, materials, and online resources
+
+All data and analytic code are available at https://github.com/manybabies/mb1b-analysis-public. All materials are available via the ManyBabies 1 monolingual Open Science Framework site at osf.io/re95x/.
+
+\newpage
+
+```{r}
+render_appendix("appendix.Rmd")
+```
+
+# References
+
+\begingroup
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{0.5in}
+
+<div id = "refs"></div>
+\endgroup

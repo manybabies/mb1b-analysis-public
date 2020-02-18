@@ -1,0 +1,1002 @@
+---
+title: "MB1B confirmatory analysis"
+author: "The ManyBabies Analysis Team"
+date: '`r format(Sys.time(), "%a %b %d %X %Y")`'
+output: 
+  html_document:
+    toc: true
+    toc_depth: 4
+    toc_float: true
+    number_sections: yes
+editor_options: 
+  chunk_output_type: inline
+---
+
+# Intro
+
+This RMarkdown file reports analyses of the primary ManyBabies 1B (IDS Preference) dataset. It relies on data cached in `04_merge_with_monolinguals.Rmd`.
+
+```{r setup, echo=FALSE, message=FALSE}
+source("helper/common.R")
+export_figs <- FALSE
+library(lmerTest)
+#library(renv)
+```
+
+Load a renv.lock file
+```{r}
+# renv::update("lme4")
+# renv::snapshot()
+# renv::activate()
+```
+
+
+Read in intermediate, cached datafiles. Select columns for analysis.
+
+```{r}
+# Read in datasets, select analysis columns, relevel lang_group to make monolinguals base level
+
+#If column types aren't specified, read_csv makes guesses about them based on the first 1000 rows of data. Below, data are read in with column types specified for columns that will be used in this .Rmd file. `col_only` in the code means that all columns that aren't specified will be dropped. (see issue #66 for more info) For now, all columns are read in as  a double (using shortcut "d"), logical ("l"), or character ("c"). 
+
+# per previous code, d_matched and d_full are read in with the following columns: "trial_num", "lab", "subid", "trial_type", "stimulus_num", "looking_time", "missing", "method", "age_group", "age_mo", "age_days", "lang_group", "nae", "nae_exp", "SES", "gender"
+
+d_matched <- read_csv("processed_data/04_matched_dataset_trial.csv", col_types = cols_only(trial_num = "d", lab = "c", subid = "c", trial_type = "c", stimulus_num = "d", looking_time = "d", missing = "l", method = "c", age_group = "c", age_mo = "d", age_days = "d", lang_group = "c", nae = "l", nae_exp = "d", SES = "d", gender = "c")) %>%
+  mutate(lang_group = fct_relevel(lang_group, "monolingual", "bilingual"))
+
+d_full <- read_csv("processed_data/04_full_dataset_trial.csv", col_types = cols_only(trial_num = "d", lab = "c", subid = "c", trial_type = "c", stimulus_num = "d", looking_time = "d", missing = "l", method = "c", age_group = "c", age_mo = "d", age_days = "d", lang_group = "c", nae = "l", nae_exp = "d", SES = "d", gender = "c")) %>%
+  mutate(lang_group = fct_relevel(lang_group, "monolingual", "bilingual"))
+
+# per previous code, d_diffs_matched and d_diffs_full are read in with the following columns: "trial_num", "lab", "subid", "stimulus_num", "method", "age_days", "age_mo", "age_group", "lang_group", "nae", "ADS", "IDS", "diff", "nae_exp", "SES", "gender"
+
+d_diffs_matched <- read_csv("processed_data/04_matched_dataset_diff.csv", col_types = cols_only(trial_num = "d", lab = "c", subid = "c", stimulus_num = "d", method = "c", age_days = "d", age_mo = "d", age_group = "c", lang_group = "c", nae = "l", ADS = "d", IDS = "d", diff = "d", nae_exp = "d", SES = "d", gender = "c")) %>%
+  mutate(lang_group = fct_relevel(lang_group, "monolingual", "bilingual"))
+
+d_diffs_full <- read_csv("processed_data/04_full_dataset_diff.csv", col_types = cols_only(trial_num = "d", lab = "c", subid = "c", stimulus_num = "d", method = "c", age_days = "d", age_mo = "d", age_group = "c", lang_group = "c", nae = "l", ADS = "d", IDS = "d", diff = "d", nae_exp = "d", SES = "d", gender = "c")) %>%
+  mutate(lang_group = fct_relevel(lang_group, "monolingual", "bilingual"))
+  
+```
+
+# Matched Dataset Descriptives
+
+Plot of participants across age.
+
+```{r}
+participants <- d_matched %>%
+  group_by(lab, subid, lang_group) %>%
+  summarise(age_days = age_days[1]) 
+
+ggplot(participants, 
+       aes(x = age_days/(365.25/12), fill = lab)) + 
+  geom_histogram(binwidth = 1) + 
+  ylab("Number of babies") + 
+  xlab("Age (months)") + 
+  xlim(3, 16) + 
+  facet_grid(.~lang_group) +
+  scale_fill_discrete(guide = FALSE)
+```
+
+Total babies in matched samples: `r d_matched %>% group_by(lab, subid) %>% summarise(n = n()) %>% nrow()`.
+Total babies in unmatched samples: `r d_full %>% group_by(lab, subid) %>% summarise(n = n()) %>% nrow()`.
+
+## Looking Time
+
+```{r}
+ggplot(filter(d_matched, looking_time < 20, 
+              trial_num > 0), 
+       aes(x = trial_num, y = looking_time, color = lang_group)) + 
+  geom_jitter(alpha = .1) + 
+  geom_smooth() + 
+  facet_wrap(~age_group) 
+```
+  
+  
+```{r}
+d_matched %>%
+  #filter(trial_type != "train") %>% all training trials were removed in the exclusions file
+  group_by(age_group, lang_group, trial_num) %>%
+  summarise(mean = mean(looking_time, na.rm=TRUE), 
+            n = n(), 
+            sd = sd(looking_time, na.rm=TRUE)) %>%
+  ggplot(aes(x = trial_num, y = mean, col = lang_group, lty = age_group)) + 
+  geom_line() + 
+  xlab("Trial Number") + 
+  ylab("Mean Looking Time (s)") + 
+  ylim(0,12)
+```
+
+
+# Results
+
+## Child outcomes
+
+Are children making it through the experiment? We see that many kids are habituating and are not making it throughout the study.
+<!-- need to create the variable "missing" for bilingual infants. Work on this later -->
+```{r}
+# d_matched %>%
+#   group_by(lab, age_group, lang_group, subid) %>%
+#   summarize(max_trial = max(trial_num[!missing])) %>%
+#   summarise(prop_finishing = signif(mean(max_trial == 16, na.rm=TRUE), digits=2)) %>%
+#   arrange(age_group, prop_finishing) %>%
+#   DT::datatable()
+```
+
+Now, histogram of looking time by trial number. Looking times are declining across trials. Further, this graph understates this effect somewhat because missing data are not shown. 
+
+```{r}
+ms <- d_matched %>%
+  group_by(trial_num, lang_group) %>%
+  summarise(looking_time = mean(looking_time, na.rm=TRUE))
+
+p <- ggplot(d_matched, aes(x = looking_time, 
+                   fill = age_group)) + 
+  geom_histogram(binwidth = 1) + 
+  geom_vline(data = ms, aes(xintercept = looking_time), lty = 2) + 
+  facet_wrap(.~trial_num) + 
+  xlim(c(0,20)) + 
+  xlab("Looking time (s)") + 
+  ylab("Trials") + 
+  theme(legend.position = "bottom") + 
+  scale_fill_solarized(name = "Age group")
+
+if (export_figs) {
+  pdf("figure_exports/looking_time.pdf",width = 6, height = 4)
+  print(p)
+  dev.off()
+} else {
+  p
+}
+```
+
+# IDS-ADS condition differences
+
+We will be pursuing a within-subjects analysis approach, so almost all of our analysis will happen over pairs of trials. The downside of this approach is that if you are missing data from one of the trials in a pair, you are missing the difference score for that pair.  
+
+## Distribution of the matched dataset
+
+What's the distributional form of these difference score data? 
+
+```{r}
+qplot(diff, binwidth = 1,
+      data = filter(d_diffs_matched, !is.na(diff))) +
+  geom_vline(xintercept = mean(d_diffs_matched$diff, na.rm=TRUE), col = "red", lty = 2)
+```
+
+Interestingly, this distribution is not skewed, but it does have very overdispersed shape with a big strong peak in the middle and then long tails. Also, the mean is `r round(mean(d_diffs_matched$diff, na.rm=TRUE), digits = 2)`s, which indicates an overall preference for IDS.  
+
+IDS-ADS difference patterns
+How does the IDS-ADS difference change with trials?
+
+```{r}
+ms_diff_matched <- d_diffs_matched %>%
+  group_by(age_group, lang_group, trial_num) %>%
+  multi_boot_standard(col = "diff", na.rm = TRUE)
+
+p <- ggplot(ms_diff_matched, aes(x = trial_num, y = mean, col = age_group, lty = lang_group)) +
+  geom_smooth(method = "lm", formula = y ~ poly(x, 2), se = FALSE) +
+  geom_point() +
+  geom_pointrange(aes(ymin = ci_lower, ymax = ci_upper),
+                  position = position_dodge(width= .1)) +
+  ylab("IDS preference (s)") +
+  xlab("Trial Pair Number") +
+  geom_hline(yintercept = 0, lty = 2) +
+  theme(legend.position = "bottom") +
+  scale_color_solarized(name = "Age group")
+
+if (export_figs) {
+  pdf("figure_exports/looking_time_diffs.pdf",width = 5, height = 4)
+  print(p)
+  dev.off()
+} else {
+  p
+}
+```
+ 
+# Meta-analytic approach
+
+Following suggestions by Alex Cristia, who argued that this is a more straightforward approach and also has been followed in ManyLabs and the RRRs previously. In addition, it doesn't require knowing the full form of the required mixed-effects model (e.g., trial order effects, age x trial order interactions, quadratic habituation, etc.).
+ 
+Compute effect size for each lab. This analysis follows the recommendation in [Jake Westfall's blogpost](http://jakewestfall.org/blog/index.php/2016/03/25/five-different-cohens-d-statistics-for-within-subject-designs/), which says that "classic" Cohen's $d$ is the difference of the means divided by the pooled standard deviation across conditions. We  compute $d_z$, the more standard within-subjects analysis, which we expect is more like what we recover from the previous meta-analytic work.
+ 
+We will be using $d_z$ (trial_wise) in the final meta-analysis. 
+ 
+ **POST PRE-REG DECISION: EXCLUDE LABS WITH FEWER THAN N=10 IN AGE BIN FROM MA**
+ 
+ From the prereg:
+ > "We included data from a lab in our analysis if they were able to achieve the minimum N required for a half-sample in their age bin (N=16) by the end date of testing and if, after exclusions, they contributed more than 10 data points (XYZ labs registered but were not included in the final sample because of this criterion)."
+
+ We didn't expect that so many labs would run "out of age" babies and so this is changing the MA considerably. Accordingly, we interpret the above as excluding cells with N < 10 from the MA (but not the LMER analyses). 
+ 
+ Note that at least one row is being filtered due to NA ES estimates.
+
+`##Calculate the effect size for each pair of LT difference between IDS and ADS
+### Matched dataset
+```{r}
+source("helper/ma_helper.R")
+
+ages <- d_matched %>%
+  group_by(lab, age_group, lang_group, subid) %>%
+  summarise(age_mo = mean(age_mo)) %>%
+  summarise(age_mo = mean(age_mo)) %>% 
+  mutate(age_mo_centered = scale(age_mo, scale = FALSE))
+
+ds_zt_matched_set <- d_diffs_matched %>%
+  group_by(lab, age_group, lang_group, subid) %>%
+  summarise(d = mean(diff, na.rm = TRUE)) %>%
+  group_by(lab, age_group, lang_group) %>%
+  summarise(mean_d = mean(d, na.rm=TRUE),
+            d_z = mean(d, na.rm = TRUE) / sd(d, na.rm = TRUE),
+            n = length(unique(subid)),
+            d_z_var = d_var_calc(n, d_z)) %>%
+  filter(n >= 10) %>%
+  left_join(ages) %>%
+  filter(!is.na(d_z)) # CHECK THIS
+
+#note that there are NaN values in the ln_mean_d, replace them with zero?
+```
+
+### Unmatched dataset
+
+```{r}
+ages <- d_full %>%
+  group_by(lab, age_group, lang_group, subid) %>%
+  summarise(age_mo = mean(age_mo)) %>%
+  summarise(age_mo = mean(age_mo)) %>% 
+  mutate(age_mo_centered = scale(age_mo, scale = FALSE))
+
+ds_zt_unmatched_set <- d_diffs_full %>%
+  group_by(lab, age_group, lang_group, subid) %>%
+  summarise(d = mean(diff, na.rm = TRUE)) %>%
+  group_by(lab, age_group, lang_group) %>%
+  summarise(mean_d=mean(d,na.rm=TRUE),
+            d_z = mean(d, na.rm = TRUE) / sd(d, na.rm = TRUE),
+            n = length(unique(subid)),
+            d_z_var = d_var_calc(n, d_z)) %>%
+  filter(n >= 10) %>%
+  left_join(ages) %>%
+  filter(!is.na(d_z)) # CHECK THIS
+```
+
+## Effect size-based meta-analysis
+
+First, interecept-only model: examine the mean effect size across all groups in MB1B, regardless of language backgrounds.
+
+### The average IDS effect size in the Matched dataset
+
+```{r}
+intercept_matched_set <- metafor::rma(d_z ~ 1, vi = d_z_var, slab = lab, data = 
+                                        ds_zt_matched_set, method = "REML")
+summary(intercept_matched_set)
+```
+
+### The average IDS effect size in the Unmatched dataset
+
+```{r}
+intercept_unmatched_set <- metafor::rma(d_z ~1, vi = d_z_var, slab = lab, data = ds_zt_unmatched_set, method = "REML")
+summary(intercept_unmatched_set)
+```
+
+Note that in both matched and unmatched models, Q statistics indicate that there is non-significant heterogenenity. Here, we report the unmatched model. Any numbers in $I^2$ = `r intercept_unmatched_set$I2` is essentially meaningless. Reason for I not being zero when Q statistics is non-significant is as follow: $I^2 = (Q - df) / Q$ (following [Higgins et al., 2003](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC192859/)). When Q drops below df, as it does here (Q = `r intercept_unmatched_set$Q` and df = `r nrow(ds_zt_unmatched_set) -1`), then $I^2$ is defined as being zero, e.g. no heterogeneity. 
+
+## Language*age moderation (pre-reg)
+
+### Matched dataset
+
+```{r}
+lang_mod_matched <- metafor::rma(d_z ~ age_mo_centered*lang_group, vi = d_z_var,
+                    slab = lab, data = ds_zt_matched_set, method = "REML")
+summary(lang_mod_matched)
+```
+The lang_only_matched model has suggested that there is no significant difference in IDS preference between monolinguals and bilinguals
+```{r}
+lang_only_matched <- metafor::rma(d_z ~ lang_group, vi = d_z_var,
+                    slab = lab, data = ds_zt_matched_set, method = "REML")
+summary(lang_only_matched)
+```
+But as indicated in the RR analysis plan, we will report the average effect size for each language group
+```{r}
+#monolinguals' IDS ES in the matched dataset
+mono_sample_matched <- ds_zt_matched_set %>% filter(lang_group == "monolingual") 
+
+mono_only_matched <- metafor::rma(d_z ~ 1, vi = d_z_var, data = mono_sample_matched, slab = lab, method = "REML")
+summary(mono_only_matched)
+
+#bilinguals' IDS ES in the matched dataset
+bil_sample_matched <- ds_zt_matched_set %>% filter(lang_group == "bilingual") 
+
+bil_only_matched <- metafor::rma(d_z ~ 1, vi = d_z_var, data = bil_sample_matched, slab = lab, method = "REML")
+summary(bil_only_matched)
+```
+
+
+### Unmatched dataset
+
+```{r}
+lang_mod_unmatched <- metafor::rma(d_z ~ age_mo_centered*lang_group, vi = d_z_var,
+                    slab = lab, data = ds_zt_unmatched_set, method = "REML")
+summary(lang_mod_unmatched)
+```
+Neither age nor language group (plus their interaction term) is significant
+
+We will report the average effect size for each language group
+```{r}
+#monolinguals' IDS ES in the unmatched dataset
+mono_sample_unmatched <- ds_zt_unmatched_set %>% filter(lang_group == "monolingual") 
+
+mono_only_unmatched <- metafor::rma(d_z ~ 1, vi = d_z_var, data = mono_sample_unmatched, slab = lab, method = "REML")
+summary(mono_only_unmatched)
+
+#bilinguals' IDS ES in the unmatched dataset 
+bil_sample_unmatched <- ds_zt_unmatched_set %>% filter(lang_group == "bilingual") 
+
+bil_only_unmatched <- metafor::rma(d_z ~ 1, vi = d_z_var, data = bil_sample_unmatched, slab = lab, method = "REML")
+summary(bil_only_unmatched)
+```
+##Plot meta-analyic estimates by age and language. 
+
+### Matched dataset
+
+```{r}
+p <- ggplot(ds_zt_matched_set, aes(x = age_mo, y = d_z, col = lang_group)) +
+  geom_point(aes(size = n), alpha = .3) +
+  geom_linerange(aes(ymin = d_z - 1.96 * sqrt(d_z_var),
+                     ymax = d_z + 1.96 * sqrt(d_z_var)),
+                 alpha = .3) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "grey") +
+  geom_smooth(method = "lm") +
+  scale_colour_solarized(name = "Language group") +
+  scale_size_continuous(guide = FALSE) +
+  xlab("Mean Subject Age (Months)") +
+  ylab("Effect Size") +
+  theme(legend.position = "bottom")
+
+
+if (export_figs) {
+  pdf("figure_exports/MA age lang.pdf", width = 4.5, height = 3)
+  print(p)
+  dev.off()
+} else {
+  p
+}
+```
+### Unmatched dataset
+
+```{r}
+p <- ggplot(ds_zt_unmatched_set, aes(x = age_mo, y = d_z, col = lang_group)) +
+  geom_point(aes(size = n), alpha = .3) +
+  geom_linerange(aes(ymin = d_z - 1.96 * sqrt(d_z_var),
+                     ymax = d_z + 1.96 * sqrt(d_z_var)),
+                 alpha = .3) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "grey") +
+  geom_smooth(method = "lm") +
+  scale_colour_solarized(name = "Language group") +
+  scale_size_continuous(guide = FALSE) +
+  xlab("Mean Subject Age (Months)") +
+  ylab("Effect Size") +
+  theme(legend.position = "bottom")
+
+
+if (export_figs) {
+  pdf("figure_exports/MA age lang.pdf", width = 4.5, height = 3)
+  print(p)
+  dev.off()
+} else {
+  p
+}
+```
+###Forest plots (Matched dataset only)
+```{r}
+alpha <- .05
+
+p_lang <- predict(lang_only_matched, newmods =  c(0,1)) %>%
+  as_tibble %>%
+  mutate(lang_group = levels(ds_zt_matched_set$lang_group), 
+         age_group = "",
+         lab = "Meta-analytic estimate")
+
+forest_data <- ungroup(ds_zt_matched_set) %>%
+  mutate(pred = d_z, 
+         ci.lb = d_z - qnorm(alpha / 2, lower.tail = FALSE) * sqrt(d_z_var), 
+         ci.ub = d_z + qnorm(alpha / 2, lower.tail = FALSE) * sqrt(d_z_var), 
+         inverse_vars = 1/d_z_var, 
+         age_group = as.character(age_group)) %>%
+  bind_rows(p_lang) %>%
+  mutate(age_group = fct_relevel(age_group, c("6-9 mo", "12-15 mo", ""))) 
+
+ggplot(forest_data,
+       aes(x = lab, y = pred,
+           ymin = ci.lb, ymax = ci.ub, col = lang_group)) +
+  geom_point(aes(y = d_z, size = inverse_vars),
+             position = position_dodge(width = .2)) +
+  geom_point(data = filter(forest_data, lab == "Meta-analytic estimate"), pch = 5)+
+  geom_linerange(position = position_dodge(width = .2)) +
+  facet_grid(age_group ~ ., scales = "free", space = "free") +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "grey") +
+  coord_flip() +
+  scale_size_continuous(guide = FALSE) +
+  scale_color_solarized(name = "Language group") +
+  xlab("Lab") +
+  ylab("Effect Size") +
+  theme(legend.position = "bottom")
+
+```
+
+## Within-group variability meta-analysis (pre-reg)
+
+### Matched dataset
+
+```{r}
+ds_zt_matched_set <- ds_zt_matched_set %>%
+  mutate(SD=sqrt(d_z_var),
+         lnSD =log(SD)+(1/(2*(n-1))), 
+         SV.lnSD = 1/(2*(n-1)),
+         ln_mean_d=log(abs(mean_d))) 
+
+#check if there is correlation between mean_d and SD, very low and non-significant correlation. So mean_d and SD are not proportional with each other, we can't run the lnCVS approach
+ggplot(ds_zt_matched_set, aes(x=mean_d, y=SD))+
+  geom_point() +
+  stat_smooth(method="lm")
+
+cor.test(ds_zt_matched_set$mean_d, ds_zt_matched_set$SD)
+```
+
+```{r}
+ds_zt_matched_set$lang_group <- as.factor(ds_zt_matched_set$lang_group)
+           
+Var_matched_set <- metafor::rma.mv(yi = lnSD, V = SV.lnSD,
+                                   mods = ~lang_group + scale(log(abs(mean_d))),
+                                   random = list(~lang_group | lab),
+                                   data = ds_zt_matched_set)
+
+summary(Var_matched_set)
+
+```
+
+### Unmatched dataset
+ 
+```{r}
+ds_zt_unmatched_set <- ds_zt_unmatched_set %>%
+  mutate(SD=sqrt(d_z_var),
+         lnSD =log(SD)+(1/(2*(n-1))), 
+         SV.lnSD = 1/(2*(n-1)))
+
+
+Var_unmatched_set <- metafor::rma.mv(yi=lnSD, V=SV.lnSD, 
+                                     mods= ~ lang_group + scale(log(abs(mean_d))), 
+                                     random = list(~lang_group | lab), 
+                                     data = ds_zt_unmatched_set)
+
+summary(Var_unmatched_set)
+
+```
+
+
+# Mixed effects approach
+
+This approach is based on modeling *all* LTs. Some visualization first. 
+
+Matched dataset
+
+```{r}
+bss_diffs_matched <- d_diffs_matched %>%
+  group_by(lab, method, lang_group, nae, subid) %>%
+  summarise(n = sum(!is.na(diff)),
+            age_mo = mean(age_mo),
+            diff = mean(diff, na.rm=TRUE))
+
+p <- ggplot(bss_diffs_matched, aes(x = age_mo, y = diff, col = lang_group, lty = nae)) +
+  geom_point(data = filter(bss_diffs_matched, n == 8), alpha = .1) +
+  geom_smooth(method = "lm", se=FALSE) +
+  geom_hline(yintercept = 0, lty = 2) +
+  ylab("IDS preference (s)") +
+  scale_color_solarized(name = "language group") +
+  scale_linetype(name = "North American English") +
+  xlab("Age (Months)") +
+  theme(legend.position = "bottom", legend.box = "vertical")
+
+if (export_figs) {
+  pdf("figure_exports/scatter nae method age.pdf", width = 4, height = 3)
+  print(p)
+  dev.off()
+} else {
+  p
+}
+```
+
+Unmatched dataset
+
+```{r}
+bss_diffs_unmatched <- d_diffs_full %>%
+  group_by(lab, method, lang_group, nae, subid) %>%
+  summarise(n = sum(!is.na(diff)),
+            age_mo = mean(age_mo),
+            diff = mean(diff, na.rm=TRUE))
+
+ggplot(bss_diffs_unmatched, aes(x = age_mo, y = diff, col = lang_group, lty = nae)) +
+  geom_point(data = filter(bss_diffs_unmatched, n == 8), alpha = .1) +
+  geom_smooth(method = "lm", se=FALSE) +
+  geom_hline(yintercept = 0, lty = 2) +
+  ylab("IDS preference (s)") +
+  scale_color_solarized(name = "language group") +
+  scale_linetype(name = "North American English") +
+  coord_cartesian(ylim = c(-4, 4)) +
+  xlab("Age (Months)") +
+  theme(legend.position = "bottom", legend.box = "vertical")
+
+# if (export_figs) {
+#   pdf("figure_exports/scatter nae method age.pdf", width = 4, height = 3)
+#   print(p)
+#   dev.off()
+# } else {
+#   p
+# }
+```
+## Selected model 
+
+Bilingual (matched data) MODEL: 
+> In cases of mixed-effects models that failed to converge, we pursued an iterative pruning strategy. We began by removing random slopes nested within items (as that grouping was of least theoretical interest) and next removing random slopes nested within subjects and then labs. We then removed random intercepts from groupings in the same order. We were able to retain random effects of trial number nested within subjects. All other random effects (e.g., trial_type) led to singularity fit and thus were pruned from the model. 
+
+##LMM1 (IDS pref): Matched dataset 
+
+```{r}
+d_lmer_matched <- d_matched %>%
+  filter(trial_type != "train") %>%
+  mutate(log_lt = log(looking_time),
+         age_mo = scale(age_mo, scale = FALSE),
+         trial_num = trial_num, 
+         item = paste0(stimulus_num, trial_type)) %>%
+  filter(!is.na(log_lt), !is.infinite(log_lt))
+
+#COMPLETE model preregistered
+# mod_lmer_matched <- lmer(log_lt ~
+  # trial_type * method + age_mo * trial_num +
+  # trial_type * trial_num +
+  # trial_type * age_mo * nae +
+  # trial_type * age_mo * lang_group +
+  # (trial_num * trial_type|subid) +
+  # (trial_type * age_mo * lang_group |lab) +
+  # (method + age_mo * nae + age_mo*lang_group |item),
+#   data = d_lmer_matched)
+
+
+mod_lmer_matched <- lmer(log_lt ~
+  trial_type * method + age_mo * trial_num +
+  trial_type * trial_num +
+  trial_type * age_mo * nae +
+  trial_type * age_mo * lang_group +
+  (1 |subid) +
+  (lang_group |lab) + #I have controlled for lang_group as it is stated in the pre-registered ms that bilingualism is a more important theortical IV for random slope. However, it is important to note that we can only control lang_group as random slope at lab level here. We cannot include more slopes as the model will not converge or report singularity (AT).
+  (1 |item),
+  data = d_lmer_matched)
+
+summary(mod_lmer_matched) 
+
+kable(summary(mod_lmer_matched)$coefficients, digits = 3)
+
+```
+
+include a four-way interaction terms as it was pre-registered in the RR
+```{r}
+mod_lmer_matched_4_interaction <- lmer(log_lt~
+  trial_type * method + age_mo * trial_num +
+  trial_type * trial_num +
+  trial_type * age_mo * lang_group * nae +
+  (1 |subid) +
+  (1 |lab), 
+  data = d_lmer_matched)
+
+summary(mod_lmer_matched_4_interaction)
+
+kable(summary(mod_lmer_matched_4_interaction)$coefficients, digits = 3)
+```
+
+
+Predicted model and LMM1 plot (matched)
+```{r}
+# age_centers <- c(7.5,13.5)
+# predictions <- expand.grid(age_mo = age_centers - mean(d_lmer_matched$age_mo), # center
+#                            method = c("hpp","eyetracking","singlescreen"), 
+#                            trial_type = c("IDS","ADS"),
+#                            lang_group = c("bilingual", "monolingual"),
+#                            nae = c(TRUE, FALSE), 
+#                            trial_num = 1:16)
+# 
+# predictions_matched <- predictions
+# predictions_matched$looking_time <- exp(predict(mod_lmer_matched, 
+#                                         newdata = predictions_matched, 
+#                                         re.form = NA)) # no random effects
+# predictions_matched$age_mo <- predictions_matched$age_mo + mean(d_lmer_matched$age_mo) # un-center
+# predictions_matched$age_group <- factor(predictions_matched$age_mo, 
+#                                 levels = age_centers, 
+#                                 labels = c("6-9 mo","12-15 mo"))
+# predictions_matched$age_group_facet <- factor(predictions_matched$age_group,
+#                                               levels = c('6-9 mo', '12-15 mo'))
+# 
+# #Plot that shows age group*IDS
+# p <- ggplot(filter(d_lmer_matched, looking_time > 0),  # because log-LT model doesn't include 0s.
+#        aes(x = trial_num, y = looking_time, col=trial_type)) +
+#   geom_jitter(alpha = .05) +
+#   geom_point(alpha=0.05) +
+#   stat_smooth(data=predictions_matched, geom="smooth", se=FALSE)+
+#   scale_color_solarized(name = "trial_type") +
+#   facet_grid(.~age_group_facet) +
+#   scale_color_solarized(name = "trial_type") +
+#   ylab("Looking time (s)") +
+#   xlab("Trial Number") +
+#   theme(legend.position = "bottom")+
+#   ylim(2, 12) +
+#   ylab("Looking time (s)") +
+#   xlab("Trial Number") +
+#   labs(title="IDS*age group")+
+#   theme(legend.position = "bottom")
+# 
+# if (export_figs) {
+#   pdf("figure_exports/lmer + data.pdf", width = 5, height = 4)
+#   print(p)
+#   dev.off()
+# } else {
+#   p
+# }
+```
+
+
+
+##LMM1 (IDS pref): Unmatched dataset
+
+```{r}
+d_lmer_unmatched <- d_full %>%
+  filter(trial_type != "train") %>%
+  mutate(log_lt = log(looking_time),
+         age_mo = scale(age_mo, scale = FALSE),
+         trial_num = trial_num, 
+         item = paste0(stimulus_num, trial_type)) %>%
+  filter(!is.na(log_lt), !is.infinite(log_lt))
+
+mod_lmer_unmatched <- lmer(log_lt~
+  trial_type * method + age_mo * trial_num +
+  trial_type * trial_num +
+  trial_type * age_mo * nae +
+  trial_type * age_mo * lang_group +
+  (1 |subid) +
+  (1 |lab) +
+  (1 |item), 
+  data = d_lmer_unmatched)
+
+summary(mod_lmer_unmatched) 
+
+kable(summary(mod_lmer_unmatched)$coefficients, digits = 3)
+```
+
+
+include a four-way interaction terms as it was pre-registered in the RR
+```{r}
+mod_lmer_unmatched_4_interaction <- lmer(log_lt~
+  trial_type * method + age_mo * trial_num +
+  trial_type * trial_num +
+  trial_type * age_mo * lang_group * nae +
+  (1 |subid) +
+  (1 |lab), 
+  data = d_lmer_unmatched)
+
+summary(mod_lmer_unmatched_4_interaction)
+
+kable(summary(mod_lmer_unmatched_4_interaction)$coefficients, digits = 3)
+```
+
+###Predicted model and LMM1 unmatched plot
+```{r}
+age_centers <- c(7.5,13.5)
+predictions2 <- expand.grid(age_mo = age_centers - mean(d_lmer_unmatched$age_mo), # center
+                           method = c("hpp","eyetracking","singlescreen"), 
+                           trial_type = c("IDS","ADS"),
+                           lang_group = c("bilingual", "monolingual"),
+                           nae = c(TRUE, FALSE), 
+                           trial_num = 1:16)
+predictions_unmatched <- predictions2
+predictions_unmatched$looking_time <- exp(predict(mod_lmer_unmatched, 
+                                        newdata = predictions_unmatched, 
+                                        re.form = NA)) # no random effects
+predictions_unmatched$age_mo <- predictions_unmatched$age_mo + mean(d_lmer_unmatched$age_mo) # un-center
+predictions_unmatched$age_group <- factor(predictions_unmatched$age_mo, 
+                                levels = age_centers, 
+                                labels = c("6-9 mo","12-15 mo"))
+predictions_unmatched$age_group_facet <- factor(predictions_unmatched$age_group, levels = c('6-9 mo', '12-15 mo'))
+
+#rename the levels of nae, so that it is clear in the graph
+predictions_unmatched$nae <- as.factor(predictions_unmatched$nae)
+predictions_unmatched$nae <- fct_recode(predictions_unmatched$nae, "nae"="TRUE", "non-nae"="FALSE")
+
+#plot that probes the interaction between age and trial_num
+p2 <- ggplot(filter(d_lmer_unmatched, looking_time>0),  # because log-LT model doesn't include 0s. 
+       aes(x = trial_num, y = looking_time)) + 
+  geom_point(alpha = .05) +
+  stat_smooth(data=predictions_unmatched, geom="smooth", se=FALSE)+
+  scale_color_solarized(name = "trial_type")+
+  facet_grid(.~age_group)+
+  ylim(2, 16) + 
+  ylab("Looking time (s)") + 
+  xlab("Trial Number") + 
+  labs(title="method*IDS")+
+  theme(legend.position = "bottom")
+
+if (export_figs) {
+  pdf("figure_exports/lmer + data.pdf", width = 5, height = 4)
+  print(p)
+  dev.off()
+} else {
+  p2
+}
+
+# #plot that probes the interaction between age and IDS
+# p3 <- ggplot(filter(d_lmer_unmatched, looking_time>0),  # because log-LT model doesn't include 0s. 
+#        aes(x = trial_num, y = looking_time, col=trial_type)) + 
+#   geom_jitter(alpha = .05) +
+#   stat_smooth(data=predictions_unmatched, geom="smooth", se=FALSE)+
+#   scale_color_solarized(name = "trial_type")+
+#   facet_grid(.~age_group_facet)+
+#   ylim(0, 12) + 
+#   ylab("Looking time (s)") + 
+#   xlab("Trial Number") + 
+#   labs(title="age*IDS")+
+#   theme(legend.position = "bottom")
+# 
+# if (export_figs) {
+#   pdf("figure_exports/lmer + data.pdf", width = 5, height = 4)
+#   print(p)
+#   dev.off()
+# } else {
+#   p3
+# }
+
+#plot that probes the interaction between nae and IDS
+
+#Plot that probes the three way interaction: trial_typeIDS:age_mo:naeTRUE
+p4 <- ggplot(filter(predictions_unmatched, looking_time>0),  # because log-LT model doesn't include 0s.
+       aes(x = trial_num, y = looking_time, col=trial_type)) +
+  geom_jitter(alpha = .05) +
+  stat_smooth(data=predictions_unmatched, geom="smooth", se=FALSE)+
+  facet_grid(nae~age_group) +
+  scale_color_solarized(name = "trial_type") +
+  ylim(0, 12) +
+  ylab("Looking time (s)") +
+  xlab("Trial Number") +
+  labs(title="age*trial type(IDS)*nae")+
+  theme(legend.position = "bottom")
+
+if (export_figs) {
+  pdf("figure_exports/lmer + data.pdf", width = 5, height = 4)
+  print(p)
+  dev.off()
+} else {
+  p4
+}
+```
+Coefficient information. 
+
+```{r}
+#kable(summary(mod_lmer_matched)$coefficients, digits = 3)
+```
+##LMM2 (nae_exp) 
+Note that this analysis only includes bilingual infants as indicated in the pre-registered ms (AT).
+As we are only examining bilingual infants in LMM2, there is no difference between matched and unmatched dataset (as no lab that collected bilingual infants have n<10 when combining two age groups together, see my notes in the session "Create matached dataset for the Looking time")
+I used matched dataset here because it contains all bilingual labs here.
+```{r}
+#COMPLETE model pre-registered
+# nae_lmer_matched <- lmer(log_lt~
+  # trial_type * method + age_mo * trial_num +
+  # trial_type * trial_num +
+  # trial_type * age_mo * nae_exp +
+  # (trial_num * trial_type |subid) +
+  # (trial_type * age_mo * nae_exp |lab) +
+  # (method + age_mo * nae_exp * trial_num |item),
+#   data = d_lmer_matched)
+
+d_lmer_matched_Lmm2 <- d_lmer_matched %>% filter(lang_group=="bilingual")
+
+hist(d_lmer_matched_Lmm2$nae_exp) #note that there were a lot babies who were not exposed to nae.
+
+nae_lmer_matched <- lmer(log_lt~
+  trial_type * method + age_mo * trial_num +
+  trial_type * trial_num +
+  trial_type * age_mo * nae_exp +
+  (1 |subid) +
+  (trial_type |lab) +
+  (1 |item), 
+  data = d_lmer_matched_Lmm2)
+ 
+summary(nae_lmer_matched) 
+
+kable(summary(nae_lmer_matched)$coefficients, digits = 3)
+```
+
+```{r IDS_nae_exp_graph}
+IDS_NAE_EXP <- d_diffs_matched %>%
+  filter(lang_group == "bilingual") %>% 
+  group_by(lab, subid) %>%
+  summarise(nae_exp = mean(nae_exp),
+            n = sum(!is.na(diff)),
+            diff = mean(diff, na.rm = TRUE)) %>% 
+  filter(n > 0)
+ 
+p <- ggplot(IDS_NAE_EXP, aes(x = nae_exp, y = diff)) +
+  geom_jitter(width = 1, alpha = .3) +
+  geom_smooth(method = "lm", se=FALSE, aes(color = "full data")) +
+  geom_smooth(data = filter(IDS_NAE_EXP, nae_exp > 25), method = "lm", se = FALSE, aes(color = "partial data (25%-75% nae exposure)")) +
+  scale_color_manual(name = "Model fit", breaks = c("full data", "partial data (25%-75% nae exposure)"),
+                    values = c("full data" = "dodgerblue3", "partial data (25%-75% nae exposure)" = "brown3")) +
+  geom_hline(yintercept = 0, lty = 2) +
+  coord_cartesian(ylim = c(-5, 5)) +
+  ylab("IDS preference (s)") +
+  xlab("NAE exposure (%)") +
+  theme(legend.position = "bottom", legend.box = "vertical")
+
+if (export_figs) {
+  pdf("figure_exports/scatter nae ids.pdf", width = 4, height = 3)
+  print(p)
+  dev.off()
+} else {
+  p
+}
+```
+
+######Predicted model and LMM2 plot
+```{r}
+nae_mean_predict <- expand.grid(nae_exp=mean(d_lmer_matched_Lmm2$nae_exp),
+                           age_mo = age_centers - mean(d_lmer_matched$age_mo), # center
+                           method = c("hpp","eyetracking","singlescreen"),
+                           trial_type = c("IDS","ADS"),
+                           trial_num = 1:16)
+
+nae_low_predict <- expand.grid(nae_exp=mean(d_lmer_matched_Lmm2$nae_exp) - sd(d_lmer_matched_Lmm2$nae_exp),
+                           age_mo = age_centers - mean(d_lmer_matched$age_mo), # center
+                           method = c("hpp","eyetracking","singlescreen"),
+                           trial_type = c("IDS","ADS"),
+                           trial_num = 1:16)
+
+nae_high_predict <- expand.grid(nae_exp=mean(d_lmer_matched_Lmm2$nae_exp) + sd(d_lmer_matched_Lmm2$nae_exp),
+                                age_mo = age_centers - mean(d_lmer_matched$age_mo), # center
+                                method = c("hpp","eyetracking","singlescreen"),
+                           trial_type = c("IDS","ADS"),
+                           trial_num = 1:16)
+
+nae_mean_predict$looking_time <- exp(predict(nae_lmer_matched,
+                                        newdata = nae_mean_predict,
+                                        re.form = NA)) # no random effects
+
+nae_low_predict$looking_time <- exp(predict(nae_lmer_matched,
+                                        newdata = nae_low_predict,
+                                        re.form = NA)) # no random effects
+
+nae_high_predict$looking_time <- exp(predict(nae_lmer_matched,
+                                          newdata = nae_high_predict,
+                                          re.form = NA)) # no random effects
+nae_mean_predict$nae_group <- "mean"
+nae_low_predict$nae_group <- "mean - 1 S.D."
+nae_high_predict$nae_group <- "mean + 1 S.D."
+
+nae_predict <- bind_rows(nae_low_predict,nae_mean_predict,nae_high_predict)
+nae_predict$nae_group_cor_order <- factor(nae_predict$nae_group, levels=c("mean - 1 S.D.", "mean", "mean + 1 S.D."))
+
+
+#Plot that probes the interaction between IDS and nae_exp
+p5 <- ggplot(filter(d_lmer_matched, lang_group=="bilingual"),  # because Lmm2 only includes bilingual infants
+      aes(x = trial_num, y = looking_time, col=trial_type)) +
+      geom_jitter(alpha=0.03)+
+      stat_smooth(data=nae_predict, geom="smooth", se=FALSE)+
+      facet_grid(.~nae_group_cor_order)+
+      scale_color_solarized(name = "trial_type") +
+      ylim(2, 12) +
+      ylab("Looking time (s)") +
+      xlab("Trial Number") +
+      labs(title="IDS*nae_exp")+
+      theme(legend.position = "bottom")
+
+if (export_figs) {
+  pdf("figure_exports/lmer + data.pdf", width = 5, height = 4)
+  print(p)
+  dev.off()
+} else {
+  p5
+}
+
+
+```
+
+##LMM3 (SES): Matched dataset
+```{r}
+#COMPLETE model pre-registered
+# SES_lmer_matched <- lmer(
+#   log_lt ~
+#   trial_type * method +
+#   age_mo * trial_num +
+#   trial_type * trial_num +
+#   trial_type * age_mo * nae +
+#   trial_type * age_mo * lang_group +
+#   trial_type * age_mo * SES +
+#   (trial_num * trial_type | subid) +
+#   (trial_type * age_mo * lang_group | lab) +
+#   (method + age_mo * lang_group + age_mo * nae + age_mo * SES | item),
+#   data = d_lmer_matched
+#   )
+
+SES_lmer_matched <- lmer(
+  log_lt ~
+  trial_type * method +
+  age_mo * trial_num +
+  trial_type * trial_num +
+  trial_type * age_mo * nae +
+  trial_type * age_mo * lang_group +
+  trial_type * age_mo * SES +
+  (1 | subid) +
+  (1 | lab),
+  data = d_lmer_matched
+  )
+ 
+summary(SES_lmer_matched) 
+
+kable(summary(SES_lmer_matched)$coefficients, digits = 3)
+```
+
+```{r IDS_age_SES_graph}
+IDS_AGE_SES <- d_diffs_matched %>%
+  mutate(age_group = fct_relevel(age_group, "6-9 mo", "12-15 mo")) %>% 
+  group_by(lab, age_group, subid) %>%
+  summarise(SES = mean(SES),
+            n = sum(!is.na(diff)),
+            diff = mean(diff, na.rm = TRUE)) %>% 
+  filter(n > 0)
+ 
+ggplot(IDS_AGE_SES, aes(x = SES, y = diff, col = age_group)) +
+  geom_jitter(alpha = .3) +
+  geom_smooth(method = "lm", se=FALSE) +
+  geom_hline(yintercept = 0, lty = 2) +
+  scale_color_solarized() +
+  coord_cartesian(ylim = c(-10, 10)) +
+  ylab("IDS preference (s)") +
+  xlab("SES (number of years of maternal education)") +
+  theme(legend.position = "bottom", legend.box = "vertical")+
+  labs(col="Age groups")
+
+# if (export_figs) {
+#   pdf("figure_exports/scatter ses ids age.pdf", width = 4, height = 3)
+#   print(p)
+#   dev.off()
+# } else {
+#   p
+# }
+```
+
+##LMM4 (SES): Unmatached dataset
+```{r}
+
+SES_lmer_unmatched <- lmer(
+  log_lt ~
+  trial_type * method +
+  age_mo * trial_num +
+  trial_type * trial_num +
+  trial_type * age_mo * nae +
+  trial_type * age_mo * lang_group +
+  trial_type * age_mo * SES +
+  (1 | subid) +
+  (1 | lab) +
+  (1 | item),
+  data = d_lmer_unmatched
+  )
+
+summary(SES_lmer_unmatched)
+
+kable(summary(SES_lmer_unmatched)$coefficients, digits = 3)
+```
+
+
+Note that the interaction of SES*age*IDS is gone with a larger dataset. The main effect of SES in this larger dataset suggested that infants from a higher SES family may look longer to the stimuli (*but this is not a main effect in the matched dataset). So I think we will need to interpret the result of SES with caution, may be we should put this note in the ms. (AT)
+
+
+
+
+```{r}
+# Save the environment for diagnostics and follow-up analyses
+
+#save(list = c("d_lmer", "d", "diffs", "mod_lmer", "missing_mod"), file = "04_confirmatory_analysis.RData")
+
+```
+

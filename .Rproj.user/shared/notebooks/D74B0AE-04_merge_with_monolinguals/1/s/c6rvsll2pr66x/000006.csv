@@ -1,0 +1,2 @@
+"0",""
+"0","d_matched %>% group_by(nae, age_group, lang_group) %>% summarize(n=length(unique(subid))) # all cell >20, we met the min requirement for each cell needs a min of 20 infants for the LMM model analyses"

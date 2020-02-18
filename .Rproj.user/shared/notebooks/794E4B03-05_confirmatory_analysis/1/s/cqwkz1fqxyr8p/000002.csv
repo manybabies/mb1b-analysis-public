@@ -1,0 +1,6 @@
+"0","ggplot(filter(d_matched, looking_time < 20, "
+"0","              trial_num > 0), "
+"0","       aes(x = trial_num, y = looking_time, color = lang_group)) + "
+"0","  geom_jitter(alpha = .1) + "
+"0","  geom_smooth() + "
+"0","  facet_wrap(~age_group) "
