@@ -77,7 +77,7 @@ author:
     affiliation   : "17"
   - name          : "Connor Waddell"
     affiliation   : "16"
-  - name          : "Janet Werker"
+  - name          : "Janet F. Werker"
     affiliation   : "4"
   - name          : "Stephanie Wermelinger"
     affiliation   : "8"
