@@ -71,7 +71,7 @@ author:
     affiliation   : "12"
   - name          : "Christine E. Potter"
     affiliation   : "14"
-  - name          : "Melli Schreiner"
+  - name          : "Melanie Schreiner"
     affiliation   : "19"
   - name          : "Leher Singh"
     affiliation   : "18"
