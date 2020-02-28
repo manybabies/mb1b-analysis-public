@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  18 FEB 2020 14:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  28 FEB 2020 09:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -876,14 +876,30 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip69
 )
-Package hyperref Info: Option `breaklinks' set `true' on input line 35.
+Package hyperref Info: Option `breaklinks' set `true' on input line 36.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/grffile.sty
 Package: grffile 2016/05/16 v1.17 Extended file name support for graphics (HO)
 Package grffile Info: Option `multidot' is set to `true'.
 Package grffile Info: Option `extendedchars' is set to `false'.
 Package grffile Info: Option `space' is set to `true'.
 Package grffile Info: \Gin@ii of package `graphicx' fixed on input line 486.
-) (/usr/local/texlive/2016/texmf-dist/tex/latex/was/upgreek.sty
+) (/usr/local/texlive/2016/texmf-dist/tex/latex/csquotes/csquotes.sty
+Package: csquotes 2016/01/31 v5.1g context-sensitive quotations (JAW)
+\csq@reset=\count128
+\csq@gtype=\count129
+\csq@glevel=\count130
+\csq@qlevel=\count131
+\csq@maxlvl=\count132
+\csq@tshold=\count133
+\csq@ltx@everypar=\toks27
+(/usr/local/texlive/2016/texmf-dist/tex/latex/csquotes/csquotes.def
+File: csquotes.def 2016/01/31 v5.1g csquotes generic definitions (JAW)
+)
+Package csquotes Info: Trying to load configuration file 'csquotes.cfg'...
+Package csquotes Info: ... configuration file loaded successfully.
+(/usr/local/texlive/2016/texmf-dist/tex/latex/csquotes/csquotes.cfg
+File: csquotes.cfg 
+)) (/usr/local/texlive/2016/texmf-dist/tex/latex/was/upgreek.sty
 Package: upgreek 2003/02/12 v2.0 (WaS)
 Package upgreek Info: Using Euler Roman for upright Greek on input line 31.
 \symugrf@m=\mathgroup9
@@ -895,17 +911,17 @@ Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
 \LTright=\skip71
 \LTpre=\skip72
 \LTpost=\skip73
-\LTchunksize=\count128
+\LTchunksize=\count134
 \LTcapwidth=\dimen147
 \LT@head=\box32
 \LT@firsthead=\box33
 \LT@foot=\box34
 \LT@lastfoot=\box35
-\LT@cols=\count129
-\LT@rows=\count130
-\c@LT@tables=\count131
-\c@LT@chunks=\count132
-\LT@p@ftn=\toks27
+\LT@cols=\count135
+\LT@rows=\count136
+\c@LT@tables=\count137
+\c@LT@chunks=\count138
+\LT@p@ftn=\toks28
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/lscape.sty
 Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/multirow/multirow.sty
@@ -916,7 +932,7 @@ Package: tabularx 2016/02/03 v2.11 `tabularx' package (DPC)
 Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
 \col@sep=\dimen149
 \extrarowheight=\dimen150
-\NC@list=\toks28
+\NC@list=\toks29
 \extratabsurround=\skip74
 \backup@length=\skip75
 )
@@ -925,8 +941,8 @@ Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
 \TX@old@col=\dimen153
 \TX@target=\dimen154
 \TX@delta=\dimen155
-\TX@cols=\count133
-\TX@ftn=\toks29
+\TX@cols=\count139
+\TX@ftn=\toks30
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/threeparttablex/threeparttablex.s
 ty
@@ -941,56 +957,28 @@ Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 \longtablewidth=\skip77
 (/usr/local/texlive/2016/texmf-dist/tex/latex/lineno/lineno.sty
 Package: lineno 2005/11/02 line numbers on paragraphs v4.41
-\linenopenalty=\count134
-\output=\toks30
-\linenoprevgraf=\count135
+\linenopenalty=\count140
+\output=\toks31
+\linenoprevgraf=\count141
 \linenumbersep=\dimen156
 \linenumberwidth=\dimen157
-\c@linenumber=\count136
-\c@pagewiselinenumber=\count137
-\c@LN@truepage=\count138
-\c@internallinenumber=\count139
-\c@internallinenumbers=\count140
+\c@linenumber=\count142
+\c@pagewiselinenumber=\count143
+\c@LN@truepage=\count144
+\c@internallinenumber=\count145
+\c@internallinenumbers=\count146
 \quotelinenumbersep=\dimen158
 \bframerule=\dimen159
 \bframesep=\dimen160
 \bframebox=\box36
+
+LaTeX Warning: Command \@parboxrestore  has changed.
+               Check if current package is valid.
+
 LaTeX Info: Redefining \\ on input line 3056.
-) (/usr/local/texlive/2016/texmf-dist/tex/latex/csquotes/csquotes.sty
-Package: csquotes 2016/01/31 v5.1g context-sensitive quotations (JAW)
-\csq@reset=\count141
-\csq@gtype=\count142
-\csq@glevel=\count143
-\csq@qlevel=\count144
-\csq@maxlvl=\count145
-\csq@tshold=\count146
-\csq@ltx@everypar=\toks31
-(/usr/local/texlive/2016/texmf-dist/tex/latex/csquotes/csquotes.def
-File: csquotes.def 2016/01/31 v5.1g csquotes generic definitions (JAW)
 )
-Package csquotes Info: Trying to load configuration file 'csquotes.cfg'...
-Package csquotes Info: ... configuration file loaded successfully.
-(/usr/local/texlive/2016/texmf-dist/tex/latex/csquotes/csquotes.cfg
-File: csquotes.cfg 
-)) (/usr/local/texlive/2016/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2016/04/23 3.9r The Babel package
-(/usr/local/texlive/2016/texmf-dist/tex/generic/babel-english/english.ldf
-Language: english 2012/08/20 v3.3p English support from the babel system
-(/usr/local/texlive/2016/texmf-dist/tex/generic/babel/babel.def
-File: babel.def 2016/04/23 3.9r Babel common definitions
-\babel@savecnt=\count147
-\U@D=\dimen161
-)
-\l@canadian = a dialect from \language\l@american 
-\l@australian = a dialect from \language\l@british 
-\l@newzealand = a dialect from \language\l@british 
-) (/usr/local/texlive/2016/texmf-dist/tex/generic/babel-english/english.ldf
-Language: english 2012/08/20 v3.3p English support from the babel system
-))
 Package csquotes Info: Checking for multilingual support...
-Package csquotes Info: ... found 'babel' package.
-Package csquotes Info: Adjusting default style.
-Package csquotes Info: Redefining alias 'default' -> 'english'.
+Package csquotes Info: ... none found.
 (./mb1b-paper.aux
 
 LaTeX Warning: Label `tab:unnamed-chunk-8' multiply defined.
@@ -1013,30 +1001,30 @@ LaTeX Warning: Label `tab:unnamed-chunk-18' multiply defined.
 )
 \openout1 = `mb1b-paper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 124.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 124.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 110.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 110.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 124.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 110.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -1076,16 +1064,16 @@ File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 
 (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count148
-\scratchdimen=\dimen162
+\scratchcounter=\count147
+\scratchdimen=\dimen161
 \scratchbox=\box37
-\nofMPsegments=\count149
-\nofMParguments=\count150
+\nofMPsegments=\count148
+\nofMParguments=\count149
 \everyMPshowfont=\toks32
-\MPscratchCnt=\count151
-\MPscratchDim=\dimen163
-\MPnumerator=\count152
-\makeMPintoPDFobject=\count153
+\MPscratchCnt=\count150
+\MPscratchDim=\dimen162
+\MPnumerator=\count151
+\makeMPintoPDFobject=\count152
 \everyMPtoPDFconversion=\toks33
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -1110,7 +1098,7 @@ Package caption Info: longtable package is loaded.
 Package: ltcaption 2013/06/09 v1.4-94 longtable captions (AR)
 )
 Package caption Info: End \AtBeginDocument code.
-LaTeX Info: Redefining \microtypecontext on input line 124.
+LaTeX Info: Redefining \microtypecontext on input line 110.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
@@ -1125,59 +1113,59 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 (RS)
 )
 \AtBeginShipoutBox=\box38
-Package hyperref Info: Link coloring OFF on input line 124.
+Package hyperref Info: Link coloring OFF on input line 110.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count154
+\c@section@level=\count153
 )
-LaTeX Info: Redefining \ref on input line 124.
-LaTeX Info: Redefining \pageref on input line 124.
-LaTeX Info: Redefining \nameref on input line 124.
+LaTeX Info: Redefining \ref on input line 110.
+LaTeX Info: Redefining \pageref on input line 110.
+LaTeX Info: Redefining \nameref on input line 110.
 (./mb1b-paper.out) (./mb1b-paper.out)
 \@outlinefile=\write5
 \openout5 = `mb1b-paper.out'.
 
-LaTeX Font Info:    Try loading font information for T1+lmss on input line 126.
+LaTeX Font Info:    Try loading font information for T1+lmss on input line 112.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 126.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 112.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 126.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 112.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 126
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 112
 .
 (/usr/local/texlive/2016/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 126
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 112
 .
 (/usr/local/texlive/2016/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 126.
+(Font)              <12> on input line 112.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 126.
+(Font)              <8> on input line 112.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 126.
-LaTeX Font Info:    Try loading font information for U+msa on input line 126.
+(Font)              <6> on input line 112.
+LaTeX Font Info:    Try loading font information for U+msa on input line 112.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 126.
+LaTeX Font Info:    Try loading font information for U+msb on input line 112.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/microtype/mt-msb.cfg
@@ -1199,27 +1187,27 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [20] [21] [22]
-Overfull \hbox (42.60588pt too wide) in alignment at lines 257--262
+Overfull \hbox (42.60588pt too wide) in alignment at lines 243--248
  [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (42.60588pt too wide) in alignment at lines 262--267
+Overfull \hbox (42.60588pt too wide) in alignment at lines 248--253
  [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (42.60588pt too wide) in alignment at lines 267--269
+Overfull \hbox (42.60588pt too wide) in alignment at lines 253--255
  [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (42.60588pt too wide) in alignment at lines 269--271
+Overfull \hbox (42.60588pt too wide) in alignment at lines 255--257
  [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (42.60588pt too wide) in alignment at lines 271--292
+Overfull \hbox (42.60588pt too wide) in alignment at lines 257--278
  [] [] [] [] [] [] 
  []
 
@@ -1230,92 +1218,713 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [25]
-LaTeX Font Info:    Try loading font information for TS1+lmr on input line 337.
+LaTeX Font Info:    Try loading font information for TS1+lmr on input line 323.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [26] [27]
 Underfull \vbox (badness 4752) has occurred while \output is active []
 
-[28] [29] [30]
-<mb1b-paper_files/figure-latex/unnamed-chunk-3-1.pdf, id=326, 454.69875pt x 380
+[28] [29]
+Underfull \vbox (badness 1062) has occurred while \output is active []
+
+[30]
+<mb1b-paper_files/figure-latex/unnamed-chunk-3-1.pdf, id=330, 454.69875pt x 380
 .42125pt>
 File: mb1b-paper_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (type pd
 f)
 <use mb1b-paper_files/figure-latex/unnamed-chunk-3-1.pdf>
 Package pdftex.def Info: mb1b-paper_files/figure-latex/unnamed-chunk-3-1.pdf us
-ed on input line 394.
+ed on input line 380.
 (pdftex.def)             Requested size: 454.70456pt x 380.4261pt.
 [31] [32 <./mb1b-paper_files/figure-latex/unnamed-chunk-3-1.pdf>]
 
-LaTeX Warning: Command \textquoteright invalid in math mode on input line 405.
+LaTeX Warning: Command \textquoteright invalid in math mode on input line 391.
 
 
-LaTeX Warning: Command \textquoteright invalid in math mode on input line 406.
+LaTeX Warning: Command \textquoteright invalid in math mode on input line 392.
 
 [33]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 419.
+(Font)              <10> on input line 405.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 419.
+(Font)              <7> on input line 405.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 419.
-[34] [35] [36] [37]
-Underfull \vbox (badness 7379) has occurred while \output is active []
-
-[38] [39] [40] [41] [42] [43] <mb1b-paper_files/figure-latex/fig2-1.pdf, id=424
-, 463.7325pt x 308.15125pt>
+(Font)              <5> on input line 405.
+[34] [35] [36] [37] [38] [39] [40] [41] [42] [43] <mb1b-paper_files/figure-late
+x/fig2-1.pdf, id=428, 463.7325pt x 308.15125pt>
 File: mb1b-paper_files/figure-latex/fig2-1.pdf Graphic file (type pdf)
 <use mb1b-paper_files/figure-latex/fig2-1.pdf>
 Package pdftex.def Info: mb1b-paper_files/figure-latex/fig2-1.pdf used on input
- line 647.
+ line 633.
 (pdftex.def)             Requested size: 463.73842pt x 308.15518pt.
-[44 <./mb1b-paper_files/figure-latex/fig2-1.pdf>]
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[45]
+[44 <./mb1b-paper_files/figure-latex/fig2-1.pdf>] [45]
 
-LaTeX Warning: Float too large for page by 36.28157pt on input line 738.
+LaTeX Warning: Float too large for page by 36.28157pt on input line 724.
 
 
-LaTeX Warning: Float too large for page by 36.28157pt on input line 780.
+LaTeX Warning: Float too large for page by 36.28157pt on input line 766.
 
-[46] [47] [48]
+[46] [47] [48] [49] [50]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[49] [50] [51] [52] [53] [54]
+[51]
 Underfull \vbox (badness 4752) has occurred while \output is active []
 
-[55] [56] [57] [58] [59] [60] [61] [62] [63] [64] [65] [66] [67] [68] [69] [70]
-[71]pdfTeX warning (ext4): destination with the same identifier (name{table.1})
- has been already used, duplicate ignored
+[52] [53]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[54] [55] [56] [57] [58] [59] [60] [61] [62] [63] [64] [65] [66] [67] [68] [69]
+pdfTeX warning (ext4): destination with the same identifier (name{ref-anderson_
+2018}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1211 ...left\arraybackslash}p{2.3cm}>{}p{2.3cm}}
-                                                   [72
+l.1185 ...vevmode\hypertarget{ref-anderson_2018}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-barr_2013}) has been already used, du
+plicate ignored
+<to be read again> 
+                   \relax 
+l.1188 \leavevmode\hypertarget{ref-barr_2013}{}
+                                               %pdfTeX warning (ext4): destinat
+ion with the same identifier (name{ref-bates_2015a}) has been already used, dup
+licate ignored
+<to be read again> 
+                   \relax 
+l.1191 \leavevmode\hypertarget{ref-bates_2015a}{}
+                                                 % [70]pdfTeX warning (ext4): d
+estination with the same identifier (name{ref-bates_2015b}) has been already us
+ed, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1194 \leavevmode\hypertarget{ref-bates_2015b}{}
+                                                 %pdfTeX warning (ext4): destin
+ation with the same identifier (name{ref-bialystok_2005}) has been already used
+, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1197 ...evmode\hypertarget{ref-bialystok_2005}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-bialystok_2018}) has been already use
+d, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1200 ...evmode\hypertarget{ref-bialystok_2018}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-bosch_2011}) has been already used, d
+uplicate ignored
+<to be read again> 
+                   \relax 
+l.1203 \leavevmode\hypertarget{ref-bosch_2011}{}
+                                                %pdfTeX warning (ext4): destina
+tion with the same identifier (name{ref-bosch_1997}) has been already used, dup
+licate ignored
+<to be read again> 
+                   \relax 
+l.1206 \leavevmode\hypertarget{ref-bosch_1997}{}
+                                                %pdfTeX warning (ext4): destina
+tion with the same identifier (name{ref-bosch_2001}) has been already used, dup
+licate ignored
+<to be read again> 
+                   \relax 
+l.1209 \leavevmode\hypertarget{ref-bosch_2001}{}
+                                                %pdfTeX warning (ext4): destina
+tion with the same identifier (name{ref-brito_2014}) has been already used, dup
+licate ignored
+<to be read again> 
+                   \relax 
+l.1212 \leavevmode\hypertarget{ref-brito_2014}{}
+                                                %pdfTeX warning (ext4): destina
+tion with the same identifier (name{ref-brito_2015}) has been already used, dup
+licate ignored
+<to be read again> 
+                   \relax 
+l.1215 \leavevmode\hypertarget{ref-brito_2015}{}
+                                                % [71]pdfTeX warning (ext4): de
+stination with the same identifier (name{ref-byers_heinlein_2015}) has been alr
+eady used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1218 ...e\hypertarget{ref-byers_heinlein_2015}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-byers_heinlein_et_al_2019}) has been 
+already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1221 ...rtarget{ref-byers_heinlein_et_al_2019}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-byers_heinlein_2014}) has been alread
+y used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1224 ...e\hypertarget{ref-byers_heinlein_2014}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-byers_heinlein_2013}) has been alread
+y used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1227 ...e\hypertarget{ref-byers_heinlein_2013}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-byers_heinlein_2019}) has been alread
+y used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1230 ...e\hypertarget{ref-byers_heinlein_2019}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-cattani_2014}) has been already used,
+ duplicate ignored
+<to be read again> 
+                   \relax 
+l.1233 \leavevmode\hypertarget{ref-cattani_2014}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-choi_1991}) has been already used, du
+plicate ignored
+<to be read again> 
+                   \relax 
+l.1236 \leavevmode\hypertarget{ref-choi_1991}{}
+                                               % [72]pdfTeX warning (ext4): des
+tination with the same identifier (name{ref-cooper_1997}) has been already used
+, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1239 \leavevmode\hypertarget{ref-cooper_1997}{}
+                                                 %pdfTeX warning (ext4): destin
+ation with the same identifier (name{ref-cooper_1990}) has been already used, d
+uplicate ignored
+<to be read again> 
+                   \relax 
+l.1242 \leavevmode\hypertarget{ref-cooper_1990}{}
+                                                 %pdfTeX warning (ext4): destin
+ation with the same identifier (name{ref-cooper_1994}) has been already used, d
+uplicate ignored
+<to be read again> 
+                   \relax 
+l.1245 \leavevmode\hypertarget{ref-cooper_1994}{}
+                                                 %pdfTeX warning (ext4): destin
+ation with the same identifier (name{ref-csibra_2016}) has been already used, d
+uplicate ignored
+<to be read again> 
+                   \relax 
+l.1248 \leavevmode\hypertarget{ref-csibra_2016}{}
+                                                 %pdfTeX warning (ext4): destin
+ation with the same identifier (name{ref-curtin_2011}) has been already used, d
+uplicate ignored
+<to be read again> 
+                   \relax 
+l.1251 \leavevmode\hypertarget{ref-curtin_2011}{}
+                                                 %pdfTeX warning (ext4): destin
+ation with the same identifier (name{ref-danielson_2014}) has been already used
+, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1254 ...evmode\hypertarget{ref-danielson_2014}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-deanda_2016}) has been already used, 
+duplicate ignored
+<to be read again> 
+                   \relax 
+l.1257 \leavevmode\hypertarget{ref-deanda_2016}{}
+                                                 % [73]pdfTeX warning (ext4): d
+estination with the same identifier (name{ref-dunst_2012}) has been already use
+d, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1260 \leavevmode\hypertarget{ref-dunst_2012}{}
+                                                %pdfTeX warning (ext4): destina
+tion with the same identifier (name{ref-farran_2016}) has been already used, du
+plicate ignored
+<to be read again> 
+                   \relax 
+l.1263 \leavevmode\hypertarget{ref-farran_2016}{}
+                                                 %pdfTeX warning (ext4): destin
+ation with the same identifier (name{ref-fennell_2014}) has been already used, 
+duplicate ignored
+<to be read again> 
+                   \relax 
+l.1266 \leavevmode\hypertarget{ref-fennell_2014}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-fennell_2007}) has been already used,
+ duplicate ignored
+<to be read again> 
+                   \relax 
+l.1269 \leavevmode\hypertarget{ref-fennell_2007}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-fernald_1985}) has been already used,
+ duplicate ignored
+<to be read again> 
+                   \relax 
+l.1272 \leavevmode\hypertarget{ref-fernald_1985}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-fernald_2013}) has been already used,
+ duplicate ignored
+<to be read again> 
+                   \relax 
+l.1275 \leavevmode\hypertarget{ref-fernald_2013}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-fernald_1989}) has been already used,
+ duplicate ignored
+<to be read again> 
+                   \relax 
+l.1278 \leavevmode\hypertarget{ref-fernald_1989}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-frank_2017}) has been already used, d
+uplicate ignored
+<to be read again> 
+                   \relax 
+l.1281 \leavevmode\hypertarget{ref-frank_2017}{}
+                                                % [74]pdfTeX warning (ext4): de
+stination with the same identifier (name{ref-garcia_sierra_2016}) has been alre
+ady used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1284 ...de\hypertarget{ref-garcia_sierra_2016}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-glenn_1983}) has been already used, d
+uplicate ignored
+<to be read again> 
+                   \relax 
+l.1287 \leavevmode\hypertarget{ref-glenn_1983}{}
+                                                %pdfTeX warning (ext4): destina
+tion with the same identifier (name{ref-graf_estes_2015}) has been already used
+, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1290 ...vmode\hypertarget{ref-graf_estes_2015}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-graf_estes_2013}) has been already us
+ed, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1293 ...vmode\hypertarget{ref-graf_estes_2013}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-hart_1995}) has been already used, du
+plicate ignored
+<to be read again> 
+                   \relax 
+l.1296 \leavevmode\hypertarget{ref-hart_1995}{}
+                                               %pdfTeX warning (ext4): destinat
+ion with the same identifier (name{ref-hayashi_2001}) has been already used, du
+plicate ignored
+<to be read again> 
+                   \relax 
+l.1299 \leavevmode\hypertarget{ref-hayashi_2001}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-higgins_2002}) has been already used,
+ duplicate ignored
+<to be read again> 
+                   \relax 
+l.1302 \leavevmode\hypertarget{ref-higgins_2002}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-higgins_2003}) has been already used,
+ duplicate ignored
+<to be read again> 
+                   \relax 
+l.1305 \leavevmode\hypertarget{ref-higgins_2003}{}
+                                                  % [75]pdfTeX warning (ext4): 
+destination with the same identifier (name{ref-hoff_2006}) has been already use
+d, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1308 \leavevmode\hypertarget{ref-hoff_2006}{}
+                                               %pdfTeX warning (ext4): destinat
+ion with the same identifier (name{ref-hoff_2012}) has been already used, dupli
+cate ignored
+<to be read again> 
+                   \relax 
+l.1311 \leavevmode\hypertarget{ref-hoff_2012}{}
+                                               %pdfTeX warning (ext4): destinat
+ion with the same identifier (name{ref-hudon_2013}) has been already used, dupl
+icate ignored
+<to be read again> 
+                   \relax 
+l.1314 \leavevmode\hypertarget{ref-hudon_2013}{}
+                                                %pdfTeX warning (ext4): destina
+tion with the same identifier (name{ref-incera_2018}) has been already used, du
+plicate ignored
+<to be read again> 
+                   \relax 
+l.1317 \leavevmode\hypertarget{ref-incera_2018}{}
+                                                 %pdfTeX warning (ext4): destin
+ation with the same identifier (name{ref-karzon_1985}) has been already used, d
+uplicate ignored
+<to be read again> 
+                   \relax 
+l.1320 \leavevmode\hypertarget{ref-karzon_1985}{}
+                                                 %pdfTeX warning (ext4): destin
+ation with the same identifier (name{ref-kemler_nelson_1995}) has been already 
+used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1323 ...de\hypertarget{ref-kemler_nelson_1995}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-kitamura_2009}) has been already used
+, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1326 ...vevmode\hypertarget{ref-kitamura_2009}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-kitamura_2001}) has been already used
+, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1329 ...vevmode\hypertarget{ref-kitamura_2001}{}
+                                                  % [76]pdfTeX warning (ext4): 
+destination with the same identifier (name{ref-klein_2014}) has been already us
+ed, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1332 \leavevmode\hypertarget{ref-klein_2014}{}
+                                                %pdfTeX warning (ext4): destina
+tion with the same identifier (name{ref-kovacs_2009a}) has been already used, d
+uplicate ignored
+<to be read again> 
+                   \relax 
+l.1335 \leavevmode\hypertarget{ref-kovacs_2009a}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-kovacs_2009b}) has been already used,
+ duplicate ignored
+<to be read again> 
+                   \relax 
+l.1338 \leavevmode\hypertarget{ref-kovacs_2009b}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-kuznetsova_2016}) has been already us
+ed, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1341 ...vmode\hypertarget{ref-kuznetsova_2016}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-lewkowicz_2006}) has been already use
+d, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1344 ...evmode\hypertarget{ref-lewkowicz_2006}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-liu_2015}) has been already used, dup
+licate ignored
+<to be read again> 
+                   \relax 
+l.1347 \leavevmode\hypertarget{ref-liu_2015}{}
+                                              %pdfTeX warning (ext4): destinati
+on with the same identifier (name{ref-liu_2017a}) has been already used, duplic
+ate ignored
+<to be read again> 
+                   \relax 
+l.1350 \leavevmode\hypertarget{ref-liu_2017a}{}
+                                               %pdfTeX warning (ext4): destinat
+ion with the same identifier (name{ref-liu_2017b}) has been already used, dupli
+cate ignored
+<to be read again> 
+                   \relax 
+l.1353 \leavevmode\hypertarget{ref-liu_2017b}{}
+                                               % [77]pdfTeX warning (ext4): des
+tination with the same identifier (name{ref-ma_2011}) has been already used, du
+plicate ignored
+<to be read again> 
+                   \relax 
+l.1356 \leavevmode\hypertarget{ref-ma_2011}{}
+                                             %pdfTeX warning (ext4): destinatio
+n with the same identifier (name{ref-maas_2005}) has been already used, duplica
+te ignored
+<to be read again> 
+                   \relax 
+l.1359 \leavevmode\hypertarget{ref-maas_2005}{}
+                                               %pdfTeX warning (ext4): destinat
+ion with the same identifier (name{ref-manybabies_consortium_2020}) has been al
+ready used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1362 ...target{ref-manybabies_consortium_2020}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-mattock_2010}) has been already used,
+ duplicate ignored
+<to be read again> 
+                   \relax 
+l.1365 \leavevmode\hypertarget{ref-mattock_2010}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-matuschek_2017}) has been already use
+d, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1368 ...evmode\hypertarget{ref-matuschek_2017}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-maurer_2014}) has been already used, 
+duplicate ignored
+<to be read again> 
+                   \relax 
+l.1371 \leavevmode\hypertarget{ref-maurer_2014}{}
+                                                 %pdfTeX warning (ext4): destin
+ation with the same identifier (name{ref-metalab_2017}) has been already used, 
+duplicate ignored
+<to be read again> 
+                   \relax 
+l.1374 \leavevmode\hypertarget{ref-metalab_2017}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-molnar_2016}) has been already used, 
+duplicate ignored
+<to be read again> 
+                   \relax 
+l.1377 \leavevmode\hypertarget{ref-molnar_2016}{}
+                                                 % [78]pdfTeX warning (ext4): d
+estination with the same identifier (name{ref-nakagawa_2015}) has been already 
+used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1380 ...vevmode\hypertarget{ref-nakagawa_2015}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-newman_2006}) has been already used, 
+duplicate ignored
+<to be read again> 
+                   \relax 
+l.1383 \leavevmode\hypertarget{ref-newman_2006}{}
+                                                 %pdfTeX warning (ext4): destin
+ation with the same identifier (name{ref-open_science_collab_2015}) has been al
+ready used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1386 ...ertarget{ref-open_science_collab_2015}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-orena_2019}) has been already used, d
+uplicate ignored
+<to be read again> 
+                   \relax 
+l.1389 \leavevmode\hypertarget{ref-orena_2019}{}
+                                                %pdfTeX warning (ext4): destina
+tion with the same identifier (name{ref-orena_polka_2019}) has been already use
+d, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1392 ...mode\hypertarget{ref-orena_polka_2019}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-patihis_2015}) has been already used,
+ duplicate ignored
+<to be read again> 
+                   \relax 
+l.1395 \leavevmode\hypertarget{ref-patihis_2015}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-pegg_1992}) has been already used, du
+plicate ignored
+<to be read again> 
+                   \relax 
+l.1398 \leavevmode\hypertarget{ref-pegg_1992}{}
+                                               % [79]pdfTeX warning (ext4): des
+tination with the same identifier (name{ref-petitto_2012}) has been already use
+d, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1401 \leavevmode\hypertarget{ref-petitto_2012}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-place_2011}) has been already used, d
+uplicate ignored
+<to be read again> 
+                   \relax 
+l.1404 \leavevmode\hypertarget{ref-place_2011}{}
+                                                %pdfTeX warning (ext4): destina
+tion with the same identifier (name{ref-polka_2012}) has been already used, dup
+licate ignored
+<to be read again> 
+                   \relax 
+l.1407 \leavevmode\hypertarget{ref-polka_2012}{}
+                                                %pdfTeX warning (ext4): destina
+tion with the same identifier (name{ref-pye_1986}) has been already used, dupli
+cate ignored
+<to be read again> 
+                   \relax 
+l.1410 \leavevmode\hypertarget{ref-pye_1986}{}
+                                              %pdfTeX warning (ext4): destinati
+on with the same identifier (name{ref-ramirez_2017}) has been already used, dup
+licate ignored
+<to be read again> 
+                   \relax 
+l.1413 \leavevmode\hypertarget{ref-ramirez_2017}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-ramirez_esparza_2014}) has been alrea
+dy used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1416 ...\hypertarget{ref-ramirez_esparza_2014}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-ramirez_esparza_2017}) has been alrea
+dy used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1419 ...\hypertarget{ref-ramirez_esparza_2017}{}
+                                                  % [80]pdfTeX warning (ext4): 
+destination with the same identifier (name{ref-robertson_2013}) has been alread
+y used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1422 ...evmode\hypertarget{ref-robertson_2013}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-santesso_2007}) has been already used
+, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1425 ...vevmode\hypertarget{ref-santesso_2007}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-schreiner_2016}) has been already use
+d, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1428 ...evmode\hypertarget{ref-schreiner_2016}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-sebastian_galles_2012}) has been alre
+ady used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1431 ...hypertarget{ref-sebastian_galles_2012}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-sebastian_galles_2002}) has been alre
+ady used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1434 ...hypertarget{ref-sebastian_galles_2002}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-senior_2016}) has been already used, 
+duplicate ignored
+<to be read again> 
+                   \relax 
+l.1437 \leavevmode\hypertarget{ref-senior_2016}{}
+                                                 %pdfTeX warning (ext4): destin
+ation with the same identifier (name{ref-shute_1999}) has been already used, du
+plicate ignored
+<to be read again> 
+                   \relax 
+l.1440 \leavevmode\hypertarget{ref-shute_1999}{}
+                                                % [81]pdfTeX warning (ext4): de
+stination with the same identifier (name{ref-simmons_2011}) has been already us
+ed, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1443 \leavevmode\hypertarget{ref-simmons_2011}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-singh_2015}) has been already used, d
+uplicate ignored
+<to be read again> 
+                   \relax 
+l.1446 \leavevmode\hypertarget{ref-singh_2015}{}
+                                                %pdfTeX warning (ext4): destina
+tion with the same identifier (name{ref-singh_2002}) has been already used, dup
+licate ignored
+<to be read again> 
+                   \relax 
+l.1449 \leavevmode\hypertarget{ref-singh_2002}{}
+                                                %pdfTeX warning (ext4): destina
+tion with the same identifier (name{ref-singh_2009}) has been already used, dup
+licate ignored
+<to be read again> 
+                   \relax 
+l.1452 \leavevmode\hypertarget{ref-singh_2009}{}
+                                                %pdfTeX warning (ext4): destina
+tion with the same identifier (name{ref-slobin_1985}) has been already used, du
+plicate ignored
+<to be read again> 
+                   \relax 
+l.1455 \leavevmode\hypertarget{ref-slobin_1985}{}
+                                                 %pdfTeX warning (ext4): destin
+ation with the same identifier (name{ref-soderstrom_2007}) has been already use
+d, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1458 ...vmode\hypertarget{ref-soderstrom_2007}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-sundara_2011}) has been already used,
+ duplicate ignored
+<to be read again> 
+                   \relax 
+l.1461 \leavevmode\hypertarget{ref-sundara_2011}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-tal_2018}) has been already used, dup
+licate ignored
+<to be read again> 
+                   \relax 
+l.1464 \leavevmode\hypertarget{ref-tal_2018}{}
+                                              % [82]pdfTeX warning (ext4): dest
+ination with the same identifier (name{ref-tardif_1996}) has been already used,
+ duplicate ignored
+<to be read again> 
+                   \relax 
+l.1467 \leavevmode\hypertarget{ref-tardif_1996}{}
+                                                 %pdfTeX warning (ext4): destin
+ation with the same identifier (name{ref-tardif_1997}) has been already used, d
+uplicate ignored
+<to be read again> 
+                   \relax 
+l.1470 \leavevmode\hypertarget{ref-tardif_1997}{}
+                                                 %pdfTeX warning (ext4): destin
+ation with the same identifier (name{ref-thiessen_2005}) has been already used,
+ duplicate ignored
+<to be read again> 
+                   \relax 
+l.1473 ...vevmode\hypertarget{ref-thiessen_2005}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-trainor_2002}) has been already used,
+ duplicate ignored
+<to be read again> 
+                   \relax 
+l.1476 \leavevmode\hypertarget{ref-trainor_2002}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-viechtbauer_2010}) has been already u
+sed, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1479 ...mode\hypertarget{ref-viechtbauer_2010}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-werker_2008}) has been already used, 
+duplicate ignored
+<to be read again> 
+                   \relax 
+l.1482 \leavevmode\hypertarget{ref-werker_2008}{}
+                                                 %pdfTeX warning (ext4): destin
+ation with the same identifier (name{ref-werker_1989}) has been already used, d
+uplicate ignored
+<to be read again> 
+                   \relax 
+l.1485 \leavevmode\hypertarget{ref-werker_1989}{}
+                                                 %pdfTeX warning (ext4): destin
+ation with the same identifier (name{ref-werker_1994}) has been already used, d
+uplicate ignored
+<to be read again> 
+                   \relax 
+l.1488 \leavevmode\hypertarget{ref-werker_1994}{}
+                                                 % [83]pdfTeX warning (ext4): d
+estination with the same identifier (name{ref-werker_1984}) has been already us
+ed, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1491 \leavevmode\hypertarget{ref-werker_1984}{}
+                                                 % [84]pdfTeX warning (ext4): d
+estination with the same identifier (name{table.1}) has been already used, dupl
+icate ignored
+<to be read again> 
+                   \relax 
+l.1506 ...left\arraybackslash}p{2.3cm}>{}p{2.3cm}}
+                                                   [85
 
 
-] [73] [74] [75] [76] AED endfloat: Processing end Figures and Tables [77]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1386.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1386.
+] [86] [87] [88] [89] AED endfloat: Processing end Figures and Tables [90]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1681.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1681.
 (./mb1b-paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1386.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1386.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1681.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1681.
 
 Package rerunfilecheck Info: File `mb1b-paper.out' has not changed.
-(rerunfilecheck)             Checksum: 74C7E68E7752CFBFAE51E289195A1475;6609.
+(rerunfilecheck)             Checksum: 3CC16743FCB70C8397C58B9BC2251600;6694.
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 16457 strings out of 493014
- 242585 string characters out of 6133351
- 375792 words of memory out of 5000000
- 19303 multiletter control sequences out of 15000+600000
- 89660 words of font info for 129 fonts, out of 8000000 for 9000
+ 16103 strings out of 493014
+ 237775 string characters out of 6133351
+ 369957 words of memory out of 5000000
+ 18949 multiletter control sequences out of 15000+600000
+ 89747 words of font info for 130 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 43i,17n,47p,2885b,634s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 43i,17n,47p,2885b,622s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/
 texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/20
 16/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2016/texmf-dist/
@@ -1332,10 +1941,10 @@ fb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/l
 ocal/texlive/2016/texmf-dist/fonts/type1/public/lm/lmss8.pfb></usr/local/texliv
 e/2016/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2016/tex
 mf-dist/fonts/type1/public/lm/lmsy8.pfb>
-Output written on mb1b-paper.pdf (77 pages, 399492 bytes).
+Output written on mb1b-paper.pdf (90 pages, 433394 bytes).
 PDF statistics:
- 928 PDF objects out of 1000 (max. 8388607)
- 821 compressed objects within 9 object streams
- 299 named destinations out of 1000 (max. 500000)
- 10547 words of extra memory for PDF output out of 12000 (max. 10000000)
+ 1087 PDF objects out of 1200 (max. 8388607)
+ 966 compressed objects within 10 object streams
+ 312 named destinations out of 1000 (max. 500000)
+ 10555 words of extra memory for PDF output out of 12000 (max. 10000000)
 

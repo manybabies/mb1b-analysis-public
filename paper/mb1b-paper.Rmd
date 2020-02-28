@@ -55,6 +55,8 @@ author:
     affiliation   : "14"
   - name          : "Liquan Liu"
     affiliation   : "16"
+  - name          : "Nivedita Mani"
+    affiliation   : "19"
   - name          : "Caterina Marino"
     affiliation   : "9"
   - name          : "Meghan Mastroberardino"
@@ -69,6 +71,8 @@ author:
     affiliation   : "12"
   - name          : "Christine E. Potter"
     affiliation   : "14"
+  - name          : "Melli Schreiner"
+    affiliation   : "19"
   - name          : "Leher Singh"
     affiliation   : "18"
   - name          : "Melanie Soderstrom"
@@ -120,6 +124,8 @@ affiliation:
     institution   : "UCLA"
   - id            : "18"
     institution   : "National University of Singapore"
+  - id            : "19"
+    institution   : "University of Göttingen"
 
 author_note: |
   "Individual participating labs acknowledge funding support from: the Natural Sciences and Engineering Research Council of Canada (402470-2011 and 2015-03967); the Social Sciences and Humanities Research Council of Canada Insight Grant (435-2015-1974 and 435-2015-0385); Agence Nationale de la Recherche (ANR-17-EURE-0017 and ANR-10-IDEX-0001-02); Western Sydney University Early Career Researcher Start-up Grant (20311.87608); European Commission (MSCA-IF-798658); a European Research Council Synergy Grant, SOMICS (609819); ERC Consolidator Grant "BabyRhythm" (773202); The Leverhulme Trust (ECF-2015-009); The UK Economic and Social Research Council (ES/L008955/1); Research Manitoba, Children's Hospital Research Institute of Manitoba, University of Manitoba; ODPRT funds, National University fo Singapore; and the National Institute of Child Health and Human Development (R01HD095912)."
