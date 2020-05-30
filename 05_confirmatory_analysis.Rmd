@@ -20,6 +20,8 @@ This RMarkdown file reports analyses of the primary ManyBabies 1B (IDS Preferenc
 source("helper/common.R")
 export_figs <- FALSE
 library(lmerTest)
+library(car)
+library(performance)
 #library(renv)
 ```
 
@@ -552,11 +554,25 @@ d_lmer_matched <- d_matched %>%
   # trial_type * trial_num +
   # trial_type * age_mo * nae +
   # trial_type * age_mo * lang_group +
-  # (trial_num * trial_type|subid) +
+  # (trial_num * trial_type |subid) +
   # (trial_type * age_mo * lang_group |lab) +
-  # (method + age_mo * nae + age_mo*lang_group |item),
+  # (method + age_mo * nae + age_mo * lang_group |item),
 #   data = d_lmer_matched)
 
+# The followings were removed sequentially in the order listed below:
+# 1. "method" as random slope from the item group level 
+# 2. "age_mo * nae" as random slope from the item group level 
+# 3. "age_mo * lang_group" as random slope from the item group level 
+# 4. "age_mo" as random slope from the item group level 
+# 5. "nae" as random slope from the item group level 
+# 6. "lang_group" as random slope from the item group level 
+# 7, "trial_num * trial_type" as random slope from the subid group level 
+# 8. "trial_num" as random slope from the subid group level 
+# 9. "trial_type" as random slope from subid group level
+# 10. "trial_type * age_mo * lang_group" as random slope from the lab level
+# 11. "age_mo" as random slope from the lab level
+# 12. "trial_type" as random slope from the lab level
+#I have controlled for lang_group on the lab level as it is stated in the pre-registered ms that bilingualism is a more important theortical IV for random slope. However, it is important to note that we can only control lang_group as random slope at lab level here. We cannot include more slopes as the model will not converge or report singularity (AT).
 
 mod_lmer_matched <- lmer(log_lt ~
   trial_type * method + age_mo * trial_num +
@@ -564,18 +580,45 @@ mod_lmer_matched <- lmer(log_lt ~
   trial_type * age_mo * nae +
   trial_type * age_mo * lang_group +
   (1 |subid) +
-  (lang_group |lab) + #I have controlled for lang_group as it is stated in the pre-registered ms that bilingualism is a more important theortical IV for random slope. However, it is important to note that we can only control lang_group as random slope at lab level here. We cannot include more slopes as the model will not converge or report singularity (AT).
+  (lang_group |lab) + 
   (1 |item),
   data = d_lmer_matched)
 
 summary(mod_lmer_matched) 
 
 kable(summary(mod_lmer_matched)$coefficients, digits = 3)
-
 ```
+
+Calculate indices for model performance/fit. We reported R2_conditional and R2_marginal in the paper.
+```{r}
+performance::model_performance(mod_lmer_matched)
+```
+
+Levene's test that used residuals from the model to examine whether bilinguals had larger variability than monolinguals
+```{r}
+car::leveneTest(residuals(mod_lmer_matched) ~ d_lmer_matched$lang_group)
+```
+
+
 
 include a four-way interaction terms as it was pre-registered in the RR
 ```{r}
+
+# The followings were removed sequentially in the order listed below:
+# 1. "method" as random slope from the item group level 
+# 2. "age_mo * nae" as random slope from the item group level 
+# 3. "age_mo * lang_group" as random slope from the item group level 
+# 4. "age_mo" as random slope from the item group level 
+# 5. "nae" as random slope from the item group level 
+# 6. "lang_group" as random slope from the item group level 
+# 7, "trial_num * trial_type" as random slope from the subid group level 
+# 8. "trial_num" as random slope from the subid group level 
+# 9. "trial_type" as random slope from subid group level
+# 10. "trial_type * age_mo * lang_group" as random slope from the lab level
+# 11. "age_mo" as random slope from the lab level
+# 12. "trial_type" as random slope from the lab level
+# 13. "(1 |item) 
+ 
 mod_lmer_matched_4_interaction <- lmer(log_lt~
   trial_type * method + age_mo * trial_num +
   trial_type * trial_num +
@@ -642,7 +685,23 @@ Predicted model and LMM1 plot (matched)
 
 ##LMM1 (IDS pref): Unmatched dataset
 
+Note that the initial unpruned model is the same across matched and unmatched dataset
 ```{r}
+# The followings were removed sequentially in the order listed below:
+# 1. "method" as random slope from the item group level 
+# 2. "age_mo * nae" as random slope from the item group level 
+# 3. "age_mo * lang_group" as random slope from the item group level 
+# 4. "age_mo" as random slope from the item group level 
+# 5. "nae" as random slope from the item group level 
+# 6. "lang_group" as random slope from the item group level 
+# 7, "trial_num * trial_type" as random slope from the subid group level 
+# 8. "trial_num" as random slope from the subid group level 
+# 9. "trial_type" as random slope from subid group level
+# 10. "trial_type * age_mo * lang_group" as random slope from the lab level
+# 11. "age_mo" as random slope from the lab level
+# 12. "trial_type" as random slope from the lab level
+# 13. "lang_group" as random slope from the lab level
+
 d_lmer_unmatched <- d_full %>%
   filter(trial_type != "train") %>%
   mutate(log_lt = log(looking_time),
@@ -664,6 +723,16 @@ mod_lmer_unmatched <- lmer(log_lt~
 summary(mod_lmer_unmatched) 
 
 kable(summary(mod_lmer_unmatched)$coefficients, digits = 3)
+```
+
+Calculate indices for model performance/fit. We reported R2_conditional and R2_marginal in the paper.
+```{r}
+performance::model_performance(mod_lmer_unmatched)
+```
+
+Levene's test that used residuals from the model to examine whether bilinguals had larger variability than monolinguals
+```{r}
+car::leveneTest(residuals(mod_lmer_unmatched) ~ d_lmer_unmatched$lang_group)
 ```
 
 
@@ -789,6 +858,22 @@ I used matched dataset here because it contains all bilingual labs here.
   # (trial_type * age_mo * nae_exp |lab) +
   # (method + age_mo * nae_exp * trial_num |item),
 #   data = d_lmer_matched)
+
+# The followings were removed sequentially in the order listed below:
+# 1. "method" as random slope from the item group level 
+# 2. "age_mo * nae_exp * trial_num" as random slope from the item group level 
+# 3. "age_mo * trial_num" as random slope from the item group level 
+# 4. "age_mo * nae_exp" as random slope from the item group level 
+# 5. "age_mo" as random slope from the item group level 
+# 6. "trial_num" as random slope from the item group level 
+# 7, "nae_exp" as random slope from the item group level 
+# 8. "trial_num * trial_type" as random slope from the subid group level 
+# 9. "trial_num" as random slope from subid group level
+# 10. "trial_type" as random slope from subid group level
+# 11. "trial_type * age_mo * nae_exp as random slope from the lab level
+# 12. "age_mo" as random slope from the lab level
+# 13. "nae_exp" as random slope from the lab level
+# I kept trial_type on the lab level as this represents infants' IDS preference, which is the most important factor theoretically 
 
 d_lmer_matched_Lmm2 <- d_lmer_matched %>% filter(lang_group=="bilingual")
 
@@ -918,6 +1003,28 @@ if (export_figs) {
 #   data = d_lmer_matched
 #   )
 
+# The followings were removed sequentially in the order listed below:
+# 1. "method" as random slope from the item group level 
+# 2. "age_mo * nae" as random slope from the item group level 
+# 3. "age_mo * lang_group" as random slope from the item group level 
+# 4. "age_mo * SES" as random slope from the item group level 
+# 5. "age_mo" as random slope from the item group level 
+# 6. "nae" as random slope from the item group level 
+# 7, "lang_group" as random slope from the item group level 
+# 8. "SES" as random slope from the item group level 
+# 9. "trial_num * trial_type" as random slope from subid group level
+# 10. "trial_num" as random slope from subid group level
+# 11. "trial_type" as random slope from subid group level
+# 12. "trial_type * age_mo * lang_group" as random slope from the lab level
+# 13. "age_mo" as random slope from the lab level
+# 14. "trial_type" as random slope from the lab level
+# 15. "lang_group" as random slope from the lab level
+# 16. (1 | item)
+
+
+d_lmer_matched_SES <- d_lmer_matched %>% filter(!is.na(SES))
+
+
 SES_lmer_matched <- lmer(
   log_lt ~
   trial_type * method +
@@ -928,13 +1035,25 @@ SES_lmer_matched <- lmer(
   trial_type * age_mo * SES +
   (1 | subid) +
   (1 | lab),
-  data = d_lmer_matched
+  data = d_lmer_matched_SES
   )
  
 summary(SES_lmer_matched) 
 
 kable(summary(SES_lmer_matched)$coefficients, digits = 3)
 ```
+
+Calculate indices for model performance/fit. We reported R2_conditional and R2_marginal in the paper.
+```{r}
+performance::model_performance(SES_lmer_matched)
+```
+
+Levene's test that used residuals from the model to examine whether bilinguals had larger variability than monolinguals
+```{r}
+car::leveneTest(residuals(SES_lmer_matched) ~ d_lmer_matched_SES$lang_group)
+```
+
+
 
 ```{r IDS_age_SES_graph}
 IDS_AGE_SES <- d_diffs_matched %>%
@@ -968,6 +1087,26 @@ ggplot(IDS_AGE_SES, aes(x = SES, y = diff, col = age_group)) +
 ##LMM4 (SES): Unmatached dataset
 ```{r}
 
+# The followings were removed sequentially in the order listed below:
+# 1. "method" as random slope from the item group level 
+# 2. "age_mo * nae" as random slope from the item group level 
+# 3. "age_mo * lang_group" as random slope from the item group level 
+# 4. "age_mo * SES" as random slope from the item group level 
+# 5. "age_mo" as random slope from the item group level 
+# 6. "nae" as random slope from the item group level 
+# 7, "lang_group" as random slope from the item group level 
+# 8. "SES" as random slope from the item group level 
+# 9. "trial_num * trial_type" as random slope from subid group level
+# 10. "trial_num" as random slope from subid group level
+# 11. "trial_type" as random slope from subid group level
+# 12. "trial_type * age_mo * lang_group" as random slope from the lab level
+# 13. "age_mo" as random slope from the lab level
+# 14. "trial_type" as random slope from the lab level
+# 15. "lang_group" as random slope from the lab level
+
+d_lmer_unmatched_SES <- d_lmer_unmatched %>% filter(!is.na(SES))
+
+
 SES_lmer_unmatched <- lmer(
   log_lt ~
   trial_type * method +
@@ -979,7 +1118,7 @@ SES_lmer_unmatched <- lmer(
   (1 | subid) +
   (1 | lab) +
   (1 | item),
-  data = d_lmer_unmatched
+  data = d_lmer_unmatched_SES
   )
 
 summary(SES_lmer_unmatched)
@@ -990,7 +1129,15 @@ kable(summary(SES_lmer_unmatched)$coefficients, digits = 3)
 
 Note that the interaction of SES*age*IDS is gone with a larger dataset. The main effect of SES in this larger dataset suggested that infants from a higher SES family may look longer to the stimuli (*but this is not a main effect in the matched dataset). So I think we will need to interpret the result of SES with caution, may be we should put this note in the ms. (AT)
 
+Calculate indices for model performance/fit. We reported R2_conditional and R2_marginal in the paper.
+```{r}
+performance::model_performance(SES_lmer_unmatched)
+```
 
+Levene's test that used residuals from the model to examine whether bilinguals had larger variability than monolinguals
+```{r}
+car::leveneTest(residuals(SES_lmer_unmatched) ~ d_lmer_unmatched_SES$lang_group)
+```
 
 
 ```{r}
