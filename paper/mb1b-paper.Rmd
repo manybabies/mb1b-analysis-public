@@ -47,7 +47,7 @@ author:
     affiliation   : "1"
   - name          : "Kelsey Klassen"
     affiliation   : "13"
-  - name          : "Jessica Kosie"
+  - name          : "Jessica E. Kosie"
     affiliation   : "14"
   - name          : "Ágnes Melinda Kovács"
     affiliation   : "15"
@@ -452,13 +452,36 @@ lab_stats <- d_matched %>%
 
 lab_stats[is.na(lab_stats)] <- 0
 
-kable(lab_stats, digits= 2,
+#add SES to lab_stats
+ses_by_lab <- d_matched %>% 
+  group_by(lab) %>% 
+  summarise(avg_ses = mean(SES, na.rm = TRUE)) 
+
+lab_stats <- lab_stats %>% 
+  left_join(ses_by_lab) 
+
+#add nae_exp to lab_stats
+nae_by_lab <- d_matched %>% 
+  filter(lang_group == "bilingual") %>% 
+  group_by(lab) %>% 
+  summarise(avg_nae = mean(nae_exp, na.rm = TRUE)) 
+
+lab_stats <- lab_stats %>% 
+  left_join(nae_by_lab)
+
+#sort by nae and rename columns
+lab_stats <- lab_stats %>% 
+  arrange(avg_nae) %>% 
+  rename("bilinguals' average NAE"=avg_nae,
+         "average years of maternal education"=avg_ses)
+
+landscape(kable(lab_stats, digits= 2,
       format = "latex", booktabs=T,
       longtable = TRUE,
-      caption = "Number of monolingual and bilingual infants in each age group by lab which met infant-level inclusion criteria. Note that because of lab-level inclusion criteria, cells with n < 10 were excluded from the meta-analytic analyses, but were included in the mixed-effects regression analyses. Labs that only tested monolingual infants are not listed.") %>%
+      caption = "Number of monolingual and bilingual infants in each age group which met infant-level inclusion criteria, average years of maternal education (SES), and average NAE exposure for blingual infants by lab. Note that because of lab-level inclusion criteria, cells with n < 10 were excluded from the meta-analytic analyses, but were included in the mixed-effects regression analyses. Labs that only tested monolingual infants are not listed.") %>%
   kable_styling(position = "float_right", font_size = 11,
     latex_options = c("scale_down", "hold_position", "repeat_header"), full_width = F) %>% 
-    column_spec(2:6, width = "2.3cm") 
+    column_spec(2:ncol(lab_stats), width = "2.3cm"))
 ```
 
 
@@ -899,12 +922,23 @@ Overall, the mixed-level analyses in both matched and full datasets yielded simi
 
 Surprisingly, the fitted model did not show an interaction between infants' IDS preference and the method used in the lab, a result that is different from the results in the MB1 project. However, this finding is likely due to smaller sample sizes in the current paper, as we restricted the analysis to participants at particular ages. Apart from this, our findings were largely consistent with the MB1 study. There was a significant and positive two-way interaction between IDS and NAE, suggesting greater IDS preferences for children in NAE contexts. The interaction between IDS and age was also significant and positive, suggesting that older children showed a stronger IDS preference. Finally, we found a marginally significant three-way interaction between IDS, age, and NAE, suggesting that older children in NAE contexts tended to show stronger IDS preference than those in the non-NAE contexts. 
 
+```{r}
+#nae_exp for bilingual infants
+nae_exp_stats <- d_matched %>% 
+  filter(lang_group == "bilingual") %>% 
+  select(lab, subid, nae_exp) %>% 
+  distinct() %>% 
+  summarise(mean_nae = mean(nae_exp, na.rm = TRUE),
+            min_nae = min(nae_exp, na.rm = TRUE),
+            max_nae = max(nae_exp, na.rm = TRUE))
+
+```
 
 #### Dose effects of exposure to NAE-IDS in bilingual infants
 
 In this analysis, we tested whether we could observe a dose-response relationship between infants’ exposure to NAE-IDS (measured continuously) and their preference for IDS over ADS.  
 
-We decided to conduct this analysis only including data from bilinguals. Our reasoning was that bilingualism status and exposure to NAE-IDS are confounded, as monolinguals’ exposure to NAE will be either near 0% or 100%, while bilinguals’ NAE experience can be either 0%, or 25-75%. Because the monolingual sample is larger and their NAE exposures are more extreme, their effects would dominate that of the bilinguals in a merged analysis. Therefore, we reasoned that if there is a dose effect, it should be observable in the bilingual sample alone. Finally, although excluding monolingual infants reduced power overall, we decided that given the relatively large sample of bilingual infants, this disadvantage would be offset by the ease of interpretation afforded by restricting the analysis to bilinguals.
+We decided to conduct this analysis only including data from bilinguals. Our reasoning was that bilingualism status and exposure to NAE-IDS are confounded, as monolinguals’ exposure to NAE will be either near 0% or 100%, while bilinguals’ NAE experience can be either 0%, or 25-75%. Because the monolingual sample is larger and their NAE exposures are more extreme, their effects would dominate that of the bilinguals in a merged analysis. Therefore, we reasoned that if there is a dose effect, it should be observable in the bilingual sample alone. Finally, although excluding monolingual infants reduced power overall, we decided that given the relatively large sample of bilingual infants, this disadvantage would be offset by the ease of interpretation afforded by restricting the analysis to bilinguals. On average, bilingual infants in our sample were exposed to `r round(nae_exp_stats$mean_nae, 2)`% NAE (range: `r round(nae_exp_stats$min_nae, 2)` to `r round(nae_exp_stats$max_nae, 2)`%). 
 
 Once again, we based this model on the final pruned monolingual model, substituting the binary measure of exposure to NAE-IDS (language) with the continuous measure of exposure(exp_nae), and including  a random slope for exp_nae by item (which was ultimately pruned from the model). After pruning, our model was specified as follows:
 
@@ -951,7 +985,7 @@ papaja::apa_table(nae_exp_coef, format.args = list(digits = 3),
                   caption = "Linear Mixed Model testing the effects of exposure to NAE-IDS in bilingual infants.")
 ```
 
-Table 4 contains the details of the results in this model. The main effect of infants' exposure to NAE (exp_nae) was not significant ($\beta$ = `r signif(nae_exp_coef["EXP_NAE", "Estimate"], 2)`, $SE = `r signif(nae_exp_coef["EXP_NAE", "SE"], 2)`$, $p = `r signif(nae_exp_coef["EXP_NAE","p"], 2)`)$. This indicates that bilingual infants who were exposed to more NAE did not pay more attention to the NAE speech stimuli than those who were exposed to less NAE. However, the interaction between trial type and exp_nae was significant ($\beta$ = `r signif(nae_exp_coef["IDS * EXP_NAE","Estimate"], 3)`, $SE = `r signif(nae_exp_coef["IDS * EXP_NAE","SE"], 2)`$, $p = `r signif(nae_exp_coef["IDS * EXP_NAE", "p"], 2)`)$. That is, bilingual infants who were exposed to more NAE showed stronger IDS preferences, confirming a dose-response relationship between infants’ exposure to NAE and their preference for IDS over ADS (Figure 2) even among bilinguals who are learning NAE as one of their native languages.
+Table 4 contains the details of the results in this model. The main effect of infants' exposure to NAE (exp_nae) was not significant ($\beta$ = `r signif(nae_exp_coef["EXP_NAE", "Estimate"], 2)`, $SE = `r signif(nae_exp_coef["EXP_NAE", "SE"], 2)`$, $p = `r signif(nae_exp_coef["EXP_NAE","p"], 2)`)$. This indicates that bilingual infants who were exposed to more NAE did not pay more attention to the NAE speech stimuli than those who were exposed to less NAE. However, the interaction between trial type and exp_nae was significant ($\beta$ = `r signif(nae_exp_coef["IDS * EXP_NAE","Estimate"], 3)`, $SE = `r signif(nae_exp_coef["IDS * EXP_NAE","SE"], 2)`$, $p = `r signif(nae_exp_coef["IDS * EXP_NAE", "p"], 2)`)$. That is, bilingual infants who were exposed to more NAE showed stronger IDS preferences, confirming a dose-response relationship between infants’ exposure to NAE and their preference for IDS over ADS (Figure 2) even among bilinguals who are learning NAE as one of their native languages. 
 
 ```{r fig2, fig.cap="Linear trend between infants' IDS preference and their percentage of time exposed to NAE. Blue line indicates a regression model between infants' IDS preference and their NAE exposure (starting from zero). Red line indicates another regression model of the same relationship with a focus of NAE exposure between 25 to 75%. Finally, we note that the y-axis was truncated to highlight the trend such that some individual points are not plotted."}
 
