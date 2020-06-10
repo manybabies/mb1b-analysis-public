@@ -667,7 +667,7 @@ Var_unmatched_set <- metafor::rma.mv(yi=lnSD, V=SV.lnSD,
 
 ```
 
-```{r fig.cap="Forest plot for the matched dataset. Standardized effect sizes are shown for each lab, with error bars showing 95% confidence intervals. Each lab reported two effect sizes: one for monolingual group and the other one for bilingual group. Points are scaled by inverse variance and colored by language groups (blue circle denotes bilinguals and red triangle denotes monolinguals). For the age group panels, the point and its associated interval represent the meta-analytic estimate and the 95% confidence interval in each language group. The points in bottom panel show the global meta-analytic estimate.", fig.height = 5.5, fig.pos="p!"}
+```{r fig.cap="Forest plot for the matched dataset. Standardized effect sizes are shown for each lab, with error bars showing 95% confidence intervals. Each lab reported two effect sizes: one for monolingual group and the other one for bilingual group. Within each age group, points are ordered by the difference between the monolingual and bilingual effect sizes, and this effect size difference is indicated by a black X. Points are scaled by inverse variance and colored by language groups (blue circle denotes bilinguals and red triangle denotes monolinguals). For the age group panels, the point and its associated interval represent the meta-analytic estimate and the 95% confidence interval in each language group. The points in bottom panel show the global meta-analytic estimate.", fig.height = 5.5, fig.pos="p!"}
 
 lang_only_matched <- metafor::rma(d_z ~ lang_group, vi = d_z_var,
                     slab = lab, data = ds_zt_matched_set, method = "REML")
@@ -689,20 +689,38 @@ forest_data <- ungroup(ds_zt_matched_set) %>%
   bind_rows(p_lang) %>%
   mutate(age_group = fct_relevel(age_group, c("6-9 mo", "12-15 mo", ""))) 
 
+#add difference between monolingual and bilingual effect sizes
+es_diff <- forest_data %>% 
+  select(lab, age_group, lang_group, pred) %>% 
+  spread(key = lang_group, value = pred, 3:4) %>% 
+  mutate(es_diff = (monolingual - bilingual)) %>% 
+  select(lab, age_group, es_diff) %>% 
+  ungroup() %>% #remove the grouping
+  arrange(age_group, es_diff) %>% #arrange by age group and es_diff
+  mutate(order = row_number()) #add order column of row numbers
+
+#prepare data so that the plot can be shorted by es_diff within each facet
+forest_data <- forest_data %>% 
+  left_join(es_diff)
+
+#plot effect sizes sorted by abs value of difference in effect sizes (following this tutorial: https://drsimonj.svbtle.com/ordering-categories-within-ggplot2-facets)
 ggplot(forest_data,
-       aes(x = lab, y = pred,
+       aes(x = order, y = pred,
            ymin = ci.lb, ymax = ci.ub, col = lang_group, shape = lang_group)) +
-  geom_point(aes(y = d_z, size = inverse_vars),
+  geom_point(aes(y = pred, size = inverse_vars),
              position = position_dodge(width = .2), alpha = 0.6) +
+  geom_point(aes(y = es_diff),
+             size = 3, shape = 4, color = "black") +
   geom_point(data = filter(forest_data, lab == "Meta-analytic estimate"), 
-            size = 3)+
+            size = 3) +
   geom_linerange(position = position_dodge(width = .2)) +
   facet_grid(age_group ~ ., scales = "free", space = "free") +
   geom_hline(yintercept = 0, linetype = "dashed", color = "grey") +
   coord_flip() +
+  scale_x_continuous(breaks = forest_data$order, labels = forest_data$lab, expand = c(0.1,0)) +
   scale_size_continuous(guide = FALSE) +
   scale_color_solarized(accent = "blue", name = "Language group", labels = c("Bilingual infants", "Monolingual infants")) +
-  scale_shape_discrete(name = "Language group", labels = c("Bilingual infants", "Monolingual infants"))+
+  scale_shape_discrete(name = "Language group", labels = c("Bilingual infants", "Monolingual infants")) +
   guides(color = guide_legend(override.aes = list(linetype = 0))) +
   xlab("Lab") +
   ylab("Effect Size") +
