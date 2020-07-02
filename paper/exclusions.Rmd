@@ -24,9 +24,72 @@ lab_contribs_pre_exclusion <- d %>%
 #706 infants in total
 ```
 
+
+
+```{r}
+# This is the preregistered order of exclusions
+
+
+# were not full term (less than 37 weeks gestation: N = XX),
+# had a reported developmental disorder according to parental report (N = XX),
+# were outside the target age groups (N= XX),
+# did not meet language inclusion criteria (e.g., did not meet our criteria for being either monolingual or bilingual; N = XX), or
+# had a session-level testing error (e.g., parent talking during study, technical problems; N = XX) were excluded from the confirmatory analyses.
+# We also excluded any infant who did not have at least one IDS-ADS trial pair available for analysis (N = XX).
+# For infants with at least one good trial pair, we additionally excluded any trial with less than 2 s of looking (N = XX trials)
+```
+
+
+Labs were asked to submit all data collected as part of the bilingual study to the analysis team, and this section focuses on exclusions for infants collected as part of the bilingual sample. The initial dataset contained `r length(unique(d$subid))` bilingual infants, of which `r n_bil` met each of the following inclusion criteria. These criteria are detailed below. We note that exclusions were applied sequentially (i.e., percentages reflect exclusions among remaining sample after previous criteria were applied). 
+
+
+```{r full_term}
+full_term <- exclude_by(d, quo(full_term), action = "include", 
+                return_pcts = TRUE, 
+                quiet = TRUE)
+
+d <- full_term$data
+# 
+# d %>% group_by(lab) %>% summarise(n = length(unique(subid))) %>% pull(n) %>% sum()
+#excluded 4 pre-term babies
+```
+
+* *Full-term*. We defined full term as gestation times greater than or equal to 37 weeks. There were `r full_term$percents$any_sum` (`r round(full_term$percents$any_mean*100, 2)`%) bilingual infants who were tested but did not meet this criterion.
+
+
+```{r typically_developing}
+ndd <- exclude_by(d, quo(td), action = "include", 
+                return_pcts = TRUE, 
+                quiet = TRUE)
+
+d <- ndd$data
+
+# d %>% group_by(lab) %>% summarise(n = length(unique(subid))) %>% pull(n) %>% sum()
+#excluded 2 babies who were diagnozed with cognitive disorders
+```
+
+* *No diagnosed developmental disorders*. We excluded infants whose parents reported developmental disorders (e.g., chromosomal abnormalities, etc.) or were diagnosed with hearing impairments. There were `r ndd$percents$any_sum` (`r round(ndd$percents$any_mean*100, 2)`%) infants who were tested but did not meet this criterion. Due to concerns about the accuracy of parent reports, we did not plan exclusions based on self-reported ear infections unless parents reported medically-confirmed hearing loss. 
+
+```{r age}
+# We exclude kids who are outside of the 6-9 or 12-15 month age range. 
+
+out_of_age <- exclude_by(d, quo(out_of_age), action = "exclude", 
+                   return_pcts = TRUE, 
+                   quiet = TRUE)
+
+d <- out_of_age$data
+# 
+# d %>% group_by(lab) %>% summarise(n = length(unique(subid))) %>% pull(n) %>% sum()
+#excluded 59 infants who were out of age
+```
+
+
+* *Age*. We included infants in two age groups: 6-9 and 12-15 month-olds. There were `r out_of_age$percents$any_sum` (`r round(out_of_age$percents$any_mean*100, 2)`%) bilingual infants who were tested in the paradigm, but who fell outside our target ages.
+
+
 ```{r pilot}
 # We exclude kids who are explicitly marked as pilot.
-d <- exclude_by(d, quo(pilot), quiet = TRUE)
+# d <- exclude_by(d, quo(pilot), quiet = TRUE)
 
 # d %>% group_by(lab) %>% summarise(n = length(unique(subid))) %>% pull(n) %>% sum()
 #no pilot kids tested in mb1b
@@ -45,23 +108,6 @@ d <- monolingual_exposure$data
 #note that we discarded 205 monolinguals. But as noted in 02.validation.rmd, some labs reported mb1 data in their data entry. Thus, only 26 additional monolingual babies were tested in mb1b dataset. We have decided to exclude all monolingual babies in mb1b dataset and only analysed mb1 data. See:https://github.com/kristabh/mb1b-analysis/issues/8
 ```
 
-Labs were asked to submit all data collected as part of the bilingual study to the analysis team, and this section focuses on exclusions for infants collected as part of the bilingual sample. The initial dataset contained `r length(unique(d$subid))` bilingual infants, of which `r n_bil` met each of the following inclusion criteria. These criteria are detailed below. We note that exclusions were applied sequentially (i.e., percentages reflect exclusions among remaining sample after previous criteria were applied). 
-
-```{r age}
-# We exclude kids who are outside of the 6-9 or 12-15 month age range. 
-
-out_of_age <- exclude_by(d, quo(out_of_age), action = "exclude", 
-                   return_pcts = TRUE, 
-                   quiet = TRUE)
-
-d <- out_of_age$data
-# 
-# d %>% group_by(lab) %>% summarise(n = length(unique(subid))) %>% pull(n) %>% sum()
-#excluded 59 infants who were out of age
-```
-
-
-* *Age*. We included infants in two age groups: 6-9 and 12-15 month-olds. There were `r out_of_age$percents$any_sum` (`r round(out_of_age$percents$any_mean*100, 2)`%) bilingual infants who were tested in the paradigm, but who fell outside our target ages.
 
 ```{r bilingual}
 #may be better to use "bilingual exposure" to filter the subjects, this ensures that the bilingual babies' exposure is 25-75%
@@ -97,31 +143,24 @@ d <- comm_lang$data
 
 * *Bilingualism*. We excluded infants from the bilingual sample whose language background did not meet our pre-defined criteria for bilingualism (see above for detials). There were `r bil_exp$percents$any_sum` (`r round(bil_exp$percents$any_mean*100, 2)`%) infants whose exposure did not meet this criterion. We also excluded an additional `r comm_lang$percents$any_sum` (`r round(comm_lang$percents$any_mean*100, 2)`%) infants who met this criterion, but who were not learning the community language as one of their languages. 
 
-```{r full_term}
-full_term <- exclude_by(d, quo(full_term), action = "include", 
-                return_pcts = TRUE, 
-                quiet = TRUE)
+```{r session_errors}
+#store an additional dataframe containing information on session error types
+session_error_type <- d %>%
+   filter(session_error) %>%
+   distinct(lab, subid, session_error_type_recoded) %>%
+   count(session_error_type_recoded)
 
-d <- full_term$data
-# 
-# d %>% group_by(lab) %>% summarise(n = length(unique(subid))) %>% pull(n) %>% sum()
-#excluded 4 pre-term babies
+sessionerr <- exclude_by(d, quo(session_error), 
+                         action = "exclude", 
+                         return_pcts = TRUE, 
+                         quiet = TRUE)
+d <- sessionerr$data
+# d %>% summarise(n = length(unique(subid))) %>% pull(n) %>% sum()
+#excluded 6 additional babies
 ```
 
-* *Full-term*. We defined full term as gestation times greater than or equal to 37 weeks. There were `r full_term$percents$any_sum` (`r round(full_term$percents$any_mean*100, 2)`%) bilingual infants who were tested but did not meet this criterion.
+* *Session-level errors*. Participants were also excluded on the basis of session-level errors, including `r session_error_type$n[session_error_type$session_error_type_recoded=="equipment failure"]` infants for equipment error, `r session_error_type$n[session_error_type$session_error_type_recoded=="experimenter error"]` infants for experimenter error and `r session_error_type$n[session_error_type$session_error_type_recoded=="outside interference"]` infants for outside interference.
 
-```{r typically_developing}
-ndd <- exclude_by(d, quo(td), action = "include", 
-                return_pcts = TRUE, 
-                quiet = TRUE)
-
-d <- ndd$data
-
-# d %>% group_by(lab) %>% summarise(n = length(unique(subid))) %>% pull(n) %>% sum()
-#excluded 2 babies who were diagnozed with cognitive disorders
-```
-
-* *No diagnosed developmental disorders*. We excluded infants whose parents reported developmental disorders (e.g., chromosomal abnormalities, etc.) or were diagnosed with hearing impairments. There were `r ndd$percents$any_sum` (`r round(ndd$percents$any_mean*100, 2)`%) infants who were tested but did not meet this criterion. Due to concerns about the accuracy of parent reports, we did not plan exclusions based on self-reported ear infections unless parents reported medically-confirmed hearing loss. 
 
 ```{r trial_errors}
 trial_err <- exclude_by(d, quo(trial_error), 
@@ -159,23 +198,7 @@ d <- usablepair$data
 #excluded 8 additional infants
 ```
 
-```{r session_errors}
-#store an additional dataframe containing information on session error types
-session_error_type <- d %>%
-   filter(session_error) %>%
-   distinct(lab, subid, session_error_type_recoded) %>%
-   count(session_error_type_recoded)
 
-sessionerr <- exclude_by(d, quo(session_error), 
-                         action = "exclude", 
-                         return_pcts = TRUE, 
-                         quiet = TRUE)
-d <- sessionerr$data
-# d %>% summarise(n = length(unique(subid))) %>% pull(n) %>% sum()
-#excluded 6 additional babies
-```
-
-* *Session-level errors*. Participants were also excluded on the basis of session-level errors, including `r session_error_type$n[session_error_type$session_error_type_recoded=="equipment failure"]` infants for equipment error, `r session_error_type$n[session_error_type$session_error_type_recoded=="experimenter error"]` infants for experimenter error and `r session_error_type$n[session_error_type$session_error_type_recoded=="outside interference"]` infants for outside interference.
 
 ```{r short_lt}
 d$short_lt <- d$looking_time < 2
