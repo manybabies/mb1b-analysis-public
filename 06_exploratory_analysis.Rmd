@@ -35,6 +35,18 @@ multilingual_ID <- read_csv("metadata/multilingual.csv", col_types = cols(lab = 
 
 bilinguals <- read_csv("processed_data/04_matched_dataset_trial.csv", col_types = cols_only(trial_num = "d", lab = "c", subid = "c", trial_type = "c", stimulus_num = "d", looking_time = "d", missing = "l", method = "c", age_group = "c", age_mo = "d", age_days = "d", lang_group = "c", nae = "l", nae_exp = "d", SES = "d", gender = "c")) %>%
   filter(lang_group == "bilingual")
+
+d_matched <- read_csv("processed_data/04_matched_dataset_trial.csv", col_types = cols_only(trial_num = "d", lab = "c", subid = "c", trial_type = "c", stimulus_num = "d", looking_time = "d", missing = "l", method = "c", age_group = "c", age_mo = "d", age_days = "d", lang_group = "c", nae = "l", nae_exp = "d", SES = "d", gender = "c")) %>%
+  mutate(lang_group = fct_relevel(lang_group, "monolingual", "bilingual"))
+
+d_full <- read_csv("processed_data/04_full_dataset_trial.csv", col_types = cols_only(trial_num = "d", lab = "c", subid = "c", trial_type = "c", stimulus_num = "d", looking_time = "d", missing = "l", method = "c", age_group = "c", age_mo = "d", age_days = "d", lang_group = "c", nae = "l", nae_exp = "d", SES = "d", gender = "c")) %>%
+  mutate(lang_group = fct_relevel(lang_group, "monolingual", "bilingual"))
+
+d_diffs_matched_n_5 <- read_csv("processed_data/04_matched_dataset_diff_n_5.csv", col_types = cols_only(trial_num = "d", lab = "c", subid = "c", stimulus_num = "d", method = "c", age_days = "d", age_mo = "d", age_group = "c", lang_group = "c", nae = "l", ADS = "d", IDS = "d", diff = "d", nae_exp = "d", SES = "d", gender = "c")) %>%
+  mutate(lang_group = fct_relevel(lang_group, "monolingual", "bilingual"))
+
+d_diffs_full_n_5 <- read_csv("processed_data/04_full_dataset_diff_n_5.csv", col_types = cols_only(trial_num = "d", lab = "c", subid = "c", stimulus_num = "d", method = "c", age_days = "d", age_mo = "d", age_group = "c", lang_group = "c", nae = "l", ADS = "d", IDS = "d", diff = "d", nae_exp = "d", SES = "d", gender = "c")) %>%
+  mutate(lang_group = fct_relevel(lang_group, "monolingual", "bilingual"))
 ```
 
 Multilingual infants' dataset
@@ -70,7 +82,128 @@ summary(nae_only_lmer)
 kable(summary(nae_only_lmer)$coefficients, digits = 3)
 ```
 
+# Re-run meta-analysis using n >= 5 criteria
+### Matched dataset
+```{r}
+source("helper/ma_helper.R")
+
+ages <- d_matched %>%
+  group_by(lab, age_group, lang_group, subid) %>%
+  summarise(age_mo = mean(age_mo)) %>%
+  summarise(age_mo = mean(age_mo)) %>% 
+  mutate(age_mo_centered = scale(age_mo, scale = FALSE))
+
+ds_zt_matched_set_n_5 <- d_diffs_matched_n_5 %>%
+  group_by(lab, age_group, lang_group, subid) %>%
+  summarise(d = mean(diff, na.rm = TRUE)) %>%
+  group_by(lab, age_group, lang_group) %>%
+  summarise(mean_d = mean(d, na.rm=TRUE),
+            d_z = mean(d, na.rm = TRUE) / sd(d, na.rm = TRUE),
+            n = length(unique(subid)),
+            d_z_var = d_var_calc(n, d_z)) %>%
+  filter(n >= 5) %>%
+  left_join(ages) %>%
+  filter(!is.na(d_z)) # CHECK THIS
 
 
+```
+
+### Unmatched dataset
+
+```{r}
+ages_full <- d_full %>%
+  group_by(lab, age_group, lang_group, subid) %>%
+  summarise(age_mo = mean(age_mo)) %>%
+  summarise(age_mo = mean(age_mo)) %>% 
+  mutate(age_mo_centered = scale(age_mo, scale = FALSE))
+
+ds_zt_unmatched_set_n_5 <- d_diffs_full_n_5 %>%
+  group_by(lab, age_group, lang_group, subid) %>%
+  summarise(d = mean(diff, na.rm = TRUE)) %>%
+  group_by(lab, age_group, lang_group) %>%
+  summarise(mean_d=mean(d,na.rm=TRUE),
+            d_z = mean(d, na.rm = TRUE) / sd(d, na.rm = TRUE),
+            n = length(unique(subid)),
+            d_z_var = d_var_calc(n, d_z)) %>%
+  filter(n >= 5) %>%
+  left_join(ages_full) %>%
+  filter(!is.na(d_z)) # CHECK THIS
+```
+
+## Effect size-based meta-analysis
+
+First, interecept-only model: examine the mean effect size across all groups in MB1B, regardless of language backgrounds.
+
+### The average IDS effect size in the Matched dataset
+
+```{r}
+intercept_matched_set_n_5 <- metafor::rma(d_z ~ 1, vi = d_z_var, slab = lab, data = 
+                                        ds_zt_matched_set_n_5, method = "REML")
+summary(intercept_matched_set_n_5)
+```
+
+### The average IDS effect size in the Unmatched dataset
+
+```{r}
+intercept_unmatched_set_n_5 <- metafor::rma(d_z ~1, vi = d_z_var, slab = lab, data = ds_zt_unmatched_set_n_5, method = "REML")
+summary(intercept_unmatched_set_n_5)
+```
+
+Note that in both matched and unmatched models, Q statistics indicate that there is non-significant heterogenenity. Here, we report the unmatched model. Any numbers in $I^2$ = `r intercept_unmatched_set$I2` is essentially meaningless. Reason for I not being zero when Q statistics is non-significant is as follow: $I^2 = (Q - df) / Q$ (following [Higgins et al., 2003](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC192859/)). When Q drops below df, as it does here (Q = `r intercept_unmatched_set$Q` and df = `r nrow(ds_zt_unmatched_set) -1`), then $I^2$ is defined as being zero, e.g. no heterogeneity. 
+
+## Language*age moderation (pre-reg)
+
+### Matched dataset
+
+```{r}
+lang_mod_matched_n_5 <- metafor::rma(d_z ~ age_mo_centered*lang_group, vi = d_z_var,
+                    slab = lab, data = ds_zt_matched_set_n_5, method = "REML")
+summary(lang_mod_matched_n_5)
+```
+The lang_only_matched model has suggested that there is no significant difference in IDS preference between monolinguals and bilinguals
+```{r}
+lang_only_matched_n_5 <- metafor::rma(d_z ~ lang_group, vi = d_z_var,
+                    slab = lab, data = ds_zt_matched_set_n_5, method = "REML")
+summary(lang_only_matched_n_5)
+```
+But as indicated in the RR analysis plan, we will report the average effect size for each language group
+```{r}
+#monolinguals' IDS ES in the matched dataset
+mono_sample_matched_n_5 <- ds_zt_matched_set_n_5 %>% filter(lang_group == "monolingual") 
+
+mono_only_matched_n_5 <- metafor::rma(d_z ~ 1, vi = d_z_var, data = mono_sample_matched_n_5, slab = lab, method = "REML")
+summary(mono_only_matched_n_5)
+
+#bilinguals' IDS ES in the matched dataset
+bil_sample_matched_n_5 <- ds_zt_matched_set_n_5 %>% filter(lang_group == "bilingual") 
+
+bil_only_matched_n_5 <- metafor::rma(d_z ~ 1, vi = d_z_var, data = bil_sample_matched_n_5, slab = lab, method = "REML")
+summary(bil_only_matched_n_5)
+```
+
+
+### Unmatched dataset
+
+```{r}
+lang_mod_unmatched_n_5 <- metafor::rma(d_z ~ age_mo_centered*lang_group, vi = d_z_var,
+                    slab = lab, data = ds_zt_unmatched_set_n_5, method = "REML")
+summary(lang_mod_unmatched_n_5)
+```
+Neither age nor language group (plus their interaction term) is significant
+
+We will report the average effect size for each language group
+```{r}
+#monolinguals' IDS ES in the unmatched dataset
+mono_sample_unmatched_n_5 <- ds_zt_unmatched_set_n_5 %>% filter(lang_group == "monolingual") 
+
+mono_only_unmatched_n_5 <- metafor::rma(d_z ~ 1, vi = d_z_var, data = mono_sample_unmatched_n_5, slab = lab, method = "REML")
+summary(mono_only_unmatched_n_5)
+
+#bilinguals' IDS ES in the unmatched dataset 
+bil_sample_unmatched_n_5 <- ds_zt_unmatched_set_n_5 %>% filter(lang_group == "bilingual") 
+
+bil_only_unmatched_n_5 <- metafor::rma(d_z ~ 1, vi = d_z_var, data = bil_sample_unmatched_n_5, slab = lab, method = "REML")
+summary(bil_only_unmatched_n_5)
+```
 
 

@@ -543,34 +543,34 @@ Bilingual (matched data) MODEL:
 d_lmer_matched <- d_matched %>%
   filter(trial_type != "train") %>%
   mutate(log_lt = log(looking_time),
-         age_mo_c = (age_mo - 7.5), # we centered age at 6 months, this was a decision after receiving  RR stage 2 comments from reviewers.
+         age_mo_c = scale(age_mo, scale = FALSE), 
          trial_num = trial_num, 
          item = paste0(stimulus_num, trial_type)) %>%
   filter(!is.na(log_lt), !is.infinite(log_lt))
 
 #COMPLETE model preregistered
 # mod_lmer_matched <- lmer(log_lt ~
-  # trial_type * method + age_mo * trial_num +
+  # trial_type * method + age_mo_c * trial_num +
   # trial_type * trial_num +
-  # trial_type * age_mo * nae +
-  # trial_type * age_mo * lang_group +
+  # trial_type * age_mo_c * nae +
+  # trial_type * age_mo_c * lang_group +
   # (trial_num * trial_type |subid) +
-  # (trial_type * age_mo * lang_group |lab) +
-  # (method + age_mo * nae + age_mo * lang_group |item),
+  # (trial_type * age_mo_c * lang_group |lab) +
+  # (method + age_mo_c * nae + age_mo * lang_group |item),
 #   data = d_lmer_matched)
 
 # The followings were removed sequentially in the order listed below:
 # 1. "method" as random slope from the item group level 
-# 2. "age_mo * nae" as random slope from the item group level 
-# 3. "age_mo * lang_group" as random slope from the item group level 
-# 4. "age_mo" as random slope from the item group level 
+# 2. "age_mo_c * nae" as random slope from the item group level 
+# 3. "age_mo_c * lang_group" as random slope from the item group level 
+# 4. "age_mo_c" as random slope from the item group level 
 # 5. "nae" as random slope from the item group level 
 # 6. "lang_group" as random slope from the item group level 
 # 7, "trial_num * trial_type" as random slope from the subid group level 
 # 8. "trial_num" as random slope from the subid group level 
 # 9. "trial_type" as random slope from subid group level
-# 10. "trial_type * age_mo * lang_group" as random slope from the lab level
-# 11. "age_mo" as random slope from the lab level
+# 10. "trial_type * age_mo_c * lang_group" as random slope from the lab level
+# 11. "age_mo_c" as random slope from the lab level
 # 12. "trial_type" as random slope from the lab level
 #I have controlled for lang_group on the lab level as it is stated in the pre-registered ms that bilingualism is a more important theortical IV for random slope. However, it is important to note that we can only control lang_group as random slope at lab level here. We cannot include more slopes as the model will not converge or report singularity (AT).
 
@@ -623,23 +623,23 @@ include a four-way interaction terms as it was pre-registered in the RR
 
 # The followings were removed sequentially in the order listed below:
 # 1. "method" as random slope from the item group level 
-# 2. "age_mo * nae" as random slope from the item group level 
-# 3. "age_mo * lang_group" as random slope from the item group level 
-# 4. "age_mo" as random slope from the item group level 
+# 2. "age_mo_c * nae" as random slope from the item group level 
+# 3. "age_mo_c * lang_group" as random slope from the item group level 
+# 4. "age_mo_c" as random slope from the item group level 
 # 5. "nae" as random slope from the item group level 
 # 6. "lang_group" as random slope from the item group level 
 # 7, "trial_num * trial_type" as random slope from the subid group level 
 # 8. "trial_num" as random slope from the subid group level 
 # 9. "trial_type" as random slope from subid group level
-# 10. "trial_type * age_mo * lang_group" as random slope from the lab level
-# 11. "age_mo" as random slope from the lab level
+# 10. "trial_type * age_mo_c * lang_group" as random slope from the lab level
+# 11. "age_mo_c" as random slope from the lab level
 # 12. "trial_type" as random slope from the lab level
 # 13. "(1 |item) 
  
 mod_lmer_matched_4_interaction <- lmer(log_lt~
-  trial_type * method + age_mo * trial_num +
+  trial_type * method + age_mo_c * trial_num +
   trial_type * trial_num +
-  trial_type * age_mo * lang_group * nae +
+  trial_type * age_mo_c * lang_group * nae +
   (1 |subid) +
   (1 |lab), 
   data = d_lmer_matched)
@@ -706,32 +706,32 @@ Note that the initial unpruned model is the same across matched and unmatched da
 ```{r}
 # The followings were removed sequentially in the order listed below:
 # 1. "method" as random slope from the item group level 
-# 2. "age_mo * nae" as random slope from the item group level 
-# 3. "age_mo * lang_group" as random slope from the item group level 
-# 4. "age_mo" as random slope from the item group level 
+# 2. "age_mo_c * nae" as random slope from the item group level 
+# 3. "age_mo_c * lang_group" as random slope from the item group level 
+# 4. "age_mo_c" as random slope from the item group level 
 # 5. "nae" as random slope from the item group level 
 # 6. "lang_group" as random slope from the item group level 
 # 7, "trial_num * trial_type" as random slope from the subid group level 
 # 8. "trial_num" as random slope from the subid group level 
 # 9. "trial_type" as random slope from subid group level
-# 10. "trial_type * age_mo * lang_group" as random slope from the lab level
-# 11. "age_mo" as random slope from the lab level
+# 10. "trial_type * age_mo_c * lang_group" as random slope from the lab level
+# 11. "age_mo_c" as random slope from the lab level
 # 12. "trial_type" as random slope from the lab level
 # 13. "lang_group" as random slope from the lab level
 
 d_lmer_unmatched <- d_full %>%
   filter(trial_type != "train") %>%
   mutate(log_lt = log(looking_time),
-         age_mo = (age_mo - 6),# we centered age at 6 months, this was a decision after receiving  RR stage 2 comments from reviewers.
+          age_mo_c = scale(age_mo, scale = FALSE),
          trial_num = trial_num, 
          item = paste0(stimulus_num, trial_type)) %>%
   filter(!is.na(log_lt), !is.infinite(log_lt))
 
 mod_lmer_unmatched <- lmer(log_lt~
-  trial_type * method + age_group * trial_num +
+  trial_type * method + age_mo_c * trial_num +
   trial_type * trial_num +
-  trial_type * age_group * nae +
-  trial_type * age_group * lang_group +
+  trial_type * age_mo_c * nae +
+  trial_type * age_mo_c * lang_group +
   (1 |subid) +
   (1 |lab) +
   (1 |item), 
@@ -772,9 +772,9 @@ performance::model_performance(mod_lmer_unmatched)
 include a four-way interaction terms as it was pre-registered in the RR
 ```{r}
 mod_lmer_unmatched_4_interaction <- lmer(log_lt~
-  trial_type * method + age_mo * trial_num +
+  trial_type * method + age_mo_c * trial_num +
   trial_type * trial_num +
-  trial_type * age_mo * lang_group * nae +
+  trial_type * age_mo_c * lang_group * nae +
   (1 |subid) +
   (1 |lab), 
   data = d_lmer_unmatched)
@@ -884,27 +884,27 @@ I used matched dataset here because it contains all bilingual labs here.
 ```{r}
 #COMPLETE model pre-registered
 # nae_lmer_matched <- lmer(log_lt~
-  # trial_type * method + age_mo * trial_num +
+  # trial_type * method + age_mo_c * trial_num +
   # trial_type * trial_num +
-  # trial_type * age_mo * nae_exp +
+  # trial_type * age_mo_c * nae_exp +
   # (trial_num * trial_type |subid) +
-  # (trial_type * age_mo * nae_exp |lab) +
-  # (method + age_mo * nae_exp * trial_num |item),
+  # (trial_type * age_mo_c * nae_exp |lab) +
+  # (method + age_mo_c * nae_exp * trial_num |item),
 #   data = d_lmer_matched)
 
 # The followings were removed sequentially in the order listed below:
 # 1. "method" as random slope from the item group level 
-# 2. "age_mo * nae_exp * trial_num" as random slope from the item group level 
-# 3. "age_mo * trial_num" as random slope from the item group level 
-# 4. "age_mo * nae_exp" as random slope from the item group level 
-# 5. "age_mo" as random slope from the item group level 
+# 2. "age_mo_c * nae_exp * trial_num" as random slope from the item group level 
+# 3. "age_mo_c * trial_num" as random slope from the item group level 
+# 4. "age_mo_c * nae_exp" as random slope from the item group level 
+# 5. "age_mo_c" as random slope from the item group level 
 # 6. "trial_num" as random slope from the item group level 
 # 7, "nae_exp" as random slope from the item group level 
 # 8. "trial_num * trial_type" as random slope from the subid group level 
 # 9. "trial_num" as random slope from subid group level
 # 10. "trial_type" as random slope from subid group level
-# 11. "trial_type * age_mo * nae_exp as random slope from the lab level
-# 12. "age_mo" as random slope from the lab level
+# 11. "trial_type * age_mo_c * nae_exp as random slope from the lab level
+# 12. "age_mo_c" as random slope from the lab level
 # 13. "nae_exp" as random slope from the lab level
 # I kept trial_type on the lab level as this represents infants' IDS preference, which is the most important factor theoretically 
 
@@ -1054,31 +1054,31 @@ if (export_figs) {
 # SES_lmer_matched <- lmer(
 #   log_lt ~
 #   trial_type * method +
-#   age_mo * trial_num +
+#   age_mo_c * trial_num +
 #   trial_type * trial_num +
-#   trial_type * age_mo * nae +
-#   trial_type * age_mo * lang_group +
-#   trial_type * age_mo * SES +
+#   trial_type * age_mo_c * nae +
+#   trial_type * age_mo_c * lang_group +
+#   trial_type * age_mo_c * SES +
 #   (trial_num * trial_type | subid) +
-#   (trial_type * age_mo * lang_group | lab) +
-#   (method + age_mo * lang_group + age_mo * nae + age_mo * SES | item),
+#   (trial_type * age_mo_c * lang_group | lab) +
+#   (method + age_mo_c * lang_group + age_mo_c * nae + age_mo_c * SES | item),
 #   data = d_lmer_matched
 #   )
 
 # The followings were removed sequentially in the order listed below:
 # 1. "method" as random slope from the item group level 
-# 2. "age_mo * nae" as random slope from the item group level 
-# 3. "age_mo * lang_group" as random slope from the item group level 
-# 4. "age_mo * SES" as random slope from the item group level 
-# 5. "age_mo" as random slope from the item group level 
+# 2. "age_mo_c * nae" as random slope from the item group level 
+# 3. "age_mo_c * lang_group" as random slope from the item group level 
+# 4. "age_mo_c * SES" as random slope from the item group level 
+# 5. "age_mo_c" as random slope from the item group level 
 # 6. "nae" as random slope from the item group level 
 # 7, "lang_group" as random slope from the item group level 
 # 8. "SES" as random slope from the item group level 
 # 9. "trial_num * trial_type" as random slope from subid group level
 # 10. "trial_num" as random slope from subid group level
 # 11. "trial_type" as random slope from subid group level
-# 12. "trial_type * age_mo * lang_group" as random slope from the lab level
-# 13. "age_mo" as random slope from the lab level
+# 12. "trial_type * age_mo_c* lang_group" as random slope from the lab level
+# 13. "age_mo_c" as random slope from the lab level
 # 14. "trial_type" as random slope from the lab level
 # 15. "lang_group" as random slope from the lab level
 # 16. (1 | item)
@@ -1090,11 +1090,11 @@ d_lmer_matched_SES <- d_lmer_matched %>% filter(!is.na(SES))
 SES_lmer_matched <- lmer(
   log_lt ~
   trial_type * method +
-  as.factor(age_group) * trial_num +
+  age_mo_c * trial_num +
   trial_type * trial_num +
-  trial_type * as.factor(age_group) * nae +
-  trial_type * as.factor(age_group) * lang_group +
-  trial_type * as.factor(age_group) * SES +
+  trial_type * age_mo_c * nae +
+  trial_type * age_mo_c * lang_group +
+  trial_type * age_mo_c * SES +
   (1 | subid) +
   (1 | lab),
   data = d_lmer_matched_SES
@@ -1170,18 +1170,18 @@ ggplot(IDS_AGE_SES, aes(x = SES, y = diff, col = age_group)) +
 
 # The followings were removed sequentially in the order listed below:
 # 1. "method" as random slope from the item group level 
-# 2. "age_mo * nae" as random slope from the item group level 
-# 3. "age_mo * lang_group" as random slope from the item group level 
-# 4. "age_mo * SES" as random slope from the item group level 
-# 5. "age_mo" as random slope from the item group level 
+# 2. "age_mo_c * nae" as random slope from the item group level 
+# 3. "age_mo_c * lang_group" as random slope from the item group level 
+# 4. "age_mo_c * SES" as random slope from the item group level 
+# 5. "age_mo_c" as random slope from the item group level 
 # 6. "nae" as random slope from the item group level 
 # 7, "lang_group" as random slope from the item group level 
 # 8. "SES" as random slope from the item group level 
 # 9. "trial_num * trial_type" as random slope from subid group level
 # 10. "trial_num" as random slope from subid group level
 # 11. "trial_type" as random slope from subid group level
-# 12. "trial_type * age_mo * lang_group" as random slope from the lab level
-# 13. "age_mo" as random slope from the lab level
+# 12. "trial_type * age_mo_c * lang_group" as random slope from the lab level
+# 13. "age_mo_c" as random slope from the lab level
 # 14. "trial_type" as random slope from the lab level
 # 15. "lang_group" as random slope from the lab level
 
@@ -1191,11 +1191,11 @@ d_lmer_unmatched_SES <- d_lmer_unmatched %>% filter(!is.na(SES))
 SES_lmer_unmatched <- lmer(
   log_lt ~
   trial_type * method +
-  age_group * trial_num +
+  age_mo_c * trial_num +
   trial_type * trial_num +
-  trial_type * age_group * nae +
-  trial_type * age_group * lang_group +
-  trial_type * age_group * SES +
+  trial_type * age_mo_c * nae +
+  trial_type * age_mo_c * lang_group +
+  trial_type * age_mo_c * SES +
   (1 | subid) +
   (1 | lab) +
   (1 | item),
