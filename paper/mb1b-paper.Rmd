@@ -893,6 +893,14 @@ In contrast, the final model of the full dataset was:
 \end{equation}
 
 ```{r}
+
+row_names_LMM1 <- c("Intercept", "IDS", "HPP", "Single Screen", 
+                     "Age", "Trial #", "NAE", "Bilingual", "IDS * HPP", 
+                     "IDS * Single Screen", 
+                     "Age * Trial #", "IDS * Trial #", "IDS * Age", "IDS * NAE", 
+                     "Age * NAE", "IDS * Bilingual", "Age * Bilingual", "IDS * Age * NAE",
+                     "IDS * Age * Bilingual")
+  
 coefs_matched <- summary(mod_lmer_matched)$coef %>%
   as_data_frame %>%
   mutate_at(c("Estimate","Std. Error","df", "t value", "Pr(>|t|)"), 
@@ -902,12 +910,7 @@ coefs_matched <- summary(mod_lmer_matched)$coef %>%
          p = `Pr(>|t|)`) %>% 
    select(-df) 
   
-rownames(coefs_matched) <- c("Intercept", "IDS", "HPP", "Single Screen", 
-                     "Age", "Trial #", "NAE", "Bilingual", "IDS * HPP", 
-                     "IDS * Single Screen", 
-                     "Age * Trial #", "IDS * Trial #", "IDS * Age", "IDS * NAE", 
-                     "Age * NAE", "IDS * Bilingual", "Age * Bilingual", "IDS * Age * NAE",
-                     "IDS * Age * Bilingual")
+rownames(coefs_matched) <- row_names_LMM1
 
 coefs_unmatched <- summary(mod_lmer_unmatched)$coef %>%
   as_data_frame %>%
@@ -918,20 +921,29 @@ coefs_unmatched <- summary(mod_lmer_unmatched)$coef %>%
          p = `Pr(>|t|)`) %>% 
   select(-df)
 
-         
-rownames(coefs_unmatched) <- c("Intercept", "IDS", "HPP", "Single Screen",
-                     "Age", "Trial #", "NAE", "Bilingual", "IDS * HPP",
-                     "IDS * Single Screen",
-                     "Age * Trial #", "IDS * Trial #", "IDS * Age", "IDS * NAE",
-                     "Age * NAE", "IDS * Bilingual", "Age * Bilingual", "IDS * Age * NAE",
-                     "IDS * Age * Bilingual")
+rownames(coefs_unmatched) <- row_names_LMM1
 
+combined <- merge(coefs_matched, coefs_unmatched, by = 0) %>% 
+            arrange(factor(Row.names, levels = row_names_LMM1)) 
 
-papaja::apa_table(coefs_matched, format.args = list(digits = 3),
+# colnames(combined) <- c("", "Estimate", "Std. Error", "t value", "Pr(>|t|)", "Estimate", "Std. Error", "t value", "Pr(>|t|)")
+# 
+# combined_head <- c("", "", "Lab-matched dataset", "", "", "", "Full dataset", "", "")
+# 
+# combined1 <- rbind(combined_head, combined)
+# 
+# colnames(combined1) <- combined1[1, ]
+# combined1 <- combined1[-1, ]
+# 
+# another_head <- c("", "Estimate", "Std. Error", "t value", "Pr(>|t|)", "Estimate", "Std. Error", "t value", "Pr(>|t|)")
+# 
+# combined1 <- rbind(another_head, combined)
+
+papaja::apa_table(combined, format.args = list(digits = 3),
                    caption = "Linear Mixed Model 1 testing bilingualism effect on IDS in a matched dataset.")
 
-papaja::apa_table(coefs_unmatched, format.args = list(digits = 3),
-                  caption = "Linear Mixed Model 1 testing bilingualism effect on IDS in a full dataset.")
+#papaja::apa_table(coefs_unmatched, format.args = list(digits = 3),
+                  # caption = "Linear Mixed Model 1 testing bilingualism effect on IDS in a full dataset.")
 
 
 ```
