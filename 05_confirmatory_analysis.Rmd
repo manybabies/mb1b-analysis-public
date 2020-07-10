@@ -785,48 +785,48 @@ kable(summary(mod_lmer_unmatched_4_interaction)$coefficients, digits = 3)
 ```
 
 ###Predicted model and LMM1 unmatched plot
-```{r}
-age_centers <- c(7.5,13.5)
-predictions2 <- expand.grid(age_mo = age_centers - mean(d_lmer_unmatched$age_mo), # center
-                           method = c("hpp","eyetracking","singlescreen"), 
-                           trial_type = c("IDS","ADS"),
-                           lang_group = c("bilingual", "monolingual"),
-                           nae = c(TRUE, FALSE), 
-                           trial_num = 1:16)
-predictions_unmatched <- predictions2
-predictions_unmatched$looking_time <- exp(predict(mod_lmer_unmatched, 
-                                        newdata = predictions_unmatched, 
-                                        re.form = NA)) # no random effects
-predictions_unmatched$age_mo <- predictions_unmatched$age_mo + mean(d_lmer_unmatched$age_mo) # un-center
-predictions_unmatched$age_group <- factor(predictions_unmatched$age_mo, 
-                                levels = age_centers, 
-                                labels = c("6-9 mo","12-15 mo"))
-predictions_unmatched$age_group_facet <- factor(predictions_unmatched$age_group, levels = c('6-9 mo', '12-15 mo'))
-
-#rename the levels of nae, so that it is clear in the graph
-predictions_unmatched$nae <- as.factor(predictions_unmatched$nae)
-predictions_unmatched$nae <- fct_recode(predictions_unmatched$nae, "nae"="TRUE", "non-nae"="FALSE")
-
-#plot that probes the interaction between age and trial_num
-p2 <- ggplot(filter(d_lmer_unmatched, looking_time>0),  # because log-LT model doesn't include 0s. 
-       aes(x = trial_num, y = looking_time)) + 
-  geom_point(alpha = .05) +
-  stat_smooth(data=predictions_unmatched, geom="smooth", se=FALSE)+
-  scale_color_solarized(name = "trial_type")+
-  facet_grid(.~age_group)+
-  ylim(2, 16) + 
-  ylab("Looking time (s)") + 
-  xlab("Trial Number") + 
-  labs(title="method*IDS")+
-  theme(legend.position = "bottom")
-
-if (export_figs) {
-  pdf("figure_exports/lmer + data.pdf", width = 5, height = 4)
-  print(p)
-  dev.off()
-} else {
-  p2
-}
+```{r eval = FALSE}
+# age_centers <- c(7.5,13.5)
+# predictions2 <- expand.grid(age_mo = age_centers - mean(d_lmer_unmatched$age_mo), # center
+#                            method = c("hpp","eyetracking","singlescreen"), 
+#                            trial_type = c("IDS","ADS"),
+#                            lang_group = c("bilingual", "monolingual"),
+#                            nae = c(TRUE, FALSE), 
+#                            trial_num = 1:16)
+# predictions_unmatched <- predictions2
+# predictions_unmatched$looking_time <- exp(predict(mod_lmer_unmatched, 
+#                                         newdata = predictions_unmatched, 
+#                                         re.form = NA)) # no random effects
+# predictions_unmatched$age_mo <- predictions_unmatched$age_mo + mean(d_lmer_unmatched$age_mo) # un-center
+# predictions_unmatched$age_group <- factor(predictions_unmatched$age_mo, 
+#                                 levels = age_centers, 
+#                                 labels = c("6-9 mo","12-15 mo"))
+# predictions_unmatched$age_group_facet <- factor(predictions_unmatched$age_group, levels = c('6-9 mo', '12-15 mo'))
+# 
+# #rename the levels of nae, so that it is clear in the graph
+# predictions_unmatched$nae <- as.factor(predictions_unmatched$nae)
+# predictions_unmatched$nae <- fct_recode(predictions_unmatched$nae, "nae"="TRUE", "non-nae"="FALSE")
+# 
+# #plot that probes the interaction between age and trial_num
+# p2 <- ggplot(filter(d_lmer_unmatched, looking_time>0),  # because log-LT model doesn't include 0s. 
+#        aes(x = trial_num, y = looking_time)) + 
+#   geom_point(alpha = .05) +
+#   stat_smooth(data=predictions_unmatched, geom="smooth", se=FALSE)+
+#   scale_color_solarized(name = "trial_type")+
+#   facet_grid(.~age_group)+
+#   ylim(2, 16) + 
+#   ylab("Looking time (s)") + 
+#   xlab("Trial Number") + 
+#   labs(title="method*IDS")+
+#   theme(legend.position = "bottom")
+# 
+# if (export_figs) {
+#   pdf("figure_exports/lmer + data.pdf", width = 5, height = 4)
+#   print(p)
+#   dev.off()
+# } else {
+#   p2
+# }
 
 # #plot that probes the interaction between age and IDS
 # p3 <- ggplot(filter(d_lmer_unmatched, looking_time>0),  # because log-LT model doesn't include 0s. 
@@ -986,64 +986,64 @@ if (export_figs) {
 ```
 
 ######Predicted model and LMM2 plot
-```{r}
-nae_mean_predict <- expand.grid(nae_exp=mean(d_lmer_matched_Lmm2$nae_exp),
-                           age_mo = age_centers - mean(d_lmer_matched$age_mo), # center
-                           method = c("hpp","eyetracking","singlescreen"),
-                           trial_type = c("IDS","ADS"),
-                           trial_num = 1:16)
-
-nae_low_predict <- expand.grid(nae_exp=mean(d_lmer_matched_Lmm2$nae_exp) - sd(d_lmer_matched_Lmm2$nae_exp),
-                           age_mo = age_centers - mean(d_lmer_matched$age_mo), # center
-                           method = c("hpp","eyetracking","singlescreen"),
-                           trial_type = c("IDS","ADS"),
-                           trial_num = 1:16)
-
-nae_high_predict <- expand.grid(nae_exp=mean(d_lmer_matched_Lmm2$nae_exp) + sd(d_lmer_matched_Lmm2$nae_exp),
-                                age_mo = age_centers - mean(d_lmer_matched$age_mo), # center
-                                method = c("hpp","eyetracking","singlescreen"),
-                           trial_type = c("IDS","ADS"),
-                           trial_num = 1:16)
-
-nae_mean_predict$looking_time <- exp(predict(nae_lmer_matched,
-                                        newdata = nae_mean_predict,
-                                        re.form = NA)) # no random effects
-
-nae_low_predict$looking_time <- exp(predict(nae_lmer_matched,
-                                        newdata = nae_low_predict,
-                                        re.form = NA)) # no random effects
-
-nae_high_predict$looking_time <- exp(predict(nae_lmer_matched,
-                                          newdata = nae_high_predict,
-                                          re.form = NA)) # no random effects
-nae_mean_predict$nae_group <- "mean"
-nae_low_predict$nae_group <- "mean - 1 S.D."
-nae_high_predict$nae_group <- "mean + 1 S.D."
-
-nae_predict <- bind_rows(nae_low_predict,nae_mean_predict,nae_high_predict)
-nae_predict$nae_group_cor_order <- factor(nae_predict$nae_group, levels=c("mean - 1 S.D.", "mean", "mean + 1 S.D."))
-
-
-#Plot that probes the interaction between IDS and nae_exp
-p5 <- ggplot(filter(d_lmer_matched, lang_group=="bilingual"),  # because Lmm2 only includes bilingual infants
-      aes(x = trial_num, y = looking_time, col=trial_type)) +
-      geom_jitter(alpha=0.03)+
-      stat_smooth(data=nae_predict, geom="smooth", se=FALSE)+
-      facet_grid(.~nae_group_cor_order)+
-      scale_color_solarized(name = "trial_type") +
-      ylim(2, 12) +
-      ylab("Looking time (s)") +
-      xlab("Trial Number") +
-      labs(title="IDS*nae_exp")+
-      theme(legend.position = "bottom")
-
-if (export_figs) {
-  pdf("figure_exports/lmer + data.pdf", width = 5, height = 4)
-  print(p)
-  dev.off()
-} else {
-  p5
-}
+```{r eval = FALSE}
+# nae_mean_predict <- expand.grid(nae_exp=mean(d_lmer_matched_Lmm2$nae_exp),
+#                            age_mo = age_centers - mean(d_lmer_matched$age_mo), # center
+#                            method = c("hpp","eyetracking","singlescreen"),
+#                            trial_type = c("IDS","ADS"),
+#                            trial_num = 1:16)
+# 
+# nae_low_predict <- expand.grid(nae_exp=mean(d_lmer_matched_Lmm2$nae_exp) - sd(d_lmer_matched_Lmm2$nae_exp),
+#                            age_mo = age_centers - mean(d_lmer_matched$age_mo), # center
+#                            method = c("hpp","eyetracking","singlescreen"),
+#                            trial_type = c("IDS","ADS"),
+#                            trial_num = 1:16)
+# 
+# nae_high_predict <- expand.grid(nae_exp=mean(d_lmer_matched_Lmm2$nae_exp) + sd(d_lmer_matched_Lmm2$nae_exp),
+#                                 age_mo = age_centers - mean(d_lmer_matched$age_mo), # center
+#                                 method = c("hpp","eyetracking","singlescreen"),
+#                            trial_type = c("IDS","ADS"),
+#                            trial_num = 1:16)
+# 
+# nae_mean_predict$looking_time <- exp(predict(nae_lmer_matched,
+#                                         newdata = nae_mean_predict,
+#                                         re.form = NA)) # no random effects
+# 
+# nae_low_predict$looking_time <- exp(predict(nae_lmer_matched,
+#                                         newdata = nae_low_predict,
+#                                         re.form = NA)) # no random effects
+# 
+# nae_high_predict$looking_time <- exp(predict(nae_lmer_matched,
+#                                           newdata = nae_high_predict,
+#                                           re.form = NA)) # no random effects
+# nae_mean_predict$nae_group <- "mean"
+# nae_low_predict$nae_group <- "mean - 1 S.D."
+# nae_high_predict$nae_group <- "mean + 1 S.D."
+# 
+# nae_predict <- bind_rows(nae_low_predict,nae_mean_predict,nae_high_predict)
+# nae_predict$nae_group_cor_order <- factor(nae_predict$nae_group, levels=c("mean - 1 S.D.", "mean", "mean + 1 S.D."))
+# 
+# 
+# #Plot that probes the interaction between IDS and nae_exp
+# p5 <- ggplot(filter(d_lmer_matched, lang_group=="bilingual"),  # because Lmm2 only includes bilingual infants
+#       aes(x = trial_num, y = looking_time, col=trial_type)) +
+#       geom_jitter(alpha=0.03)+
+#       stat_smooth(data=nae_predict, geom="smooth", se=FALSE)+
+#       facet_grid(.~nae_group_cor_order)+
+#       scale_color_solarized(name = "trial_type") +
+#       ylim(2, 12) +
+#       ylab("Looking time (s)") +
+#       xlab("Trial Number") +
+#       labs(title="IDS*nae_exp")+
+#       theme(legend.position = "bottom")
+# 
+# if (export_figs) {
+#   pdf("figure_exports/lmer + data.pdf", width = 5, height = 4)
+#   print(p)
+#   dev.off()
+# } else {
+#   p5
+# }
 
 
 ```
@@ -1081,7 +1081,9 @@ if (export_figs) {
 # 13. "age_mo_c" as random slope from the lab level
 # 14. "trial_type" as random slope from the lab level
 # 15. "lang_group" as random slope from the lab level
-# 16. (1 | item)
+# 16. (1 | item) as random intercept from the model
+# 17. trial_type * age_mo_c * SES as fixed effect from the model becuase of multicollinearity
+# 18. trial_type * SES as fixed effect from the model becuase of multicollinearity
 
 
 d_lmer_matched_SES <- d_lmer_matched %>% filter(!is.na(SES))
@@ -1091,10 +1093,10 @@ SES_lmer_matched <- lmer(
   log_lt ~
   trial_type * method +
   age_mo_c * trial_num +
+  SES +
   trial_type * trial_num +
   trial_type * age_mo_c * nae +
   trial_type * age_mo_c * lang_group +
-  trial_type * age_mo_c * SES +
   (1 | subid) +
   (1 | lab),
   data = d_lmer_matched_SES
@@ -1165,7 +1167,7 @@ ggplot(IDS_AGE_SES, aes(x = SES, y = diff, col = age_group)) +
 # }
 ```
 
-##LMM4 (SES): Unmatached dataset
+##LMM3 (SES): Unmatached dataset
 ```{r}
 
 # The followings were removed sequentially in the order listed below:
@@ -1184,6 +1186,7 @@ ggplot(IDS_AGE_SES, aes(x = SES, y = diff, col = age_group)) +
 # 13. "age_mo_c" as random slope from the lab level
 # 14. "trial_type" as random slope from the lab level
 # 15. "lang_group" as random slope from the lab level
+# 16. "trial_type * age_mo_c * SES" as fixed effect because of multicollinearity
 
 d_lmer_unmatched_SES <- d_lmer_unmatched %>% filter(!is.na(SES))
 
@@ -1195,7 +1198,7 @@ SES_lmer_unmatched <- lmer(
   trial_type * trial_num +
   trial_type * age_mo_c * nae +
   trial_type * age_mo_c * lang_group +
-  trial_type * age_mo_c * SES +
+  trial_type * SES +
   (1 | subid) +
   (1 | lab) +
   (1 | item),
