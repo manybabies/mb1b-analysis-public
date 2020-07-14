@@ -1064,7 +1064,7 @@ if (export_figs) {
 #   trial_type * trial_num +
 #   trial_type * age_mo_c * nae +
 #   trial_type * age_mo_c * lang_group +
-#   trial_type * age_mo_c * SES +
+#   trial_type * age_mo_c * SES_c +
 #   (trial_num * trial_type | subid) +
 #   (trial_type * age_mo_c * lang_group | lab) +
 #   (method + age_mo_c * lang_group + age_mo_c * nae + age_mo_c * SES | item),
@@ -1088,21 +1088,20 @@ if (export_figs) {
 # 14. "trial_type" as random slope from the lab level
 # 15. "lang_group" as random slope from the lab level
 # 16. (1 | item) as random intercept from the model
-# 17. trial_type * age_mo_c * SES as fixed effect from the model becuase of multicollinearity
-# 18. trial_type * SES as fixed effect from the model becuase of multicollinearity
 
 
-d_lmer_matched_SES <- d_lmer_matched %>% filter(!is.na(SES))
-
+d_lmer_matched_SES <- d_lmer_matched %>% 
+  filter(!is.na(SES)) %>% 
+  mutate(SES_c = scale(SES, scale = FALSE))
 
 SES_lmer_matched <- lmer(
   log_lt ~
   trial_type * method +
   age_mo_c * trial_num +
-  SES +
   trial_type * trial_num +
   trial_type * age_mo_c * nae +
   trial_type * age_mo_c * lang_group +
+  trial_type * age_mo_c * SES_c +
   (1 | subid) +
   (1 | lab),
   data = d_lmer_matched_SES
@@ -1162,9 +1161,10 @@ performance::model_performance(SES_lmer_matched)
 # 13. "age_mo_c" as random slope from the lab level
 # 14. "trial_type" as random slope from the lab level
 # 15. "lang_group" as random slope from the lab level
-# 16. "trial_type * age_mo_c * SES" as fixed effect because of multicollinearity
 
-d_lmer_unmatched_SES <- d_lmer_unmatched %>% filter(!is.na(SES))
+d_lmer_unmatched_SES <- d_lmer_unmatched %>% 
+  filter(!is.na(SES)) %>% 
+  mutate(SES_c = scale(SES, scale = FALSE))
 
 
 SES_lmer_unmatched <- lmer(
@@ -1174,7 +1174,7 @@ SES_lmer_unmatched <- lmer(
   trial_type * trial_num +
   trial_type * age_mo_c * nae +
   trial_type * age_mo_c * lang_group +
-  trial_type * SES +
+  trial_type * age_mo_c * SES_c +
   (1 | subid) +
   (1 | lab) +
   (1 | item),
