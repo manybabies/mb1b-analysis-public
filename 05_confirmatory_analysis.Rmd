@@ -1142,6 +1142,36 @@ Calculate indices for model performance/fit. We reported R2_conditional and R2_m
 performance::model_performance(SES_lmer_matched)
 ```
 
+
+```{r IDS_age_SES_graph}
+ IDS_AGE_SES <- d_diffs_matched %>%
+   mutate(age_group = fct_relevel(age_group, "6-9 mo", "12-15 mo")) %>% 
+   group_by(lab, age_group, subid) %>%
+   summarise(SES = mean(SES),
+             n = sum(!is.na(diff)),
+             diff = mean(diff, na.rm = TRUE)) %>% 
+   filter(n > 0)
+  
+ ggplot(IDS_AGE_SES, aes(x = SES, y = diff, col = age_group)) +
+   geom_jitter(alpha = .3) +
+   geom_smooth(method = "lm", se=FALSE) +
+   geom_hline(yintercept = 0, lty = 2) +
+   scale_color_solarized() +
+   coord_cartesian(ylim = c(-10, 10)) +
+   ylab("IDS preference (s)") +
+   xlab("SES (number of years of maternal education)") +
+   theme(legend.position = "bottom", legend.box = "vertical")+
+   labs(col="Age groups")
+
+ # if (export_figs) {
+ #   pdf("figure_exports/scatter ses ids age.pdf", width = 4, height = 3)
+ #   print(p)
+ #   dev.off()
+ # } else {
+ #   p
+ # }
+```
+
 ##LMM3 (SES): Unmatached dataset
 ```{r}
 
@@ -1185,6 +1215,9 @@ summary(SES_lmer_unmatched)
 
 kable(summary(SES_lmer_unmatched)$coefficients, digits = 3)
 ```
+Note that the interaction of SES*age*IDS is gone with a larger dataset. The main effect of SES in this larger dataset suggested that infants from a higher SES family may look longer to the stimuli (*but this is not a main effect in the matched dataset). So I think we will need to interpret the result of SES with caution, may be we should put this note in the ms. (AT)
+
+
 Variance and covariance matrix for the mode_lmer_matched model
 ```{r}
 vcov(SES_lmer_unmatched)
