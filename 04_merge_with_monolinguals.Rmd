@@ -111,6 +111,7 @@ mono_all <- mono_all %>%
 #mono_all$parentb_gender[mono_all$parenta_gender == "OTHER"] <- "OTHER"
 
 mono_all <- mono_all %>%
+  filter(!is.na(looking_time)) %>%
   mutate(parenta_gender = as.character(parenta_gender)) %>%
   mutate(parentb_gender = as.character(parentb_gender)) %>%
   mutate(SES = case_when(parenta_gender == "F" | parentb_gender == "M" ~ as.numeric(parenta_education),
