@@ -96,21 +96,25 @@ see_if(all(trial_pairs_bil$n <= 2),
 Read in monolingual data from github
 
 ```{r}
+mono_info <- read.csv(text=RCurl::getURI("https://raw.githubusercontent.com/manybabies/mb1-analysis-public/bbf88fd546c99d0ebbc921d20abcd7e66e5f4c7a/processed_data/03_data_diff_main.csv"),  na = c("NA", "N/A")) %>%
+  select(c("subid", "lab", "method", "parenta_gender", "parentb_gender", "parenta_education", "parentb_education", "bilingual_nae", "lang2", "lang3", "lang4", "bilingual_parenta_nae", "bilingual_parentb_nae", "bilingual_interview_lang")) 
+  
 
- mono_all <- read.csv(text=RCurl::getURI("https://raw.githubusercontent.com/manybabies/mb1-analysis-public/83358f804335452fe50e3eaf2831575635943ec9/processed_data/03_data_trial_main.csv")) 
-
-mono_all <- mono_all %>% 
-   mutate(subid = paste(subid, lab, sep = "_")) #fix because subid sometimes repeats across labs
-#mono_all <- read.csv(here("mb1-analysis-public/processed_data/03_data_trial_main.csv") # Reading from computer instead
+mono_data <- read.csv(text=RCurl::getURI("https://raw.githubusercontent.com/manybabies/mb1-analysis-public/bbf88fd546c99d0ebbc921d20abcd7e66e5f4c7a/processed_data/03_data_trial_main.csv"),  na = c("NA", "N/A"))
 
 
-mono_all <- mono_all %>%
-  mutate(lang_group = "monolingual") %>% # recode original lang_group variable to monolingual.  All babies in this dataset are verified monolinguals, per mono exclusion script
-  filter(!is.na(mono_all$trial_type)) #Removes all rows with unknown trial type.  Introduced in MB1 script due to missingness analysis
+mono_all <- mono_data %>%
+  full_join(mono_info) %>%
+  distinct() %>% #Not sure why there are 8 duplicate rows, but remove them
+  filter(trial_type != "train") %>% #TODO: check that this isn't duplicate with later code
+  filter(!is.na(trial_type)) %>% #Removes all rows with unknown trial type.  Introduced in MB1 script due to missingness analysis
+  mutate(lang_group = "monolingual")  %>% # recode original lang_group variable to monolingual.  All babies in this dataset are verified monolinguals, per mono exclusion script
+  filter(!is.na(stimulus_num)) 
   
 #mono_all$parentb_gender[mono_all$parenta_gender == "OTHER"] <- "OTHER"
 
 mono_all <- mono_all %>%
+  mutate(parenta_gender = ifelse(FALSE, "F", parenta_gender)) %>% #All entries are F so it is read in as FALSE
   mutate(parenta_gender = as.character(parenta_gender)) %>%
   mutate(parentb_gender = as.character(parentb_gender)) %>%
   mutate(SES = case_when(parenta_gender == "F" | parentb_gender == "M" ~ as.numeric(parenta_education),
@@ -124,29 +128,31 @@ mono_all <- mono_all %>%
   mutate(parentb_education = as.integer(parentb_education)) %>%
   mutate(lang_group = as.factor(lang_group)) %>%
   filter(age_group == "6-9 mo" | age_group == "12-15 mo") %>%
-  mutate(tod = str_replace(tod, ":", "")) %>%
-  mutate(tod = str_replace(tod, "h", "")) %>%
-  mutate(tod = as.numeric(tod)) %>%
+  #mutate(tod = str_replace(tod, ":", "")) %>%
+  #mutate(tod = str_replace(tod, "h", "")) %>%
+  #mutate(tod = as.numeric(tod)) %>%
   mutate(bilingual_nae = as.integer(bilingual_nae))  %>%
-  mutate(sib1_age = as.integer(sib1_age)) %>%
-  mutate(sib3_gender = as.factor(sib3_gender)) %>%
-  mutate(sib4_gender = as.factor(sib4_gender)) %>%
-  mutate(season = as.factor(season)) %>%
-  mutate(race_ethnicity = as.factor(race_ethnicity)) %>%
-  mutate(beard = as.factor(beard)) %>%
-  mutate(termtime = as.factor(termtime)) %>%
-  mutate(hearing_vision_info = as.character(hearing_vision_info)) %>%
-  mutate(cognitive_developmental_info = as.character(cognitive_developmental_info)) %>%
-  mutate(cog_hearing_reason = as.character(cog_hearing_reason)) %>%
-  mutate(trial_error_change_reason = as.character(trial_error_change_reason)) %>%
-  mutate(session_error_recoded = as.character(session_error_recoded)) %>%
-  mutate(session_error_type_recoded = as.character(session_error_type_recoded)) %>%
-  mutate(trial_error_type = as.factor(trial_error_type)) %>% 
+  #mutate(sib1_age = as.integer(sib1_age)) %>%
+  #mutate(sib3_gender = as.factor(sib3_gender)) %>%
+  #mutate(sib4_gender = as.factor(sib4_gender)) %>%
+  #mutate(season = as.factor(season)) %>%
+  #mutate(race_ethnicity = as.factor(race_ethnicity)) %>%
+  #mutate(beard = as.factor(beard)) %>%
+  #mutate(termtime = as.factor(termtime)) %>%
+  #mutate(hearing_vision_info = as.character(hearing_vision_info)) %>%
+  #mutate(cognitive_developmental_info = as.character(cognitive_developmental_info)) %>%
+  #mutate(cog_hearing_reason = as.character(cog_hearing_reason)) %>%
+  #mutate(trial_error_change_reason = as.character(trial_error_change_reason)) %>%
+  #mutate(session_error_recoded = as.character(session_error_recoded)) %>%
+  #mutate(session_error_type_recoded = as.character(session_error_type_recoded)) %>%
+  #mutate(trial_error_type = as.factor(trial_error_type)) %>% 
   mutate(lang2 = as.factor(lang2), lang3 = as.factor(lang3), lang4 = as.factor(lang4),
          bilingual_parenta_nae = as.factor(bilingual_parenta_nae),
          bilingual_parentb_nae = as.factor(bilingual_parentb_nae),
-         bilingual_interview_lang = as.factor(bilingual_interview_lang)) %>% 
-  mutate(gender = gender2)
+         bilingual_interview_lang = as.factor(bilingual_interview_lang)) %>%
+  droplevels() %>%
+  mutate(subid = paste(subid, lab, sep = "_")) #fix because subid sometimes repeats across labs
+
 
 
 ```
