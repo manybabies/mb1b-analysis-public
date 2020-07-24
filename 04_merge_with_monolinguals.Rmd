@@ -109,7 +109,8 @@ mono_all <- mono_data %>%
   filter(trial_type != "train") %>% #TODO: check that this isn't duplicate with later code
   filter(!is.na(trial_type)) %>% #Removes all rows with unknown trial type.  Introduced in MB1 script due to missingness analysis
   mutate(lang_group = "monolingual")  %>% # recode original lang_group variable to monolingual.  All babies in this dataset are verified monolinguals, per mono exclusion script
-  filter(!is.na(stimulus_num)) 
+  filter(!is.na(stimulus_num)) %>%
+  filter(!is.na(looking_time), !is.infinite(looking_time))
   
 #mono_all$parentb_gender[mono_all$parenta_gender == "OTHER"] <- "OTHER"
 
