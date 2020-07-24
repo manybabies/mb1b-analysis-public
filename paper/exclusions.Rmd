@@ -200,6 +200,19 @@ d <- usablepair$data
 
 
 
+
+```{r noNAlt}
+d$NA_lt <- is.na(d$looking_time)
+
+NA_lt <- exclude_by(d, quo(NA_lt), action = "NA out", 
+                   return_pcts = TRUE, 
+                   quiet = TRUE)
+d <- NA_lt$data
+# 
+# d %>% summarise(n = length(unique(subid))) %>% pull(n) %>% sum()
+```
+
+
 ```{r short_lt}
 d$short_lt <- d$looking_time < 2
 
