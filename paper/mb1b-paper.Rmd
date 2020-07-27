@@ -785,8 +785,10 @@ mod_matched_n <- length(unique(d_lmer_matched$subid))
 #summary(mod_lmer_matched)
 ```
 
-Levene's test that used residuals from the model to examine whether bilinguals had larger variability than monolinguals
+
 ```{r}
+#Levene's test that used residuals from the model to examine whether bilinguals had larger variability than monolinguals
+
 levene_matched <- car::leveneTest(residuals(mod_lmer_matched) ~ d_lmer_matched$lang_group)
 
 p_levene_matched <- levene_matched$`Pr(>F)`[[1]]
@@ -818,8 +820,9 @@ mod_unmatched_n <- length(unique(d_lmer_unmatched$subid))
 #summary(mod_lmer_unmatched)
 ```
 
-Levene's test that used residuals from the model to examine whether bilinguals had larger variability than monolinguals
+
 ```{r}
+#Examine whether bilinguals had larger model residual variability than monolinguals
 levene_unmatched <- car::leveneTest(residuals(mod_lmer_unmatched) ~ d_lmer_unmatched$lang_group)
 
 p_levene_unmatched <- levene_unmatched$`Pr(>F)`[[1]]
@@ -846,7 +849,7 @@ num_d_lmer_unmatched_bil_resid <- d_lmer_unmatched_bil_resid[[1]]
 
 #### Homogeneity of variance
 
-We pre-registered a Levene’s test to examine whether monolinguals and bilinguals showed different amounts of variance in their IDS preference. Our analysis focused on the residual variance for monolinguals and bilinguals in the main linear mixed-effects models, in order to partition out variance associated with other actors (e.g., age, method, etc.). The Levene’s test revealed a statistically significant difference in variance for the full samples ($p$ = `r signif(p_levene_unmatched, 2)`) but not the lab-matched samples ($p$ = `r signif(p_levene_unmatched, 2)`). We note that the difference in residual variances between monolingual (variance = `r signif(num_d_lmer_unmatched_mono_resid, 2)`) and bilingual language groups (variance = r signif(num_d_lmer_unmatched_bil_resid, 2)`) was small, suggesting that the statistical significance in the Levene’s test for the full samples was mainly driven by a larger sample size, not by the differences between monolinguals and bilinguals.
+We pre-registered a Levene’s test to examine whether monolinguals and bilinguals showed different amounts of variance in their IDS preference. Our analysis focused on the residual variance for monolinguals and bilinguals in the main linear mixed-effects models, in order to partition out variance associated with other actors (e.g., age, method, etc.). The Levene’s test revealed a statistically significant difference in variance for the full samples ($p$ = `r signif(p_levene_unmatched, 2)`) but not the lab-matched samples ($p$ = `r signif(p_levene_matched, 2)`). We note that the difference in residual variances between monolingual (variance = `r signif(num_d_lmer_unmatched_mono_resid, 2)`) and bilingual language groups (variance = `r signif(num_d_lmer_unmatched_bil_resid, 2)`) was small, suggesting that the statistical significance in the Levene’s test for the full samples was mainly driven by a larger sample size, not by the differences between monolinguals and bilinguals.
 
 #### Effects of bilingualism on IDS preference
 
