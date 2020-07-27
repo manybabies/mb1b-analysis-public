@@ -159,7 +159,7 @@ options(tinytex.verbose = TRUE)
 
 library("papaja")
 library(ggthemes)
-library(lme4)
+library(lme4) ## Model fit using lme4 v. 1.21
 library(tidyverse)
 library(here)
 library(knitr)
