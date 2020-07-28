@@ -4,6 +4,8 @@ shorttitle        : "A multi-lab study of bilingual infants"
 
 header-includes:
    - \usepackage{amsmath}
+   - \usepackage{setspace}
+   - \captionsetup[figure]{font={stretch=3,normalsize}}
 
 author: 
   - name          : "Krista Byers-Heinlein"
@@ -1056,6 +1058,8 @@ nae_lmer_matched <- lmer(log_lt~
   (trial_type |lab) +
   (1 |item), 
   data = d_lmer_matched_Lmm2)
+
+nae_lmer_matched_perf <- performance::model_performance(nae_lmer_matched)
  
 nae_exp_coef <- summary(nae_lmer_matched)$coef %>%
   as_data_frame %>%
@@ -1066,19 +1070,20 @@ nae_exp_coef <- summary(nae_lmer_matched)$coef %>%
          p = `Pr(>|t|)`) %>% 
   select(-df)
 
-rownames(nae_exp_coef) <- c("Intercept", "IDS", "HPP", "Single Screen", 
+r2cond <- c(" ", signif(nae_lmer_matched_perf$R2_conditional, digits = 3), " ", " ")
+r2marg <- c(" ", signif(nae_lmer_matched_perf$R2_marginal, digits = 3), " ", " ")
+nae_exp_n <- c("", length(unique(d_lmer_matched_Lmm2$subid)), "", "")
+
+nae_exp_coef_table <- rbind(nae_exp_coef, r2cond, r2marg, nae_exp_n)
+
+rownames(nae_exp_coef_table) <- c("Intercept", "IDS", "HPP", "Single Screen", 
                      "Age", "Trial #", "EXP_NAE", "IDS * HPP", 
                      "IDS * Single Screen", 
                      "Age * Trial #", "IDS * Trial #", "IDS * Age", "IDS * EXP_NAE", 
-                     "Age * EXP_NAE", "IDS * Age * EXP_NAE")
-
-nae_exp_n <- c("", length(unique(d_lmer_matched_Lmm2$subid)), "", "")
-
-nae_exp_coef_table <- rbind(nae_exp_coef, nae_exp_n)
-rownames(nae_exp_coef_table)[16] <- "N"
+                     "Age * EXP_NAE", "IDS * Age * EXP_NAE", "R2 Conditional", "R2 Marginal", "N")
 
 papaja::apa_table(nae_exp_coef_table, format.args = list(digits = 3),
-                  midrules = 15,
+                  midrules = c(15,17),
                   caption = "Linear Mixed Model testing the effects of exposure to NAE-IDS in bilingual infants.")
 ```
 
@@ -1207,11 +1212,15 @@ coefs_ses_matched <- summary(SES_lmer_matched)$coef %>%
          p = `Pr(>|t|)`) %>% 
   select(-df) 
 
+ses_matched_perf <- performance::model_performance(SES_lmer_matched)
+
+r2cond <- c(" ", signif(ses_matched_perf$R2_conditional, digits = 3), " ", " ")
+r2marg <- c(" ", signif(ses_matched_perf$R2_marginal, digits = 3), " ", " ")
 ses_matched_n <- c("", length(unique(d_lmer_matched$subid)), "", "")
 
-coefs_ses_matched <- rbind(coefs_ses_matched, ses_matched_n)
+coefs_ses_matched_table <- rbind(coefs_ses_matched, r2cond, r2marg, ses_matched_n)
 
-rownames(coefs_ses_matched) <- c("Intercept", "IDS", "HPP", "Single Screen", 
+rownames(coefs_ses_matched_table) <- c("Intercept", "IDS", "HPP", "Single Screen", 
                      "Age", "Trial #", "NAE", "Bilingual", "SES", "IDS * HPP", 
                      "IDS * Single Screen", 
                      "Age * Trial #", "IDS * Trial #", "IDS * Age", "IDS * NAE", 
@@ -1219,7 +1228,9 @@ rownames(coefs_ses_matched) <- c("Intercept", "IDS", "HPP", "Single Screen",
                      "Age * SES",
                      "IDS * Age * NAE",
                      "IDS * Age * Bilingual",
-                     "IDS * Age * SES", "N")
+                     "IDS * Age * SES", 
+                     "R2 Conditional", "R2 Marginal", "N")
+
 
 coefs_ses_unmatched <- summary(SES_lmer_unmatched)$coef %>%
   as_data_frame %>%
@@ -1230,11 +1241,15 @@ coefs_ses_unmatched <- summary(SES_lmer_unmatched)$coef %>%
          p = `Pr(>|t|)`) %>% 
   select(-df)
 
+ses_unmatched_perf <- performance::model_performance(SES_lmer_unmatched)
+
+r2cond <- c(" ", signif(ses_unmatched_perf$R2_conditional, digits = 3), " ", " ")
+r2marg <- c(" ", signif(ses_unmatched_perf$R2_marginal, digits = 3), " ", " ")
 ses_unmatched_n <- c("", length(unique(d_lmer_unmatched$subid)), "", "")
 
-coefs_ses_unmatched <- rbind(coefs_ses_unmatched, ses_unmatched_n)
+coefs_ses_unmatched_table <- rbind(coefs_ses_unmatched, r2cond, r2marg, ses_unmatched_n)
 
-rownames(coefs_ses_unmatched) <- c("Intercept", "IDS", "HPP", "Single Screen", 
+rownames(coefs_ses_unmatched_table) <- c("Intercept", "IDS", "HPP", "Single Screen", 
                      "Age", "Trial #", "NAE", "Bilingual", "SES", "IDS * HPP", 
                      "IDS * Single Screen", 
                      "Age * Trial #", "IDS * Trial #", "IDS * Age", "IDS * NAE", 
@@ -1242,15 +1257,16 @@ rownames(coefs_ses_unmatched) <- c("Intercept", "IDS", "HPP", "Single Screen",
                      "Age * SES",
                      "IDS * Age * NAE",
                      "IDS * Age * Bilingual",
-                     "IDS * Age * SES", "N")
+                     "IDS * Age * SES", 
+                     "R2 Conditional", "R2 Marginal", "N")
 
 #c1 <- kable(list(coefs_matched, coefs_unmatched), align = 'c')
-papaja::apa_table(coefs_ses_matched, format.args = list(digits = 3),
-                  midrules = 23,
+papaja::apa_table(coefs_ses_matched_table, format.args = list(digits = 3),
+                  midrules = c(23,25),
                   caption = "Linear Mixed Model 3 examining socio-economic status as a moderator of monolingual-bilingual differences SES in the matached dataset.")
 
-papaja::apa_table(coefs_ses_unmatched, format.args = list(digits = 3),
-                  midrules = 23,
+papaja::apa_table(coefs_ses_unmatched_table, format.args = list(digits = 3),
+                  midrules = c(23,25),
                   caption = "Linear Mixed Model 3 examining socio-economic status as a moderator of monolingual-bilingual differences SES in the full dataset.")
 ```
 
@@ -1297,20 +1313,24 @@ nae_only_coef <- summary(nae_only_lmer)$coef %>%
          p = `Pr(>|t|)`) %>%
   select(-df)
 
-rownames(nae_only_coef) <- c("Intercept", "IDS", "HPP", "Single Screen",
+nae_only_lmer_perf <- performance::model_performance(nae_only_lmer)
+
+r2cond <- c(" ", signif(nae_only_lmer_perf$R2_conditional, digits = 3), " ", " ")
+r2marg <- c(" ", signif(nae_only_lmer_perf$R2_marginal, digits = 3), " ", " ")
+nae_only_n <- c("", length(unique(d_lmer_nae$subid)), "", "")
+
+nae_only_coef_table <- rbind(nae_only_coef, r2cond, r2marg, nae_only_n)
+
+rownames(nae_only_coef_table) <- c("Intercept", "IDS", "HPP", "Single Screen",
                      "Age", "Trial #", "EXP_NAE", "IDS * HPP",
                      "IDS * Single Screen",
                      "Age * Trial #", "IDS * Trial #", "IDS * Age", "IDS * EXP_NAE",
-                     "Age * EXP_NAE", "IDS * Age * EXP_NAE")
+                     "Age * EXP_NAE", "IDS * Age * EXP_NAE",
+                     "R2 Conditional", "R2 Marginal", "N")
 
-nae_only_n <- c("", length(unique(d_lmer_nae$subid)), "", "")
-
-nae_only_coef_table <- rbind(nae_only_coef, nae_only_n)
-
-rownames(nae_only_coef_table)[16] <- "N"
 
 papaja::apa_table(nae_only_coef_table, format.args = list(digits = 3),
-                  midrules = 15,
+                  midrules = c(15,17),
                   caption = "Linear Mixed Model testing the effects of exposure to NAE-IDS (restricted to bilingual infants living in NAE contexts).")
 # 
 
