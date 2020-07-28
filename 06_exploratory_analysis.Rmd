@@ -82,6 +82,134 @@ summary(nae_only_lmer)
 kable(summary(nae_only_lmer)$coefficients, digits = 3)
 ```
 
+# Re-run the mixed-effect models by treating age as dummy variable
+## Matched dataset (center age by treating it as a dummy variable)
+
+LMM model 1 (IDS pref) 
+Matched dataset
+```{r}
+d_lmer_matched_dummy <- d_matched %>%
+  filter(trial_type != "train") %>%
+  mutate(log_lt = log(looking_time),
+         age_group = as.factor(age_group),
+         trial_num = trial_num, 
+         item = paste0(stimulus_num, trial_type)) %>%
+  filter(!is.na(log_lt), !is.infinite(log_lt))
+
+mod_lmer_matched_dummy <- lmer(log_lt ~
+  trial_type * method + age_group * trial_num +
+  trial_type * trial_num +
+  trial_type * age_group * nae +
+  trial_type * age_group * lang_group +
+  (1 |subid) +
+  (lang_group |lab) + 
+  (1 |item),
+  data = d_lmer_matched_dummy)
+
+summary(mod_lmer_matched_dummy) 
+
+kable(summary(mod_lmer_matched_dummy)$coefficients, digits = 3)
+```
+
+Full dataset
+```{r}
+d_lmer_unmatched_dummy <- d_full %>%
+  filter(trial_type != "train") %>%
+  mutate(log_lt = log(looking_time),
+         age_group = as.factor(age_group),
+         trial_num = trial_num, 
+         item = paste0(stimulus_num, trial_type)) %>%
+  filter(!is.na(log_lt), !is.infinite(log_lt))
+
+mod_lmer_unmatched_dummy <- lmer(log_lt~
+  trial_type * method + age_group * trial_num +
+  trial_type * trial_num +
+  trial_type * age_group * nae +
+  trial_type * age_group * lang_group +
+  (1 |subid) +
+  (1 |lab) +
+  (1 |item), 
+  data = d_lmer_unmatched_dummy)
+
+summary(mod_lmer_unmatched_dummy) 
+
+kable(summary(mod_lmer_unmatched_dummy)$coefficients, digits = 3)
+```
+
+LMM model 2 (nae_exp) 
+```{r}
+d_lmer_matched_Lmm2_dummy <- d_lmer_matched_dummy %>% filter(lang_group=="bilingual")
+
+nae_lmer_matched_dummy <- lmer(log_lt~
+  trial_type * method + age_group * trial_num +
+  trial_type * trial_num +
+  trial_type * age_group * nae_exp +
+  (1 |subid) +
+  (trial_type |lab) +
+  (1 |item), 
+  data = d_lmer_matched_Lmm2_dummy)
+ 
+summary(nae_lmer_matched_dummy) 
+
+kable(summary(nae_lmer_matched_dummy)$coefficients, digits = 3)
+```
+
+LMM model 3 (SES)
+Matched dataset
+```{r}
+d_lmer_matched_SES_dummy <- d_matched %>% 
+  filter(!is.na(SES)) %>% 
+  mutate(log_lt = log(looking_time),
+         age_group = as.factor(age_group),
+         SES_c = scale(SES, scale = FALSE))
+
+SES_lmer_matched_dummy <- lmer(
+  log_lt ~
+  trial_type * method +
+  age_group * trial_num +
+  trial_type * trial_num +
+  trial_type * age_group * nae +
+  trial_type * age_group * lang_group +
+  trial_type * age_group * SES_c +
+  (1 | subid) +
+  (1 | lab),
+  data = d_lmer_matched_SES_dummy
+  )
+ 
+summary(SES_lmer_matched_dummy) 
+
+kable(summary(SES_lmer_matched_dummy)$coefficients, digits = 3)
+```
+
+Full dataset
+```{r}
+d_lmer_unmatched_SES_dummy <- d_full %>% 
+  filter(!is.na(SES)) %>% 
+  mutate(log_lt = log(looking_time),
+         age_group = as.factor(age_group),
+         SES_c = scale(SES, scale = FALSE), 
+         item = paste0(stimulus_num, trial_type))
+
+
+SES_lmer_unmatched_dummy <- lmer(
+  log_lt ~
+  trial_type * method +
+  age_group * trial_num +
+  trial_type * trial_num +
+  trial_type * age_group * nae +
+  trial_type * age_group * lang_group +
+  trial_type * age_group * SES_c +
+  (1 | subid) +
+  (1 | lab) +
+  (1 | item),
+  data = d_lmer_unmatched_SES_dummy
+  )
+
+summary(SES_lmer_unmatched_dummy)
+
+kable(summary(SES_lmer_unmatched_dummy)$coefficients, digits = 3)
+```
+
 # Re-run meta-analysis using n >= 5 criteria
 ### Matched dataset
 ```{r}
