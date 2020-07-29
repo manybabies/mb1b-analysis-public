@@ -848,15 +848,11 @@ d_lmer_unmatched_bil_resid <- d_lmer_unmatched  %>%
 
 num_d_lmer_unmatched_bil_resid <- d_lmer_unmatched_bil_resid[[1]]
 ```
-
-
 #### Homogeneity of variance
 
 We pre-registered a Levene’s test to examine whether monolinguals and bilinguals showed different amounts of variance in their IDS preference. Our analysis focused on the residual variance for monolinguals and bilinguals in the main linear mixed-effects models, in order to partition out variance associated with other factors (e.g., age, method, etc.). The Levene’s test revealed a statistically significant difference in variance between monolinguals and bilinguals for the full samples ($p$ = `r signif(p_levene_unmatched, 2)`) but not the lab-matched samples ($p$ = `r signif(p_levene_matched, 2)`). We note that the difference in residual variances between monolingual (variance = `r signif(num_d_lmer_unmatched_mono_resid, 2)`) and bilingual language groups (variance = `r signif(num_d_lmer_unmatched_bil_resid, 2)`) was small, suggesting that the statistically significant Levene’s test for the full samples was mainly driven by a larger sample size, rather than by meaningful differences between monolinguals and bilinguals.
 
 #### Effects of bilingualism on IDS preference
-
-
 ```{r}
 mod_lmer_matched_4_interaction <- lmer(log_lt~
   trial_type * method + age_mo * trial_num +
@@ -1110,13 +1106,43 @@ ggplot(IDS_NAE_EXP, aes(x = nae_exp, y = diff)) +
   ylab("IDS preference (s)") +
   xlab("NAE exposure (%)") +
   theme(legend.position = "bottom", legend.box = "vertical")
+
 ```
 
 #### Socio-economic status as a moderator of monolingual-bilingual differences
 
+```{r, results = "asis"}
+#SES descriptives by group
+bil_ses <- d_participants_bil %>% 
+  select(lab, subid, SES) %>% 
+  distinct() %>% 
+  summarise(mean = round(mean(SES, na.rm = TRUE), 2),
+            sd = round(sd(SES, na.rm = TRUE), 2),
+            min = min(SES, na.rm = TRUE),
+            max = max(SES, na.rm = TRUE))
+
+matched_ses <- d_participants_matched_mono %>% 
+  select(lab, subid, SES) %>% 
+  distinct() %>% 
+  summarise(mean = round(mean(SES, na.rm = TRUE), 2),
+            sd = round(sd(SES, na.rm = TRUE), 2),
+            min = min(SES, na.rm = TRUE),
+            max = max(SES, na.rm = TRUE))
+
+unmatched_ses <- d_full %>%
+  filter(lang_group == "monolingual") %>% 
+  select(lab, subid, SES) %>% 
+  anti_join(d_participants_matched_mono, by = c("lab", "subid", "SES")) %>% 
+  distinct() %>% 
+  summarise(mean = round(mean(SES, na.rm = TRUE), 2),
+            sd = round(sd(SES, na.rm = TRUE), 2),
+            min = min(SES, na.rm = TRUE),
+            max = max(SES, na.rm = TRUE))
+```
+
 Because socio-economic status can vary systematically between monolinguals and bilinguals in the same community, we were interested in whether relationships between bilingualism and IDS preference would hold when controlling for socio-economic status. It is possible that an observed effect of bilingualism on IDS preference could disappear once SES was controlled. Alternatively, it is possible that the effect of bilingualism on IDS preference could only be apparent once SES was controlled. Thus, this analysis was important regardless of an observed relationship between IDS preference and bilingualism in the previous model.
 
-First, we computed descriptive statistics for the two groups. Mothers of the bilingual sample had an average of XX years of education (SD = XX, range = XX-YY), those of the lab-matched monolingual sample had an average of XX years of education (SD = XX, range = XX-YY), and those of the full monolingual sample had an average of XX years of education (SD = XX, range = XX-YY).
+First, we computed descriptive statistics for the two groups. Mothers of the bilingual sample had an average of `r bil_ses$mean` years of education (SD = `r bil_ses$sd`, range = `r bil_ses$min`-`r bil_ses$max`), those of the lab-matched monolingual sample had an average of `r matched_ses$mean` years of education (SD = `r matched_ses$sd`, range = `r matched_ses$min`-`r matched_ses$max`), and those of the full monolingual sample had an average of `r unmatched_ses$mean` years of education (SD = `r unmatched_ses$sd`, range = `r unmatched_ses$min`-`r unmatched_ses$max`).
 
 Our approach was to add SES as a moderator of our final model for bilinguals. We expected that any effects of socio-economic status could interact with age, thus this model included interactions of trial type, age, and socio-economic status as a fixed effect, as well as the corresponding random slope by item. Based on the potential model detailed above for the bilinguals, our expected ses-mediated model was:
 
