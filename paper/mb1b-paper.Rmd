@@ -736,7 +736,7 @@ Our second set of pre-registered meta-analyses examined whether the variability 
 Our pre-registered plan was to follow Nakagawa et al. (2014) and Senior et al. (2015), and we further elaborate on this plan here. According to @nakagawa_2015, there are two approaches to run within-group variability meta-analysis: one approach uses $lnCVR$, the natural logarithm of the ratio between the coefficients of variation, to compare the variability of two groups; a second approach enters $lnSD$ (the natural logarithm of standard deviations) and $ln\bar{X}$ (the log mean) into a mixed-effect model. When data meet the assumption that the standard deviation is proportional to the mean (i.e., the two are correlated), the first approach should be used, and otherwise, the second approach should be used. Our data did not meet the necessary assumption, therefore we used the second, mixed-effect approach. In the following meta-regression model, the natural logarithm of the standard deviations ($lnSD$) from each language group is the dependent variable. This dependent variable (group variance) is the log-transformed standard deviation of infants' preference for IDS over ADS that corresponds to infants’ language group (either monolingual/bilingual). We note that this log transformation is entirely unrelated to the log transformation of raw looking times used in the linear mixed-effects models.
 
 $$lnSD \sim 1 + bilingual + ln(d_z’) + (bilingual | lab)$$
-where $d_z’$ is the absolute value of $d_z$ because we needed to ensure that values entered into the logarithm were positive, bilingual is the binary dummy variable that indicates bilingualism - whether the language group is monolingual or bilingual. Further, we entered a random slope for bilingualism in the model. 
+where $d_z’$ is the absolute value of $d_z$ because we needed to ensure that values entered into the logarithm were positive, bilingual is the binary dummy variable that indicates bilingualism - whether the language group is monolingual or bilingual. Further, we entered a random intercept and a random slope for bilingualism, which were allowed to vary by lab. 
 
 In the lab-matched dataset, we did not find statistically significant evidence for bilingualism as a moderator of the differences in standard deviations across language groups, ($d_z$ = `r round(Var_matched_set$b[2],2)`, $p = `r papaja::printp(Var_matched_set$pval[2])`$). Similarly, we also did not find statistical significance for bilingualism in the full dataset, ($d_z$ = `r round(Var_unmatched_set$b[2],2)`, $p = `r papaja::printp(Var_unmatched_set$pval[2])`$). In short, we did not find support for the hypothesis that bilingual infants would show larger within-group variability than monolingual infants.
 
@@ -850,15 +850,11 @@ d_lmer_unmatched_bil_resid <- d_lmer_unmatched  %>%
 
 num_d_lmer_unmatched_bil_resid <- d_lmer_unmatched_bil_resid[[1]]
 ```
-
-
 #### Homogeneity of variance
 
 We pre-registered a Levene’s test to examine whether monolinguals and bilinguals showed different amounts of variance in their IDS preference. Our analysis focused on the residual variance for monolinguals and bilinguals in the main linear mixed-effects models, in order to partition out variance associated with other factors (e.g., age, method, etc.). The Levene’s test revealed a statistically significant difference in variance between monolinguals and bilinguals for the full samples ($p$ = `r signif(p_levene_unmatched, 2)`) but not the lab-matched samples ($p$ = `r signif(p_levene_matched, 2)`). We note that the difference in residual variances between monolingual (variance = `r signif(num_d_lmer_unmatched_mono_resid, 2)`) and bilingual language groups (variance = `r signif(num_d_lmer_unmatched_bil_resid, 2)`) was small, suggesting that the statistically significant Levene’s test for the full samples was mainly driven by a larger sample size, rather than by meaningful differences between monolinguals and bilinguals.
 
 #### Effects of bilingualism on IDS preference
-
-
 ```{r}
 mod_lmer_matched_4_interaction <- lmer(log_lt~
   trial_type * method + age_mo * trial_num +
@@ -1115,13 +1111,43 @@ ggplot(IDS_NAE_EXP, aes(x = nae_exp, y = diff)) +
   ylab("IDS preference (s)") +
   xlab("NAE exposure (%)") +
   theme(legend.position = "bottom", legend.box = "vertical")
+
 ```
 
 #### Socio-economic status as a moderator of monolingual-bilingual differences
 
+```{r, results = "asis"}
+#SES descriptives by group
+bil_ses <- d_participants_bil %>% 
+  select(lab, subid, SES) %>% 
+  distinct() %>% 
+  summarise(mean = round(mean(SES, na.rm = TRUE), 2),
+            sd = round(sd(SES, na.rm = TRUE), 2),
+            min = min(SES, na.rm = TRUE),
+            max = max(SES, na.rm = TRUE))
+
+matched_ses <- d_participants_matched_mono %>% 
+  select(lab, subid, SES) %>% 
+  distinct() %>% 
+  summarise(mean = round(mean(SES, na.rm = TRUE), 2),
+            sd = round(sd(SES, na.rm = TRUE), 2),
+            min = min(SES, na.rm = TRUE),
+            max = max(SES, na.rm = TRUE))
+
+unmatched_ses <- d_full %>%
+  filter(lang_group == "monolingual") %>% 
+  select(lab, subid, SES) %>% 
+  anti_join(d_participants_matched_mono, by = c("lab", "subid", "SES")) %>% 
+  distinct() %>% 
+  summarise(mean = round(mean(SES, na.rm = TRUE), 2),
+            sd = round(sd(SES, na.rm = TRUE), 2),
+            min = min(SES, na.rm = TRUE),
+            max = max(SES, na.rm = TRUE))
+```
+
 Because socio-economic status can vary systematically between monolinguals and bilinguals in the same community, we were interested in whether relationships between bilingualism and IDS preference would hold when controlling for socio-economic status. It is possible that an observed effect of bilingualism on IDS preference could disappear once SES was controlled. Alternatively, it is possible that the effect of bilingualism on IDS preference could only be apparent once SES was controlled. Thus, this analysis was important regardless of an observed relationship between IDS preference and bilingualism in the previous model.
 
-First, we computed descriptive statistics for the two groups. Mothers of the bilingual sample had an average of XX years of education (SD = XX, range = XX-YY), those of the lab-matched monolingual sample had an average of XX years of education (SD = XX, range = XX-YY), and those of the full monolingual sample had an average of XX years of education (SD = XX, range = XX-YY).
+First, we computed descriptive statistics for the two groups. Mothers of the bilingual sample had an average of `r bil_ses$mean` years of education (SD = `r bil_ses$sd`, range = `r bil_ses$min`-`r bil_ses$max`), those of the lab-matched monolingual sample had an average of `r matched_ses$mean` years of education (SD = `r matched_ses$sd`, range = `r matched_ses$min`-`r matched_ses$max`), and those of the full monolingual sample had an average of `r unmatched_ses$mean` years of education (SD = `r unmatched_ses$sd`, range = `r unmatched_ses$min`-`r unmatched_ses$max`).
 
 Our approach was to add SES as a moderator of our final model for bilinguals. We expected that any effects of socio-economic status could interact with age, thus this model included interactions of trial type, age, and socio-economic status as a fixed effect, as well as the corresponding random slope by item. Based on the potential model detailed above for the bilinguals, our expected ses-mediated model was:
 
@@ -1272,7 +1298,7 @@ rownames(coefs_ses_unmatched_table) <- c("Intercept", "IDS", "HPP", "Single Scre
 #c1 <- kable(list(coefs_matched, coefs_unmatched), align = 'c')
 papaja::apa_table(coefs_ses_matched_table, format.args = list(digits = 3),
                   midrules = c(23,25),
-                  caption = "Linear Mixed Model 3 examining socio-economic status as a moderator of monolingual-bilingual differences SES in the matached dataset.")
+                  caption = "Linear Mixed Model examining socio-economic status as a moderator of monolingual-bilingual differences SES in the matached dataset.")
 
 papaja::apa_table(coefs_ses_unmatched_table, format.args = list(digits = 3),
                   midrules = c(23,25),
