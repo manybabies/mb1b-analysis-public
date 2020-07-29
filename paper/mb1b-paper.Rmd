@@ -736,7 +736,7 @@ Our second set of pre-registered meta-analyses examined whether the variability 
 Our pre-registered plan was to follow Nakagawa et al. (2014) and Senior et al. (2015), and we further elaborate on this plan here. According to @nakagawa_2015, there are two approaches to run within-group variability meta-analysis: one approach uses $lnCVR$, the natural logarithm of the ratio between the coefficients of variation, to compare the variability of two groups; a second approach enters $lnSD$ (the natural logarithm of standard deviations) and $ln\bar{X}$ (the log mean) into a mixed-effect model. When data meet the assumption that the standard deviation is proportional to the mean (i.e., the two are correlated), the first approach should be used, and otherwise, the second approach should be used. Our data did not meet the necessary assumption, therefore we used the second, mixed-effect approach. In the following meta-regression model, the natural logarithm of the standard deviations ($lnSD$) from each language group is the dependent variable. This dependent variable (group variance) is the log-transformed standard deviation of infants' preference for IDS over ADS that corresponds to infants’ language group (either monolingual/bilingual). We note that this log transformation is entirely unrelated to the log transformation of raw looking times used in the linear mixed-effects models.
 
 $$lnSD \sim 1 + bilingual + ln(d_z’) + (bilingual | lab)$$
-where $d_z’$ is the absolute value of $d_z$ because we needed to ensure that values entered into the logarithm were positive, bilingual is the binary dummy variable that indicates bilingualism - whether the language group is monolingual or bilingual. Further, we entered a random slope for bilingualism in the model. 
+where $d_z’$ is the absolute value of $d_z$ because we needed to ensure that values entered into the logarithm were positive, bilingual is the binary dummy variable that indicates bilingualism - whether the language group is monolingual or bilingual. Further, we entered a random intercept and a random slope for bilingualism, which were allowed to vary by lab. 
 
 In the lab-matched dataset, we did not find statistically significant evidence for bilingualism as a moderator of the differences in standard deviations across language groups, ($d_z$ = `r round(Var_matched_set$b[2],2)`, $p = `r papaja::printp(Var_matched_set$pval[2])`$). Similarly, we also did not find statistical significance for bilingualism in the full dataset, ($d_z$ = `r round(Var_unmatched_set$b[2],2)`, $p = `r papaja::printp(Var_unmatched_set$pval[2])`$). In short, we did not find support for the hypothesis that bilingual infants would show larger within-group variability than monolingual infants.
 
@@ -1265,7 +1265,7 @@ rownames(coefs_ses_unmatched_table) <- c("Intercept", "IDS", "HPP", "Single Scre
 #c1 <- kable(list(coefs_matched, coefs_unmatched), align = 'c')
 papaja::apa_table(coefs_ses_matched_table, format.args = list(digits = 3),
                   midrules = c(23,25),
-                  caption = "Linear Mixed Model 3 examining socio-economic status as a moderator of monolingual-bilingual differences SES in the matached dataset.")
+                  caption = "Linear Mixed Model examining socio-economic status as a moderator of monolingual-bilingual differences SES in the matached dataset.")
 
 papaja::apa_table(coefs_ses_unmatched_table, format.args = list(digits = 3),
                   midrules = c(23,25),
