@@ -779,6 +779,7 @@ mod_lmer_matched <- lmer(log_lt ~
   (1 |subid) +
   (lang_group |lab) + 
   (1 |item),
+  control=lmerControl(optimizer="bobyqa"),
   data = d_lmer_matched)
 
 mod_matched_perf <- performance::model_performance(mod_lmer_matched)
@@ -814,6 +815,7 @@ mod_lmer_unmatched <- lmer(log_lt~
   (1 |subid) +
   (1 |lab) +
   (1 |item), 
+  control=lmerControl(optimizer="bobyqa"),
   data = d_lmer_unmatched)
 
 mod_unmatched_perf <- performance::model_performance(mod_lmer_unmatched)
@@ -864,6 +866,7 @@ mod_lmer_matched_4_interaction <- lmer(log_lt~
   trial_type * age_mo * lang_group * nae +
   (1 |subid) +
   (1 |lab), 
+  control=lmerControl(optimizer="bobyqa"),
   data = d_lmer_matched)
 
 coefs_4_way_matched <- data.frame(coef(summary(mod_lmer_matched_4_interaction)))
@@ -876,6 +879,7 @@ mod_lmer_unmatched_4_interaction <- lmer(log_lt~
   trial_type * age_mo * lang_group * nae +
   (1 |subid) +
   (1 |lab), 
+  control=lmerControl(optimizer="bobyqa"),
   data = d_lmer_unmatched)
 
 coefs_4_way_unmatched <- data.frame(coef(summary(mod_lmer_unmatched_4_interaction)))
@@ -1057,6 +1061,7 @@ nae_lmer_matched <- lmer(log_lt~
   (1 |subid) +
   (trial_type |lab) +
   (1 |item), 
+  control=lmerControl(optimizer="bobyqa"),
   data = d_lmer_matched_Lmm2)
 
 nae_lmer_matched_perf <- performance::model_performance(nae_lmer_matched)
@@ -1176,6 +1181,7 @@ SES_lmer_matched <- lmer(
   trial_type * age_mo * SES_c +
   (1 | subid) +
   (1 | lab),
+  control=lmerControl(optimizer="bobyqa"),
   data = d_lmer_matched_SES
   )
 
@@ -1194,6 +1200,7 @@ SES_lmer_unmatched <- lmer(
   (1 | subid) +
   (1 | lab) +
   (1 | item),
+  control=lmerControl(optimizer="bobyqa"),
   data = d_lmer_unmatched_SES
   )
 
@@ -1299,6 +1306,7 @@ nae_only_lmer <- lmer(log_lt~
   (1 | lab) +
   (1 |subid) +
   (1 | item),
+  control=lmerControl(optimizer="bobyqa"),
   data = d_lmer_nae)
 
 #summary(nae_only_lmer)
