@@ -1063,7 +1063,7 @@ nae_lmer_matched <- lmer(log_lt~
 nae_lmer_matched_perf <- performance::model_performance(nae_lmer_matched)
  
 nae_exp_coef <- summary(nae_lmer_matched)$coef %>%
-  as_data_frame %>%
+  as.data.frame() %>%
   mutate_at(c("Estimate","Std. Error","df", "t value", "Pr(>|t|)"),
             function (x) signif(x, digits = 3)) %>%
   rename(SE = `Std. Error`, 
@@ -1094,7 +1094,7 @@ papaja::apa_table(nae_exp_coef_table, format.args = list(digits = 3),
                   caption = "Linear Mixed Model testing the effects of exposure to NAE-IDS in bilingual infants.")
 ```
 
-Table 4 contains the details of the results in this model. The main effect of infants' exposure to NAE (exp_nae) was not significant ($\beta$ = `r signif(nae_exp_coef$Estimate[7], 2)`, $SE = `r signif(nae_exp_coef$SE[7], 2)`$, $p = `r signif(nae_exp_coef$p[7], 2)`)$. This indicates that bilingual infants who were exposed to more NAE did not pay more attention to the NAE speech stimuli than those who were exposed to less NAE. However, the interaction between trial type and exp_nae was significant ($\beta$ = `r signif(nae_exp_coef$Estimate[13], 3)`, $SE = `r signif(nae_exp_coef$SE[13], 2)`$, $p = `r signif(nae_exp_coef$p[13], 2)`)$. That is, bilingual infants who were exposed to more NAE showed stronger IDS preferences, confirming a dose-response relationship between infants’ exposure to NAE and their preference for IDS over ADS (Figure 2) even among bilinguals who are learning NAE as one of their native languages. 
+Table 4 contains the details of the results in this model. The main effect of infants' exposure to NAE (exp_nae) was not significant ($\beta = `r round(nae_exp_coef["EXP_NAE", "Estimate"], digits = 2)`$, $SE = `r signif(nae_exp_coef["EXP_NAE", "SE"], 2)`$, $p = `r signif(nae_exp_coef["EXP_NAE", "p"], 2)`)$. This indicates that bilingual infants who were exposed to more NAE did not pay more attention to the NAE speech stimuli than those who were exposed to less NAE. However, the interaction between trial type and exp_nae was significant ($\beta$ = `r signif(nae_exp_coef["IDS * EXP_NAE", "Estimate"], 3)`, $SE = `r signif(nae_exp_coef["IDS * EXP_NAE", "SE"], 3)`$, $p = `r signif(nae_exp_coef["IDS * EXP_NAE", "p"], 2)`)$. That is, bilingual infants who were exposed to more NAE showed stronger IDS preferences, confirming a dose-response relationship between infants’ exposure to NAE and their preference for IDS over ADS (Figure 2) even among bilinguals who are learning NAE as one of their native languages. 
 
 ```{r fig2, fig.cap="Linear trend between infants' IDS preference and their percentage of time exposed to North American English (NAE). Blue line indicates a regression model between infants' IDS preference and their NAE exposure (starting from zero). Red line indicates another regression model of the same relationship with a focus of NAE exposure between 25 to 75%. We note that the y-axis was truncated to highlight the trend such that some individual points are not plotted."}
 
@@ -1347,7 +1347,7 @@ nae_only_lmer <- lmer(log_lt~
 
 ```{r, results = "asis"}
 nae_only_coef <- summary(nae_only_lmer)$coef %>%
-  as_data_frame %>%
+  as.data.frame() %>%
   mutate_at(c("Estimate","Std. Error","df", "t value", "Pr(>|t|)"),
             function (x) signif(x, digits = 3)) %>%
   rename(SE = `Std. Error`,
@@ -1355,17 +1355,17 @@ nae_only_coef <- summary(nae_only_lmer)$coef %>%
          p = `Pr(>|t|)`) %>%
   select(-df)
 
-nae_only_lmer_perf <- performance::model_performance(nae_only_lmer)
-
-r2cond <- c(" ", signif(nae_only_lmer_perf$R2_conditional, digits = 3), " ", " ")
-r2marg <- c(" ", signif(nae_only_lmer_perf$R2_marginal, digits = 3), " ", " ")
-nae_only_n <- c("", length(unique(d_lmer_nae$subid)), "", "")
-
 rownames(nae_only_coef) <- c("Intercept", "IDS", "HPP", "Single Screen",
                      "Age", "Trial #", "EXP_NAE", "IDS * HPP",
                      "IDS * Single Screen",
                      "Age * Trial #", "IDS * Trial #", "IDS * Age", "IDS * EXP_NAE",
                      "Age * EXP_NAE", "IDS * Age * EXP_NAE")
+
+nae_only_lmer_perf <- performance::model_performance(nae_only_lmer)
+
+r2cond <- c(" ", signif(nae_only_lmer_perf$R2_conditional, digits = 3), " ", " ")
+r2marg <- c(" ", signif(nae_only_lmer_perf$R2_marginal, digits = 3), " ", " ")
+nae_only_n <- c("", length(unique(d_lmer_nae$subid)), "", "")
 
 nae_only_coef_table <- rbind(nae_only_coef, r2cond, r2marg, nae_only_n)
 
@@ -1385,7 +1385,7 @@ papaja::apa_table(nae_only_coef_table, format.args = list(digits = 3),
 n_bil_nae <- length(unique(d_lmer_nae$subid))
 ```
 
-Based on `r n_bil_nae` infants, the interaction between IDS and NAE exposure was still statistically significant ($\beta$ = `r round(nae_only_coef$Estimate[13], 3)`, $SE = `r round(nae_only_coef$SE[13], 3)`$, $p = `r round(nae_only_coef$p[13], 3)`)$. This result suggested that a dose-response relationship between infants’ exposure to NAE and their preference for IDS over ADS was not driven by infants living in non-NAE contexts alone (see Table 7 for details of the model).
+Based on `r n_bil_nae` infants, the interaction between IDS and NAE exposure was still statistically significant ($\beta = `r signif(nae_only_coef["IDS * EXP_NAE", "Estimate"], 3)`$, $SE = `r signif(nae_only_coef["IDS * EXP_NAE", "SE"], 3)`$, $p = `r signif(nae_only_coef["IDS * EXP_NAE", "p"], 3)`)$. This result suggested that a dose-response relationship between infants’ exposure to NAE and their preference for IDS over ADS was not driven by infants living in non-NAE contexts alone (see Table 7 for details of the model).
 
 # General Discussion
 
