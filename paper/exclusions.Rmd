@@ -144,7 +144,7 @@ d <- comm_lang$data
 #excluded 7 infants who were learning languages that are not the languages used in their community, note that in 02.validation.rmd, there were 9 babies identified as learning non-community languages, but 2 out of 9 were out of age group, that's why these two were already excluded by the out-of-age codes previously
 ```
 
-* *Bilingualism*. We excluded infants from the sample whose language background did not meet our pre-defined criteria for bilingualism (see above for details). There were `r bil_exp$percents$any_sum` (`r round(bil_exp$percents$any_mean*100, 2)`%) infants whose exposure did not meet this criterion. We also excluded an additional `r comm_lang$percents$any_sum` (`r round(comm_lang$percents$any_mean*100, 2)`%) infants who met this criterion, but who were not learning the community language as one of their languages. 
+* *Bilingualism*. We excluded infants from the sample whose language background did not meet our pre-defined criteria for bilingualism (see above for details). There were `r bil_exp$percents$any_sum` (`r round(bil_exp$percents$any_mean*100, 2)`%) infants whose exposure did not meet this criterion. We also excluded `r comm_lang$percents$any_sum` (`r round(comm_lang$percents$any_mean*100, 2)`%) additional infants who met this criterion, but who were not learning the community language as one of their languages. 
 
 ```{r session_errors}
 #store an additional dataframe containing information on session error types
