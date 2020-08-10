@@ -476,13 +476,24 @@ lab_stats <- lab_stats %>%
   rename("bilinguals' average NAE"=avg_nae,
          "average years of maternal education"=avg_ses)
 
+#add institution to lab_stats
+institution <- read_csv(here('metadata/institution_names.csv'))
+
+lab_stats <- lab_stats %>% 
+  ungroup() %>% 
+  left_join(institution) %>% 
+  select(-lab) %>% 
+  select(institution, everything())
+
 landscape(kable(lab_stats, digits= 2,
       format = "latex", booktabs=T,
       longtable = TRUE,
       caption = "Number of monolingual and bilingual infants in each age group that met infant-level inclusion criteria, average years of maternal education (SES), and average NAE exposure for blingual infants by lab. The table is ordered by NAE exposure. Note that because of lab-level inclusion criteria, cells with n < 10 were excluded from the meta-analyses, but were included in the mixed-effects regression analyses. Labs that only tested monolingual infants are not listed.") %>%
   kable_styling(position = "float_right", font_size = 11,
     latex_options = c("scale_down", "hold_position", "repeat_header"), full_width = F) %>% 
-    column_spec(2:ncol(lab_stats), width = "2.3cm"))
+    column_spec(1, width = "3cm")) %>% 
+    column_spec(2:ncol(lab_stats), width = "2.3cm") %>% 
+    row_spec(0, bold = T)
 ```
 
 
@@ -704,6 +715,13 @@ es_diff <- forest_data %>%
 forest_data <- forest_data %>% 
   left_join(es_diff)
 
+#add institution
+forest_data <- forest_data %>% 
+  left_join(institution) %>% 
+  mutate(institution = case_when(lab == "Meta-analytic estimate" ~ "Meta-analytic estimate",
+                                 lab != "Meta-analytic estimate" ~ institution, 
+                                 TRUE ~ NA_character_))
+
 #plot effect sizes sorted by abs value of difference in effect sizes (following this tutorial: https://drsimonj.svbtle.com/ordering-categories-within-ggplot2-facets)
 ggplot(forest_data,
        aes(x = order, y = pred,
@@ -718,7 +736,7 @@ ggplot(forest_data,
   facet_grid(age_group ~ ., scales = "free", space = "free") +
   geom_hline(yintercept = 0, linetype = "dashed", color = "grey") +
   coord_flip() +
-  scale_x_continuous(breaks = forest_data$order, labels = forest_data$lab, expand = c(0.1,0)) +
+  scale_x_continuous(breaks = forest_data$order, labels = forest_data$institution, expand = c(0.1,0)) +
   scale_size_continuous(guide = FALSE) +
   scale_color_solarized(name = "Language group", labels = c("Bilingual infants", "Monolingual infants")) +
   scale_shape_discrete(name = "Language group", labels = c("Bilingual infants", "Monolingual infants")) +
