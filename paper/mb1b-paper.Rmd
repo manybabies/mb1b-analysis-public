@@ -203,6 +203,10 @@ author_data <- read_csv(here("metadata/ManyBabies1 Bilingual Author List and Con
   group_by(status) %>% 
   arrange(last, .by_group = TRUE) 
 
+author_data[author_data$last == "Black", "initials"] <- "AKB"
+author_data[author_data$last == "Soderstrom", "initials"] <- "MSo"
+author_data[author_data$last == "Sundara", "initials"] <- "MSu"
+
 ```
 
 
