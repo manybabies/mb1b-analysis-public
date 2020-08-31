@@ -32,7 +32,7 @@ lab_sex_stat <- d_matched %>%
 lab_sex_stat[is.na(lab_sex_stat)] <- 0
 ```
 
-```{r, results = "asis", echo = FALSE, warning = FALSE}
+```{r, groupgender, results = "asis", echo = FALSE, warning = FALSE, include = TRUE}
 kable(lab_sex_stat, digits= 2,
       format = "latex", booktabs=T,
       longtable = TRUE,
@@ -143,7 +143,7 @@ langs <- langs %>%
 #   datatable
 ```
 
-```{r, results="asis", echo = FALSE, warning = FALSE}
+```{r, langpairs, results="asis", echo = FALSE, warning = FALSE}
 # create a table for with language pairs for only bilingual infants
 langs_bil <- langs %>% 
   filter(lang_group == "bilingual") %>% 

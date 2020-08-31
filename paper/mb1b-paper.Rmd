@@ -17,7 +17,7 @@ author:
     affiliation   : "2"
   - name          : "Christina Bergmann"
     affiliation   : "3"
-  - name          : "Alexis Black"
+  - name          : "Alexis K. Black"
     affiliation   : "4"
   - name          : "Anna Brown"
     affiliation   : "5"
@@ -128,15 +128,12 @@ affiliation:
     institution   : "UCLA"
   - id            : "19"
     institution   : "National University of Singapore"
-
-author_note: |
-  "Individual participating labs acknowledge funding support from: the Natural Sciences and Engineering Research Council of Canada (2011-402470 and 2015-03967); the Social Sciences and Humanities Research Council of Canada Insight Grant (435-2015-1974 and 435-2015-0385); Agence Nationale de la Recherche (ANR-17-EURE-0017 and ANR-10-IDEX-0001-02); Western Sydney University Early Career Researcher Start-up Grant (20311.87608); European Commission (MSCA-IF-798658); a European Research Council Synergy Grant, SOMICS (609819); ERC Consolidator Grant "BabyRhythm" (773202); The Leverhulme Trust (ECF-2015-009); The UK Economic and Social Research Council (ES/L008955/1); Research Manitoba, Children's Hospital Research Institute of Manitoba, University of Manitoba; ODPRT funds, National University of Singapore; and the National Institute of Child Health and Human Development (R01HD095912)."
   
 abstract: |
   From the earliest months of life, infants prefer listening to and learn better from infant-directed speech (IDS) than adult-directed speech (ADS). Yet, IDS differs within communities, across languages, and across cultures, both in form and in prevalence. This large-scale, multi-site study used the diversity of bilingual infant experiences to explore the impact of different types of linguistic experience on infants’ IDS preference. As part of the multi-lab ManyBabies 1 project, we compared lab-matched samples of 333 bilingual and 385 monolingual infants’ preference for North-American English IDS (cf. ManyBabies Consortium, 2020: ManyBabies 1), tested in 17 labs in 7 countries. Those infants were tested in two age groups: 6–9 months (the younger sample) and 12–15 months (the older sample). We found that bilingual and monolingual infants both preferred IDS to ADS, and did not differ in terms of the overall magnitude of this preference. However, amongst bilingual infants who were acquiring North-American English (NAE) as a native language, greater exposure to NAE was associated with a stronger IDS preference, extending the previous finding from ManyBabies 1 that monolinguals learning NAE as a native language showed a stronger preference than infants unexposed to NAE. Together, our findings indicate that IDS preference likely makes a similar contribution to monolingual and bilingual development, and that infants are exquisitely sensitive to the nature and frequency of different types of language input in their early environments.
   
 keywords          : "language acquisition; bilingualism; speech perception; infant-directed speech; reproducibility; experimental methods"
-wordcount         : "13054"
+wordcount         : "14302"
 
 figsintext        : yes
 figurelist        : no
@@ -147,7 +144,7 @@ mask              : no
 class             : "man"
 output            :
   papaja::apa6_pdf:
-    includes:
+   includes:
       after_body: appendix.tex
 bibliography      : ["mb1b-references.bib"]
 #csl               : https://tinyurl.com/apa6-no-disambiguation
@@ -375,11 +372,31 @@ We identified three basic research questions addressed by this study. Note that 
 
 3. Finally, we had planned to ask how bilingual infants’ listening to NAE-IDS and ADS is impacted by the particular language pair being learned. We intended to ask this question at both the group and at the individual level. At the group level, we planned to investigate whether different patterns of results would be seen in homogeneous versus heterogeneous samples of bilinguals, in terms of overall preference for IDS and group-level variability. However, ultimately we had insufficient homogeneous samples to address this question. At the individual level, we were interested in how the particular language pair being learned modulated infants’ preference for IDS. As we did not know a priori what language pairs would have sufficient sample size for analysis, this was considered a potential exploratory analyses. Ultimately, due to the nature of our main results and the diverse language backgrounds of our final sample, we decided to leave this question open for future investigations.
 
+# Disclosures
+
+## Preregistration
+
+The accepted Stage 1 version of this manuscript was preregistered at https://osf.io/wtfuq.
+
+## Data, materials, and online resources
+
+Study instructions and other details are available at the ManyBabies 1 Bilingual Open Science framework site, https://osf.io/zauhq/, and materials are available via the ManyBabies 1 Open Science Framework site, https://osf.io/re95x/. 
+
+Labs submitted anonymized data for central analysis that identified participants by code only. Data and analytic code are available at https://github.com/manybabies/mb1b-analysis-public.  Video recordings of individual participants were coded and stored locally at each lab, and where possible were uploaded to a central controlled-access databank accessible to other researchers (https://databrary.org).
+
+## Reporting
+
+We report how we determined our sample size, all data exclusions, all manipulations, and all measures in our study.
+
+## Ethical approval
+
+This research was carried out in accordance with the provisions of the World Medical Association Declaration of Helsinki. Each lab followed the ethical guidelines and ethics review board protocols of their own institution.
+
 # Methods
 
 ## Participation Details
 
-Our monolingual sample originated from the ManyBabies 1 project [@manybabies_consortium_2020]. Here we report some basic information about that sample - the reader is referred to the original study for further details - and focus primarily on the bilingual sample. We report how we determined our sample size, all data exclusions, all manipulations, and all measures in our study.
+Our monolingual sample originated from the ManyBabies 1 project [@manybabies_consortium_2020]. Here we report some basic information about that sample - the reader is referred to the original study for further details - and focus primarily on the bilingual sample.
 
 ### Time-frame
 
@@ -387,17 +404,13 @@ An open call for labs to participate was issued on February 2, 2017. Participant
 
 ### Age distribution 
 
-Labs contributing data from bilingual infants were asked to test participants in at least one of two (but preferably both) age bins: 6–9 month-olds (6:1 – 9:0) and 12–15 month-olds (12:1 – 15:0). Labs were asked to aim for a mean age at the centre of the bin, with distribution across the entire age window. Some labs chose to test additional infants outside the target age ranges for future exploratory analyses, which were excluded from the current study.
+Labs contributing data from bilingual infants were asked to test participants in at least one of two (but preferably both) age bins: 6–9 month-olds (6;1 – 9;0) and 12–15 month-olds (12;1 – 15;0). Labs were asked to aim for a mean age at the centre of the bin, with distribution across the entire age window. Some labs chose to test additional infants outside the target age ranges for future exploratory analyses, which were excluded from the current study.
 
 ### Lab participation criterion 
 
-Considering the challenges associated with recruiting bilingual infants and the importance of counterbalancing in our experimental design, we asked labs to contribute a minimum of 16 infants per age and language group (note that infants who met inclusion criteria for age and language exposure but were ultimately excluded for other reasons counted towards this minimum N). We expected that requiring a relatively low minimum number of infants would encourage more labs to contribute a bilingual sample, and under our statistical approach a larger number of groups is more important than a larger number of individuals [@maas_2005]. However, labs were encouraged to contribute additional data provided that decisions about when to stop data collection were made ahead of time (e.g., by declaring an intended start and end date before data collection).  A sensitivity analysis showed that, with a sample of 16 infants and assuming the average effect size of similar previous studies [Cohen’s d = .7; @dunst_2012; @metalab_2017], individual labs would have 74% power to detect a preference for IDS in a paired-samples t-test (alpha = .05, one-tailed). Assuming a smaller effect size of Cohen’s d = 0.60, a conservative estimate of power based on the literature reviewed above, individual labs’ power would be 61%. The moderate statistical power that individual labs would have to detect this effect highlights the importance of our approach to combine data across labs. We note that some labs were unable to recruit their planned minimum sample of 16 bilingual infants that met our inclusion criteria in the timeframe available, a point we will return to later in the paper.
+Considering the challenges associated with recruiting bilingual infants and the importance of counterbalancing in our experimental design, we asked labs to contribute a minimum of 16 infants per age and language group (note that infants who met inclusion criteria for age and language exposure but were ultimately excluded for other reasons counted towards this minimum N). We expected that requiring a relatively low minimum number of infants would encourage more labs to contribute a bilingual sample, and under our statistical approach a larger number of groups is more important than a larger number of individuals [@maas_2005]. However, labs were encouraged to contribute additional data provided that decisions about when to stop data collection were made ahead of time (e.g., by declaring an intended start and end date before data collection).  A sensitivity analysis showed that, with a sample of 16 infants and assuming the average effect size of similar previous studies [Cohen’s d = .70; @dunst_2012; @metalab_2017], individual labs would have 74% power to detect a preference for IDS in a paired-samples t-test (alpha = .05, one-tailed). Assuming a smaller effect size of Cohen’s d = 0.60, a conservative estimate of power based on the literature reviewed above, individual labs’ power would be 61%. The moderate statistical power that individual labs would have to detect this effect highlights the importance of our approach to combine data across labs. We note that some labs were unable to recruit their planned minimum sample of 16 bilingual infants that met our inclusion criteria in the timeframe available, a point we will return to later in the paper.
 
 Labs were asked to screen infants ahead of time for inclusion criteria, typically by briefly asking about language exposure over the phone. Despite this screening process, some infants who arrived in the lab for testing fell between the criteria for monolingual and bilingual status based on the comprehensive questionnaire. In such cases, the decision whether to test the infant was left up to individual laboratories’ policy, but we asked that data from any babies who entered the testing room be submitted for data processing (even though some such data might be excluded from the main analyses).
-
-### Ethics
-
-Each lab followed the ethical guidelines and ethics review board protocols of their own institution. Labs submitted anonymized data for central analysis that identified participants by code only. Video recordings of individual participants were coded and stored locally at each lab, and where possible were uploaded to a central controlled-access databank accessible to other researchers.
 
 ## Participants
 
@@ -536,7 +549,7 @@ Parents completed questionnaires about participants’ demographic and language 
 
 ### Data analysis framework
 
-All planned analyses were pre-registered at https://osf.io/wtfuq and https://osf.io/zauhq/; data and code are available at https://github.com/manybabies/mb1b-analysis-public. Our primary dependent variable of interest was looking time (LT), which was defined as the time spent fixating on the visual stimulus during test trials. Given evidence that looking times are non-normally distributed, we log-transformed all looking times prior to statistical analysis in the mixed-effects model [@csibra_2016]. We refer to this transformed variable as “log LT”. For the meta-analysis, we analyzed effect sizes computed from raw difference scores, which did not require log transformation. We pre-registered a set of analyses to examine whether monolinguals, heterogeneous samples of bilinguals, and homogeneous samples of bilinguals showed different levels of variability. Unexpectedly, only 1 lab (Table 1) tested a homogenous sample of bilinguals, thus we deviated from our original plan and did not analyze data as a function of whether our bilingual groups were homogenous versus heterogeneous. For the main analyses, we adopted two complementary data analytic frameworks parallel to the ManyBabies 1 project [@manybabies_consortium_2020]: meta-analysis and mixed-effects regression. 
+Our primary dependent variable of interest was looking time (LT), which was defined as the time spent fixating on the visual stimulus during test trials. Given evidence that looking times are non-normally distributed, we log-transformed all looking times prior to statistical analysis in the mixed-effects model [@csibra_2016]. We refer to this transformed variable as “log LT”. For the meta-analysis, we analyzed effect sizes computed from raw difference scores, which did not require log transformation. We pre-registered a set of analyses to examine whether monolinguals, heterogeneous samples of bilinguals, and homogeneous samples of bilinguals showed different levels of variability. Unexpectedly, only 1 lab (Table 1) tested a homogenous sample of bilinguals, thus we deviated from our original plan and did not analyze data as a function of whether our bilingual groups were homogenous versus heterogeneous. For the main analyses, we adopted two complementary data analytic frameworks parallel to the ManyBabies 1 project [@manybabies_consortium_2020]: meta-analysis and mixed-effects regression. 
 
 Under the meta-analytic framework, data from each sample of infants (e.g., 6 to 9 month-old bilinguals from Lab 1) was characterized by a) its effect size (here Cohen’s $d$), and b) its standard deviation.  Effect size analyses addressed questions about infants’ overall preference for IDS, while group-based standard deviation analyses addressed questions about whether some groups of infants show higher variability in their preference than others. Note that meta-analyses of intra-group variability are relatively rare [@nakagawa_2015; @senior_2016]. Unfortunately, our pre-registration did not account for the eventuality that several labs would contribute very small numbers of infants to certain groups, as each lab had committed to a minimum sample of 16 infants per group. In two cases where a lab contributed data with a single infant in a particular language group, it was impossible to compute an effect size. Thus, we implemented a lab-level inclusion criterion for the meta-analysis such that each effect size was computed only if the lab had contributed at least 10 infants in that particular language group and age. For example, if lab A had contributed 7 bilingual infants between 6- to 9-months and 15 monolingual infants between 6- to 9-months, we only computed the effect size for the monolingual group, but not for the bilingual group. This criterion ensured that each effect size was computed based on a reasonable sample size (i.e., a minimum of 10 infants) and also was consistent with the lab-level inclusion criteria in the ManyBabies 1 study. Because this exclusion criterion was not part of the pre-registration, we also ran a robustness analysis with a looser minimum contribution of 5 infants, which yielded very similar findings (analysis code and results can be found in our Github repository). 
 
@@ -1430,25 +1443,29 @@ Overall, our finding that bilinguals show a similar preference for IDS as monoli
 To conclude, the findings of the current study provide a more nuanced view of the development of infants’ preference for IDS than prior studies have allowed. IDS preference develops along a similar trajectory across infants from  monolingual and bilingual backgrounds. Importantly, by testing bilingual infants, our results revealed that this IDS preference operates in a dose-response fashion, where the amount of exposure to NAE positively moderated infants’ (NAE-) IDS preference in a continuous way. Our experience highlights the challenges in recruiting and testing bilingual infants, but also reveals the promise of large-scale collaborations for increasing sample sizes, and thus improving the replicability and generalizability of key findings in infant research.
 
 # Author Contributions
-Author contribution initials reflect authorship order. `r paste(author_data$initials[!is.na(author_data$concept)], collapse = ", ")` contributed to the study concept. `r paste(author_data$initials[!is.na(author_data$design)], collapse = ", ")` contributed to the study design. `r paste(author_data$initials[!is.na(author_data$protocol)], collapse = ", ")` contributed to the final protocol. `r paste(author_data$initials[!is.na(author_data$doc)], collapse = ", ")` contributed to study documentation. `r paste(author_data$initials[!is.na(author_data$manage)], collapse = ", ")` contributed to study management. `r paste(author_data$initials[!is.na(author_data$data)], collapse = ", ")` contributed to data collection. `r paste(author_data$initials[!is.na(author_data$analysis)], collapse = ", ")` contributed to data analysis. `r paste(author_data$initials[!is.na(author_data$ms1)], collapse = ", ")` contributed to the stage 1 manuscript. `r paste(author_data$initials[!is.na(author_data$ms2)], collapse = ", ")` contributed to the stage 2 manuscript.  
+Author contribution initials reflect authorship order. `r paste(author_data$initials[!is.na(author_data$concept)], collapse = ", ")` contributed to the study concept. `r paste(author_data$initials[!is.na(author_data$design)], collapse = ", ")` contributed to the study design. `r paste(author_data$initials[!is.na(author_data$protocol)], collapse = ", ")` contributed to the final protocol. `r paste(author_data$initials[!is.na(author_data$doc)], collapse = ", ")` contributed to study documentation. `r paste(author_data$initials[!is.na(author_data$manage)], collapse = ", ")` contributed to study management. `r paste(author_data$initials[!is.na(author_data$data)], collapse = ", ")` contributed to data collection. `r paste(author_data$initials[!is.na(author_data$analysis)], collapse = ", ")` contributed to data analysis. `r paste(author_data$initials[!is.na(author_data$ms1)], collapse = ", ")` contributed to the stage 1 manuscript. `r paste(author_data$initials[!is.na(author_data$ms2)], collapse = ", ")` contributed to the Stage 2 manuscript.  
 
 # Conflicts of Interest
 
 The authors declare that there were no conflicts of interest with respect to the authorship or the publication of this article.
 
-## Preregistration
+# Funding
 
-Our manuscript was reviewed prior to data collection (https://osf.io/wtfuq/files/); in addition, we registered our instructions and materials prior to data collection (https://osf.io/zauhq/). 
+Individual participating labs acknowledge funding support from: the Natural Sciences and Engineering Research Council of Canada (2011-402470 and 2015-03967); the Social Sciences and Humanities Research Council of Canada Insight Grant (435-2015-1974 and 435-2015-0385); Agence Nationale de la Recherche (ANR-17-EURE-0017 and ANR-10-IDEX-0001-02); Western Sydney University Early Career Researcher Start-up Grant (20311.87608); European Commission (MSCA-IF-798658); a European Research Council Synergy Grant, SOMICS (609819); ERC Consolidator Grant "BabyRhythm" (773202); The Leverhulme Trust (ECF-2015-009); The UK Economic and Social Research Council (ES/L008955/1); Research Manitoba, Children's Hospital Research Institute of Manitoba, University of Manitoba; ODPRT funds, National University of Singapore; and the National Institute of Child Health and Human Development (R01HD095912).
 
-## Data, materials, and online resources
+# Prior versions
 
-All data and analytic code are available at https://github.com/manybabies/mb1b-analysis-public. All materials are available via the ManyBabies 1 Open Science Framework site at https://osf.io/re95x/.
+Preprint versions of this manuscript are posted at https://psyarxiv.com/sqh9d/.
 
 \newpage
 
-```{r}
+
+```{r render_appendix}
+
 render_appendix("appendix.Rmd")
+
 ```
+
 
 # References
 
