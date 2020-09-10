@@ -35,15 +35,15 @@ d <- monolingual_exposure$data
 #note that we discarded 205 monolinguals. But as noted in 02.validation.rmd, some labs reported mb1 data in their data entry. Thus, only 26 additional monolingual babies were tested in mb1b dataset. We have decided to exclude all monolingual babies in mb1b dataset and only analysed mb1 data. See:https://github.com/kristabh/mb1b-analysis/issues/8
 ```
 
-```{r lab_stats}
+```{r lab_stats, echo = FALSE}
 # Cache lab stats pre-exclusion for lab-based exclusions. 
 
 lab_contribs_pre_exclusion <- d %>%
   group_by(lab) %>%
   summarise(n = length(unique(subid)))
 
-# pre_exclusion_lab_total <- lab_contribs_pre_exclusion %>% pull(n) %>% sum()
-#706 infants in total
+ pre_exclusion_lab_total <- lab_contribs_pre_exclusion %>% pull(n) %>% sum()
+#501 infants in total
 ```
 
 
@@ -73,7 +73,9 @@ full_term <- exclude_by(d, quo(full_term), action = "include",
 d <- full_term$data
 # 
 # d %>% group_by(lab) %>% summarise(n = length(unique(subid))) %>% pull(n) %>% sum()
-#excluded 4 pre-term babies
+
+#492 infants left
+#excluded 9 pre-term babies
 ```
 
 * *Full term*. We defined full term as gestation times greater than or equal to 37 weeks. There were `r full_term$percents$any_sum` (`r round(full_term$percents$any_mean*100, 2)`%) infants who were tested but excluded as they were pre-term.
@@ -87,7 +89,8 @@ ndd <- exclude_by(d, quo(td), action = "include",
 d <- ndd$data
 
 # d %>% group_by(lab) %>% summarise(n = length(unique(subid))) %>% pull(n) %>% sum()
-#excluded 2 babies who were diagnozed with cognitive disorders
+# 490 infants left
+# excluded 2 babies who were diagnosed with developmental disorders
 ```
 
 * *No diagnosed developmental disorders*. We excluded infants whose parents reported developmental disorders (e.g., chromosomal abnormalities, etc.) or were diagnosed with hearing impairments. There were `r ndd$percents$any_sum` (`r round(ndd$percents$any_mean*100, 2)`%) infants who were tested but excluded for these reasons. Due to concerns about the accuracy of parent reports, we did not plan exclusions based on self-reported ear infections unless parents reported medically-confirmed hearing loss. 
@@ -102,7 +105,8 @@ out_of_age <- exclude_by(d, quo(out_of_age), action = "exclude",
 d <- out_of_age$data
 # 
 # d %>% group_by(lab) %>% summarise(n = length(unique(subid))) %>% pull(n) %>% sum()
-#excluded 59 infants who were out of age
+# 432 infants left
+# excluded 58 infants who were out of age
 ```
 
 
@@ -124,7 +128,8 @@ bil_exp <- exclude_by(d, quo(bilingual_exposure), action = "include",
 d <- bil_exp$data
 # 
 # d %>% group_by(lab) %>% summarise(n = length(unique(subid))) %>% pull(n) %>% sum()
-#excluded 74 infants whose language exposure did not meet the 25-75% criteria
+# 362 infants left
+# excluded 70 infants whose language exposure did not meet the 25-75% criteria
 ```
 
 ```{r comm_lag_learn}
@@ -141,7 +146,9 @@ comm_lang <- exclude_by(d, quo(comm_lang_learn), action = "include",
 d <- comm_lang$data
 # 
 # d %>% group_by(lab) %>% summarise(n = length(unique(subid))) %>% pull(n) %>% sum()
-#excluded 7 infants who were learning languages that are not the languages used in their community, note that in 02.validation.rmd, there were 9 babies identified as learning non-community languages, but 2 out of 9 were out of age group, that's why these two were already excluded by the out-of-age codes previously
+
+# 355 infants left
+# excluded 7 infants who were learning languages that are not the languages used in their community, note that in 02.validation.rmd, there were 9 babies identified as learning non-community languages, but 2 out of 9 were out of age group, that's why these two were already excluded by the out-of-age codes previously
 ```
 
 * *Bilingualism*. We excluded infants from the sample whose language background did not meet our pre-defined criteria for bilingualism (see above for details). There were `r bil_exp$percents$any_sum` (`r round(bil_exp$percents$any_mean*100, 2)`%) infants whose exposure did not meet this criterion. We also excluded `r comm_lang$percents$any_sum` (`r round(comm_lang$percents$any_mean*100, 2)`%) additional infants who met this criterion, but who were not learning the community language as one of their languages. 
@@ -159,7 +166,9 @@ sessionerr <- exclude_by(d, quo(session_error),
                          quiet = TRUE)
 d <- sessionerr$data
 # d %>% summarise(n = length(unique(subid))) %>% pull(n) %>% sum()
-#excluded 6 additional babies
+
+# 341 infants left
+# excluded 14 additional babies
 ```
 
 * *Session-level errors*. Participants were also excluded based on session-level errors, including `r session_error_type$n[session_error_type$session_error_type_recoded=="equipment failure"]` infants for equipment error, `r session_error_type$n[session_error_type$session_error_type_recoded=="experimenter error"]` infant for experimenter error, and `r session_error_type$n[session_error_type$session_error_type_recoded=="outside interference"]` infants for outside interference.
@@ -174,8 +183,12 @@ trial_err <- exclude_by(d, quo(trial_error),
 d <- trial_err$data
 # 
 # d %>% group_by(lab) %>% summarise(n = length(unique(subid))) %>% pull(n) %>% sum()
-#excluded 8 infants who has trial errors
+
+# 340 infants left
+# excluded 1 infants who had trial errors
 ```
+
+
 
 ```{r usable_pairs}
 usable_pairs <- d %>%
@@ -189,7 +202,8 @@ usable_pairs <- d %>%
 
 ```{r usable_pairs2}
 d <- d %>% 
-  left_join(usable_pairs) 
+  left_join(usable_pairs) %>%
+  mutate(usable_pair = replace_na(usable_pair, FALSE)) # For three infants who only had data from training
 
 usablepair <- exclude_by(d, quo(usable_pair), action = "include", 
                          return_pcts = TRUE, 
@@ -198,7 +212,8 @@ usablepair <- exclude_by(d, quo(usable_pair), action = "include",
 d <- usablepair$data
 
 # d %>% summarise(n = length(unique(subid))) %>% pull(n) %>% sum()
-#excluded 8 additional infants
+# 333 infants left
+# excluded 7 additional infants
 ```
 
 
@@ -234,7 +249,7 @@ trials_per_infant <- d %>%
   count()
 ```
 
-* *Adequate trials for analysis*.  We excluded any infant who did not have at least one IDS-ADS trial pair available for analysis (N = `r usablepair$percents$any_sum`; `r round(usablepair$percents$any_mean*100, 2)`%) infants were tested but did not meet these criteria. For infants with at least one good trial pair, we additionally excluded any trial with less than 2 s of looking (n = `r short_lt$percent_trials$trial_sum` trials; `r round(short_lt$percent_trials$trial_mean*100, 2)`% of trials), which was set as a trial-level minimum so that infants had heard enough of the stimulus to discriminate IDS from ADS. As infants did not have to complete the entire experiment to be included, this meant that different infants contributed different numbers of trials. On average, infants contributed `r round(mean(trials_per_infant$n), 2)` trials to the analysis.
+* *Adequate trials for analysis*.  We excluded any individual trial that was reported to be invalid (e.g., fussiness, incorrect stimulus, single instance of parent or sibling interference). A total of `r trial_err$percent_trials$trial_sum` (`r round(trial_err$percent_trials$trial_mean*100,2)`%) trials were affected by such errors. There was 1 infant who did not have any trials left for analysis once such trials were excluded.  Next, we excluded any infant who did not have at least one IDS-ADS trial pair available for analysis (N = `r usablepair$percents$any_sum`; `r round(usablepair$percents$any_mean*100, 2)`%) infants were tested but did not meet these criteria. For infants with at least one good trial pair, we additionally excluded any trial with less than 2 s of looking (n = `r short_lt$percent_trials$trial_sum` trials; `r round(short_lt$percent_trials$trial_mean*100, 2)`% of trials), which was set as a trial-level minimum so that infants had heard enough of the stimulus to discriminate IDS from ADS. As infants did not have to complete the entire experiment to be included, this meant that different infants contributed different numbers of trials. On average, infants contributed `r round(mean(trials_per_infant$n), 2)` trials to the analysis.
 
 ```{r check_total_exclusions}
 
