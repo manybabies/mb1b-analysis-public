@@ -696,7 +696,7 @@ Var_unmatched_set <- metafor::rma.mv(yi=lnSD, V=SV.lnSD,
 
 ```
 
-```{r fig.cap="Forest plot for the lab-matched dataset, separated by age group. Standardized effect sizes are shown for each lab, with error bars showing 95% confidence intervals. Each lab reported two effect sizes: one for the monolingual group (red triangles) and the other one for the bilingual group (blue circles). Within each age group, points are ordered by the difference between the monolingual and bilingual effect sizes, and this effect size difference is indicated by a black X. Points are scaled by inverse variance (i.e., more precise estimates are denoted by larger shapes). The points in the bottom panel show the global meta-analytic estimate.", fig.height = 5.5, fig.pos="p!"}
+```{r fig1, fig.cap="Forest plot for the lab-matched dataset, separated by age group. Standardized effect sizes are shown for each lab, with error bars showing 95% confidence intervals. Each lab reported two effect sizes: one for the monolingual group (red triangles) and the other one for the bilingual group (blue circles). Within each age group, points are ordered by the difference between the monolingual and bilingual effect sizes, and this effect size difference is indicated by a black X. Points are scaled by inverse variance (i.e., more precise estimates are denoted by larger shapes). The points in the bottom panel show the global meta-analytic estimate.", fig.height = 5.5, fig.pos="p!"}
 
 lang_only_matched <- metafor::rma(d_z ~ lang_group, vi = d_z_var,
                     slab = lab, data = ds_zt_matched_set, method = "REML")
