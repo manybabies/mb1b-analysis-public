@@ -1,2 +1,0 @@
-"0","ggplot(d, aes(x = trial_num)) +"
-"0","  geom_histogram(breaks=-3:20)"

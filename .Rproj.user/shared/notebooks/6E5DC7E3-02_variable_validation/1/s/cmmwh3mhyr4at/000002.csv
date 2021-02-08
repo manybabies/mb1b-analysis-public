@@ -1,5 +1,0 @@
-"0","d <- d %>% "
-"0","  separate(stimulus, into = c(""trial_type"", ""stimulus_num""), sep = 3) %>% #We override trial_type here and extract it from stimulus"
-"0","  mutate(trial_type = ifelse(trial_type == ""TRA"", ""TRAIN"", trial_type), "
-"0","         stimulus_num = ifelse(stimulus_num == ""IN"", ""-1"", stimulus_num), "
-"0","         stimulus_num = as.numeric(stimulus_num))"

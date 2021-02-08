@@ -1,5 +1,0 @@
-"0","d %>% "
-"0","  group_by(lab) %>%"
-"0","  summarise(tt_greater_than_lt = mean(total_trial_time >= d$looking_time & !is.na(looking_time), na.rm=TRUE)) %>%"
-"0","  arrange(desc(tt_greater_than_lt)) %>%"
-"0","  datatable()"

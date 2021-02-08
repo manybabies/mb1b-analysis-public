@@ -1,3 +1,0 @@
-"0","qplot(diff, binwidth = 1,"
-"0","      data = filter(d_diffs_matched, !is.na(diff))) +"
-"0","  geom_vline(xintercept = mean(d_diffs_matched$diff, na.rm=TRUE), col = ""red"", lty = 2)"

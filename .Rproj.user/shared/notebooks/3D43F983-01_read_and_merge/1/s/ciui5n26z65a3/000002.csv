@@ -1,6 +1,0 @@
-"0",""
-"0","pd$lang3[is.na(pd$lang3)] <- 0"
-"0","pd$lang3_exposure[is.na(pd$lang3_exposure)] <- 0"
-"0","pd$lang4[is.na(pd$lang4)] <- 0"
-"0","pd$lang4_exposure[is.na(pd$lang4_exposure)] <- 0"
-"0",""

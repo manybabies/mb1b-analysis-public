@@ -1,6 +1,0 @@
-"0","d %>%"
-"0","  group_by(lab) %>%"
-"0","  summarise(min = min(trial_num),"
-"0","            max = max(trial_num)) %>%"
-"0","  filter(min != -2 | max !=16) %>%"
-"0","  datatable"

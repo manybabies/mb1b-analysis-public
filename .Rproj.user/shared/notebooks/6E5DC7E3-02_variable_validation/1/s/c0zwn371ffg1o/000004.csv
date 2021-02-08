@@ -1,7 +1,0 @@
-"0",""
-"0","## per decision made on 10/19, cropping all looking times over 18s to exactly 18s"
-"0",""
-"0","d <- d %>% "
-"0","   mutate(looking_time = ifelse(looking_time > 18, 18, # if looking_time > 18s, truncate it 18s"
-"0","                               looking_time)) # otherwise, leaving looking_time"
-"0",""

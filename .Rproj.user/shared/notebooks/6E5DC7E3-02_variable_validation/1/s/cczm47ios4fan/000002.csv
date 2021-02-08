@@ -1,5 +1,0 @@
-"0","validate_that(all(d$trial_order %in% c(1,2,3,4) | is.na(d$trial_order)))"
-"1","[1]"
-"1"," TRUE"
-"1","
-"

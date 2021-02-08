@@ -1,8 +1,0 @@
-"0",""
-"0","# if (export_figs) {"
-"0","#   pdf(""figure_exports/scatter nae method age.pdf"", width = 4, height = 3)"
-"0","#   print(p)"
-"0","#   dev.off()"
-"0","# } else {"
-"0","#   p"
-"0","# }"

@@ -1,5 +1,0 @@
-"0","d %>%"
-"0","  group_by(lab) %>%"
-"0","  summarise(ms = mean(looking_time > 100, na.rm=TRUE)) %>%"
-"0","  filter(ms != 0) %>%"
-"0","  datatable"

@@ -1,6 +1,0 @@
-"0",""
-"0","d <- d %>% "
-"0","   mutate(bilingual = case_when("
-"0","     bilingual != bilingual_exposure ~ bilingual_exposure,"
-"0","     bilingual == bilingual_exposure ~ bilingual,"
-"0","     TRUE ~ NA)) # otherwise"

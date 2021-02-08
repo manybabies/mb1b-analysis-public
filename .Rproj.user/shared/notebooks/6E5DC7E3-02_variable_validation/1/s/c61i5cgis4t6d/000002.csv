@@ -1,1 +1,0 @@
-"0","d$trial_order[!(d$trial_order %in% 1:4)] <- NA"

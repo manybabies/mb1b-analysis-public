@@ -1,4 +1,0 @@
-"0","# Save the environment for diagnostics and follow-up analyses"
-"0",""
-"0","#save(list = c(""d_lmer"", ""d"", ""diffs"", ""mod_lmer"", ""missing_mod""), file = ""04_confirmatory_analysis.RData"")"
-"0",""
