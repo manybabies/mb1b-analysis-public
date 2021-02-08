@@ -36,7 +36,8 @@ lab_sex_stat[is.na(lab_sex_stat)] <- 0
 kable(lab_sex_stat, digits= 2,
       format = "latex", booktabs=T,
       longtable = TRUE,
-      caption = "Number of monolingual and bilingual infants in each gender group by lab that met infant-level inclusion criteria.") %>%
+      caption = "Number of monolingual and bilingual infants in each gender group by lab that met infant-level inclusion criteria.",
+      note = "Data on gender was missing for one additional infant from babylabbrookes.") %>%
   kable_styling(position = "float_right", font_size = 11,
     latex_options = c("scale_down", "hold_position", "repeat_header"), full_width = F) %>% 
     column_spec(2:6, width = "2.3cm") 
